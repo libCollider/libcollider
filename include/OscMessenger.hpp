@@ -13,7 +13,6 @@ namespace ColliderPlusPlus {
         void _createSynth(std::string name, int nodeID, int pauseTime);
         void _killSynth(int nodeID, int pauseTime); 
         void _killServer(int pauseTime);
-//	void _killAllServers();
         void _setPort(const char *port);
         void _setHost(const char *host);
         const char* _getPort();
@@ -22,5 +21,5 @@ namespace ColliderPlusPlus {
 	const char* _port;
         const char* _host;
  };
-} //namespace OAS_Collider
+} //namespace ColliderPlusPlus
 #endif

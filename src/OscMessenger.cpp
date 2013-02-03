@@ -142,11 +142,6 @@ void OscMessenger::_killServer(int pauseTime)
 
 }
 
-/*void OscMessenger::_killAllServers()
-{
-  
-}*/
-
 void OscMessenger::_setPort(const char *port)
 {
    _port = port;

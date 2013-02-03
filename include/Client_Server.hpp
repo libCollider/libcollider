@@ -25,5 +25,5 @@ namespace ColliderPlusPlus {
 	
         
   };
-} //namespace OAS_Collider
+} //namespace ColliderPlusPlus
 #endif
