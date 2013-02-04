@@ -2,7 +2,7 @@
 
 using namespace ColliderPlusPlus; 
 
-Node::Node(int id): _id(id)
+Node::Node(int id): _id(id), _running(true)
 {
   
 }
