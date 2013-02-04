@@ -4,10 +4,11 @@
 using namespace ColliderPlusPlus;
 
 Client_Server::Client_Server()
+:_nextNode(1000), _name("Default Server")
 {
 
-  _name = "Default Client Server";
-  _nextNode = 0;
+ // _name = "Default Client Server" ;
+ // _nextNode = 1000;
 }
 
 Client_Server::Client_Server(std::string name)
@@ -32,8 +33,9 @@ std::string Client_Server::_getName()
 
 int Client_Server::_nextNodeID()
 {
-  _nextNode++;
+  //unique node ids start at 1000 and go up from there
   _nodeIDs.push_back(_nextNode);
+  _nextNode++;
   return _nextNode;
 }
 
@@ -44,6 +46,12 @@ void Client_Server::_printNodes()
   {
     std::cout << "Node id: " << *iter << std::endl;
   } 
+}
+
+void Client_Server::_queryNodeTree()
+{
+ // std::cout << Node
+
 }
 
 bool Client_Server::_pingScsynth()

@@ -32,11 +32,14 @@ namespace ColliderPlusPlus {
         //Return calling Client_Server's name
         std::string _getName();
 
-        //First id returned is default group id = 1
+        //Unique node ids start at 1000
         int _nextNodeID();
 
-        //Print current nodes
+        //Print current node ids
         void _printNodes();
+       
+        //This may replace _printNodes()
+        void _queryNodeTree();
     private:
  	OscMessenger _oscm;
         std::string _name;
