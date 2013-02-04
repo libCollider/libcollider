@@ -66,13 +66,15 @@ void runDemo(Client_Server& cs)
   cout << "Starting OSC message sending in 1 seconds..." << endl;
      sleep(DEFAULT_PAUSETIME);
      //Begin test messages
-     cs._getOscMessenger()._createSynth("default", 1, 3);
+     cs._getOscMessenger()._createNode("default", 
+					cs._nextNodeID(), 3);
      sleep(2);
-     cs._getOscMessenger()._createSynth("default", 2, 3);
+     cs._getOscMessenger()._createNode("default",
+					 cs._nextNodeID(), 3);
      sleep(2);
-     cs._getOscMessenger()._killSynth(1, 3);
+     cs._getOscMessenger()._freeNode(1, 3);
      sleep(2);
-     cs._getOscMessenger()._killSynth(2, 3);
+     cs._getOscMessenger()._freeNode(2, 3);
      sleep(2);
      cs._getOscMessenger()._killServer(1);   
      sleep(2);

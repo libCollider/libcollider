@@ -44,7 +44,7 @@ const char* OscMessenger::_getHost()
   return _host;
 }
 
-void OscMessenger::_createSynth(string name, int nodeID, int pauseTime)
+void OscMessenger::_createNode(string name, int nodeID, int pauseTime)
 {
   try {
    #ifdef EH_DEBUG
@@ -73,7 +73,7 @@ void OscMessenger::_createSynth(string name, int nodeID, int pauseTime)
    } //end catch
 }
 
-void OscMessenger::_killSynth(int nodeID, int pauseTime)
+void OscMessenger::_freeNode(int nodeID, int pauseTime)
 {
    try {
    #ifdef EH_DEBUG
