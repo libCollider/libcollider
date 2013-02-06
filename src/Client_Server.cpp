@@ -34,6 +34,11 @@ OscMessenger& Client_Server::_getOscMessenger()
   return _oscm;
 }
 
+void Client_Server::_boot()
+{
+  _oscm._boot();
+}
+
 void Client_Server::_dumpOSC(int toggle)
 {
   _oscm._dumpOSC(toggle);

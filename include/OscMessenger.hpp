@@ -10,12 +10,13 @@ namespace ColliderPlusPlus {
   public:
         OscMessenger();
         ~OscMessenger();
-       // void _sendMsg(
+        void _boot();
         void _dumpOSC(int toggle);
         void _createNode(std::string name, int nodeID, int pauseTime);
         void _freeNode(int nodeID, int pauseTime); 
         void _killServer(int pauseTime);
         void _queryNodeTree();
+        
    
         void _loadSynthDef(std::string synthDefName);
         void _loadSynthDefDirectory(std::string dirName); //optional bytes param, see osc command ref
@@ -27,6 +28,7 @@ namespace ColliderPlusPlus {
   private:
 	const char* _port;
         const char* _host;
+	void _createDefaultGroup();
  };
 } //namespace ColliderPlusPlus
 #endif

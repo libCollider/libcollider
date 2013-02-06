@@ -29,6 +29,8 @@ namespace ColliderPlusPlus {
  
         /** System Server Commands **/
         /**                        **/
+	//boot scsynth and create default group
+        void _boot();
         //Unique node ids start at 1000
         int _nextNodeID();
         //Ping an scsynth instance to connect
@@ -38,6 +40,7 @@ namespace ColliderPlusPlus {
         void _printCurrentNodeIds();
         //This may replace _printNodes()
         void _queryNodeTree();
+	//should return node for local control....TO_DO
         void _createNode(std::string name, int nodeID, int pauseTime);
         void _freeNode(int nodeID, int pauseTime); 
         void _killServer(int pauseTime);

@@ -33,6 +33,43 @@ OscMessenger::~OscMessenger()
 
 }
 
+void OscMessenger::_boot()
+{
+  //boot
+
+  _createDefaultGroup();
+}
+
+void OscMessenger::_createDefaultGroup()
+{
+  try {
+   #ifdef EH_DEBUG
+   cout << "\nSend: /g_new 0 0 command to server..." << endl;
+   #endif
+   
+   //Udp via Boost
+   io_service io_service;
+   udp::resolver resolver(io_service);
+   udp::resolver::query query(udp::v4(), _getHost(), _getPort());
+   udp::endpoint receiver_endpoint = *resolver.resolve(query);
+   udp::socket socket(io_service);
+   socket.open(udp::v4());
+   
+   //create a OSC message using tnyosc.hpp
+   Message msg("/g_new");
+   msg.append(1);
+   msg.append(0);
+   msg.append(0);
+   //send the message 
+   socket.send_to(buffer(msg.data(), msg.size()), receiver_endpoint);
+   } //end try
+   
+   catch (std::exception& e) {
+    cerr << e.what() << endl;
+   } //end catch
+
+}
+
 void OscMessenger::_dumpOSC(int toggle)
 {
   try {

@@ -29,9 +29,6 @@ int main()
   std::cout << "The server port is: " << cs3._getPort() << std::endl;
 
   
-
-  
-  
   std::cout << "cs1 next node id is: " <<cs1._nextNodeID() << std::endl;
   std::cout << "cs1 next node id is: " <<cs1._nextNodeID() << std::endl;
 
@@ -44,16 +41,16 @@ int main()
    
   cs1._printCurrentNodeIds(); 
 
-  std::cout << "cs3 next node id is: " <<cs3._nextNodeID() << std::endl;
-  std::cout << "cs3 next node id is: " <<cs3._nextNodeID() << std::endl;
+  
+  cs3._boot();
 
   cs3._queryNodeTree();
 
-  //cs3._loadSynthDef("/Users/administrator/Documents/gitprojects/ColliderPlusPlus/synthdefs/default.scsyndef");
-  //cs1._loadSynthDefDirectory("/Users/administrator/Documents/gitprojects/ColliderPlusPlus/synthdefs/");
- // cs3._createNode("default", 1000, 0);
- // sleep(3);
- // cs3._freeNode(1000,0);
+//  cs3._loadSynthDef("/Users/administrator/Documents/gitprojects/ColliderPlusPlus/synthdefs/CentroidBing.scsyndef");
+  cs3._createNode("default", cs3._nextNodeID(), 0);
+  sleep(3);
+  cs3._freeNode(1000,0);
+  cs3._queryNodeTree();
   cs3._killServer(0);
   
 
