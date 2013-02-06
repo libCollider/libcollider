@@ -45,12 +45,18 @@ int main()
   cs3._boot();
 
   cs3._queryNodeTree();
+  sleep(2);
 
-//  cs3._loadSynthDef("/Users/administrator/Documents/gitprojects/ColliderPlusPlus/synthdefs/CentroidBing.scsyndef");
-  cs3._createNode("default", cs3._nextNodeID(), 0);
-  sleep(3);
-  cs3._freeNode(1000,0);
+  cs3._loadSynthDef("/Users/administrator/Documents/gitprojects/ColliderPlusPlus/synthdefs/CentroidBing.scsyndef");
+  sleep(2);
+  cs3._createNode("CentroidBing", cs3._nextNodeID(), 0);
+  sleep(2);
   cs3._queryNodeTree();
+  sleep(2);
+  cs3._freeNode(1000,0);
+  sleep(2);
+  cs3._queryNodeTree();
+  sleep(2);
   cs3._killServer(0);
   
 
