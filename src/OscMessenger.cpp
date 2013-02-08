@@ -90,6 +90,7 @@ void OscMessenger::_dumpOSC(int toggle)
    msg.append(toggle);
    //send the message 
    socket.send_to(buffer(msg.data(), msg.size()), receiver_endpoint);
+	
    } //end try
    
    catch (std::exception& e) {
@@ -97,11 +98,45 @@ void OscMessenger::_dumpOSC(int toggle)
    } //end catch
 }
 
-void OscMessenger::_createNode(string name, int nodeID, int pauseTime)
+bool OscMessenger::_createNode(int nodeId)
 {
   try {
    #ifdef EH_DEBUG
-   cout << "\nSend: /s_new " << name << " " << nodeID <<" command to server..." << endl;
+   cout << "\nSend: /s_new default " << nodeId <<" command to server..." << endl;
+   #endif
+   
+   //Udp via Boost
+   io_service io_service;
+   udp::resolver resolver(io_service);
+   udp::resolver::query query(udp::v4(), _getHost(), _getPort());
+   udp::endpoint receiver_endpoint = *resolver.resolve(query);
+   udp::socket socket(io_service);
+   socket.open(udp::v4());
+   
+   //create a OSC message using tnyosc.hpp
+   Message msg("/s_new");
+   msg.append("default");
+   msg.append(nodeId);
+   msg.append(0);
+   msg.append(1);
+
+   //send the message 
+   socket.send_to(buffer(msg.data(), msg.size()), receiver_endpoint);
+
+   return true;
+   } //end try
+   
+   catch (std::exception& e) {
+    cerr << e.what() << endl;
+   } //end catch
+   return false;
+}
+
+bool OscMessenger::_createSynth(std::string name, int nodeId)
+{
+  try {
+   #ifdef EH_DEBUG
+   cout << "\nSend: /s_new " << name << " " << nodeId <<" command to server..." << endl;
    #endif
    
    //Udp via Boost
@@ -115,24 +150,94 @@ void OscMessenger::_createNode(string name, int nodeID, int pauseTime)
    //create a OSC message using tnyosc.hpp
    Message msg("/s_new");
    msg.append(name);
-   msg.append(nodeID);
+   msg.append(nodeId);
    msg.append(0);
    msg.append(1);
 
    //send the message 
    socket.send_to(buffer(msg.data(), msg.size()), receiver_endpoint);
+
+   return true;
    } //end try
    
    catch (std::exception& e) {
     cerr << e.what() << endl;
    } //end catch
+   return false;
 }
 
-void OscMessenger::_freeNode(int nodeID, int pauseTime)
+bool OscMessenger::_createGroup(std::string name, int nodeId)
+{
+  try {
+   #ifdef EH_DEBUG
+   cout << "\nSend: /g_new " << name << " " << nodeId <<" command to server..." << endl;
+   #endif
+   
+   //Udp via Boost
+   io_service io_service;
+   udp::resolver resolver(io_service);
+   udp::resolver::query query(udp::v4(), _getHost(), _getPort());
+   udp::endpoint receiver_endpoint = *resolver.resolve(query);
+   udp::socket socket(io_service);
+   socket.open(udp::v4());
+   
+   //create a OSC message using tnyosc.hpp
+   Message msg("/g_new");
+   msg.append(name);
+   msg.append(nodeId);
+   msg.append(0);
+   msg.append(1);
+
+   //send the message 
+   socket.send_to(buffer(msg.data(), msg.size()), receiver_endpoint);
+
+   return true;
+   } //end try
+   
+   catch (std::exception& e) {
+    cerr << e.what() << endl;
+   } //end catch
+   return false;
+}
+
+bool OscMessenger::_runNode(int nodeId, int flag)
+{ 
+  try {
+   #ifdef EH_DEBUG
+   cout << "\nSend: /n_run " << nodeId << " " << flag << " command to server..." << endl;
+   #endif
+   
+   //Udp via Boost
+   io_service io_service;
+   udp::resolver resolver(io_service);
+   udp::resolver::query query(udp::v4(), _getHost(), _getPort());
+   udp::endpoint receiver_endpoint = *resolver.resolve(query);
+   udp::socket socket(io_service);
+   socket.open(udp::v4());
+   
+   //create a OSC message using tnyosc.hpp
+   Message msg("/n_run");
+   msg.append(nodeId);
+   msg.append(flag);
+
+   //send the message 
+   socket.send_to(buffer(msg.data(), msg.size()), receiver_endpoint);
+
+   return true;
+   } //end try
+   
+   catch (std::exception& e) {
+    cerr << e.what() << endl;
+   }
+   return false;
+}
+
+
+bool OscMessenger::_freeNode(int nodeId)
 {
    try {
    #ifdef EH_DEBUG
-   cout << "\nSend: /n_free " << nodeID <<" command to server..." << endl;
+   cout << "\nSend: /n_free " << nodeId <<" command to server..." << endl;
    #endif
    
    //Udp via Boost
@@ -145,19 +250,20 @@ void OscMessenger::_freeNode(int nodeID, int pauseTime)
    
    //create a OSC message using tnyosc.hpp
    Message msg("/n_free");
-   msg.append(nodeID);
+   msg.append(nodeId);
 
    //send the message 
    socket.send_to(buffer(msg.data(), msg.size()), receiver_endpoint);
+   return true;
    } //end try
    
    catch (std::exception& e) {
     cerr << e.what() << endl;
    }
-   
+   return false;
 }
 
-void OscMessenger::_killServer(int pauseTime)
+void OscMessenger::_quitServer()
 {
   try {
    #ifdef EH_DEBUG

@@ -2,12 +2,12 @@
 #include <iostream>
 #include <unistd.h>
 
-using ColliderPlusPlus::Client_Server;
+using namespace ColliderPlusPlus;
 
 int main()
 {
 
-  std::cout << "Creating a default Client_Server" << std::endl;
+  /*std::cout << "Creating a default Client_Server" << std::endl;
   Client_Server cs1;
   std::cout << "The server name is: " << cs1._getName() << std::endl;
   std::cout << "The server host is: " << cs1._getHost() << std::endl;
@@ -18,7 +18,7 @@ int main()
   Client_Server cs2("Hello");
   std::cout << "The server name is: " << cs2._getName() << std::endl;
   std::cout << "The server host is: " << cs2._getHost() << std::endl;
-  std::cout << "The server port is: " << cs2._getPort() << std::endl;
+  std::cout << "The server port is: " << cs2._getPort() << std::endl;*/
 
 
   std::cout << "Creating a Client_Server with name Hello" 
@@ -29,17 +29,17 @@ int main()
   std::cout << "The server port is: " << cs3._getPort() << std::endl;
 
   
-  std::cout << "cs1 next node id is: " <<cs1._nextNodeID() << std::endl;
-  std::cout << "cs1 next node id is: " <<cs1._nextNodeID() << std::endl;
+  /*std::cout << "cs1 next node id is: " <<cs1._nextNodeId() << std::endl;
+  std::cout << "cs1 next node id is: " <<cs1._nextNodeId() << std::endl;
 
   for (int i = 0; i < 5; ++i)
   {
-    cs1._nextNodeID();
+    cs1._nextNodeId();
   }
 
   std::cout << "Printing nodes: ..." << std::endl;
    
-  cs1._printCurrentNodeIds(); 
+  cs1._printCurrentNodeIds(); */
 
   
   cs3._boot();
@@ -47,21 +47,28 @@ int main()
   cs3._dumpOSC(1);
 
   cs3._queryNodeTree();
-  sleep(2);
+  /*Node* hello; 
+  hello = cs3._createNode(cs3._nextNodeId());
+  std::cout << "dynamic node created id: " << hello->_getId() << std::endl;
+  delete hello;*/
+ 
+  //sleep(2);
 
-  cs3._loadSynthDef("/Users/administrator/Documents/gitprojects/ColliderPlusPlus/synthdefs/CentroidBing.scsyndef");
+/*  cs3._loadSynthDef("/Users/administrator/Documents/gitprojects/ColliderPlusPlus/synthdefs/CentroidBing.scsyndef");
   sleep(2);
-  cs3._createNode("CentroidBing", cs3._nextNodeID(), 0);
-  sleep(2);
-  cs3._queryNodeTree();
+  cs3._createNode(cs3._nextNodeId());
   sleep(2);
   cs3._queryNodeTree();
   sleep(2);
-  cs3._freeNode(1000,0);
-  sleep(2);
   cs3._queryNodeTree();
   sleep(2);
-  cs3._killServer(0);
+  cs3._freeNode(1000);
+  sleep(2);
+  cs3._queryNodeTree();
+  sleep(2);*/
+
+
+  cs3._quitServer();
   
 
   return 0;

@@ -2,23 +2,33 @@
 #define NODE
 
 #include <string>
+#include "Client_Server.hpp"
 
 namespace ColliderPlusPlus {
 
  class Node 
  {
    public:
+        Node();
         Node(int id);
-	virtual ~Node();
+        virtual ~Node();
         int _getId() const {return _id;}
+	bool _run();
+	bool _stop();
+        bool _free();
    	bool _isPlaying()  {return _playing;}  
    	bool _isRunning()  {return _running;}	
+
+
+        // TO_DO
+        //Node controls - set control value, control value ranges, fill ranges, map controls to read from bus(es),
+	//Node placement 
+	//Node query
+	//Trace
    private:
    	int _id;
         bool _playing;
         bool _running;
-	//Client_Server* cs; instance of server
-	//instance of group? how to implement? container, class?
  };
 
  class Synth: public Node
@@ -35,7 +45,7 @@ namespace ColliderPlusPlus {
  {
    public:
 	Group(int id);
-	virtual ~Group();
+        ~Group();
 
    private:
  };

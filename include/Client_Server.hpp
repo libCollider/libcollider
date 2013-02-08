@@ -2,6 +2,7 @@
 #define CLIENT_SERVER
 
 #include "OscMessenger.hpp"
+#include "Node.hpp"
 #include <string>
 #include <vector> 
 
@@ -14,56 +15,41 @@ namespace ColliderPlusPlus {
   {
     public:
 
-        //Default Constructor with name "Default Client Server"
+        friend class Node;
+
         Client_Server();
-        //Constructor for a Client_Server with a user defined name
-	Client_Server(const std::string name);
+      	Client_Server(const std::string name);
         Client_Server(const std::string name, const char *host, const char *port);
-        //Destructor
-	~Client_Server();
-        //Return calling Client_Server's name
+      	~Client_Server();
         std::string _getName();
-        //Return this Client_Server's OscMessenger
         OscMessenger& _getOscMessenger();
   
- 
         /** System Server Commands **/
-        /**                        **/
-	//boot scsynth and create default group
+      	//boot scsynth and create default group
         void _boot();
-        //Unique node ids start at 1000
-        int _nextNodeID();
-        //Ping an scsynth instance to connect
+        int _nextNodeId();
         bool _pingScsynth();
         void _dumpOSC(int toggle);
-        //Print current node ids
         void _printCurrentNodeIds();
-        //This may replace _printNodes()
         void _queryNodeTree();
-	//should return node for local control....TO_DO
-        void _createNode(std::string name, int nodeID, int pauseTime);
-        void _freeNode(int nodeID, int pauseTime); 
-        void _killServer(int pauseTime);
-	/**                        **/
-	/**                        **/
-
-        /** Synth Commands         **/
-        /**                        **/
-        //Async
-        void _loadSynthDef(std::string synthDefName);
-	void _loadSynthDefDirectory(std::string dirName); //optional bytes param, see osc command ref
-        
-
 
         /** OSC/UDP 		   **/
-        /**                        **/
         void _setPort(const char *port);
         void _setHost(const char *host);
         const char* _getPort();
         const char* _getHost();
-	/**                        **/
-	/**                        **/
+	
+        /** Synth Commands         **/
+        bool _loadSynthDef(std::string synthDefName);
+	bool _loadSynthDefDirectory(std::string dirName); //optional bytes, see osc command ref
 
+    protected:
+       	static bool _createNode(int nodeId);
+     	static bool _createSynth(std::string name, int nodeId);
+        static bool _createGroup(std::string name, int nodeId);
+	static bool _runNode(int nodeId, int flag);
+        static bool _freeNode(int nodeID);
+         
     private:
         //Methods
         int _pushFirstNodeId(int nextNode);

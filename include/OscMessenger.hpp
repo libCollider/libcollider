@@ -12,9 +12,12 @@ namespace ColliderPlusPlus {
         ~OscMessenger();
         void _boot();
         void _dumpOSC(int toggle);
-        void _createNode(std::string name, int nodeID, int pauseTime);
-        void _freeNode(int nodeID, int pauseTime); 
-        void _killServer(int pauseTime);
+        bool _createNode(int nodeId);
+	bool _createSynth(std::string name, int nodeId);
+	bool _createGroup(std::string name, int nodeId);
+	bool _runNode(int nodeId, int flag);
+        bool _freeNode(int nodeId); 
+        void _quitServer();
         void _queryNodeTree();
         
    
