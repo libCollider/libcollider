@@ -3,6 +3,7 @@
 
 
 #include <string>
+
 namespace ColliderPlusPlus {
 
  class OscMessenger
@@ -13,16 +14,16 @@ namespace ColliderPlusPlus {
         void _boot();
         void _dumpOSC(int toggle);
         bool _createNode(int nodeId);
-	bool _createSynth(std::string name, int nodeId);
-	bool _createGroup(std::string name, int nodeId);
+	bool _createSynth(const std::string& name, int nodeId);
+	//bool _createGroup(const std::string& name, int nodeId);
 	bool _runNode(int nodeId, int flag);
         bool _freeNode(int nodeId); 
         void _quitServer();
         void _queryNodeTree();
         
    
-        void _loadSynthDef(std::string synthDefName);
-        void _loadSynthDefDirectory(std::string dirName); //optional bytes param, see osc command ref
+        bool _loadSynthDef(const std::string& synthDefName);
+        bool _loadSynthDefDirectory(const std::string& dirName); //optional bytes param
 
         void _setPort(const char *port);
         void _setHost(const char *host);

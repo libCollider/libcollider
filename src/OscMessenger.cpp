@@ -132,7 +132,7 @@ bool OscMessenger::_createNode(int nodeId)
    return false;
 }
 
-bool OscMessenger::_createSynth(std::string name, int nodeId)
+bool OscMessenger::_createSynth(const std::string& name, int nodeId)
 {
   try {
    #ifdef EH_DEBUG
@@ -166,7 +166,7 @@ bool OscMessenger::_createSynth(std::string name, int nodeId)
    return false;
 }
 
-bool OscMessenger::_createGroup(std::string name, int nodeId)
+/*bool OscMessenger::_createGroup(const std::string& name, int nodeId)
 {
   try {
    #ifdef EH_DEBUG
@@ -198,7 +198,7 @@ bool OscMessenger::_createGroup(std::string name, int nodeId)
     cerr << e.what() << endl;
    } //end catch
    return false;
-}
+}*/
 
 bool OscMessenger::_runNode(int nodeId, int flag)
 { 
@@ -332,7 +332,7 @@ void OscMessenger::_queryNodeTree()
 
 }
 
-void OscMessenger::_loadSynthDef(std::string synthDefName)
+bool OscMessenger::_loadSynthDef(const std::string& synthDefName)
 {
   try {
    #ifdef EH_DEBUG
@@ -365,15 +365,16 @@ void OscMessenger::_loadSynthDef(std::string synthDefName)
    cout.write(recv_from_scsynth_buf.data(), len);
    std::cout << "\n\n";
    #endif 
+   return true;
    } //end try 
 
    catch (std::exception& e) {
     cerr << e.what() << endl;
    }
-
+   return false;
 }
 
-void OscMessenger::_loadSynthDefDirectory(std::string dirName)
+bool OscMessenger::_loadSynthDefDirectory(const std::string& dirName)
 {
   try {
    #ifdef EH_DEBUG
@@ -406,12 +407,14 @@ void OscMessenger::_loadSynthDefDirectory(std::string dirName)
    cout.write(recv_from_scsynth_buf.data(), len);
    std::cout << "\n\n";
    #endif 
+   return true;
    } //end try 
 
    catch (std::exception& e) {
     cerr << e.what() << endl;
    }
-
+ 
+   return false;
 }
 
 void OscMessenger::_setPort(const char *port)

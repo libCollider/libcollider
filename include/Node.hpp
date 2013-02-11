@@ -34,20 +34,23 @@ namespace ColliderPlusPlus {
  class Synth: public Node
  {
    public:
-	Synth(std::string defName, int id);
+	Synth(const std::string& defName, int id);
 	~Synth();
 	std::string _getDefName() const {return _defName;}
    private:
         std::string _defName;
+	int _id;
  };
 
- class Group: public Node
+/* class Group: public Node
  {
    public:
-	Group(int id);
+	Group(const std::string& name, int id);
         ~Group();
 
    private:
+	std::string _name;
+	int _id;
  };
 
  class RootNode: public Group
@@ -56,7 +59,7 @@ namespace ColliderPlusPlus {
 	RootNode();
 	~RootNode();
    private:
- };
+ };*/
 } //namespace ColliderPlusPlus
 #endif
 

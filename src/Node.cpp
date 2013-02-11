@@ -47,12 +47,12 @@ bool Node::_free()
   return true;
 }
 
-Synth::Synth(std::string defName, int id)
+Synth::Synth(const std::string& defName, int id)
 {
   _defName = defName;
   _id = id;
  
-  Client_Server::_createSynth(_name, _id);
+  Client_Server::_createSynth(_defName, _id);
 }
 
 Synth::~Synth()
@@ -60,9 +60,13 @@ Synth::~Synth()
 
 }
 
-Group::Group(int id): Node(id)
+/*
+Group::Group(const std::string& name, int id)
 {
+  _name = name;
+  _id = id;
 
+  Client_Server::_createGroup(_name, _id);
 }
 
 Group::~Group()
@@ -70,7 +74,7 @@ Group::~Group()
 
 }
 
-RootNode::RootNode(): Group(0)
+RootNode::RootNode(): Group("Default", 0)
 {
   
 }
@@ -78,4 +82,4 @@ RootNode::RootNode(): Group(0)
 RootNode::~RootNode()
 {
 
-}
+}*/
