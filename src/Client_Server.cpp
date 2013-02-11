@@ -23,6 +23,8 @@ Client_Server::Client_Server()
 {
   _setHost("127.0.0.1");
   _setPort("57110");
+
+  _boot();
 }
 
 Client_Server::Client_Server(const std::string& name)
@@ -30,6 +32,8 @@ Client_Server::Client_Server(const std::string& name)
 {
   _setHost("127.0.0.1");
   _setPort("57110");
+
+  _boot();
 }
 
 Client_Server::Client_Server(const std::string& name, const char *host, const char *port)
@@ -37,6 +41,8 @@ Client_Server::Client_Server(const std::string& name, const char *host, const ch
 {
   _setHost(host);
   _setPort(port);
+
+  _boot();
 }
 
 Client_Server::~Client_Server()
@@ -65,7 +71,7 @@ int Client_Server::_nextNodeId()
   return firstNodeId;
 }
 
-void Client_Server::_dumpOSC(int toggle)
+bool Client_Server::_dumpOSC(int toggle)
 {
   try {
    #ifdef EH_DEBUG
@@ -85,12 +91,13 @@ void Client_Server::_dumpOSC(int toggle)
    msg.append(toggle);
    //send the message 
    socket.send_to(buffer(msg.data(), msg.size()), receiver_endpoint);
-	
+   return true;
    } //end try
    
    catch (std::exception& e) {
     cerr << e.what() << endl;
    } //end catch
+   return false;
 }
 
 void Client_Server::_printCurrentNodeIds()
@@ -136,7 +143,7 @@ bool Client_Server::_pingScsynth()
 } 
 
 
-void Client_Server::_quit()
+bool Client_Server::_quit()
 {
   try {
    #ifdef EH_DEBUG
@@ -168,11 +175,15 @@ void Client_Server::_quit()
    cout.write(recv_from_scsynth_buf.data(), len);
    std::cout << "\n\n";
    #endif 
+ 
+   return true;
    } //end try 
 
    catch (std::exception& e) {
     cerr << e.what() << endl;
    }
+
+   return false;
 }
 
 
@@ -520,7 +531,7 @@ int Client_Server::_pushFirstNodeId(int nextNode)
   return nextNode;
 }
 
-void Client_Server::_createDefaultGroup()
+bool Client_Server::_createDefaultGroup()
 {
   try {
    #ifdef EH_DEBUG
@@ -542,9 +553,11 @@ void Client_Server::_createDefaultGroup()
    msg.append(0);
    //send the message 
    socket.send_to(buffer(msg.data(), msg.size()), receiver_endpoint);
+   return true;
    } //end try
    
    catch (std::exception& e) {
     cerr << e.what() << endl;
    } //end catch
+   return false;
 }

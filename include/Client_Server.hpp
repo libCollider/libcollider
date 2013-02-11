@@ -17,24 +17,17 @@ namespace ColliderPlusPlus {
       	Client_Server(const std::string& name);
         Client_Server(const std::string& name, const char *host, const char *port);
       	~Client_Server();
-        std::string _getName();
-       
+        
         /** System Server Commands **/
-      	//boot scsynth and create default group
+	std::string _getName();
         void _boot();
         int _nextNodeId();
-	void _dumpOSC(int toggle);
+	bool _dumpOSC(int toggle);
 	void _printCurrentNodeIds();
 	void _queryNodeTree();
         bool _pingScsynth();
-	void _quit();
+	bool _quit();
        
-        /** OSC/UDP 		   **/
-        void _setPort(const char *port);
-        void _setHost(const char *host);
-        const char* _getPort();
-        const char* _getHost();
-	
         /** Node Commands         **/
         bool _loadSynthDef(const std::string& synthDefName);
 	bool _loadSynthDefDirectory(const std::string& dirName); //optional bytes, see osc command ref
@@ -47,16 +40,21 @@ namespace ColliderPlusPlus {
     	 
     private:
         //Methods
-        int _pushFirstNodeId(int nextNode);
-        void _createDefaultGroup();
+        bool _createDefaultGroup();
+	int _pushFirstNodeId(int nextNode);
+
+	/**      OSC/UDP     **/
+	void _setPort(const char *port);
+        void _setHost(const char *host);
+        const char* _getPort();
+        const char* _getHost();
 
 	//Members
- 	//static OscMessenger _oscm;
         std::string _name;
+	const char* _port;
+        const char* _host;
         int _nextNode;
-	std::vector<int> _nodeIDs;
-        const char* _port;
-        const char* _host;	
+	std::vector<int> _nodeIDs;	
   };
 } //namespace ColliderPlusPlus
 #endif

@@ -5,22 +5,22 @@
 
 using namespace ColliderPlusPlus;
 
+#define ON 1
+#define OFF 2
+
 int main()
 {
 
  Client_Server cs = Client_Server("MyServer");
- cs._boot();
- sleep(2);
+ cs._dumpOSC(ON);
+ cs._loadSynthDef("/Users/administrator/Documents/gitprojects/ColliderPlusPlus/synthdefs/CentroidBing.scsyndef");
  Synth synth(cs, "default",cs._nextNodeId());
- std::cout << "Synth " << synth._getDefName() << " has Id: " << synth._getId() 
-							<< std::endl;
- sleep(5);
+ std::cout << "Synth " << synth._getDefName() << " has Id: " << synth._getId() << std::endl;
+ cs._printCurrentNodeIds();
+ cs._queryNodeTree();
+ sleep(3);
  synth._free(cs);
- sleep(2);
  cs._quit();
-// Node* node;
-// node = &synth;
-// std::cout << "This node has an Id: "<< (*node)._getId() << std::endl;
 
  return 0;
 }
