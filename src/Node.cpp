@@ -1,5 +1,9 @@
 #include "Node.hpp"
 
+#define T_NODE 1
+#define T_GROUP 2
+
+
 using namespace ColliderPlusPlus; 
 
 /*Node::Node()
@@ -7,14 +11,14 @@ using namespace ColliderPlusPlus;
  
 }*/
 
-Node::Node(Client_Server &cs, int id): _id(id)
+Node::Node(Client_Server &cs, int id, int type): _id(id)
 {
-   cs._createNode(_id);
+   cs._createNode(_id, type);
 }
 
-Node::Node(Client_Server &cs, const std::string& defName, int id): _id(id), _defName(defName)
+Node::Node(Client_Server &cs, const std::string& defName, int id, int type): _id(id), _defName(defName)
 {
-   cs._createNode(_defName, _id);
+   cs._createNode(_defName, _id, type);
 }
 
 Node::~Node()
@@ -52,7 +56,7 @@ bool Node::_free(Client_Server &cs)
   return true;
 }
 
-Synth::Synth(Client_Server &cs, const std::string& defName, int id): Node(cs, defName, id)
+Synth::Synth(Client_Server &cs, const std::string& defName, int id): Node(cs, defName, id, T_NODE)
 { 
 
 }
@@ -62,13 +66,10 @@ Synth::~Synth()
 
 }
 
-/*
-Group::Group(const std::string& name, int id)
-{
-  _name = name;
-  _id = id;
 
-  Client_Server::_createGroup(_name, _id);
+Group::Group(Client_Server &cs, const std::string& name, int id): Node(cs, name, id, T_GROUP)
+{
+
 }
 
 Group::~Group()
@@ -76,7 +77,7 @@ Group::~Group()
 
 }
 
-RootNode::RootNode(): Group("Default", 0)
+RootNode::RootNode(Client_Server &cs): Group(cs, "Default", 0)
 {
   
 }
@@ -84,4 +85,4 @@ RootNode::RootNode(): Group("Default", 0)
 RootNode::~RootNode()
 {
 
-}*/
+}

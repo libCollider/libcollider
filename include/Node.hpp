@@ -4,14 +4,15 @@
 #include <string>
 #include "Client_Server.hpp"
 
+
 namespace ColliderPlusPlus {
 
  class Node 
  {
    public:
         //Node();
-        Node(Client_Server &cs, int id);
-	Node(Client_Server &cs, const std::string& defName, int id);
+        Node(Client_Server &cs, int id, int type);
+	Node(Client_Server &cs, const std::string& defName, int id, int type);
         virtual ~Node();
         int _getId() const {return _id;}
 	bool _run(Client_Server &cs);
@@ -33,6 +34,7 @@ namespace ColliderPlusPlus {
         std::string _defName;
         bool _playing;
         bool _running;
+   private:
  };
 
  class Synth: public Node
@@ -41,28 +43,24 @@ namespace ColliderPlusPlus {
 	Synth(Client_Server &cs, const std::string& defName, int id);
 	~Synth();
    private:
-        //std::string _defName;
-//	int _id;
  };
 
-/* class Group: public Node
+ class Group: public Node
  {
    public:
-	Group(const std::string& name, int id);
+	Group(Client_Server &cs, const std::string& name, int id);
         ~Group();
 
    private:
-	std::string _name;
-	int _id;
  };
 
  class RootNode: public Group
  {
    public:
-	RootNode();
+	RootNode(Client_Server &cs);
 	~RootNode();
    private:
- };*/
+ };
 } //namespace ColliderPlusPlus
 #endif
 

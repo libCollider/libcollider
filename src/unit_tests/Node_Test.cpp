@@ -16,6 +16,8 @@ int main()
 							<< std::endl;
  sleep(5);
  synth._free(cs);
+ sleep(2);
+ cs._quit();
 // Node* node;
 // node = &synth;
 // std::cout << "This node has an Id: "<< (*node)._getId() << std::endl;

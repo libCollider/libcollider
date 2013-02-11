@@ -136,7 +136,7 @@ bool Client_Server::_pingScsynth()
 } 
 
 
-void Client_Server::_quitServer()
+void Client_Server::_quit()
 {
   try {
    #ifdef EH_DEBUG
@@ -202,11 +202,21 @@ const char* Client_Server::_getHost()
 
 
 //Node Commands
-bool Client_Server::_createNode(int nodeId)
+bool Client_Server::_createNode(int nodeId, int type)
 {
+   std::string typeTag;
+  
    try {
+   
+   if(type == 1)
+     typeTag = "/s_new";  
+   else if (type == 2)
+     typeTag = "g_new";
+   else 
+     return false;
+
    #ifdef EH_DEBUG
-   cout << "\nSend: /s_new default " << nodeId <<" command to server..." << endl;
+   cout << "\nSend: " << typeTag << " default " << nodeId <<" command to server..." << endl;
    #endif
    
    //Udp via Boost
@@ -218,7 +228,7 @@ bool Client_Server::_createNode(int nodeId)
    socket.open(udp::v4());
    
    //create a OSC message using tnyosc.hpp
-   Message msg("/s_new");
+   Message msg(typeTag);
    msg.append("default");
    msg.append(nodeId);
    msg.append(0);
@@ -237,11 +247,21 @@ bool Client_Server::_createNode(int nodeId)
 
 }
 
-bool Client_Server::_createNode(const std::string& name, int nodeId)
+bool Client_Server::_createNode(const std::string& name, int nodeId, int type)
 {
    try {
+   
+   std::string typeTag; 
+  
+   if(type == 1)
+     typeTag = "/s_new";  
+   else if (type == 2)
+     typeTag = "g_new";
+   else 
+     return false;
+
    #ifdef EH_DEBUG
-   cout << "\nSend: /s_new " << name << " " << nodeId <<" command to server..." << endl;
+   cout << "\nSend: " << typeTag << " " << name << " " << nodeId <<" command to server..." << endl;
    #endif
    
    //Udp via Boost
@@ -253,7 +273,7 @@ bool Client_Server::_createNode(const std::string& name, int nodeId)
    socket.open(udp::v4());
    
    //create a OSC message using tnyosc.hpp
-   Message msg("/s_new");
+   Message msg(typeTag);
    msg.append(name);
    msg.append(nodeId);
    msg.append(0);
@@ -306,7 +326,7 @@ bool Client_Server::_createSynth(const std::string& name, int nodeId)
    return false;
 }
 
-/*bool Client_Server::_createGroup(std::string& name, int nodeId)
+bool Client_Server::_createGroup(const std::string& name, int nodeId)
 {
    try {
    #ifdef EH_DEBUG
@@ -338,7 +358,7 @@ bool Client_Server::_createSynth(const std::string& name, int nodeId)
     cerr << e.what() << endl;
    } //end catch
    return false;
-}*/
+}
 
 bool Client_Server::_runNode(int nodeId, int flag)
 {

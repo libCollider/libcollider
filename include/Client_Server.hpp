@@ -27,7 +27,7 @@ namespace ColliderPlusPlus {
 	void _printCurrentNodeIds();
 	void _queryNodeTree();
         bool _pingScsynth();
-	void _quitServer();
+	void _quit();
        
         /** OSC/UDP 		   **/
         void _setPort(const char *port);
@@ -38,13 +38,13 @@ namespace ColliderPlusPlus {
         /** Node Commands         **/
         bool _loadSynthDef(const std::string& synthDefName);
 	bool _loadSynthDefDirectory(const std::string& dirName); //optional bytes, see osc command ref
-	bool _createNode(int nodeId);
-	bool _createNode(const std::string& name, int nodeId);
+	bool _createNode(int nodeId, int type);
+	bool _createNode(const std::string& name, int nodeId, int type);
      	bool _createSynth(const std::string& name, int nodeId);
+	bool _createGroup(const std::string& name, int nodeId);
 	bool _runNode(int nodeId, int flag);
         bool _freeNode(int nodeID);
-     // bool _createGroup(std::string& name, int nodeId);
-	 
+    	 
     private:
         //Methods
         int _pushFirstNodeId(int nextNode);
