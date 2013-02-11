@@ -44,51 +44,17 @@ Client_Server::~Client_Server()
 
 }
 
-
-//Public
 std::string Client_Server::_getName()
 {
   return _name; 
 }
 
 
-/*OscMessenger& Client_Server::_getOscMessenger()
-{
-  return _oscm;
-}*/
 
+//System commands
 void Client_Server::_boot()
 {
   _createDefaultGroup(); 
-}
-
-void Client_Server::_createDefaultGroup()
-{
-  try {
-   #ifdef EH_DEBUG
-   cout << "\nSend: /g_new 0 0 command to server..." << endl;
-   #endif
-   
-   //Udp via Boost
-   io_service io_service;
-   udp::resolver resolver(io_service);
-   udp::resolver::query query(udp::v4(), _getHost(), _getPort());
-   udp::endpoint receiver_endpoint = *resolver.resolve(query);
-   udp::socket socket(io_service);
-   socket.open(udp::v4());
-   
-   //create a OSC message using tnyosc.hpp
-   Message msg("/g_new");
-   msg.append(1);
-   msg.append(0);
-   msg.append(0);
-   //send the message 
-   socket.send_to(buffer(msg.data(), msg.size()), receiver_endpoint);
-   } //end try
-   
-   catch (std::exception& e) {
-    cerr << e.what() << endl;
-   } //end catch
 }
 
 int Client_Server::_nextNodeId()
@@ -162,9 +128,56 @@ void Client_Server::_queryNodeTree()
    catch (std::exception& e) {
     cerr << e.what() << endl;
    } //end catch
-}  
+} 
+
+bool Client_Server::_pingScsynth()
+{
+  return false;
+} 
 
 
+void Client_Server::_quitServer()
+{
+  try {
+   #ifdef EH_DEBUG
+   cout << "\nSend: /quit command to server..." << endl;
+   #endif
+    
+   //Udp via Boost
+   io_service io_service;
+   udp::resolver resolver(io_service);
+   udp::resolver::query query(udp::v4(), _getHost(), _getPort());
+   udp::endpoint receiver_endpoint = *resolver.resolve(query);
+   udp::socket socket(io_service);
+   socket.open(udp::v4());
+   
+   //create a OSC message using tnyosc.hpp
+   Message msg("/quit");   
+
+   //send the message 
+   socket.send_to(buffer(msg.data(), msg.size()), receiver_endpoint);
+
+   //receive return message from server -- will this work since scsynth's repsonse is asynchronous?
+   boost::array<char, 256> recv_from_scsynth_buf;
+   udp::endpoint sender_endpoint;
+   size_t len = socket.receive_from(buffer(recv_from_scsynth_buf), sender_endpoint);
+
+   #ifdef EH_DEBUG
+   std::cout << "\n";
+   cout << "Server reply: ";
+   cout.write(recv_from_scsynth_buf.data(), len);
+   std::cout << "\n\n";
+   #endif 
+   } //end try 
+
+   catch (std::exception& e) {
+    cerr << e.what() << endl;
+   }
+}
+
+
+
+//OSC/UDP
 void Client_Server::_setPort(const char *port)
 {
   _port = port;
@@ -188,7 +201,7 @@ const char* Client_Server::_getHost()
 
 
 
-//Protected
+//Node Commands
 bool Client_Server::_createNode(int nodeId)
 {
    try {
@@ -207,6 +220,41 @@ bool Client_Server::_createNode(int nodeId)
    //create a OSC message using tnyosc.hpp
    Message msg("/s_new");
    msg.append("default");
+   msg.append(nodeId);
+   msg.append(0);
+   msg.append(1);
+
+   //send the message 
+   socket.send_to(buffer(msg.data(), msg.size()), receiver_endpoint);
+
+   return true;
+   } //end try
+   
+   catch (std::exception& e) {
+    cerr << e.what() << endl;
+   } //end catch
+   return false;
+
+}
+
+bool Client_Server::_createNode(const std::string& name, int nodeId)
+{
+   try {
+   #ifdef EH_DEBUG
+   cout << "\nSend: /s_new " << name << " " << nodeId <<" command to server..." << endl;
+   #endif
+   
+   //Udp via Boost
+   io_service io_service;
+   udp::resolver resolver(io_service);
+   udp::resolver::query query(udp::v4(), _getHost(), _getPort());
+   udp::endpoint receiver_endpoint = *resolver.resolve(query);
+   udp::socket socket(io_service);
+   socket.open(udp::v4());
+   
+   //create a OSC message using tnyosc.hpp
+   Message msg("/s_new");
+   msg.append(name);
    msg.append(nodeId);
    msg.append(0);
    msg.append(1);
@@ -354,49 +402,9 @@ bool Client_Server::_freeNode(int nodeId)
    return false;
 }
 
-void Client_Server::_quitServer()
-{
-  try {
-   #ifdef EH_DEBUG
-   cout << "\nSend: /quit command to server..." << endl;
-   #endif
-    
-   //Udp via Boost
-   io_service io_service;
-   udp::resolver resolver(io_service);
-   udp::resolver::query query(udp::v4(), _getHost(), _getPort());
-   udp::endpoint receiver_endpoint = *resolver.resolve(query);
-   udp::socket socket(io_service);
-   socket.open(udp::v4());
-   
-   //create a OSC message using tnyosc.hpp
-   Message msg("/quit");   
 
-   //send the message 
-   socket.send_to(buffer(msg.data(), msg.size()), receiver_endpoint);
 
-   //receive return message from server -- will this work since scsynth's repsonse is asynchronous?
-   boost::array<char, 256> recv_from_scsynth_buf;
-   udp::endpoint sender_endpoint;
-   size_t len = socket.receive_from(buffer(recv_from_scsynth_buf), sender_endpoint);
 
-   #ifdef EH_DEBUG
-   std::cout << "\n";
-   cout << "Server reply: ";
-   cout.write(recv_from_scsynth_buf.data(), len);
-   std::cout << "\n\n";
-   #endif 
-   } //end try 
-
-   catch (std::exception& e) {
-    cerr << e.what() << endl;
-   }
-}
-
-bool Client_Server::_pingScsynth()
-{
-  return false;
-}
 
 bool Client_Server::_loadSynthDef(const std::string& synthDefName)
 {
@@ -490,4 +498,33 @@ int Client_Server::_pushFirstNodeId(int nextNode)
 {
   _nodeIDs.push_back(nextNode);
   return nextNode;
+}
+
+void Client_Server::_createDefaultGroup()
+{
+  try {
+   #ifdef EH_DEBUG
+   cout << "\nSend: /g_new 0 0 command to server..." << endl;
+   #endif
+   
+   //Udp via Boost
+   io_service io_service;
+   udp::resolver resolver(io_service);
+   udp::resolver::query query(udp::v4(), _getHost(), _getPort());
+   udp::endpoint receiver_endpoint = *resolver.resolve(query);
+   udp::socket socket(io_service);
+   socket.open(udp::v4());
+   
+   //create a OSC message using tnyosc.hpp
+   Message msg("/g_new");
+   msg.append(1);
+   msg.append(0);
+   msg.append(0);
+   //send the message 
+   socket.send_to(buffer(msg.data(), msg.size()), receiver_endpoint);
+   } //end try
+   
+   catch (std::exception& e) {
+    cerr << e.what() << endl;
+   } //end catch
 }

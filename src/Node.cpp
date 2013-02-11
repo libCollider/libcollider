@@ -2,14 +2,19 @@
 
 using namespace ColliderPlusPlus; 
 
-Node::Node()
+/*Node::Node()
 {
  
+}*/
+
+Node::Node(Client_Server &cs, int id): _id(id)
+{
+   cs._createNode(_id);
 }
 
-Node::Node(int id): _id(id)
+Node::Node(Client_Server &cs, const std::string& defName, int id): _id(id), _defName(defName)
 {
-   Client_Server::_createNode(_id);
+   cs._createNode(_defName, _id);
 }
 
 Node::~Node()
@@ -17,9 +22,9 @@ Node::~Node()
 
 }
 
-bool Node::_run()
+bool Node::_run(Client_Server &cs)
 {
-  if(!Client_Server::_runNode(_id, 1))
+  if(!cs._runNode(_id, 1))
     return false;
 
   _running = true; 
@@ -28,9 +33,9 @@ bool Node::_run()
 }
 
 
-bool Node::_stop()
+bool Node::_stop(Client_Server &cs)
 {
-  if(!Client_Server::_runNode(_id, 0))
+  if(!cs._runNode(_id, 0))
     return false;
 
   _running = false; 
@@ -39,20 +44,17 @@ bool Node::_stop()
 }
 
 
-bool Node::_free()
+bool Node::_free(Client_Server &cs)
 {
-  if(!Client_Server::_freeNode(_id))
+  if(!cs._freeNode(_id))
     return false;
 
   return true;
 }
 
-Synth::Synth(const std::string& defName, int id)
-{
-  _defName = defName;
-  _id = id;
- 
-  Client_Server::_createSynth(_defName, _id);
+Synth::Synth(Client_Server &cs, const std::string& defName, int id): Node(cs, defName, id)
+{ 
+
 }
 
 Synth::~Synth()

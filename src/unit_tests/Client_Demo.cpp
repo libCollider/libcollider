@@ -65,17 +65,6 @@ void runDemo(Client_Server& cs)
 {
   cout << "Starting OSC message sending in 1 seconds..." << endl;
      sleep(DEFAULT_PAUSETIME);
-     //Begin test messages
-     cs._createNode("default", cs._nextNodeID(), 0);
-     sleep(2);
-     cs._createNode("default", cs._nextNodeID(), 0);
-     sleep(2);
-     cs._freeNode(1001, 3);
-     sleep(2);
-     cs._freeNode(1000, 3);
-     sleep(2);
-     cs._killServer(0);   
-     sleep(2);
      cout << "The Demo is over. Exiting." << endl;
 }
 

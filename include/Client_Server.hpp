@@ -1,7 +1,6 @@
 #ifndef CLIENT_SERVER
 #define CLIENT_SERVER
 
-//#include "OscMessenger.hpp"
 #include <string>
 #include <vector> 
 
@@ -14,44 +13,38 @@ namespace ColliderPlusPlus {
   {
     public:
 
-        friend class Node;
-        friend class Synth;
-
         Client_Server();
       	Client_Server(const std::string& name);
         Client_Server(const std::string& name, const char *host, const char *port);
       	~Client_Server();
         std::string _getName();
-      //  OscMessenger& _getOscMessenger();
-  
+       
         /** System Server Commands **/
       	//boot scsynth and create default group
         void _boot();
         int _nextNodeId();
+	void _dumpOSC(int toggle);
+	void _printCurrentNodeIds();
+	void _queryNodeTree();
         bool _pingScsynth();
 	void _quitServer();
-        void _dumpOSC(int toggle);
-        void _printCurrentNodeIds();
-        void _queryNodeTree();
-
+       
         /** OSC/UDP 		   **/
         void _setPort(const char *port);
         void _setHost(const char *host);
-        static const char* _getPort();
-        static const char* _getHost();
+        const char* _getPort();
+        const char* _getHost();
 	
-        /** Synth Commands         **/
+        /** Node Commands         **/
         bool _loadSynthDef(const std::string& synthDefName);
 	bool _loadSynthDefDirectory(const std::string& dirName); //optional bytes, see osc command ref
-
-    protected:
-       	static bool _createNode(int nodeId);
-     	static bool _createSynth(const std::string& name, int nodeId);
-       // static bool _createGroup(std::string& name, int nodeId);
-	static bool _runNode(int nodeId, int flag);
-        static bool _freeNode(int nodeID);
-        
-         
+	bool _createNode(int nodeId);
+	bool _createNode(const std::string& name, int nodeId);
+     	bool _createSynth(const std::string& name, int nodeId);
+	bool _runNode(int nodeId, int flag);
+        bool _freeNode(int nodeID);
+     // bool _createGroup(std::string& name, int nodeId);
+	 
     private:
         //Methods
         int _pushFirstNodeId(int nextNode);
@@ -65,7 +58,5 @@ namespace ColliderPlusPlus {
         const char* _port;
         const char* _host;	
   };
-  
-  
 } //namespace ColliderPlusPlus
 #endif

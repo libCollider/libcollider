@@ -9,15 +9,18 @@ namespace ColliderPlusPlus {
  class Node 
  {
    public:
-        Node();
-        Node(int id);
+        //Node();
+        Node(Client_Server &cs, int id);
+	Node(Client_Server &cs, const std::string& defName, int id);
         virtual ~Node();
         int _getId() const {return _id;}
-	bool _run();
-	bool _stop();
-        bool _free();
+	bool _run(Client_Server &cs);
+	bool _stop(Client_Server &cs);
+        bool _free(Client_Server &cs);
    	bool _isPlaying()  {return _playing;}  
    	bool _isRunning()  {return _running;}	
+        std::string _getDefName() const {return _defName;}
+
 
 
         // TO_DO
@@ -25,8 +28,9 @@ namespace ColliderPlusPlus {
 	//Node placement 
 	//Node query
 	//Trace
-   private:
+   protected:
    	int _id;
+        std::string _defName;
         bool _playing;
         bool _running;
  };
@@ -34,12 +38,11 @@ namespace ColliderPlusPlus {
  class Synth: public Node
  {
    public:
-	Synth(const std::string& defName, int id);
+	Synth(Client_Server &cs, const std::string& defName, int id);
 	~Synth();
-	std::string _getDefName() const {return _defName;}
    private:
-        std::string _defName;
-	int _id;
+        //std::string _defName;
+//	int _id;
  };
 
 /* class Group: public Node
