@@ -25,6 +25,7 @@ Client_Server::Client_Server()
   _setPort("57110");
 
   _boot();
+  _dumpOSC(1);
 }
 
 Client_Server::Client_Server(const std::string& name)
@@ -34,7 +35,7 @@ Client_Server::Client_Server(const std::string& name)
   _setPort("57110");
 
   _boot();
-}
+  _dumpOSC(1);}
 
 Client_Server::Client_Server(const std::string& name, const char *host, const char *port)
 :_nextNode(1000), _name(name)
@@ -43,6 +44,7 @@ Client_Server::Client_Server(const std::string& name, const char *host, const ch
   _setPort(port);
 
   _boot();
+  _dumpOSC(1);
 }
 
 Client_Server::~Client_Server()
