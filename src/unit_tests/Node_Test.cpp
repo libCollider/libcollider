@@ -27,7 +27,7 @@ int main()
  std::cout << result << std::endl;
  args["mag"] = result;
  Synth synth(cs,"CentroidBing",-1, args);
- usleep(500000);
+ usleep(250000);
  count++;
  } 
  sleep(1);
