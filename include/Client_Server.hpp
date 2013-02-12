@@ -35,7 +35,7 @@ namespace ColliderPlusPlus {
 	bool _createNode(int nodeId, int type);
 	bool _createNode(const std::string& name, int nodeId, int type);
      	bool _createSynth(const std::string& name, int nodeId);
-	bool _createSynth(const std::string& name, int nodeId, std::map<std::string, float> args);
+	bool _createSynth(const std::string& name, int nodeId, std::map<std::string, float> &args);
 	bool _createGroup(const std::string& name, int nodeId);
 	bool _runNode(int nodeId, int flag);
         bool _freeNode(int nodeID);

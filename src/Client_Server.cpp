@@ -336,7 +336,8 @@ bool Client_Server::_createSynth(const std::string& name, int nodeId)
    return false;
 }
 
-bool Client_Server::_createSynth(const std::string& name, int nodeId, std::map<std::string, float> args)
+bool Client_Server::_createSynth(const std::string& name, int nodeId, 
+						std::map<std::string, float> &args)
 {
    try {
    #ifdef EH_DEBUG
@@ -359,6 +360,13 @@ bool Client_Server::_createSynth(const std::string& name, int nodeId, std::map<s
    msg.append(1);
   
    //Iterate through arguments and append to message
+   std::map<std::string,float>::iterator i = args.begin();
+
+   for(; i != args.end(); ++i)
+   { 
+     msg.append((*i).first);
+     msg.append((*i).second);
+   }
    
 
    //send the message 

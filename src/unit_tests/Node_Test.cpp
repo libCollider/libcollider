@@ -2,6 +2,7 @@
 #include "Client_Server.hpp"
 #include <iostream>
 #include <unistd.h>
+#include <map>
 
 using namespace ColliderPlusPlus;
 
@@ -13,18 +14,19 @@ int main()
 
  Client_Server cs = Client_Server("MyServer");
  cs._dumpOSC(ON);
+ sleep(1);
  cs._loadSynthDef("/Users/administrator/Documents/gitprojects/ColliderPlusPlus/synthdefs/CentroidBing.scsyndef");
 
- Synth synth(cs, "default",cs._nextNodeId());
- std::cout << "Synth " << synth._getDefName() << " has Id: " << synth._getId() << std::endl;
-
+ 
+ std::map<std::string, float> args;
+ args["freq"] = 220.0;
+ Synth synth1(cs, "CentroidBing",cs._nextNodeId(), args);
+  
  cs._printCurrentNodeIds();
  cs._queryNodeTree();
- sleep(3);
-
- synth._free(cs);
- //cs._freeNode(synth.getId());
-
+ sleep(1);
+ 
+ 
  cs._quit();
 
  return 0;

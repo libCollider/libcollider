@@ -10,10 +10,9 @@ namespace ColliderPlusPlus {
  class Node 
  {
    public:
-        //Node();
-        Node(Client_Server &cs, int id, int type);
-	Node(Client_Server &cs, const std::string& defName, int id, int type);
-        virtual ~Node();
+        Node();
+	Node(const std::string& defName, int id);
+        ~Node();
         int _getId() const {return _id;}
 	bool _run(Client_Server &cs);
 	bool _stop(Client_Server &cs);
@@ -39,6 +38,8 @@ namespace ColliderPlusPlus {
  {
    public:
 	Synth(Client_Server &cs, const std::string& defName, int id);
+	Synth(Client_Server &cs, const std::string& defName, 
+					int id, std::map<std::string,float> &args);
 	~Synth();
    private:
  };
