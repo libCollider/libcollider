@@ -56,7 +56,6 @@ std::string Client_Server::_getName()
 }
 
 
-
 //System commands
 void Client_Server::_boot()
 {
@@ -324,6 +323,43 @@ bool Client_Server::_createSynth(const std::string& name, int nodeId)
    msg.append(nodeId);
    msg.append(0);
    msg.append(1);
+
+   //send the message 
+   socket.send_to(buffer(msg.data(), msg.size()), receiver_endpoint);
+
+   return true;
+   } //end try
+   
+   catch (std::exception& e) {
+    cerr << e.what() << endl;
+   } //end catch
+   return false;
+}
+
+bool Client_Server::_createSynth(const std::string& name, int nodeId, std::map<std::string, float> args)
+{
+   try {
+   #ifdef EH_DEBUG
+   cout << "\nSend: /s_new " << name << " " << nodeId <<" command to server..." << endl;
+   #endif
+   
+   //Udp via Boost
+   io_service io_service;
+   udp::resolver resolver(io_service);
+   udp::resolver::query query(udp::v4(), _getHost(), _getPort());
+   udp::endpoint receiver_endpoint = *resolver.resolve(query);
+   udp::socket socket(io_service);
+   socket.open(udp::v4());
+   
+   //create a OSC message using tnyosc.hpp
+   Message msg("/s_new");
+   msg.append(name);
+   msg.append(nodeId);
+   msg.append(0);
+   msg.append(1);
+  
+   //Iterate through arguments and append to message
+   
 
    //send the message 
    socket.send_to(buffer(msg.data(), msg.size()), receiver_endpoint);

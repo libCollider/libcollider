@@ -22,8 +22,6 @@ namespace ColliderPlusPlus {
    	bool _isRunning()  {return _running;}	
         std::string _getDefName() const {return _defName;}
 
-
-
         // TO_DO
         //Node controls - set control value, control value ranges, fill ranges, map controls to read from bus(es),
 	//Node placement 
