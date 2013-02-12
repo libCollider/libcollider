@@ -14,7 +14,7 @@ using namespace std;
 int main()
 {
  Client_Server cs = Client_Server("MyServer");
- cs._loadSynthDef("/Users/administrator/Documents/gitprojects/ColliderPlusPlus/synthdefs/CentroidBing.scsyndef");
+ cs._loadSynthDef("../../synthdefs/CentroidBing.scsyndef");
 
  map<string, float> args;
  boost::mt19937 rng;
@@ -26,11 +26,11 @@ int main()
  float result = randMag();
  std::cout << result << std::endl;
  args["mag"] = result;
- cs._createSynth("CentroidBing",-1, args);
- sleep(1);
+ Synth synth(cs,"CentroidBing",-1, args);
+ usleep(500000);
  count++;
  } 
- 
+ sleep(1);
  cs._quit();
 
  return 0;
