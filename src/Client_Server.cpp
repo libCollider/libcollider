@@ -61,6 +61,7 @@ std::string Client_Server::_getName()
 //System commands
 void Client_Server::_boot()
 {
+  //more initialization stuff to come...
   _createDefaultGroup(); 
 }
 
@@ -581,7 +582,7 @@ bool Client_Server::_createDefaultGroup()
 {
   try {
    #ifdef EH_DEBUG
-   cout << "\nSend: /g_new 0 0 command to server..." << endl;
+   cout << "\nSend: /g_new 1 0 0 command to server..." << endl;
    #endif
    
    //Udp via Boost
