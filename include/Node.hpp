@@ -37,9 +37,11 @@ namespace ColliderPlusPlus {
  class Synth: public Node
  {
    public:
-	Synth(Client_Server &cs, const std::string& defName, int id);
+	Synth(Client_Server &cs, const std::string& defName, int id,
+				int addAction = TO_HEAD, int target = DEFAULT_GROUP);
 	Synth(Client_Server &cs, const std::string& defName, 
-					int id, std::map<std::string,float> &args);
+			int id, std::map<std::string,float> &args,
+				int addAction = TO_HEAD, int target = DEFAULT_GROUP);
 	~Synth();
    private:
  };
@@ -47,7 +49,8 @@ namespace ColliderPlusPlus {
  class Group: public Node
  {
    public:
-	Group(Client_Server &cs, const std::string& name, int id);
+	Group(Client_Server &cs, const std::string& name, int id, 
+				int addAction = TO_HEAD, int target = DEFAULT_GROUP);
         ~Group();
 
    private:
