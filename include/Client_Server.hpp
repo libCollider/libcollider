@@ -4,8 +4,7 @@
 #include <string>
 #include <vector> 
 #include <map>
-
-//addAction Macros 
+ 
 #define TO_HEAD      0
 #define TO_TAIL      1
 #define JUST_BEFORE  2
@@ -44,7 +43,8 @@ namespace ColliderPlusPlus {
        
         /** Node Commands         **/
         bool _loadSynthDef(const std::string& synthDefName);
-	bool _loadSynthDefDirectory(const std::string& dirName); //optional bytes, see osc command ref
+	bool _loadSynthDefDirectory(const std::string& dirName); 
+
 	bool _createNode(int nodeId, int addAction = TO_HEAD, 
 					    int target = DEFAULT_GROUP, int type = SYNTH);
 
