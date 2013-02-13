@@ -4,6 +4,18 @@
 #include <string>
 #include <vector> 
 #include <map>
+ 
+#define TO_HEAD      0
+#define TO_TAIL      1
+#define JUST_BEFORE  2
+#define JUST_AFTER   3
+#define REPLACE      4
+
+#define ROOT_NODE     0
+#define DEFAULT_GROUP 1
+
+#define SYNTH 1
+#define GROUP 2
 
 
 //Client-side representation of a scsynth server instance
@@ -31,12 +43,24 @@ namespace ColliderPlusPlus {
        
         /** Node Commands         **/
         bool _loadSynthDef(const std::string& synthDefName);
-	bool _loadSynthDefDirectory(const std::string& dirName); //optional bytes, see osc command ref
-	bool _createNode(int nodeId, int type);
-	bool _createNode(const std::string& name, int nodeId, int type);
-     	bool _createSynth(const std::string& name, int nodeId);
-	bool _createSynth(const std::string& name, int nodeId, std::map<std::string, float> &args);
-	bool _createGroup(const std::string& name, int nodeId);
+	bool _loadSynthDefDirectory(const std::string& dirName); 
+
+	bool _createNode(int nodeId, int addAction = TO_HEAD, 
+					    int target = DEFAULT_GROUP, int type = SYNTH);
+
+	bool _createNode(const std::string& name, int nodeId,
+				     int addAction = TO_HEAD, 
+					    int target = DEFAULT_GROUP, int type = SYNTH);
+
+     	bool _createSynth(const std::string& name, int nodeId,
+			             int addAction = TO_HEAD, int target = DEFAULT_GROUP);
+
+	bool _createSynth(const std::string& name, int nodeId, 
+			        std::map<std::string, float> &args, 
+			              int addAction = TO_HEAD,int target = DEFAULT_GROUP);
+
+	bool _createGroup(int nodeId, int addAction = TO_HEAD, int target = DEFAULT_GROUP);
+
 	bool _runNode(int nodeId, int flag);
         bool _freeNode(int nodeID);
 

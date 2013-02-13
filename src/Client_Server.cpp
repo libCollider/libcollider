@@ -61,6 +61,7 @@ std::string Client_Server::_getName()
 //System commands
 void Client_Server::_boot()
 {
+  //more initialization stuff to come...
   _createDefaultGroup(); 
 }
 
@@ -214,7 +215,7 @@ const char* Client_Server::_getHost()
 
 
 //Node Commands
-bool Client_Server::_createNode(int nodeId, int type)
+bool Client_Server::_createNode(int nodeId, int addAction, int target, int type)
 {
    std::string typeTag;
   
@@ -243,8 +244,8 @@ bool Client_Server::_createNode(int nodeId, int type)
    Message msg(typeTag);
    msg.append("default");
    msg.append(nodeId);
-   msg.append(0);
-   msg.append(1);
+   msg.append(addAction);
+   msg.append(target);
 
    //send the message 
    socket.send_to(buffer(msg.data(), msg.size()), receiver_endpoint);
@@ -259,7 +260,8 @@ bool Client_Server::_createNode(int nodeId, int type)
 
 }
 
-bool Client_Server::_createNode(const std::string& name, int nodeId, int type)
+bool Client_Server::_createNode(const std::string& name, int nodeId, 
+		     int addAction, int target, int type)
 {
    try {
    
@@ -288,8 +290,8 @@ bool Client_Server::_createNode(const std::string& name, int nodeId, int type)
    Message msg(typeTag);
    msg.append(name);
    msg.append(nodeId);
-   msg.append(0);
-   msg.append(1);
+   msg.append(addAction);
+   msg.append(target);
 
    //send the message 
    socket.send_to(buffer(msg.data(), msg.size()), receiver_endpoint);
@@ -304,7 +306,8 @@ bool Client_Server::_createNode(const std::string& name, int nodeId, int type)
 
 }
 
-bool Client_Server::_createSynth(const std::string& name, int nodeId)
+bool Client_Server::_createSynth(const std::string& name, int nodeId,
+					 int addAction, int target)
 {
    try {
    #ifdef EH_DEBUG
@@ -323,8 +326,8 @@ bool Client_Server::_createSynth(const std::string& name, int nodeId)
    Message msg("/s_new");
    msg.append(name);
    msg.append(nodeId);
-   msg.append(0);
-   msg.append(1);
+   msg.append(addAction);
+   msg.append(target);
 
    //send the message 
    socket.send_to(buffer(msg.data(), msg.size()), receiver_endpoint);
@@ -338,8 +341,8 @@ bool Client_Server::_createSynth(const std::string& name, int nodeId)
    return false;
 }
 
-bool Client_Server::_createSynth(const std::string& name, int nodeId, 
-						std::map<std::string, float> &args)
+bool Client_Server::_createSynth(const std::string& name, int nodeId,
+			std::map<std::string, float> &args, int addAction, int target)
 {
    try {
    #ifdef EH_DEBUG
@@ -358,8 +361,8 @@ bool Client_Server::_createSynth(const std::string& name, int nodeId,
    Message msg("/s_new");
    msg.append(name);
    msg.append(nodeId);
-   msg.append(0);
-   msg.append(1);
+   msg.append(addAction);
+   msg.append(target);
   
    //Iterate through arguments and append to message
    std::map<std::string,float>::iterator i = args.begin();
@@ -383,11 +386,11 @@ bool Client_Server::_createSynth(const std::string& name, int nodeId,
    return false;
 }
 
-bool Client_Server::_createGroup(const std::string& name, int nodeId)
+bool Client_Server::_createGroup(int nodeId, int addAction, int target)
 {
    try {
    #ifdef EH_DEBUG
-   cout << "\nSend: /g_new " << name << " " << nodeId <<" command to server..." << endl;
+   cout << "\nSend: /g_new " << nodeId <<" command to server..." << endl;
    #endif
    
    //Udp via Boost
@@ -400,10 +403,9 @@ bool Client_Server::_createGroup(const std::string& name, int nodeId)
    
    //create a OSC message using tnyosc.hpp
    Message msg("/g_new");
-   msg.append(name);
    msg.append(nodeId);
-   msg.append(0);
-   msg.append(1);
+   msg.append(addAction);
+   msg.append(target);
 
    //send the message 
    socket.send_to(buffer(msg.data(), msg.size()), receiver_endpoint);
@@ -581,7 +583,7 @@ bool Client_Server::_createDefaultGroup()
 {
   try {
    #ifdef EH_DEBUG
-   cout << "\nSend: /g_new 0 0 command to server..." << endl;
+   cout << "\nSend: /g_new 1 0 0 command to server..." << endl;
    #endif
    
    //Udp via Boost

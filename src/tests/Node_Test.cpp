@@ -15,6 +15,7 @@ int main()
 {
  Client_Server cs = Client_Server("MyServer");
  cs._loadSynthDef("../../synthdefs/CentroidBing.scsyndef");
+ cs._queryNodeTree();
 
  map<string, float> args;
  boost::mt19937 rng;

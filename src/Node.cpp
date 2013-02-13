@@ -53,16 +53,17 @@ bool Node::_free(Client_Server &cs)
   return true;
 }
 
-Synth::Synth(Client_Server &cs, const std::string& defName, int id)
+Synth::Synth(Client_Server &cs, const std::string& defName, int id, int addAction, int target)
 :Node(defName, id)
 { 
-  cs._createSynth(_defName, _id);
+  cs._createSynth(_defName, _id, addAction, target);
 }
 
-Synth::Synth(Client_Server &cs, const std::string& defName, int id, std::map<std::string,float> &args)
+Synth::Synth(Client_Server &cs, const std::string& defName, int id,
+		 std::map<std::string,float> &args, int addAction, int target)
 :Node(defName, id)
 { 
-  cs._createSynth(_defName, _id, args);
+  cs._createSynth(_defName, _id, args, addAction, target);
 }
 
 Synth::~Synth()
@@ -70,10 +71,10 @@ Synth::~Synth()
 
 }
 
-Group::Group(Client_Server &cs, const std::string& defName, int id)
-:Node(defName, id)
+Group::Group(Client_Server &cs, const std::string& defName, int id, int addAction, int target)
+:Node("Group", id)
 {
-  cs._createGroup(_defName, _id);
+  cs._createGroup(_id);
 }
 
 Group::~Group()
@@ -82,7 +83,7 @@ Group::~Group()
 
 }
 
-RootNode::RootNode(Client_Server &cs): Group(cs, "Default", 0)
+RootNode::RootNode(Client_Server &cs): Group(cs, "Default", ROOT_NODE)
 {
   
 }
