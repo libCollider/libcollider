@@ -22,11 +22,19 @@ int main()
  boost::variate_generator<boost::mt19937, boost::uniform_real<> > randMag(rng, dist);
 
  int count = 0;
+
  while(count < 20) { 
+
  float result = randMag();
  std::cout << result << std::endl;
  args["mag"] = result;
+
+ //Message style
+// cs._createSynth("CentroidBing", -1, args);
+
+ //Object style
  Synth synth(cs,"CentroidBing",-1, args);
+
  usleep(250000);
  count++;
  } 
