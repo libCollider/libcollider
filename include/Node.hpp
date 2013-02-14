@@ -3,6 +3,7 @@
 
 #include <string>
 #include "Client_Server.hpp"
+#include "Bus.hpp"
 
 
 namespace ColliderPlusPlus {
