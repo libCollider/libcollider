@@ -1,6 +1,7 @@
 #ifndef BUS
 #define BUS
 
+#include <vector>
 
 namespace ColliderPlusPlus {
 
@@ -9,6 +10,8 @@ namespace ColliderPlusPlus {
     public:
 	Bus();
         ~Bus();
+
+        void _setFloats(std::vector<float> &values);
 
     private:
 
