@@ -38,7 +38,7 @@ namespace ColliderPlusPlus {
 	bool _dumpOSC(int toggle);
 	void _printCurrentNodeIds();
 	void _queryNodeTree();
-	void _queryNode(int nodeId);
+	void _queryNode(int nodeId); //add wrapping method to Node class??
         bool _pingScsynth();
 	bool _quit();
        
@@ -67,9 +67,6 @@ namespace ColliderPlusPlus {
         void _freeAllSynths(int groupId);
         void _deepFreeAllSynths(int groupId);
 
-        /** Synth Definitions **/
-//	bool _synthDef(const string& name, const char* argv[]);
-    	 
     private:
         //Methods
         bool _createDefaultGroup();
