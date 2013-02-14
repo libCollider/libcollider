@@ -21,6 +21,8 @@ namespace ColliderPlusPlus {
    	bool _isRunning()  {return _running;}	
         std::string _getDefName() const {return _defName;}
 
+
+        void _busMap(std::map<std::string, Bus> &map);
         // TO_DO
         //Node controls - set control value, control value ranges, fill ranges, map controls to read from bus(es),
 	//Node placement 

@@ -53,6 +53,12 @@ bool Node::_free(Client_Server &cs)
   return true;
 }
 
+void _busMap(std::map<std::string, Bus> &map)
+{
+
+
+}
+
 Synth::Synth(Client_Server &cs, const std::string& defName, int id, int addAction, int target)
 :Node(defName, id)
 { 
