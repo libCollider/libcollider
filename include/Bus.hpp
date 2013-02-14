@@ -1,14 +1,14 @@
-#ifndef BUFFER
-#define BUFFER
+#ifndef BUS
+#define BUS
 
 
 namespace ColliderPlusPlus {
 
-  class Buffer
+  class Bus
   {
     public:
-	Buffer();
-        ~Buffer();
+	Bus();
+        ~Bus();
 
     private:
 
@@ -17,4 +17,5 @@ namespace ColliderPlusPlus {
 } //namespace ColliderPlusPlus
 
 #endif
+
 
