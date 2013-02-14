@@ -481,9 +481,63 @@ bool Client_Server::_freeNode(int nodeId)
    return false;
 }
 
+void Client_Server::_freeAllSynths(int groupId)
+{
+  try {
+   #ifdef EH_DEBUG
+   cout << "\nSend: /g_freeAll " << groupId <<" command to server..." << endl;
+   #endif
+   
+   //Udp via Boost
+   io_service io_service;
+   udp::resolver resolver(io_service);
+   udp::resolver::query query(udp::v4(), _getHost(), _getPort());
+   udp::endpoint receiver_endpoint = *resolver.resolve(query);
+   udp::socket socket(io_service);
+   socket.open(udp::v4());
+   
+   //create a OSC message using tnyosc.hpp
+   Message msg("/g_freeAll");
+   msg.append(groupId);
 
+   //send the message 
+   socket.send_to(buffer(msg.data(), msg.size()), receiver_endpoint);
+   
+   } //end try
+   
+   catch (std::exception& e) {
+    cerr << e.what() << endl;
+   }
+}
 
+void Client_Server::_deepFreeAllSynths(int groupId)
+{
+  try {
+   #ifdef EH_DEBUG
+   cout << "\nSend: /g_deepFree " << groupId <<" command to server..." << endl;
+   #endif
+   
+   //Udp via Boost
+   io_service io_service;
+   udp::resolver resolver(io_service);
+   udp::resolver::query query(udp::v4(), _getHost(), _getPort());
+   udp::endpoint receiver_endpoint = *resolver.resolve(query);
+   udp::socket socket(io_service);
+   socket.open(udp::v4());
+   
+   //create a OSC message using tnyosc.hpp
+   Message msg("/g_deepFree");
+   msg.append(groupId);
 
+   //send the message 
+   socket.send_to(buffer(msg.data(), msg.size()), receiver_endpoint);
+   
+   } //end try
+   
+   catch (std::exception& e) {
+    cerr << e.what() << endl;
+   }
+}
 
 bool Client_Server::_loadSynthDef(const std::string& synthDefName)
 {

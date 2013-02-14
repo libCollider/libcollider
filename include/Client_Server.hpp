@@ -63,6 +63,8 @@ namespace ColliderPlusPlus {
 
 	bool _runNode(int nodeId, int flag);
         bool _freeNode(int nodeID);
+        void _freeAllSynths(int groupId);
+        void _deepFreeAllSynths(int groupId);
 
         /** Synth Definitions **/
 //	bool _synthDef(const string& name, const char* argv[]);

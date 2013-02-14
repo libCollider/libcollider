@@ -53,6 +53,9 @@ namespace ColliderPlusPlus {
 				int addAction = TO_HEAD, int target = DEFAULT_GROUP);
         ~Group();
 
+        void _freeAllSynths(Client_Server &cs);
+        void _deepFreeAllSynths(Client_Server &cs);
+
    private:
  };
 

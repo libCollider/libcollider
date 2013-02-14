@@ -83,6 +83,16 @@ Group::~Group()
 
 }
 
+void Group::_freeAllSynths(Client_Server &cs)
+{
+  cs._freeAllSynths(_id);	 
+}
+
+void Group::_deepFreeAllSynths(Client_Server &cs)
+{
+  cs._deepFreeAllSynths(_id);
+}
+
 RootNode::RootNode(Client_Server &cs): Group(cs, "Default", ROOT_NODE)
 {
   
