@@ -139,6 +139,34 @@ void Client_Server::_queryNodeTree()
    } //end catch
 } 
 
+//FINISH ME
+void Client_Server::_queryNode(int nodeId)
+{
+  try {
+   #ifdef EH_DEBUG
+   cout << "\nSend: /n_query " << nodeId << " command to server..." << endl;
+   #endif
+   
+   //Udp via Boost
+   io_service io_service;
+   udp::resolver resolver(io_service);
+   udp::resolver::query query(udp::v4(), _getHost(), _getPort());
+   udp::endpoint receiver_endpoint = *resolver.resolve(query);
+   udp::socket socket(io_service);
+   socket.open(udp::v4());
+   
+   //create a OSC message using tnyosc.hpp
+   Message msg("/n_query");
+   msg.append(nodeId);
+   //send the message 
+   socket.send_to(buffer(msg.data(), msg.size()), receiver_endpoint);
+   } //end try
+   
+   catch (std::exception& e) {
+    cerr << e.what() << endl;
+   } //end catch
+}
+
 bool Client_Server::_pingScsynth()
 {
   return false;

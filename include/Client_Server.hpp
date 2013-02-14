@@ -38,6 +38,7 @@ namespace ColliderPlusPlus {
 	bool _dumpOSC(int toggle);
 	void _printCurrentNodeIds();
 	void _queryNodeTree();
+	void _queryNode(int nodeId);
         bool _pingScsynth();
 	bool _quit();
        
