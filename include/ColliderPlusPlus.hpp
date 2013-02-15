@@ -5,5 +5,6 @@
 #include "Client_Server.hpp"
 #include "Node.hpp"
 #include "Bus.hpp"
+#include "Buffer.hpp"
 
 #endif

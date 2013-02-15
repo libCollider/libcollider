@@ -447,6 +447,39 @@ bool Client_Server::_createGroup(int nodeId, int addAction, int target)
    return false;
 }
 
+void Client_Server::_allocBuffer(int numFrames, int numChans, int bufNum)
+{
+   try {
+   #ifdef EH_DEBUG
+   cout << "\nSend: /b_alloc " << numFrames << " " 
+			<< numChans << " " << bufNum <<" command to server..." << endl;
+   #endif
+   
+   //Udp via Boost
+   io_service io_service;
+   udp::resolver resolver(io_service);
+   udp::resolver::query query(udp::v4(), _getHost(), _getPort());
+   udp::endpoint receiver_endpoint = *resolver.resolve(query);
+   udp::socket socket(io_service);
+   socket.open(udp::v4());
+   
+   //create a OSC message using tnyosc.hpp
+   Message msg("/b_alloc");
+   msg.append(numFrames);
+   msg.append(numChans);
+   msg.append(bufNum);
+
+   //send the message 
+   socket.send_to(buffer(msg.data(), msg.size()), receiver_endpoint);
+
+   } //end try
+   
+   catch (std::exception& e) {
+    cerr << e.what() << endl;
+   } //end catch
+   
+}
+
 bool Client_Server::_runNode(int nodeId, int flag)
 {
    try {

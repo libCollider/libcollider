@@ -62,6 +62,8 @@ namespace ColliderPlusPlus {
 
 	bool _createGroup(int nodeId, int addAction = TO_HEAD, int target = DEFAULT_GROUP);
 
+        void _allocBuffer(int numFrames, int numChans, int bufNum);
+
 	bool _runNode(int nodeId, int flag);
         bool _freeNode(int nodeID);
         void _freeAllSynths(int groupId);
