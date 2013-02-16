@@ -35,6 +35,7 @@ namespace ColliderPlusPlus {
 	std::string _getName();
         void _boot();
         int _nextNodeId();
+	int _nextBufferNum();
 	bool _dumpOSC(int toggle);
 	void _printCurrentNodeIds();
 	void _queryNodeTree();
@@ -62,7 +63,9 @@ namespace ColliderPlusPlus {
 
 	bool _createGroup(int nodeId, int addAction = TO_HEAD, int target = DEFAULT_GROUP);
 
-        void _allocBuffer(int numFrames, int numChans, int bufNum);
+        void _allocBuffer(int numFrames, int numChans);
+	void _freeBuffer(int bufNum);
+	void _queryBuffer(int bufNum);
 
 	bool _runNode(int nodeId, int flag);
         bool _freeNode(int nodeID);
@@ -85,6 +88,7 @@ namespace ColliderPlusPlus {
 	const char* _port;
         const char* _host;
         int _nextNode;
+	int _bufferNum;
 	std::vector<int> _nodeIDs;	
   };
 } //namespace ColliderPlusPlus

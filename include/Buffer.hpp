@@ -9,7 +9,8 @@ namespace ColliderPlusPlus {
   class Buffer
   {
     public:
-	Buffer();
+        Buffer();
+	Buffer(int bufNum);
         ~Buffer();
         int _getBufNum() const {return _bufNum;} //return id of server-side buffer
 	int _getFrameNum() const {return _numFrames;} //return sample frames of server-side buffer
@@ -18,7 +19,9 @@ namespace ColliderPlusPlus {
 	const std::string& _getFilePath() const {return _filePath;}
 
 	//use cs._getBufNum() for bufNum arg
-        void _alloc(Client_Server &cs, int numFrames, int numChannels, int bufNum);
+        void _alloc(Client_Server &cs, int numFrames, int numChannels);
+	void _free(Client_Server &cs);
+        void _query(Client_Server &cs);
 
     private:	
 	//members

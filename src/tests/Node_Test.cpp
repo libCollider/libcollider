@@ -8,8 +8,6 @@
 
 using namespace ColliderPlusPlus;
 using namespace std;
-#define ON 1
-#define OFF 2
 
 int main()
 {
@@ -17,30 +15,43 @@ int main()
  cs._loadSynthDef("../../synthdefs/CentroidBing.scsyndef");
  cs._queryNodeTree();
 
- map<string, float> args;
+ //random magnitude arg for CentroidBing synth
  boost::mt19937 rng;
  boost::uniform_real<> dist(0.1, 1.0);
  boost::variate_generator<boost::mt19937, boost::uniform_real<> > randMag(rng, dist);
 
+ //random sleep value for interesting timing
+ boost::mt19937 rng2;
+ boost::uniform_int<> dist2(20000, 750000);
+ boost::variate_generator<boost::mt19937, boost::uniform_int<> > randSleep(rng2, dist2);
+
  int count = 0;
+ map<string, float> args;
 
- while(count < 20) { 
+ while(count < 1000) { 
 
+ //Random magnitude arg for CentroidBing Synth
  float result = randMag();
  std::cout << result << std::endl;
  args["mag"] = result;
 
- //Message style
-// cs._createSynth("CentroidBing", -1, args);
-
  //Object style
  Synth synth(cs,"CentroidBing",-1, args);
 
- usleep(250000);
+ //Equiv. Message style
+ //cs._createSynth("CentroidBing", -1, args);
+
+ //Sleep for a random amount of time to make it interesting
+ usleep(randSleep());
  count++;
  } 
+
+ //All done
  sleep(1);
  cs._quit();
 
  return 0;
 }
+
+
+

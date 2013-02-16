@@ -7,6 +7,7 @@
 
 
 using namespace ColliderPlusPlus;
+
 using boost::asio::io_service;
 using boost::asio::ip::udp;
 using boost::asio::buffer;
@@ -23,9 +24,12 @@ Client_Server::Client_Server()
 {
   _setHost("127.0.0.1");
   _setPort("57110");
-
-  _boot();
+ 
   _dumpOSC(1);
+   usleep(7000);
+  _boot();
+   usleep(7000);
+  
 }
 
 Client_Server::Client_Server(const std::string& name)
@@ -34,8 +38,11 @@ Client_Server::Client_Server(const std::string& name)
   _setHost("127.0.0.1");
   _setPort("57110");
 
+  _dumpOSC(1);
+   usleep(7000);
   _boot();
-  _dumpOSC(1);}
+   usleep(7000);
+}
 
 Client_Server::Client_Server(const std::string& name, const char *host, const char *port)
 :_nextNode(1000), _name(name)
@@ -43,8 +50,10 @@ Client_Server::Client_Server(const std::string& name, const char *host, const ch
   _setHost(host);
   _setPort(port);
 
-  _boot();
   _dumpOSC(1);
+   usleep(7000);
+  _boot();
+   usleep(7000);
 }
 
 Client_Server::~Client_Server()
@@ -71,6 +80,12 @@ int Client_Server::_nextNodeId()
   _nextNode++;
     
   return firstNodeId;
+}
+
+int Client_Server::_nextBufferNum()
+{
+  ++_bufferNum;    
+  return (_bufferNum-1);
 }
 
 bool Client_Server::_dumpOSC(int toggle)
@@ -447,12 +462,12 @@ bool Client_Server::_createGroup(int nodeId, int addAction, int target)
    return false;
 }
 
-void Client_Server::_allocBuffer(int numFrames, int numChans, int bufNum)
+void Client_Server::_allocBuffer(int numFrames, int numChans)
 {
    try {
    #ifdef EH_DEBUG
    cout << "\nSend: /b_alloc " << numFrames << " " 
-			<< numChans << " " << bufNum <<" command to server..." << endl;
+			<< numChans << " command to server..." << endl;
    #endif
    
    //Udp via Boost
@@ -467,10 +482,22 @@ void Client_Server::_allocBuffer(int numFrames, int numChans, int bufNum)
    Message msg("/b_alloc");
    msg.append(numFrames);
    msg.append(numChans);
-   msg.append(bufNum);
+ 
 
    //send the message 
    socket.send_to(buffer(msg.data(), msg.size()), receiver_endpoint);
+
+   //receive return message from server -- will this work since scsynth's repsonse is asynchronous?
+   boost::array<char, 256> recv_from_scsynth_buf;
+   udp::endpoint sender_endpoint;
+   size_t len = socket.receive_from(buffer(recv_from_scsynth_buf), sender_endpoint);
+
+   #ifdef EH_DEBUG
+   std::cout << "\n";
+   cout << "Server reply: ";
+   cout.write(recv_from_scsynth_buf.data(), len);
+   std::cout << "\n\n";
+   #endif
 
    } //end try
    
@@ -478,6 +505,91 @@ void Client_Server::_allocBuffer(int numFrames, int numChans, int bufNum)
     cerr << e.what() << endl;
    } //end catch
    
+}
+
+
+void Client_Server::_freeBuffer(int bufNum)
+{
+   try {
+   #ifdef EH_DEBUG
+   cout << "\nSend: /b_free " << bufNum << " command to server..." << endl;
+   #endif
+   
+   //Udp via Boost
+   io_service io_service;
+   udp::resolver resolver(io_service);
+   udp::resolver::query query(udp::v4(), _getHost(), _getPort());
+   udp::endpoint receiver_endpoint = *resolver.resolve(query);
+   udp::socket socket(io_service);
+   socket.open(udp::v4());
+   
+   //create a OSC message using tnyosc.hpp
+   Message msg("/b_free");
+   msg.append(bufNum);
+   
+   //send the message 
+   socket.send_to(buffer(msg.data(), msg.size()), receiver_endpoint);
+
+   //receive return message from server -- will this work since scsynth's repsonse is asynchronous?
+   boost::array<char, 256> recv_from_scsynth_buf;
+   udp::endpoint sender_endpoint;
+   size_t len = socket.receive_from(buffer(recv_from_scsynth_buf), sender_endpoint);
+
+   #ifdef EH_DEBUG
+   std::cout << "\n";
+   cout << "Server reply: ";
+   cout.write(recv_from_scsynth_buf.data(), len);
+   std::cout << "\n\n";
+   #endif
+
+   
+   } //end try
+   
+   catch (std::exception& e) {
+    cerr << e.what() << endl;
+   }
+}
+
+void Client_Server::_queryBuffer(int bufNum)
+{
+   try {
+   #ifdef EH_DEBUG
+   cout << "\nSend: /b_query " << bufNum << " command to server..." << endl;
+   #endif
+   
+   //Udp via Boost
+   io_service io_service;
+   udp::resolver resolver(io_service);
+   udp::resolver::query query(udp::v4(), _getHost(), _getPort());
+   udp::endpoint receiver_endpoint = *resolver.resolve(query);
+   udp::socket socket(io_service);
+   socket.open(udp::v4());
+   
+   //create a OSC message using tnyosc.hpp
+   Message msg("/b_query");
+   msg.append(bufNum);
+   
+   //send the message 
+   socket.send_to(buffer(msg.data(), msg.size()), receiver_endpoint);
+
+   //receive return message from server -- will this work since scsynth's repsonse is asynchronous?
+   boost::array<char, 256> recv_from_scsynth_buf;
+   udp::endpoint sender_endpoint;
+   size_t len = socket.receive_from(buffer(recv_from_scsynth_buf), sender_endpoint);
+
+   #ifdef EH_DEBUG
+   std::cout << "\n";
+   cout << "Server reply: ";
+   cout.write(recv_from_scsynth_buf.data(), len);
+   std::cout << "\n\n";
+   #endif
+
+   
+   } //end try
+   
+   catch (std::exception& e) {
+    cerr << e.what() << endl;
+   }
 }
 
 bool Client_Server::_runNode(int nodeId, int flag)
