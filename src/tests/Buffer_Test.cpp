@@ -15,18 +15,19 @@ int main()
 
   std::map<std::string, float> sArgs;
   sArgs["bufnum"] = b._getBufNum();
-  Synth s(cs, "SoundFile_Object_Event_Stereo", cs._nextNodeId(), sArgs);
+  Synth s(cs, "SoundFile_Stutter_Loop_Stereo", cs._nextNodeId(), sArgs);
+  sleep(24);
      
   //Stress test - read soundfile into new buffer as fast as possible then free - 100 times
   //while sound created above plays continuously
-  int count = 0;
+ /* int count = 0;
   while(count < 100)
   {
     Buffer d(cs._nextBufferNum());
     d._readSoundFile(cs, "/Users/administrator/Desktop/bullrider.aiff");
     d._free(cs);
     ++count;
-  }
+  }*/
 
   s._free(cs);
   b._free(cs);

@@ -634,8 +634,22 @@ void Client_Server::_readSoundIntoBuffer(int bufNum,
    cout.write(recv_from_scsynth_buf.data(), len);
    std::cout << "\n\n";
    #endif
-
    
+   Message callback("/b_query");
+   callback.append(bufNum);
+   
+   //send the message 
+   socket.send_to(buffer(callback.data(), callback.size()), receiver_endpoint);
+
+   len = socket.receive_from(buffer(recv_from_scsynth_buf), sender_endpoint);
+
+   #ifdef EH_DEBUG
+   std::cout << "\n";
+   cout << "Server reply: ";
+   cout.write(recv_from_scsynth_buf.data(), len);
+   std::cout << "\n\n";
+   #endif
+
    } //end try
    
    catch (std::exception& e) {
