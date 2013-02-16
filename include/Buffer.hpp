@@ -18,7 +18,6 @@ namespace ColliderPlusPlus {
  	int _getSampRate() const {return _sampRate;}
 	const std::string& _getFilePath() const {return _filePath;}
 
-	//use cs._getBufNum() for bufNum arg
         void _alloc(Client_Server &cs, int numFrames, int numChannels);
 	void _free(Client_Server &cs);
         void _query(Client_Server &cs); //Finish me
@@ -26,9 +25,7 @@ namespace ColliderPlusPlus {
 	void _readSoundFile(Client_Server &cs,
 			  	    const std::string& filePath, 
 				       	  int startFileFrame = 0,
-						 int numFrames = -1, 
-							int startBufferFrame = 0, 
-								int leaveOpen = 0); 
+						 int numFrames = -1); 
 
     private:	
 	//members

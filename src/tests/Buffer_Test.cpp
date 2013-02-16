@@ -11,24 +11,23 @@ int main()
 {
   Client_Server cs("Server");
   Buffer b(cs._nextBufferNum());
-  b._readSoundFile(cs, "/Users/administrator/Music/Mastah Syphe/BULLRIDER EP");
+  b._readSoundFile(cs, "/Users/administrator/Desktop/cheesecake.aiff");
 
   std::map<std::string, float> sArgs;
-  sArgs["bufnum"] = b._getBufNum(); //fix this type conversion stuff
-  Synth s(cs, "SoundFile_Object_Loop_Stereo", cs._nextNodeId(), sArgs);
+  sArgs["bufnum"] = b._getBufNum();
+  Synth s(cs, "SoundFile_Object_Event_Stereo", cs._nextNodeId(), sArgs);
      
-  //Stress test 
+  //Stress test - read soundfile into new buffer as fast as possible then free - 100 times
+  //while sound created above plays continuously
   int count = 0;
   while(count < 100)
   {
-    b._alloc(cs, b._getSampRate()*4, 2);
- 
-    b._free(cs);
+    Buffer d(cs._nextBufferNum());
+    d._readSoundFile(cs, "/Users/administrator/Desktop/bullrider.aiff");
+    d._free(cs);
     ++count;
-    usleep(10000);
   }
 
-  sleep(2);
   s._free(cs);
   b._free(cs);
   cs._quit();

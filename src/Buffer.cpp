@@ -26,7 +26,7 @@ void Buffer::_alloc(Client_Server &cs, int numFrames, int numChans)
 {
   _numFrames = numFrames;
   _numChans = numChans;
-  cs._allocBuffer(_numFrames, _numChans);
+  cs._allocBuffer(_bufNum, _numFrames, _numChans);
 }
 
 void Buffer::_free(Client_Server &cs)
@@ -40,9 +40,9 @@ void Buffer::_query(Client_Server &cs)
 }
 
 void Buffer::_readSoundFile(Client_Server &cs, const std::string& filePath, int startFileFrame, 
-				int numFrames, int startBufferFrame, int leaveOpen)
+				int numFrames)
 {
   
   cs._readSoundIntoBuffer(_bufNum, filePath, startFileFrame, 
-						numFrames, startBufferFrame, leaveOpen); 
+						numFrames); 
 }

@@ -464,11 +464,11 @@ bool Client_Server::_createGroup(int nodeId, int addAction, int target)
    return false;
 }
 
-void Client_Server::_allocBuffer(int numFrames, int numChans)
+void Client_Server::_allocBuffer(int bufNum, int numFrames, int numChans)
 {
    try {
    #ifdef EH_DEBUG
-   cout << "\nSend: /b_alloc " << numFrames << " " 
+   cout << "\nSend: /b_alloc " << bufNum<< " " << numFrames << " " 
 			<< numChans << " command to server..." << endl;
    #endif
    
@@ -482,6 +482,7 @@ void Client_Server::_allocBuffer(int numFrames, int numChans)
    
    //create a OSC message using tnyosc.hpp
    Message msg("/b_alloc");
+   msg.append(bufNum);
    msg.append(numFrames);
    msg.append(numChans);
  
@@ -596,14 +597,12 @@ void Client_Server::_queryBuffer(int bufNum)
 
 void Client_Server::_readSoundIntoBuffer(int bufNum, 
 			const std::string& filePath, int startFileFrame, 
-				int numFrames, int startBufferFrame,int leaveOpen)
+				int numFrames)
 {
    try {
    #ifdef EH_DEBUG
-   cout << "\nSend: /b_read " << bufNum <<" "<<filePath<<" "
-				<<startFileFrame<<" "<<numFrames<<" "<<
-					startBufferFrame<<" "<<leaveOpen<<
-						" command to server..." << endl;
+   cout << "\nSend: /b_allocRead " << bufNum <<" "<<filePath<<" "
+				<<startFileFrame<<" "<<numFrames<<" command to server..." << endl;
    #endif
    
    //Udp via Boost
@@ -615,14 +614,12 @@ void Client_Server::_readSoundIntoBuffer(int bufNum,
    socket.open(udp::v4());
    
    //create a OSC message using tnyosc.hpp
-   Message msg("/b_read");
+   Message msg("/b_allocRead");
    msg.append(bufNum);
    msg.append(filePath);
    msg.append(startFileFrame);
    msg.append(numFrames);
-   msg.append(startBufferFrame);
-   msg.append(leaveOpen);
-   
+     
    //send the message 
    socket.send_to(buffer(msg.data(), msg.size()), receiver_endpoint);
 
