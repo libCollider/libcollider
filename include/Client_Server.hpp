@@ -33,7 +33,7 @@ namespace ColliderPlusPlus {
         
         /** System Server Commands **/
 	std::string _getName();
-        void _boot();
+        void _initialize();
         int _nextNodeId();
 	int _nextBufferNum();
 	bool _dumpOSC(int toggle);
@@ -67,7 +67,7 @@ namespace ColliderPlusPlus {
 	void _freeBuffer(int bufNum);
 	void _queryBuffer(int bufNum);
 	void _readSoundIntoBuffer(int bufNum,
-				    std::string& filePath,
+				    const std::string& filePath,
 					 int startFileFrame = 0, 
 						int numFrames = -1, 
 							int startBufferFrame =0 , 
@@ -81,6 +81,7 @@ namespace ColliderPlusPlus {
     private:
         //Methods
         bool _createDefaultGroup();
+	
 	int _pushFirstNodeId(int nextNode);
 
 	/**      OSC/UDP     **/

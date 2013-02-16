@@ -27,7 +27,7 @@ Client_Server::Client_Server()
  
   _dumpOSC(1);
    usleep(7000);
-  _boot();
+  _initialize();
    usleep(7000);
   
 }
@@ -40,7 +40,7 @@ Client_Server::Client_Server(const std::string& name)
 
   _dumpOSC(1);
    usleep(7000);
-  _boot();
+  _initialize();
    usleep(7000);
 }
 
@@ -52,7 +52,7 @@ Client_Server::Client_Server(const std::string& name, const char *host, const ch
 
   _dumpOSC(1);
    usleep(7000);
-  _boot();
+  _initialize();
    usleep(7000);
 }
 
@@ -68,11 +68,13 @@ std::string Client_Server::_getName()
 
 
 //System commands
-void Client_Server::_boot()
+void Client_Server::_initialize()
 {
   //more initialization stuff to come...
   _createDefaultGroup(); 
+  _loadSynthDefDirectory("/Users/administrator/Documents/gitprojects/ColliderPlusPlus/synthdefs/");
 }
+
 
 int Client_Server::_nextNodeId()
 {
@@ -593,7 +595,7 @@ void Client_Server::_queryBuffer(int bufNum)
 }
 
 void Client_Server::_readSoundIntoBuffer(int bufNum, 
-			std::string& filePath, int startFileFrame, 
+			const std::string& filePath, int startFileFrame, 
 				int numFrames, int startBufferFrame,int leaveOpen)
 {
    try {

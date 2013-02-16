@@ -12,7 +12,6 @@ using namespace std;
 int main()
 {
  Client_Server cs = Client_Server("MyServer");
- cs._loadSynthDef("../../synthdefs/CentroidBing.scsyndef");
  cs._queryNodeTree();
 
  //random magnitude arg for CentroidBing synth
