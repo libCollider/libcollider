@@ -21,7 +21,14 @@ namespace ColliderPlusPlus {
 	//use cs._getBufNum() for bufNum arg
         void _alloc(Client_Server &cs, int numFrames, int numChannels);
 	void _free(Client_Server &cs);
-        void _query(Client_Server &cs);
+        void _query(Client_Server &cs); //Finish me
+
+	void _readSoundFile(Client_Server &cs,
+			  	    std::string& filePath, 
+				       	  int startFileFrame = 0,
+						 int numFrames = -1, 
+							int startBufferFrame = 0, 
+								int leaveOpen = 0); 
 
     private:	
 	//members

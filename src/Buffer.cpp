@@ -38,3 +38,10 @@ void Buffer::_query(Client_Server &cs)
 {
   cs._queryBuffer(_bufNum);
 }
+
+void Buffer::_readSoundFile(Client_Server &cs, std::string& filePath, int startFileFrame, 
+				int numFrames, int startBufferFrame, int leaveOpen)
+{
+  cs._readSoundIntoBuffer(_bufNum, filePath, startFileFrame, 
+						numFrames, startBufferFrame, leaveOpen); 
+}

@@ -592,6 +592,60 @@ void Client_Server::_queryBuffer(int bufNum)
    }
 }
 
+void Client_Server::_readSoundIntoBuffer(int bufNum, 
+			std::string& filePath, int startFileFrame, 
+				int numFrames, int startBufferFrame,int leaveOpen)
+{
+   try {
+   #ifdef EH_DEBUG
+   cout << "\nSend: /b_read " << bufNum <<" "<<filePath<<" "
+				<<startFileFrame<<" "<<numFrames<<" "<<
+					startBufferFrame<<" "<<leaveOpen<<
+						" command to server..." << endl;
+   #endif
+   
+   //Udp via Boost
+   io_service io_service;
+   udp::resolver resolver(io_service);
+   udp::resolver::query query(udp::v4(), _getHost(), _getPort());
+   udp::endpoint receiver_endpoint = *resolver.resolve(query);
+   udp::socket socket(io_service);
+   socket.open(udp::v4());
+   
+   //create a OSC message using tnyosc.hpp
+   Message msg("/b_read");
+   msg.append(bufNum);
+   msg.append(filePath);
+   msg.append(startFileFrame);
+   msg.append(numFrames);
+   msg.append(startBufferFrame);
+   msg.append(leaveOpen);
+   
+   //send the message 
+   socket.send_to(buffer(msg.data(), msg.size()), receiver_endpoint);
+
+   //receive return message from server -- will this work since scsynth's repsonse is asynchronous?
+   boost::array<char, 256> recv_from_scsynth_buf;
+   udp::endpoint sender_endpoint;
+   size_t len = socket.receive_from(buffer(recv_from_scsynth_buf), sender_endpoint);
+
+   #ifdef EH_DEBUG
+   std::cout << "\n";
+   cout << "Server reply: ";
+   cout.write(recv_from_scsynth_buf.data(), len);
+   std::cout << "\n\n";
+   #endif
+
+   
+   } //end try
+   
+   catch (std::exception& e) {
+    cerr << e.what() << endl;
+   }
+   
+
+}
+
 bool Client_Server::_runNode(int nodeId, int flag)
 {
    try {
