@@ -39,8 +39,8 @@ namespace ColliderPlusPlus {
 	void _dumpOSC(int toggle);
 	void _printCurrentNodeIds();
 	void _queryNodeTree();
-	void _queryNode(int nodeId); //add wrapping method to Node class??
-        void _pingScsynth();
+	void _queryNode(int nodeId); //add wrapping method in Node class??
+        void _pingScsynth();//Finish me
 	void _quit();
        
         /** Node Commands         **/
@@ -67,7 +67,6 @@ namespace ColliderPlusPlus {
 	void _freeBuffer(int bufNum);
 	void _queryBuffer(int bufNum);
 	
-        //this should probably return bool, based on success of load
         bool _readSoundIntoBuffer(int bufNum,
 				    const std::string& filePath,
 					 int startFileFrame = 0, 
@@ -81,7 +80,6 @@ namespace ColliderPlusPlus {
     private:
         //Methods
         void _createDefaultGroup();
-	
 	int _pushFirstNodeId(int nextNode);
 
 	/**      OSC/UDP     **/
