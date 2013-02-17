@@ -44,8 +44,8 @@ namespace ColliderPlusPlus {
 	void _quit();
        
         /** Node Commands         **/
-        void _loadSynthDef(const std::string& synthDefName);
-	void _loadSynthDefDirectory(const std::string& dirName); 
+        bool _loadSynthDef(const std::string& synthDefName);
+	bool _loadSynthDefDirectory(const std::string& dirName); 
 
 	void _createNode(int nodeId, int addAction = TO_HEAD, 
 					    int target = DEFAULT_GROUP, int type = SYNTH);

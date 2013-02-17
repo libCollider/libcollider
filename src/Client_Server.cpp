@@ -72,7 +72,10 @@ void Client_Server::_initialize()
 {
   //more initialization stuff to come...
   _createDefaultGroup(); 
-  _loadSynthDefDirectory("/Users/administrator/Documents/gitprojects/ColliderPlusPlus/synthdefs/");
+  if(!_loadSynthDefDirectory("/Users/administrator/Documents/gitprojects/ColliderPlusPlus/synthdefs/"))
+  {  
+    exit(0);
+  }
 }
 
 
@@ -753,7 +756,7 @@ void Client_Server::_deepFreeAllSynths(int groupId)
    }
 }
 
-void Client_Server::_loadSynthDef(const std::string& synthDefName)
+bool Client_Server::_loadSynthDef(const std::string& synthDefName)
 {
   try {
    #ifdef EH_DEBUG
@@ -785,16 +788,25 @@ void Client_Server::_loadSynthDef(const std::string& synthDefName)
    cout << "Server reply: ";
    cout.write(recv_from_scsynth_buf.data(), len);
    std::cout << "\n\n";
-   #endif 
+   #endif
+
+   if(recv_from_scsynth_buf[1] == 'f')
+   {
+     std::cerr << "Failed to load synthdef: "<< synthDefName << "!" << std::endl;
+     return false;
+   }
+ 
+   return true; 
    } //end try 
 
    catch (std::exception& e) {
     cerr << e.what() << endl;
    }
   
+   return false;
 }
 
-void Client_Server::_loadSynthDefDirectory(const std::string& dirName)
+bool Client_Server::_loadSynthDefDirectory(const std::string& dirName)
 {
   try {
    #ifdef EH_DEBUG
@@ -826,12 +838,22 @@ void Client_Server::_loadSynthDefDirectory(const std::string& dirName)
    cout << "Server reply: ";
    cout.write(recv_from_scsynth_buf.data(), len);
    std::cout << "\n\n";
-   #endif 
+   #endif
+
+   if(recv_from_scsynth_buf[1] == 'f')
+   {
+     std::cerr << "Failed to load synthdef directory: "<< dirName << "!" << std::endl;
+     return false;
+   }
+ 
+   return true; 
    } //end try 
 
    catch (std::exception& e) {
     cerr << e.what() << endl;
    }
+  
+   return false;
 }
 
 
