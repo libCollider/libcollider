@@ -27,13 +27,14 @@ namespace ColliderPlusPlus {
     public:
 
         Client_Server();
-      	Client_Server(const std::string& name);
-        Client_Server(const std::string& name, const char *host, const char *port);
+      	Client_Server(const std::string& name, const std::string& synthDefDir);
+        Client_Server(const std::string& name, const char *host,
+			     const char *port, const std::string& synthDefDir);
       	~Client_Server();
         
         /** System Server Commands **/
 	std::string _getName();
-        void _initialize();
+        void _initialize(const std::string& synthDefDir);
         int _nextNodeId();
 	int _nextBufferNum();
 	void _dumpOSC(int toggle);
@@ -45,7 +46,7 @@ namespace ColliderPlusPlus {
        
         /** Node Commands         **/
         bool _loadSynthDef(const std::string& synthDefName);
-	bool _loadSynthDefDirectory(const std::string& dirName); 
+	bool _loadSynthDefDirectory(const std::string& synthDefDir); 
 
 	void _createNode(int nodeId, int addAction = TO_HEAD, 
 					    int target = DEFAULT_GROUP, int type = SYNTH);

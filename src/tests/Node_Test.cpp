@@ -9,10 +9,11 @@
 using namespace ColliderPlusPlus;
 using namespace std;
 
+#define SYNTH_DIR "/Users/administrator/Documents/gitprojects/ColliderPlusPlus/synthdefs/"
+
 int main()
 {
- Client_Server cs = Client_Server("MyServer");
- cs._queryNodeTree();
+ Client_Server cs = Client_Server("MyServer", SYNTH_DIR);
 
  //random magnitude arg for CentroidBing synth
  boost::mt19937 magRng;
@@ -39,7 +40,6 @@ int main()
 
  while(count < 1000) { 
 
- //Random magnitude arg for CentroidBing Synth
  float randMagVal = randMag();
  float randRakeVal = randRake();
  float randPanVal = randPan();

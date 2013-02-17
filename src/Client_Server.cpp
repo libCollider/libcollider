@@ -27,12 +27,10 @@ Client_Server::Client_Server()
  
   _dumpOSC(1);
    usleep(7000);
-  _initialize();
-   usleep(7000);
-  
+  _initialize("../synthdefs/");
 }
 
-Client_Server::Client_Server(const std::string& name)
+Client_Server::Client_Server(const std::string& name, const std::string& synthDefDir)
 :_nextNode(1000), _name(name)
 {
   _setHost("127.0.0.1");
@@ -40,11 +38,11 @@ Client_Server::Client_Server(const std::string& name)
 
   _dumpOSC(1);
    usleep(7000);
-  _initialize();
-   usleep(7000);
+  _initialize(synthDefDir);
 }
 
-Client_Server::Client_Server(const std::string& name, const char *host, const char *port)
+Client_Server::Client_Server(const std::string& name, const char *host, 
+					const char *port, const std::string& synthDefDir)
 :_nextNode(1000), _name(name)
 {
   _setHost(host);
@@ -52,8 +50,7 @@ Client_Server::Client_Server(const std::string& name, const char *host, const ch
 
   _dumpOSC(1);
    usleep(7000);
-  _initialize();
-   usleep(7000);
+  _initialize(synthDefDir);
 }
 
 Client_Server::~Client_Server()
@@ -68,11 +65,11 @@ std::string Client_Server::_getName()
 
 
 //System commands
-void Client_Server::_initialize()
+void Client_Server::_initialize(const std::string& synthDefDir)
 {
   //more initialization stuff to come...
   _createDefaultGroup(); 
-  if(!_loadSynthDefDirectory("/Users/administrator/Documents/gitprojects/ColliderPlusPlus/synthdefs/"))
+  if(!_loadSynthDefDirectory(synthDefDir))
   {  
     exit(0);
   }
@@ -806,11 +803,11 @@ bool Client_Server::_loadSynthDef(const std::string& synthDefName)
    return false;
 }
 
-bool Client_Server::_loadSynthDefDirectory(const std::string& dirName)
+bool Client_Server::_loadSynthDefDirectory(const std::string& synthDefDir)
 {
   try {
    #ifdef EH_DEBUG
-   cout << "\nSend: /d_loadDir " << dirName << " command to server..." << endl;
+   cout << "\nSend: /d_loadDir " << synthDefDir << " command to server..." << endl;
    #endif
     
    //Udp via Boost
@@ -823,7 +820,7 @@ bool Client_Server::_loadSynthDefDirectory(const std::string& dirName)
    
    //create a OSC message using tnyosc.hpp
    Message msg("/d_loadDir"); 
-   msg.append(dirName);  
+   msg.append(synthDefDir);  
 
    //send the message 
    socket.send_to(buffer(msg.data(), msg.size()), receiver_endpoint);
@@ -842,7 +839,7 @@ bool Client_Server::_loadSynthDefDirectory(const std::string& dirName)
 
    if(recv_from_scsynth_buf[1] == 'f')
    {
-     std::cerr << "Failed to load synthdef directory: "<< dirName << "!" << std::endl;
+     std::cerr << "Failed to load synthdef directory: "<< synthDefDir << "!" << std::endl;
      return false;
    }
  
