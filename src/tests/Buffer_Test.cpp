@@ -4,24 +4,23 @@
 #include <map>
 #include <string>
 
-
 using namespace ColliderPlusPlus;
-
-#define SYNTH_DIR "/Users/administrator/Documents/gitprojects/ColliderPlusPlus/synthdefs/"
 
 int main(int argc, char* argv[])
 {
   std::string soundfile;
+  std::string synthDefDir;
 
-  if(argc != 2)
+  if(argc != 3)
   {
-    std::cerr << "Usage: Buffer_Test <Soundfile>" << std::endl;
+    std::cerr << "Usage: Buffer_Test <Soundfile> <SynthDefDirectory>" << std::endl;
     return 1;
   }
 
-  soundfile = argv[1];  
+  soundfile = argv[1];
+  synthDefDir = argv[2];  
   
-  Client_Server cs("Server", SYNTH_DIR);
+  Client_Server cs("Server", synthDefDir);
   Buffer b(cs._nextBufferNum());
   b._readSoundFile(cs, soundfile);
   std::map<std::string, float> sArgs;
