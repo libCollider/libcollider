@@ -7,11 +7,13 @@
 
 using namespace ColliderPlusPlus;
 
+#define SYNTH_DIR "/Users/administrator/Documents/gitprojects/ColliderPlusPlus/synthdefs/"
+
 int main()
 {
-  Client_Server cs("Server");
+  Client_Server cs("Server", SYNTH_DIR);
   Buffer b(cs._nextBufferNum());
-  b._readSoundFile(cs, "/Users/administrator/Desktop/cheesecake.wav");
+  b._readSoundFile(cs, "/Users/administrator/Desktop/cheesecake.aiff");
   std::map<std::string, float> sArgs;
   sArgs["bufnum"] = b._getBufNum();
   sArgs["stutterRate"] = 7;
