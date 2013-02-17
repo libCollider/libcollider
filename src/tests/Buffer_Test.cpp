@@ -3,30 +3,29 @@
 #include <iostream>
 #include <map>
 #include <string>
-#include <stdlib.h>
 
 using namespace ColliderPlusPlus;
 
 #define TIME_GRANULARITY_MICROSECONDS 500000.0f
 
-float getScaledTime(int durationSeconds, float granularity);
+float getScaledTime(float durationSeconds, float granularity);
+void run_time(float seconds, float granularityMicroseconds);
+  
 
 int main(int argc, char* argv[])
 {
   std::string soundfile;
   std::string synthDefDir;
-  int playbackTime;
-
-  if(argc != 4)
+ 
+  if(argc != 3)
   {
     std::cerr 
-	<< "Usage: Buffer_Test <Soundfile> <Playback Time> <SynthDefDirectory>" << std::endl;
+	<< "Usage: Buffer_Test <Soundfile> <SynthDefDirectory>" << std::endl;
     return 1;
   }
 
   soundfile = argv[1];
-  playbackTime = std::atoi(argv[2]);
-  synthDefDir = argv[3];  
+  synthDefDir = argv[2];  
   
   Client_Server cs("Server", synthDefDir);
   Buffer b(cs._nextBufferNum());
@@ -38,8 +37,7 @@ int main(int argc, char* argv[])
   Synth s(cs, "SoundFile_Stutter_Loop_Stereo", cs._nextNodeId(), sArgs);
 
   int count = 0;
-  float scaledTime = getScaledTime(playbackTime, TIME_GRANULARITY_MICROSECONDS);
-  std::cout<< "Playing for: " << playbackTime << " seconds" << std::endl;
+  float scaledTime = getScaledTime(2, TIME_GRANULARITY_MICROSECONDS);
   while(count < scaledTime )
   {
     sArgs["stutterRate"] *= 0.9;
@@ -48,16 +46,79 @@ int main(int argc, char* argv[])
     usleep(TIME_GRANULARITY_MICROSECONDS);
     ++count;
   }
-
+  
   s._free(cs);
+  std::map<std::string, float> cArgs;
+  cArgs["bufnum"] = b._getBufNum();
+  Synth c(cs, "SoundFile_Loop_Stereo", cs._nextNodeId(), cArgs);
+ 
+  run_time(9.95, TIME_GRANULARITY_MICROSECONDS);
+
+  cArgs["rate"] = 1.5;
+  c._set(cs, cArgs); 
+  
+  run_time(5, TIME_GRANULARITY_MICROSECONDS);
+
+  cArgs["rate"] = 1.0;
+  c._set(cs, cArgs);
+    
+  run_time(20, TIME_GRANULARITY_MICROSECONDS);
+
+  count = 0;
+  scaledTime = getScaledTime(4.5, TIME_GRANULARITY_MICROSECONDS);
+  while(count < scaledTime )
+  {
+    cArgs["rate"] *= 0.9;
+    c._set(cs, cArgs);
+    usleep(TIME_GRANULARITY_MICROSECONDS);
+    ++count;
+  }
+ 
+  count = 0;
+  scaledTime = getScaledTime(15, TIME_GRANULARITY_MICROSECONDS);
+  while(count < scaledTime )
+  {
+    cArgs["rate"] += 0.01;
+    c._set(cs, cArgs);
+    usleep(TIME_GRANULARITY_MICROSECONDS);
+    ++count;
+  }
+  
+  run_time(10, TIME_GRANULARITY_MICROSECONDS);
+
+  count = 0;
+  scaledTime = getScaledTime(15, TIME_GRANULARITY_MICROSECONDS);
+  while(count < scaledTime )
+  {
+    cArgs["rate"] += 0.01;
+    c._set(cs, cArgs);
+    usleep(TIME_GRANULARITY_MICROSECONDS);
+    ++count;
+  }
+
+  run_time(10, TIME_GRANULARITY_MICROSECONDS);
+  
+  c._stop(cs);
+  c._free(cs);
   b._free(cs);
   //cs._quit();
   return 0;
 }
-
-float getScaledTime(int duration, float granularity)
+  
+float getScaledTime(float duration, float granularity)
 {
   float granSeconds = granularity * 0.000001;
   float scaledTime;
   return scaledTime = duration/granSeconds;
+}
+
+void run_time(float seconds, float granularityMicroseconds)
+{
+  int count = 0;
+  float scaledTime = getScaledTime(seconds, granularityMicroseconds);
+  while(count < scaledTime)
+  {
+    usleep(granularityMicroseconds); 
+    ++count; 
+  }
 }
