@@ -50,9 +50,10 @@ int main(int argc, char* argv[])
   s._free(cs);
   std::map<std::string, float> cArgs;
   cArgs["bufnum"] = b._getBufNum();
-  Synth c(cs, "SoundFile_Loop_Stereo", cs._nextNodeId(), cArgs);
+  cArgs["amp"] = 1.0;
+  Synth c(cs, "SoundFile_Event_Stereo", cs._nextNodeId(), cArgs);
  
-  run_time(9.95, TIME_GRANULARITY_MICROSECONDS);
+  run_time(9.85, TIME_GRANULARITY_MICROSECONDS);
 
   cArgs["rate"] = 1.5;
   c._set(cs, cArgs); 
@@ -75,12 +76,12 @@ int main(int argc, char* argv[])
   }
  
   count = 0;
-  scaledTime = getScaledTime(15, TIME_GRANULARITY_MICROSECONDS);
+  scaledTime = getScaledTime(15, 250000);
   while(count < scaledTime )
   {
     cArgs["rate"] += 0.01;
     c._set(cs, cArgs);
-    usleep(TIME_GRANULARITY_MICROSECONDS);
+    usleep(250000);
     ++count;
   }
   
@@ -97,6 +98,16 @@ int main(int argc, char* argv[])
   }
 
   run_time(10, TIME_GRANULARITY_MICROSECONDS);
+  
+  count = 0;
+  scaledTime = getScaledTime(20, TIME_GRANULARITY_MICROSECONDS);
+  while(count < scaledTime )
+  {
+    cArgs["amp"] *= 0.8;
+    c._set(cs, cArgs);
+    usleep(TIME_GRANULARITY_MICROSECONDS);
+    ++count;
+  }
   
   c._stop(cs);
   c._free(cs);
