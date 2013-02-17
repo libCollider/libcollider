@@ -15,14 +15,24 @@ int main()
  cs._queryNodeTree();
 
  //random magnitude arg for CentroidBing synth
- boost::mt19937 rng;
- boost::uniform_real<> dist(0.1, 1.0);
- boost::variate_generator<boost::mt19937, boost::uniform_real<> > randMag(rng, dist);
+ boost::mt19937 magRng;
+ boost::uniform_real<> magDist(0.01, 0.65);
+ boost::variate_generator<boost::mt19937, boost::uniform_real<> > randMag(magRng, magDist);
+
+ //random rake arg for CentroidBing synth
+ boost::mt19937 rakeRng;
+ boost::uniform_real<> rakeDist(0.01, 1.0);
+ boost::variate_generator<boost::mt19937, boost::uniform_real<> > randRake(rakeRng, rakeDist);
+
+ //random pan arg for CentroidBing synth
+ boost::mt19937 panRng;
+ boost::uniform_real<> panDist(-1.0, 1.0);
+ boost::variate_generator<boost::mt19937, boost::uniform_real<> > randPan(panRng, panDist);
 
  //random sleep value for interesting timing
- boost::mt19937 rng2;
- boost::uniform_int<> dist2(20000, 750000);
- boost::variate_generator<boost::mt19937, boost::uniform_int<> > randSleep(rng2, dist2);
+ boost::mt19937 sleepRng;
+ boost::uniform_int<> sleepDist(5000, 110000);
+ boost::variate_generator<boost::mt19937, boost::uniform_int<> > randSleep(sleepRng, sleepDist);
 
  int count = 0;
  map<string, float> args;
@@ -30,9 +40,14 @@ int main()
  while(count < 1000) { 
 
  //Random magnitude arg for CentroidBing Synth
- float result = randMag();
- std::cout << result << std::endl;
- args["mag"] = result;
+ float randMagVal = randMag();
+ float randRakeVal = randRake();
+ float randPanVal = randPan();
+ std::cout << randMagVal << std::endl;
+ std::cout << randRakeVal << std::endl;
+ args["mag"] = randMagVal;
+ args["rake"] = randRakeVal;
+ args["pan"] = randPanVal;
 
  //Object style
  Synth synth(cs,"CentroidBing",-1, args);
@@ -47,7 +62,7 @@ int main()
 
  //All done
  sleep(1);
- cs._quit();
+ //cs._quit();
 
  return 0;
 }
