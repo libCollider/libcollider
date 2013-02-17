@@ -438,7 +438,7 @@ void Client_Server::_createGroup(int nodeId, int addAction, int target)
    } //end catch
 }
 
-void Client_Server::_allocBuffer(int bufNum, int numFrames, int numChans)
+bool Client_Server::_allocBuffer(int bufNum, int numFrames, int numChans)
 {
    try {
    #ifdef EH_DEBUG
@@ -476,16 +476,24 @@ void Client_Server::_allocBuffer(int bufNum, int numFrames, int numChans)
    std::cout << "\n\n";
    #endif
 
+   if(recv_from_scsynth_buf[1] == 'f')
+   {
+     std::cerr << "Failed to allocate buffer!"<<std::endl;
+     return false;
+   }
+
+   return true;
    } //end try
    
    catch (std::exception& e) {
     cerr << e.what() << endl;
    } //end catch
    
+   return false;
 }
 
 
-void Client_Server::_freeBuffer(int bufNum)
+bool Client_Server::_freeBuffer(int bufNum)
 {
    try {
    #ifdef EH_DEBUG
@@ -519,12 +527,20 @@ void Client_Server::_freeBuffer(int bufNum)
    std::cout << "\n\n";
    #endif
 
-   
+   if(recv_from_scsynth_buf[1] == 'f')
+   {
+     std::cerr << "Failed to free buffer!"<<std::endl;
+     return false;
+   }
+
+   return true;
    } //end try
    
    catch (std::exception& e) {
     cerr << e.what() << endl;
    }
+
+   return false;
 }
 
 void Client_Server::_queryBuffer(int bufNum)
@@ -611,7 +627,7 @@ bool Client_Server::_readSoundIntoBuffer(int bufNum,
 
    if(recv_from_scsynth_buf[1] == 'f')
    {
-     std::cerr << "Failed to load buffer!"<<std::endl;
+     std::cerr << "Failed to create and load buffer!"<<std::endl;
      return false;
    }
 

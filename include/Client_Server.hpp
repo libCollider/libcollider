@@ -64,19 +64,19 @@ namespace ColliderPlusPlus {
 
 	void _createGroup(int nodeId, int addAction = TO_HEAD, int target = DEFAULT_GROUP);
 
-        void _allocBuffer(int bufNum, int numFrames, int numChans);
-	void _freeBuffer(int bufNum);
-	void _queryBuffer(int bufNum);
-	
-        bool _readSoundIntoBuffer(int bufNum,
-				    const std::string& filePath,
-					 int startFileFrame = 0, 
-						int numFrames = -1);
-
 	void _runNode(int nodeId, int flag);
         void _freeNode(int nodeID);
         void _freeAllSynths(int groupId);
         void _deepFreeAllSynths(int groupId);
+
+        /** Buffer Commands      **/
+        bool _allocBuffer(int bufNum, int numFrames, int numChans);
+	bool _freeBuffer(int bufNum);
+        bool _readSoundIntoBuffer(int bufNum,
+				    const std::string& filePath,
+					 int startFileFrame = 0, 
+						int numFrames = -1);
+        void _queryBuffer(int bufNum);
 
     private:
         //Methods
