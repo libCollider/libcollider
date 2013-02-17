@@ -66,7 +66,9 @@ namespace ColliderPlusPlus {
         void _allocBuffer(int bufNum, int numFrames, int numChans);
 	void _freeBuffer(int bufNum);
 	void _queryBuffer(int bufNum);
-	void _readSoundIntoBuffer(int bufNum,
+	
+        //this should probably return bool, based on success of load
+        bool _readSoundIntoBuffer(int bufNum,
 				    const std::string& filePath,
 					 int startFileFrame = 0, 
 						int numFrames = -1);

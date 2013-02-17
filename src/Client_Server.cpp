@@ -569,7 +569,7 @@ void Client_Server::_queryBuffer(int bufNum)
    }
 }
 
-void Client_Server::_readSoundIntoBuffer(int bufNum, 
+bool Client_Server::_readSoundIntoBuffer(int bufNum, 
 			const std::string& filePath, int startFileFrame, 
 				int numFrames)
 {
@@ -608,7 +608,13 @@ void Client_Server::_readSoundIntoBuffer(int bufNum,
    cout.write(recv_from_scsynth_buf.data(), len);
    std::cout << "\n\n";
    #endif
-   
+
+   if(recv_from_scsynth_buf[1] == 'f')
+   {
+     std::cout << "Failed to load buffer!"<<std::endl;
+     return false;
+   }
+
    Message callback("/b_query");
    callback.append(bufNum);
    
@@ -623,14 +629,14 @@ void Client_Server::_readSoundIntoBuffer(int bufNum,
    cout.write(recv_from_scsynth_buf.data(), len);
    std::cout << "\n\n";
    #endif
-
+   return true;
    } //end try
    
    catch (std::exception& e) {
     cerr << e.what() << endl;
    }
    
-
+   return false;
 }
 
 void Client_Server::_runNode(int nodeId, int flag)

@@ -39,10 +39,12 @@ void Buffer::_query(Client_Server &cs)
   cs._queryBuffer(_bufNum);
 }
 
-void Buffer::_readSoundFile(Client_Server &cs, const std::string& filePath, int startFileFrame, 
+bool Buffer::_readSoundFile(Client_Server &cs, const std::string& filePath, int startFileFrame, 
 				int numFrames)
 {
   
-  cs._readSoundIntoBuffer(_bufNum, filePath, startFileFrame, 
-						numFrames); 
+  if(!cs._readSoundIntoBuffer(_bufNum, filePath, startFileFrame, numFrames))
+	return false;
+
+  return true; 
 }
