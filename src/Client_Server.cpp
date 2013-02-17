@@ -724,6 +724,79 @@ void Client_Server::_freeNode(int nodeId)
    }
 }
 
+void Client_Server::_setNodeControls(int nodeId, std::map<std::string, float> &controlVals)
+{
+  try {
+   #ifdef EH_DEBUG
+   cout << "\nSend: /n_set with args command to server..." << endl;
+   #endif
+   
+   //Udp via Boost
+   io_service io_service;
+   udp::resolver resolver(io_service);
+   udp::resolver::query query(udp::v4(), _getHost(), _getPort());
+   udp::endpoint receiver_endpoint = *resolver.resolve(query);
+   udp::socket socket(io_service);
+   socket.open(udp::v4());
+   
+   //create a OSC message using tnyosc.hpp
+   Message msg("/n_set");
+   msg.append(nodeId);
+   
+   //Iterate through arguments and append to message
+   std::map<std::string,float>::iterator i = controlVals.begin();
+
+   for(; i != controlVals.end(); ++i)
+   { 
+     msg.append((*i).first);
+     msg.append((*i).second);
+   }
+
+   //send the message 
+   socket.send_to(buffer(msg.data(), msg.size()), receiver_endpoint);
+   } //end try
+   
+   catch (std::exception& e) {
+    cerr << e.what() << endl;
+   }
+}
+
+/*void Client_Server::_setNodeControlRanges(std::map<string, float []> &controlRanges)
+{
+  try {
+   #ifdef EH_DEBUG
+   cout << "\nSend: /n_setn with args command to server..." << endl;
+   #endif
+   
+   //Udp via Boost
+   io_service io_service;
+   udp::resolver resolver(io_service);
+   udp::resolver::query query(udp::v4(), _getHost(), _getPort());
+   udp::endpoint receiver_endpoint = *resolver.resolve(query);
+   udp::socket socket(io_service);
+   socket.open(udp::v4());
+   
+   //create a OSC message using tnyosc.hpp
+   Message msg("/n_set");
+   
+   //Iterate through arguments and append to message
+   std::map<std::string, float[]>::iterator i = controlVals.begin();
+
+   for(; i != args.end(); ++i)
+   { 
+     msg.append((*i).first);
+     msg.append((*i).second);
+   }
+
+   //send the message 
+   socket.send_to(buffer(msg.data(), msg.size()), receiver_endpoint);
+   } //end try
+   
+   catch (std::exception& e) {
+    cerr << e.what() << endl;
+   }
+}*/
+
 void Client_Server::_freeAllSynths(int groupId)
 {
   try {

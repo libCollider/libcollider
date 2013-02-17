@@ -43,8 +43,6 @@ int main()
  float randMagVal = randMag();
  float randRakeVal = randRake();
  float randPanVal = randPan();
- std::cout << randMagVal << std::endl;
- std::cout << randRakeVal << std::endl;
  args["mag"] = randMagVal;
  args["rake"] = randRakeVal;
  args["pan"] = randPanVal;

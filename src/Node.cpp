@@ -48,17 +48,17 @@ void Node::_query(Client_Server &cs)
   cs._queryNode(_id);
 }
 
-void _set(std::map<std::string, float> &controlVals)
+void Node::_set(Client_Server &cs, std::map<std::string, float> &controlVals)
 {
-
+  cs._setNodeControls(_id, controlVals);
 }
 
-void _setn(std::map<std::string, float[]> &controlRanges)
+void Node::_setn(Client_Server &cs, std::map<std::string, float[]> &controlRanges)
 {
-
+ // cs._setNodeControlRanges(controlRanges);
 }
 
-void Node::_busMap(std::map<std::string, Bus> &map)
+void Node::_busMap(Client_Server &cs, std::map<std::string, Bus> &map)
 {
 
 }

@@ -23,9 +23,9 @@ namespace ColliderPlusPlus {
         std::string _getDefName() const {return _defName;}
         void _query(Client_Server &cs);
 
-        void _set(std::map<std::string, float> &controlVals);
-        void _setn(std::map<std::string, float[]> &controlRanges);
-        void _busMap(std::map<std::string, Bus> &map);
+        void _set(Client_Server &cs, std::map<std::string, float> &controlVals);
+        void _setn(Client_Server &cs, std::map<std::string, float[]> &controlRanges);
+        void _busMap(Client_Server &cs, std::map<std::string, Bus> &map);
         // TO_DO
         //Node controls - set control value, control value ranges, fill ranges, map controls to read from bus(es),
 	//Node placement 

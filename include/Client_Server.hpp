@@ -48,23 +48,26 @@ namespace ColliderPlusPlus {
 	bool _loadSynthDefDirectory(const std::string& synthDefDir); 
 
 	void _createNode(int nodeId, int addAction = TO_HEAD, 
-					    int target = DEFAULT_GROUP, int type = SYNTH);
+					     int target = DEFAULT_GROUP, int type = SYNTH);
 
 	void _createNode(const std::string& name, int nodeId,
 				     int addAction = TO_HEAD, 
-					    int target = DEFAULT_GROUP, int type = SYNTH);
+					     int target = DEFAULT_GROUP, int type = SYNTH);
 
      	void _createSynth(const std::string& name, int nodeId,
-			             int addAction = TO_HEAD, int target = DEFAULT_GROUP);
+			              int addAction = TO_HEAD, int target = DEFAULT_GROUP);
 
 	void _createSynth(const std::string& name, int nodeId, 
 			        std::map<std::string, float> &args, 
-			              int addAction = TO_HEAD,int target = DEFAULT_GROUP);
+			               int addAction = TO_HEAD,int target = DEFAULT_GROUP);
 
 	void _createGroup(int nodeId, int addAction = TO_HEAD, int target = DEFAULT_GROUP);
 
 	void _runNode(int nodeId, int flag);
         void _freeNode(int nodeID);
+        void _setNodeControls(int nodeId, std::map<std::string, float> &controlVals);
+       // void _setNodeControlRanges(int nodeId, 
+					//std::map<std::string, float []> &controlRanges);
         void _freeAllSynths(int groupId);
         void _deepFreeAllSynths(int groupId);
 
@@ -74,7 +77,7 @@ namespace ColliderPlusPlus {
         bool _readSoundIntoBuffer(int bufNum,
 				    const std::string& filePath,
 					 int startFileFrame = 0, 
-						int numFrames = -1);
+					       int numFrames = -1);
         void _queryBuffer(int bufNum);
 
     private:
