@@ -1,6 +1,5 @@
 #include "Buffer.hpp"
-
-
+#include <iostream>
 
 using namespace ColliderPlusPlus;
 
@@ -39,12 +38,12 @@ void Buffer::_query(Client_Server &cs)
   cs._queryBuffer(_bufNum);
 }
 
-bool Buffer::_readSoundFile(Client_Server &cs, const std::string& filePath, int startFileFrame, 
+void Buffer::_readSoundFile(Client_Server &cs, const std::string& filePath, int startFileFrame, 
 				int numFrames)
 {
   
   if(!cs._readSoundIntoBuffer(_bufNum, filePath, startFileFrame, numFrames))
-	return false;
-
-  return true; 
+  {
+    exit(0);
+  } 
 }

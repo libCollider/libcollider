@@ -11,8 +11,7 @@ int main()
 {
   Client_Server cs("Server");
   Buffer b(cs._nextBufferNum());
-  if(!(b._readSoundFile(cs, "/Users/administrator/Desktop/cheesecake.wav")))
-	return 1;
+  b._readSoundFile(cs, "/Users/administrator/Desktop/cheesecake.wav");
   std::map<std::string, float> sArgs;
   sArgs["bufnum"] = b._getBufNum();
   sArgs["stutterRate"] = 7;

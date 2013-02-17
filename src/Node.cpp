@@ -1,4 +1,5 @@
 #include "Node.hpp"
+#include <iostream>
 
 #define T_NODE 1
 #define T_GROUP 2
@@ -26,15 +27,13 @@ Node::~Node()
 void Node::_run(Client_Server &cs)
 {
   cs._runNode(_id, 1);
-   
   _running = true;  
 }
 
 
 void Node::_stop(Client_Server &cs)
 {
-  cs._runNode(_id, 0);
-    
+  cs._runNode(_id, 0);   
   _running = false; 
 }
 

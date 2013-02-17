@@ -611,7 +611,7 @@ bool Client_Server::_readSoundIntoBuffer(int bufNum,
 
    if(recv_from_scsynth_buf[1] == 'f')
    {
-     std::cout << "Failed to load buffer!"<<std::endl;
+     std::cerr << "Failed to load buffer!"<<std::endl;
      return false;
    }
 
@@ -661,8 +661,6 @@ void Client_Server::_runNode(int nodeId, int flag)
 
    //send the message 
    socket.send_to(buffer(msg.data(), msg.size()), receiver_endpoint);
-
-   
    } //end try
    
    catch (std::exception& e) {
@@ -719,7 +717,6 @@ void Client_Server::_freeAllSynths(int groupId)
 
    //send the message 
    socket.send_to(buffer(msg.data(), msg.size()), receiver_endpoint);
-   
    } //end try
    
    catch (std::exception& e) {
