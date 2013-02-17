@@ -11,17 +11,16 @@ int main()
 {
   Client_Server cs("Server");
   Buffer b(cs._nextBufferNum());
-  b._readSoundFile(cs, "/Users/administrator/Desktop/hat.wav");
+  b._readSoundFile(cs, "/Users/administrator/Desktop/cheesecake.aiff");
   std::map<std::string, float> sArgs;
   sArgs["bufnum"] = b._getBufNum();
   sArgs["stutterRate"] = 7;
-  sArgs["rate"] = 1;
+  sArgs["rate"] = 3.0;
   Synth s(cs, "SoundFile_Stutter_Loop_Stereo", cs._nextNodeId(), sArgs);
-  sleep(24);
+  sleep(10);
 
   s._free(cs);
   b._free(cs);
-  cs._quit();
-
+  //cs._quit();
   return 0;
 }
