@@ -34,13 +34,12 @@ namespace ColliderPlusPlus {
         
         /** System Server Commands **/
 	std::string _getName();
-        void _initialize(const std::string& synthDefDir);
         int _nextNodeId();
 	int _nextBufferNum();
 	void _dumpOSC(int toggle);
 	void _printCurrentNodeIds();
 	void _queryNodeTree();
-	void _queryNode(int nodeId); //add wrapping method in Node class??
+	void _queryNode(int nodeId);
         void _pingScsynth();//Finish me
 	void _quit();
        
@@ -82,6 +81,7 @@ namespace ColliderPlusPlus {
         //Methods
         void _createDefaultGroup();
 	int _pushFirstNodeId(int nextNode);
+        void _initialize(const std::string& synthDefDir);
 
 	/**      OSC/UDP     **/
 	void _setPort(const char *port);

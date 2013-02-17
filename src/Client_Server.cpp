@@ -42,7 +42,7 @@ Client_Server::Client_Server(const std::string& name, const std::string& synthDe
 }
 
 Client_Server::Client_Server(const std::string& name, const char *host, 
-					const char *port, const std::string& synthDefDir)
+				    const char *port, const std::string& synthDefDir)
 :_nextNode(1000), _name(name)
 {
   _setHost(host);
@@ -63,11 +63,9 @@ std::string Client_Server::_getName()
   return _name; 
 }
 
-
 //System commands
 void Client_Server::_initialize(const std::string& synthDefDir)
 {
-  //more initialization stuff to come...
   _createDefaultGroup(); 
   if(!_loadSynthDefDirectory(synthDefDir))
   {  
@@ -155,7 +153,7 @@ void Client_Server::_queryNodeTree()
    } //end catch
 } 
 
-//FINISH ME
+//Currently hangs up, don't know why
 void Client_Server::_queryNode(int nodeId)
 {
   try {
@@ -176,6 +174,19 @@ void Client_Server::_queryNode(int nodeId)
    msg.append(nodeId);
    //send the message 
    socket.send_to(buffer(msg.data(), msg.size()), receiver_endpoint);
+
+   //receive return message from server -- will this work since scsynth's repsonse is asynchronous?
+   boost::array<char, 1024> recv_from_scsynth_buf;
+   udp::endpoint sender_endpoint;
+   size_t len = socket.receive_from(buffer(recv_from_scsynth_buf), sender_endpoint);
+
+   #ifdef EH_DEBUG
+   std::cout << "\n";
+   cout << "Server reply: ";
+   cout.write(recv_from_scsynth_buf.data(), len);
+   std::cout << "\n\n";
+   #endif
+
    } //end try
    
    catch (std::exception& e) {
@@ -185,8 +196,9 @@ void Client_Server::_queryNode(int nodeId)
 
 void Client_Server::_pingScsynth()
 {
-} 
 
+
+} 
 
 void Client_Server::_quit()
 {

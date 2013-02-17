@@ -43,10 +43,23 @@ void Node::_free(Client_Server &cs)
   cs._freeNode(_id);
 }
 
-void _busMap(std::map<std::string, Bus> &map)
+void Node::_query(Client_Server &cs)
+{
+  cs._queryNode(_id);
+}
+
+void _set(std::map<std::string, float> &controlVals)
 {
 
+}
 
+void _setn(std::map<std::string, float[]> &controlRanges)
+{
+
+}
+
+void Node::_busMap(std::map<std::string, Bus> &map)
+{
 
 }
 
