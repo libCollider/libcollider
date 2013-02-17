@@ -15,9 +15,9 @@ namespace ColliderPlusPlus {
 	Node(const std::string& defName, int id);
         ~Node();
         int _getId() const {return _id;}
-	bool _run(Client_Server &cs); //mod running flag
-	bool _stop(Client_Server &cs); //mod running flag
-        bool _free(Client_Server &cs); //add check for running
+	void _run(Client_Server &cs); //mod running flag
+	void _stop(Client_Server &cs); //mod running flag
+        void _free(Client_Server &cs); //add check for running
    	bool _isPlaying()  {return _playing;}  //fix me
    	bool _isRunning()  {return _running;}	//fix me
         std::string _getDefName() const {return _defName;}

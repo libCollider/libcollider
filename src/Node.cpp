@@ -23,34 +23,25 @@ Node::~Node()
 
 }
 
-bool Node::_run(Client_Server &cs)
+void Node::_run(Client_Server &cs)
 {
-  if(!cs._runNode(_id, 1))
-    return false;
-
-  _running = true; 
-
-  return true; 
+  cs._runNode(_id, 1);
+   
+  _running = true;  
 }
 
 
-bool Node::_stop(Client_Server &cs)
+void Node::_stop(Client_Server &cs)
 {
-  if(!cs._runNode(_id, 0))
-    return false;
-
+  cs._runNode(_id, 0);
+    
   _running = false; 
-
-  return true; 
 }
 
 
-bool Node::_free(Client_Server &cs)
+void Node::_free(Client_Server &cs)
 {
-  if(!cs._freeNode(_id))
-    return false;
-
-  return true;
+  cs._freeNode(_id);
 }
 
 void _busMap(std::map<std::string, Bus> &map)

@@ -90,7 +90,7 @@ int Client_Server::_nextBufferNum()
   return (_bufferNum-1);
 }
 
-bool Client_Server::_dumpOSC(int toggle)
+void Client_Server::_dumpOSC(int toggle)
 {
   try {
    #ifdef EH_DEBUG
@@ -110,13 +110,12 @@ bool Client_Server::_dumpOSC(int toggle)
    msg.append(toggle);
    //send the message 
    socket.send_to(buffer(msg.data(), msg.size()), receiver_endpoint);
-   return true;
+   
    } //end try
    
    catch (std::exception& e) {
     cerr << e.what() << endl;
    } //end catch
-   return false;
 }
 
 void Client_Server::_printCurrentNodeIds()
@@ -184,13 +183,12 @@ void Client_Server::_queryNode(int nodeId)
    } //end catch
 }
 
-bool Client_Server::_pingScsynth()
+void Client_Server::_pingScsynth()
 {
-  return false;
 } 
 
 
-bool Client_Server::_quit()
+void Client_Server::_quit()
 {
   try {
    #ifdef EH_DEBUG
@@ -222,15 +220,11 @@ bool Client_Server::_quit()
    cout.write(recv_from_scsynth_buf.data(), len);
    std::cout << "\n\n";
    #endif 
- 
-   return true;
    } //end try 
 
    catch (std::exception& e) {
     cerr << e.what() << endl;
    }
-
-   return false;
 }
 
 
@@ -260,18 +254,17 @@ const char* Client_Server::_getHost()
 
 
 //Node Commands
-bool Client_Server::_createNode(int nodeId, int addAction, int target, int type)
+void Client_Server::_createNode(int nodeId, int addAction, int target, int type)
 {
    std::string typeTag;
   
    try {
    
-   if(type == 1)
+   if(type == 2)
+     typeTag = "/g_new";
+   else
      typeTag = "/s_new";  
-   else if (type == 2)
-     typeTag = "g_new";
-   else 
-     return false;
+   
 
    #ifdef EH_DEBUG
    cout << "\nSend: " << typeTag << " default " << nodeId <<" command to server..." << endl;
@@ -294,31 +287,26 @@ bool Client_Server::_createNode(int nodeId, int addAction, int target, int type)
 
    //send the message 
    socket.send_to(buffer(msg.data(), msg.size()), receiver_endpoint);
-
-   return true;
    } //end try
    
    catch (std::exception& e) {
     cerr << e.what() << endl;
    } //end catch
-   return false;
-
 }
 
-bool Client_Server::_createNode(const std::string& name, int nodeId, 
+void Client_Server::_createNode(const std::string& name, int nodeId, 
 		     int addAction, int target, int type)
 {
    try {
    
    std::string typeTag; 
   
-   if(type == 1)
-     typeTag = "/s_new";  
-   else if (type == 2)
-     typeTag = "g_new";
+   if(type == 2)
+     typeTag = "/g_new";  
    else 
-     return false;
-
+     typeTag = "/s_new";
+  
+ 
    #ifdef EH_DEBUG
    cout << "\nSend: " << typeTag << " " << name << " " << nodeId <<" command to server..." << endl;
    #endif
@@ -340,18 +328,14 @@ bool Client_Server::_createNode(const std::string& name, int nodeId,
 
    //send the message 
    socket.send_to(buffer(msg.data(), msg.size()), receiver_endpoint);
-
-   return true;
    } //end try
    
    catch (std::exception& e) {
     cerr << e.what() << endl;
    } //end catch
-   return false;
-
 }
 
-bool Client_Server::_createSynth(const std::string& name, int nodeId,
+void Client_Server::_createSynth(const std::string& name, int nodeId,
 					 int addAction, int target)
 {
    try {
@@ -376,17 +360,14 @@ bool Client_Server::_createSynth(const std::string& name, int nodeId,
 
    //send the message 
    socket.send_to(buffer(msg.data(), msg.size()), receiver_endpoint);
-
-   return true;
    } //end try
    
    catch (std::exception& e) {
     cerr << e.what() << endl;
    } //end catch
-   return false;
 }
 
-bool Client_Server::_createSynth(const std::string& name, int nodeId,
+void Client_Server::_createSynth(const std::string& name, int nodeId,
 			std::map<std::string, float> &args, int addAction, int target)
 {
    try {
@@ -418,20 +399,16 @@ bool Client_Server::_createSynth(const std::string& name, int nodeId,
      msg.append((*i).second);
    }
    
-
    //send the message 
    socket.send_to(buffer(msg.data(), msg.size()), receiver_endpoint);
-
-   return true;
    } //end try
    
    catch (std::exception& e) {
     cerr << e.what() << endl;
    } //end catch
-   return false;
 }
 
-bool Client_Server::_createGroup(int nodeId, int addAction, int target)
+void Client_Server::_createGroup(int nodeId, int addAction, int target)
 {
    try {
    #ifdef EH_DEBUG
@@ -454,14 +431,11 @@ bool Client_Server::_createGroup(int nodeId, int addAction, int target)
 
    //send the message 
    socket.send_to(buffer(msg.data(), msg.size()), receiver_endpoint);
-
-   return true;
    } //end try
    
    catch (std::exception& e) {
     cerr << e.what() << endl;
    } //end catch
-   return false;
 }
 
 void Client_Server::_allocBuffer(int bufNum, int numFrames, int numChans)
@@ -659,7 +633,7 @@ void Client_Server::_readSoundIntoBuffer(int bufNum,
 
 }
 
-bool Client_Server::_runNode(int nodeId, int flag)
+void Client_Server::_runNode(int nodeId, int flag)
 {
    try {
    #ifdef EH_DEBUG
@@ -682,16 +656,15 @@ bool Client_Server::_runNode(int nodeId, int flag)
    //send the message 
    socket.send_to(buffer(msg.data(), msg.size()), receiver_endpoint);
 
-   return true;
+   
    } //end try
    
    catch (std::exception& e) {
     cerr << e.what() << endl;
    }
-   return false;
 }
 
-bool Client_Server::_freeNode(int nodeId)
+void Client_Server::_freeNode(int nodeId)
 {
   try {
    #ifdef EH_DEBUG
@@ -712,13 +685,11 @@ bool Client_Server::_freeNode(int nodeId)
 
    //send the message 
    socket.send_to(buffer(msg.data(), msg.size()), receiver_endpoint);
-   return true;
    } //end try
    
    catch (std::exception& e) {
     cerr << e.what() << endl;
    }
-   return false;
 }
 
 void Client_Server::_freeAllSynths(int groupId)
@@ -779,7 +750,7 @@ void Client_Server::_deepFreeAllSynths(int groupId)
    }
 }
 
-bool Client_Server::_loadSynthDef(const std::string& synthDefName)
+void Client_Server::_loadSynthDef(const std::string& synthDefName)
 {
   try {
    #ifdef EH_DEBUG
@@ -812,16 +783,15 @@ bool Client_Server::_loadSynthDef(const std::string& synthDefName)
    cout.write(recv_from_scsynth_buf.data(), len);
    std::cout << "\n\n";
    #endif 
-   return true;
    } //end try 
 
    catch (std::exception& e) {
     cerr << e.what() << endl;
    }
-   return false;
+  
 }
 
-bool Client_Server::_loadSynthDefDirectory(const std::string& dirName)
+void Client_Server::_loadSynthDefDirectory(const std::string& dirName)
 {
   try {
    #ifdef EH_DEBUG
@@ -854,14 +824,11 @@ bool Client_Server::_loadSynthDefDirectory(const std::string& dirName)
    cout.write(recv_from_scsynth_buf.data(), len);
    std::cout << "\n\n";
    #endif 
-   return true;
    } //end try 
 
    catch (std::exception& e) {
     cerr << e.what() << endl;
    }
- 
-   return false;
 }
 
 
@@ -873,7 +840,7 @@ int Client_Server::_pushFirstNodeId(int nextNode)
   return nextNode;
 }
 
-bool Client_Server::_createDefaultGroup()
+void Client_Server::_createDefaultGroup()
 {
   try {
    #ifdef EH_DEBUG
@@ -895,11 +862,10 @@ bool Client_Server::_createDefaultGroup()
    msg.append(0);
    //send the message 
    socket.send_to(buffer(msg.data(), msg.size()), receiver_endpoint);
-   return true;
+   
    } //end try
    
    catch (std::exception& e) {
     cerr << e.what() << endl;
    } //end catch
-   return false;
 }

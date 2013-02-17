@@ -36,32 +36,32 @@ namespace ColliderPlusPlus {
         void _initialize();
         int _nextNodeId();
 	int _nextBufferNum();
-	bool _dumpOSC(int toggle);
+	void _dumpOSC(int toggle);
 	void _printCurrentNodeIds();
 	void _queryNodeTree();
 	void _queryNode(int nodeId); //add wrapping method to Node class??
-        bool _pingScsynth();
-	bool _quit();
+        void _pingScsynth();
+	void _quit();
        
         /** Node Commands         **/
-        bool _loadSynthDef(const std::string& synthDefName);
-	bool _loadSynthDefDirectory(const std::string& dirName); 
+        void _loadSynthDef(const std::string& synthDefName);
+	void _loadSynthDefDirectory(const std::string& dirName); 
 
-	bool _createNode(int nodeId, int addAction = TO_HEAD, 
+	void _createNode(int nodeId, int addAction = TO_HEAD, 
 					    int target = DEFAULT_GROUP, int type = SYNTH);
 
-	bool _createNode(const std::string& name, int nodeId,
+	void _createNode(const std::string& name, int nodeId,
 				     int addAction = TO_HEAD, 
 					    int target = DEFAULT_GROUP, int type = SYNTH);
 
-     	bool _createSynth(const std::string& name, int nodeId,
+     	void _createSynth(const std::string& name, int nodeId,
 			             int addAction = TO_HEAD, int target = DEFAULT_GROUP);
 
-	bool _createSynth(const std::string& name, int nodeId, 
+	void _createSynth(const std::string& name, int nodeId, 
 			        std::map<std::string, float> &args, 
 			              int addAction = TO_HEAD,int target = DEFAULT_GROUP);
 
-	bool _createGroup(int nodeId, int addAction = TO_HEAD, int target = DEFAULT_GROUP);
+	void _createGroup(int nodeId, int addAction = TO_HEAD, int target = DEFAULT_GROUP);
 
         void _allocBuffer(int bufNum, int numFrames, int numChans);
 	void _freeBuffer(int bufNum);
@@ -71,14 +71,14 @@ namespace ColliderPlusPlus {
 					 int startFileFrame = 0, 
 						int numFrames = -1);
 
-	bool _runNode(int nodeId, int flag);
-        bool _freeNode(int nodeID);
+	void _runNode(int nodeId, int flag);
+        void _freeNode(int nodeID);
         void _freeAllSynths(int groupId);
         void _deepFreeAllSynths(int groupId);
 
     private:
         //Methods
-        bool _createDefaultGroup();
+        void _createDefaultGroup();
 	
 	int _pushFirstNodeId(int nextNode);
 
