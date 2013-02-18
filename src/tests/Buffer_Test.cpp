@@ -7,6 +7,7 @@
 using namespace ColliderPlusPlus;
 
 #define TIME_GRANULARITY_MICROSECONDS 500000.0f
+#define SYNTH_DIR "/Users/administrator/Documents/gitprojects/ColliderPlusPlus/synthdefs/"
 
 float getScaledTime(float durationSeconds, float granularity);
 void run_time(float seconds, float granularityMicroseconds);
@@ -15,19 +16,17 @@ void run_time(float seconds, float granularityMicroseconds);
 int main(int argc, char* argv[])
 {
   std::string soundfile;
-  std::string synthDefDir;
- 
-  if(argc != 3)
+  
+  if(argc != 2)
   {
     std::cerr 
-	<< "Usage: Buffer_Test <Soundfile> <SynthDefDirectory>" << std::endl;
+	<< "Usage: Buffer_Test <Soundfile>" << std::endl;
     return 1;
   }
 
   soundfile = argv[1];
-  synthDefDir = argv[2];  
-  
-  Client_Server cs("Server", synthDefDir);
+
+  Client_Server cs("Server", SYNTH_DIR);
   Buffer b(cs._nextBufferNum());
   b._readSoundFile(cs, soundfile);
   std::map<std::string, float> sArgs;
