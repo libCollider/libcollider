@@ -8,7 +8,6 @@ int main()
   std::cout << "Creating Bus..." << std::endl;
 
   Bus b;
-
   
   return 0;
 }
