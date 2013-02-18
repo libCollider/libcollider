@@ -24,14 +24,17 @@ Buffer::~Buffer()
 
 void Buffer::_alloc(Client_Server &cs, int numFrames, int numChans)
 {
+  if(!cs._allocBuffer(_bufNum, _numFrames, _numChans))
+	exit(0);
+
   _numFrames = numFrames;
-  _numChans = numChans;
-  cs._allocBuffer(_bufNum, _numFrames, _numChans);
+  _numChans = numChans;  
 }
 
 void Buffer::_free(Client_Server &cs)
 {
-  cs._freeBuffer(_bufNum);
+  if(!cs._freeBuffer(_bufNum))
+ 	exit(0);
 }
 
 void Buffer::_query(Client_Server &cs)
