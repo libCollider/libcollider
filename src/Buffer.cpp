@@ -1,5 +1,6 @@
 #include "Buffer.hpp"
 #include <iostream>
+#include <stdlib.h>
 
 using namespace ColliderPlusPlus;
 

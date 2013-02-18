@@ -1,6 +1,8 @@
 .DS_Store
 *.swp
 *.sh
+*.cpp~
+*.gitignore~
 Buffer_Test
 Node_Test
 Bus_Test
