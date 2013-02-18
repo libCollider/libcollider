@@ -41,8 +41,7 @@ void Buffer::_query(Client_Server &cs)
 
 void Buffer::_readSoundFile(Client_Server &cs, const std::string& filePath, int startFileFrame, 
 				int numFrames)
-{
-  
+{ 
   if(!cs._readSoundIntoBuffer(_bufNum, filePath, startFileFrame, numFrames))
   {
     exit(0);

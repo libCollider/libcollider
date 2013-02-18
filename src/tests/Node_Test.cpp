@@ -9,11 +9,19 @@
 using namespace ColliderPlusPlus;
 using namespace std;
 
-#define SYNTH_DIR "/Users/administrator/Documents/gitprojects/ColliderPlusPlus/synthdefs/"
-
-int main()
+int main(int argc, char* argv[])
 {
- Client_Server cs = Client_Server("MyServer", SYNTH_DIR);
+ std::string synthDefDir;
+
+ if(argc != 2)
+ {
+   std::cerr << "Usage: Node_Test <SynthDefDirectory>" << std::endl;
+   return 1;
+ }
+
+ synthDefDir = argv[1]; 
+  
+ Client_Server cs = Client_Server("MyServer", synthDefDir);
 
  //random magnitude arg for CentroidBing synth
  boost::mt19937 magRng;
