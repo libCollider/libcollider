@@ -2,6 +2,7 @@
 *.swp
 *.sh
 *.cpp~
+*.hpp~
 *.gitignore~
 Makefile~
 Buffer_Test
