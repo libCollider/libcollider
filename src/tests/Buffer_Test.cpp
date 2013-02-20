@@ -21,7 +21,7 @@ int main(int argc, char* argv[])
   if(argc != 3)
   {
     std::cerr 
-	<< "Usage: Buffer_Test <Soundfile>" << std::endl;
+	<< "Usage: Buffer_Test <Soundfile> <SynthDefDirectory" << std::endl;
     return 1;
   }
 
