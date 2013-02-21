@@ -31,11 +31,10 @@ int main(int argc, char* argv[])
 
   Synth s(cs, "TGrain", cs._nextNodeId(), sArgs);
 
-  char a = ' ';
+  char a;
   while(a != 'q')
   {
     std::cin >> a;
-
   } 
 
   s._free(cs);
