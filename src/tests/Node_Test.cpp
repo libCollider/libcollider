@@ -12,16 +12,20 @@ using namespace std;
 int main(int argc, char* argv[])
 {
  std::string synthDefDir;
+ const char* host;
+ const char* port;
 
- if(argc != 2)
+ if(argc != 4)
  {
-   std::cerr << "Usage: Node_Test <SynthDefDirectory>" << std::endl;
+   std::cerr << "Usage: Node_Test <Host> <Port> <SynthDefDirectory>" << std::endl;
    return 1;
  }
-
- synthDefDir = argv[1]; 
+ 
+ host = argv[1];
+ port = argv[2];
+ synthDefDir = argv[3];
   
- Client_Server cs = Client_Server("MyServer", synthDefDir);
+ Client_Server cs = Client_Server("MyServer", host, port, synthDefDir);
 
  //random magnitude arg for CentroidBing synth
  boost::mt19937 magRng;

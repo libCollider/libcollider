@@ -8,3 +8,5 @@ Makefile~
 Buffer_Test
 Node_Test
 Bus_Test
+*.sh~
+Grain_Test
