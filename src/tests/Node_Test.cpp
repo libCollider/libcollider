@@ -9,22 +9,21 @@
 using namespace ColliderPlusPlus;
 using namespace std;
 
+bool init(int argc, char* argv[], const char* &host, const char* &port, std::string &synthDefDir);
+
 int main(int argc, char* argv[])
 {
+
  std::string synthDefDir;
  const char* host;
  const char* port;
 
- if(argc != 4)
+ if(!init(argc, argv, host, port, synthDefDir))
  {
-   std::cerr << "Usage: Node_Test <Host> <Port> <SynthDefDirectory>" << std::endl;
-   return 1;
+  std::cerr << "Usage: Node_Test <host> <port> <scsyndef directory>" << std::endl;
+  return 1;
  }
- 
- host = argv[1];
- port = argv[2];
- synthDefDir = argv[3];
-  
+   
  Client_Server cs = Client_Server("MyServer", host, port, synthDefDir);
 
  //random magnitude arg for CentroidBing synth
@@ -77,5 +76,18 @@ int main(int argc, char* argv[])
  return 0;
 }
 
+bool init(int argc, char* argv[], const char* &host, const char* &port, std::string &synthDefDir)
+{
+ if(argc != 4)
+ {
+   return false;
+ }
+ 
+ host = argv[1];
+ port = argv[2];
+ synthDefDir = argv[3];
+
+ return true;
+}
 
 

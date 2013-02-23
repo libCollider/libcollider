@@ -7,22 +7,25 @@
 
 using namespace ColliderPlusPlus;
 
-bool init(int argc, char* argv[], std::string &soundfile, std::string &synthDefDir);
+bool init(int argc, char* argv[], const char* &host,
+	 const char* &port, std::string &soundfile, std::string &synthDefDir);
 
 int main(int argc, char* argv[])
 {
   std::string soundfile;
   std::string synthDefDir;
+  const char* host;
+  const char* port;
   
-  if(!init(argc, argv, soundfile, synthDefDir))
+  if(!init(argc, argv, host, port, soundfile, synthDefDir))
   {
     std::cerr 
-	<< "Usage: Grain_Test <Soundfile> <SynthDefDirectory" << std::endl;
+	<< "Usage: Grain_Test <host> <port> <soundfile path> <scsyndef directory>" << std::endl;
     return 1;
   }
 
 
-  Client_Server cs("Server", synthDefDir);
+  Client_Server cs("Server", host, port, synthDefDir);
   Buffer b(cs._nextBufferNum());
   b._readSoundFile(cs, soundfile);
 
@@ -30,6 +33,8 @@ int main(int argc, char* argv[])
   sArgs["bufnum"] = b._getBufNum();
 
   Synth s(cs, "TGrain", cs._nextNodeId(), sArgs);
+  
+  std::cout << "Type 'q' and enter to quit\n" << std::endl;
 
   char a;
   while(a != 'q')
@@ -39,19 +44,23 @@ int main(int argc, char* argv[])
 
   s._free(cs);
   b._free(cs);
+
   return 0;
 }
 
-bool init(int argc, char* argv[], std::string &soundfile, std::string &synthDefDir)
+bool init(int argc, char* argv[], const char* &host,
+	 const char* &port, std::string &soundfile, std::string &synthDefDir)
 {  
 
-  if(argc != 3)
+  if(argc != 5)
   {
     return false;
   }
 
-  soundfile = argv[1];
-  synthDefDir = argv[2];
+  host = argv[1];
+  port = argv[2];
+  soundfile = argv[3];
+  synthDefDir = argv[4];
 
   return true;
 

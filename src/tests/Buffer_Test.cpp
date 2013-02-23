@@ -7,28 +7,27 @@
 using namespace ColliderPlusPlus;
 
 #define TIME_GRANULARITY_MICROSECONDS 500000.0f
-//#define SYNTH_DIR "/Users/administrator/Documents/gitprojects/ColliderPlusPlus/synthdefs/"
 
 float getScaledTime(float durationSeconds, float granularity);
 void run_time(float seconds, float granularityMicroseconds);
+bool init(int argc, char* argv[], const char* &host, const char* &port,
+			 std::string &soundfile, std::string &synthDefDir);
   
 
 int main(int argc, char* argv[])
 {
   std::string soundfile;
   std::string synthDefDir;
+  const char* host;
+  const char* port;
   
-  if(argc != 3)
+  if(!init(argc, argv, host, port, soundfile, synthDefDir))
   {
-    std::cerr 
-	<< "Usage: Buffer_Test <Soundfile> <SynthDefDirectory" << std::endl;
+    std::cerr << "Usage Buffer_Test <host> <port> <soundfile> <scsyndef directory>" << std::endl;
     return 1;
   }
 
-  soundfile = argv[1];
-  synthDefDir = argv[2];
-
-  Client_Server cs("Server", synthDefDir);
+  Client_Server cs("Server", host, port, synthDefDir);
   Buffer b(cs._nextBufferNum());
   b._readSoundFile(cs, soundfile);
   std::map<std::string, float> sArgs;
@@ -133,4 +132,20 @@ void run_time(float seconds, float granularityMicroseconds)
     usleep(granularityMicroseconds); 
     ++count; 
   }
+}
+
+bool init(int argc, char* argv[], const char* &host, const char* &port,
+				 std::string &soundfile, std::string &synthDefDir)
+{
+  if(argc != 5)
+  {
+    return false;
+  }
+
+  host = argv[1];
+  port = argv[2];
+  soundfile = argv[3];
+  synthDefDir = argv[4]; 
+ 
+  return true;
 }
