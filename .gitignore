@@ -6,6 +6,7 @@ eh_syndefs.scd
 *.cpp~
 *.hpp~
 *.gitignore~
+Doxygen~
 Makefile~
 Buffer_Test
 Node_Test
