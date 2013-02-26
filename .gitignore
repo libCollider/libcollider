@@ -1,6 +1,7 @@
 .DS_Store
 *.swp
 *.sh
+*.scd~
 *.cpp~
 *.hpp~
 *.gitignore~

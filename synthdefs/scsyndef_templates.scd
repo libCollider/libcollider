@@ -2,9 +2,9 @@
 //Write all synthdefs to .scsyndef files
 (
 
- var path;
-
-//"/Users/administrator/Documents/gitprojects/ColliderPlusPlus/synthdefs/"
+ var path = "/home/eric/gitprojects/colliderplusplus/synthdefs/linux";
+//"/home/eric/gitprojects/colliderplusplus/synthdefs/linux"
+//"/Users/administrator/Documents/gitprojects/ColliderPlusPlus/synthdefs/mac"
 
 SynthDef(\SoundFile_Loop_Mono, {| out = 0, bufnum = 0, looping = 1, trig = -1, rate = 1, amp = 1 |
 	var scaledRate, soundFilePlayer;
@@ -90,7 +90,7 @@ SynthDef(\TGrain, { |out = 0, bufnum = 0, amp = 1|
 	trate = MouseY.kr(8, 150,1);
 	dur = 12/trate;
 	clk = Impulse.kr(trate);
-	pos = MouseX.kr(0,BufDur.kr(b)) + TRand.kr(0, 0.01, clk);
+	pos = MouseX.kr(0,BufDur.kr(bufnum)) + TRand.kr(0, 0.01, clk);
     pan = WhiteNoise.kr(0.6);
 	grainOut = TGrains.ar(2, clk, bufnum, 1, pos, dur, pan, 0.1);
 	Out.ar(out, grainOut*amp)
