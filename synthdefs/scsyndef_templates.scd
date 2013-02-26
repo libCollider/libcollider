@@ -1,10 +1,9 @@
 
 //Write all synthdefs to .scsyndef files
+//Execute as one block by selecting everything inside the two outermost parantheses
 (
 
- var path = "/home/eric/gitprojects/colliderplusplus/synthdefs/linux";
-//"/home/eric/gitprojects/colliderplusplus/synthdefs/linux"
-//"/Users/administrator/Documents/gitprojects/ColliderPlusPlus/synthdefs/mac"
+ var path = "/your/path";
 
 SynthDef(\SoundFile_Loop_Mono, {| out = 0, bufnum = 0, looping = 1, trig = -1, rate = 1, amp = 1 |
 	var scaledRate, soundFilePlayer;

@@ -1,4 +1,5 @@
 .DS_Store
+eh_syndefs.scd
 *.swp
 *.sh
 *.scd~
