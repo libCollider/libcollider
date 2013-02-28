@@ -84,7 +84,7 @@ SynthDef(\FilteredWhiteNoise_Mouse_Control,{| out = 0, amp = 1 |
 }).writeDefFile(path);
 
 
-SynthDef(\TGrain, { |out = 0, bufnum = 0, amp = 1|
+SynthDef(\TGrain2, { |out = 0, bufnum = 0|
 	var trate, dur, clk, pos, pan, grainOut;
 	trate = MouseY.kr(8, 150,1);
 	dur = 12/trate;
@@ -92,7 +92,51 @@ SynthDef(\TGrain, { |out = 0, bufnum = 0, amp = 1|
 	pos = MouseX.kr(0,BufDur.kr(bufnum)) + TRand.kr(0, 0.01, clk);
     pan = WhiteNoise.kr(0.6);
 	grainOut = TGrains.ar(2, clk, bufnum, 1, pos, dur, pan, 0.1);
-	Out.ar(out, grainOut*amp)
+	Out.ar(out, grainOut)
+}).writeDefFile(path);
+
+SynthDef(\TGrain3, { |out = 0, bufnum = 0|
+	var trate, dur, clk, pos, pan, grainOut;
+	trate = MouseY.kr(8, 150,1);
+	dur = 12/trate;
+	clk = Impulse.kr(trate);
+	pos = MouseX.kr(0,BufDur.kr(bufnum)) + TRand.kr(0, 0.01, clk);
+    pan = WhiteNoise.kr(0.6);
+	grainOut = TGrains.ar(3, clk, bufnum, 1, pos, dur, pan, 0.1);
+	Out.ar(out, grainOut)
+}).writeDefFile(path);
+
+SynthDef(\TGrain4, { |out = 0, bufnum = 0|
+	var trate, dur, clk, pos, pan, grainOut;
+	trate = MouseY.kr(8, 150,1);
+	dur = 12/trate;
+	clk = Impulse.kr(trate);
+	pos = MouseX.kr(0,BufDur.kr(bufnum)) + TRand.kr(0, 0.01, clk);
+    pan = WhiteNoise.kr(0.6);
+	grainOut = TGrains.ar(4, clk, bufnum, 1, pos, dur, pan, 0.1);
+	Out.ar(out, grainOut)
+}).writeDefFile(path);
+
+SynthDef(\TGrain5, { |out = 0, bufnum = 0|
+	var trate, dur, clk, pos, pan, grainOut;
+	trate = MouseY.kr(8, 150,1);
+	dur = 12/trate;
+	clk = Impulse.kr(trate);
+	pos = MouseX.kr(0,BufDur.kr(bufnum)) + TRand.kr(0, 0.01, clk);
+    pan = WhiteNoise.kr(0.6);
+	grainOut = TGrains.ar(5, clk, bufnum, 1, pos, dur, pan, 0.1);
+	Out.ar(out, grainOut)
+}).writeDefFile(path);
+
+SynthDef(\TGrain6, { |out = 0, bufnum = 0|
+	var trate, dur, clk, pos, pan, grainOut;
+	trate = MouseY.kr(8, 150,1);
+	dur = 12/trate;
+	clk = Impulse.kr(trate);
+	pos = MouseX.kr(0,BufDur.kr(bufnum)) + TRand.kr(0, 0.01, clk);
+    pan = WhiteNoise.kr(0.6);
+	grainOut = TGrains.ar(6, clk, bufnum, 1, pos, dur, pan, 0.1);
+	Out.ar(out, grainOut)
 }).writeDefFile(path);
 
 SynthDef(\CentroidBing, {
