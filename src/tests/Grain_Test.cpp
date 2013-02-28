@@ -32,7 +32,7 @@ int main(int argc, char* argv[])
   std::map<std::string, float> sArgs;
   sArgs["bufnum"] = b._getBufNum();
 
-  Synth s(cs, "TGrain", cs._nextNodeId(), sArgs);
+  Synth s(cs, "TGrain2", cs._nextNodeId(), sArgs);
   
   std::cout << "Type 'q' and enter to quit\n" << std::endl;
 

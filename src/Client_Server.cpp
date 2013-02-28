@@ -24,10 +24,7 @@ Client_Server::Client_Server()
 {
   _setHost("127.0.0.1");
   _setPort("57110");
- 
-  _dumpOSC(1);
-   usleep(7000);
-  _initialize("../synthdefs/");
+  _createDefaultGroup();
 }
 
 Client_Server::Client_Server(const std::string& name, const std::string& synthDefDir)
@@ -35,10 +32,8 @@ Client_Server::Client_Server(const std::string& name, const std::string& synthDe
 {
   _setHost("127.0.0.1");
   _setPort("57110");
-
-  _dumpOSC(1);
-   usleep(7000);
-  _initialize(synthDefDir);
+  _createDefaultGroup();
+  _initializeSynthDefs(synthDefDir);
 }
 
 Client_Server::Client_Server(const std::string& name, const char *host, 
@@ -47,10 +42,8 @@ Client_Server::Client_Server(const std::string& name, const char *host,
 {
   _setHost(host);
   _setPort(port);
-
-  _dumpOSC(1);
-   usleep(7000);
-  _initialize(synthDefDir);
+  _createDefaultGroup();
+  _initializeSynthDefs(synthDefDir);
 }
 
 Client_Server::~Client_Server()
@@ -64,9 +57,8 @@ std::string Client_Server::_getName()
 }
 
 //System commands
-void Client_Server::_initialize(const std::string& synthDefDir)
+void Client_Server::_initializeSynthDefs(const std::string& synthDefDir)
 {
-  _createDefaultGroup(); 
   if(!_loadSynthDefDirectory(synthDefDir))
   {  
     exit(0);

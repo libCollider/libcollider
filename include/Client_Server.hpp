@@ -84,7 +84,7 @@ namespace ColliderPlusPlus {
         //Methods
         void _createDefaultGroup();
 	int _pushFirstNodeId(int nextNode);
-        void _initialize(const std::string& synthDefDir);
+        void _initializeSynthDefs(const std::string& synthDefDir);
 
 	/**      OSC/UDP     **/
 	void _setPort(const char *port);
