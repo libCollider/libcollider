@@ -29,7 +29,7 @@ int main(int argc, char* argv[])
 
   Client_Server cs("Server", host, port, synthDefDir);
   Buffer b(cs._nextBufferNum());
-  b._readSoundFile(cs, soundfile);
+  b._allocRead(cs, soundfile);
   std::map<std::string, float> sArgs;
   sArgs["bufnum"] = b._getBufNum();
   sArgs["stutterRate"] = 7;
