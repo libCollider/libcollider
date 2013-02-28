@@ -22,7 +22,7 @@ namespace ColliderPlusPlus {
 	void _free(Client_Server &cs);
         void _query(Client_Server &cs); //Finish me
 
-	void _readSoundFile(Client_Server &cs,
+	void _allocRead(Client_Server &cs,
 			  	    const std::string& filePath, 
 				       	  int startFileFrame = 0,
 						 int numFrames = -1); 

@@ -597,7 +597,7 @@ void Client_Server::_queryBuffer(int bufNum)
    }
 }
 
-bool Client_Server::_readSoundIntoBuffer(int bufNum, 
+bool Client_Server::_allocReadBuffer(int bufNum, 
 			const std::string& filePath, int startFileFrame, 
 				int numFrames)
 {

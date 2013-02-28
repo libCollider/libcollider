@@ -74,7 +74,7 @@ namespace ColliderPlusPlus {
         /** Buffer Commands      **/
         bool _allocBuffer(int bufNum, int numFrames, int numChans);
 	bool _freeBuffer(int bufNum);
-        bool _readSoundIntoBuffer(int bufNum,
+        bool _allocReadBuffer(int bufNum,
 				    const std::string& filePath,
 					 int startFileFrame = 0, 
 					       int numFrames = -1);
