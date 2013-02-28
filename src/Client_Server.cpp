@@ -20,7 +20,7 @@ using std::string;
 using std::endl;
 
 Client_Server::Client_Server()
-:_nextNode(1000), _name("Default Server"), _bufferNum(0)
+:_name("Default Server"), _nextNode(1000), _bufferNum(0)
 {
   _setHost("127.0.0.1");
   _setPort("57110");
@@ -28,7 +28,7 @@ Client_Server::Client_Server()
 }
 
 Client_Server::Client_Server(const std::string& name, const std::string& synthDefDir)
-:_nextNode(1000), _name(name), _bufferNum(0)
+:_name(name), _nextNode(1000), _bufferNum(0)
 {
   _setHost("127.0.0.1");
   _setPort("57110");
@@ -38,7 +38,7 @@ Client_Server::Client_Server(const std::string& name, const std::string& synthDe
 
 Client_Server::Client_Server(const std::string& name, const char *host, 
 				    const char *port, const std::string& synthDefDir)
-:_nextNode(1000), _name(name), _bufferNum(0)
+:_name(name), _nextNode(1000), _bufferNum(0)
 {
   _setHost(host);
   _setPort(port);
