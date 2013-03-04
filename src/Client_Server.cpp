@@ -468,7 +468,7 @@ bool Client_Server::_allocBuffer(int bufNum, int numFrames, int numChans)
    //send the message 
    socket.send_to(buffer(msg.data(), msg.size()), receiver_endpoint);
 
-   //receive return message from server -- will this work since scsynth's repsonse is asynchronous?
+   
    boost::array<char, 1024> recv_from_scsynth_buf;
    udp::endpoint sender_endpoint;
    size_t len = socket.receive_from(buffer(recv_from_scsynth_buf), sender_endpoint);
@@ -519,7 +519,7 @@ bool Client_Server::_freeBuffer(int bufNum)
    //send the message 
    socket.send_to(buffer(msg.data(), msg.size()), receiver_endpoint);
 
-   //receive return message from server -- will this work since scsynth's repsonse is asynchronous?
+   
    boost::array<char, 1024> recv_from_scsynth_buf;
    udp::endpoint sender_endpoint;
    size_t len = socket.receive_from(buffer(recv_from_scsynth_buf), sender_endpoint);
@@ -569,7 +569,7 @@ void Client_Server::_queryBuffer(int bufNum)
    //send the message 
    socket.send_to(buffer(msg.data(), msg.size()), receiver_endpoint);
 
-   //receive return message from server -- will this work since scsynth's repsonse is asynchronous?
+   
    boost::array<char, 1024> recv_from_scsynth_buf;
    udp::endpoint sender_endpoint;
    size_t len = socket.receive_from(buffer(recv_from_scsynth_buf), sender_endpoint);
@@ -617,7 +617,7 @@ bool Client_Server::_allocReadBuffer(int bufNum,
    //send the message 
    socket.send_to(buffer(msg.data(), msg.size()), receiver_endpoint);
 
-   //receive return message from server -- will this work since scsynth's repsonse is asynchronous?
+   
    boost::array<char, 1024> recv_from_scsynth_buf;
    udp::endpoint sender_endpoint;
    size_t len = socket.receive_from(buffer(recv_from_scsynth_buf), sender_endpoint);
@@ -868,7 +868,7 @@ bool Client_Server::_loadSynthDef(const std::string& synthDefName)
    //send the message 
    socket.send_to(buffer(msg.data(), msg.size()), receiver_endpoint);
 
-   //receive return message from server -- will this work since scsynth's repsonse is asynchronous?
+   
    boost::array<char, 1024> recv_from_scsynth_buf;
    udp::endpoint sender_endpoint;
    size_t len = socket.receive_from(buffer(recv_from_scsynth_buf), sender_endpoint);
@@ -918,7 +918,7 @@ bool Client_Server::_loadSynthDefDirectory(const std::string& synthDefDir)
    //send the message 
    socket.send_to(buffer(msg.data(), msg.size()), receiver_endpoint);
 
-   //receive return message from server -- will this work since scsynth's repsonse is asynchronous?
+   
    boost::array<char, 1024> recv_from_scsynth_buf;
    udp::endpoint sender_endpoint;
    size_t len = socket.receive_from(buffer(recv_from_scsynth_buf), sender_endpoint);
