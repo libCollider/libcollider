@@ -1,10 +1,15 @@
 VPATH =src:include:include/tny_osc
+#suffix = .dylib
+#libtype = dynamiclib
+libtype = shared
+libsuffix = so
 
 libcolliderpp: Client_Server.o Buffer.o Bus.o Node.o
-	gcc -shared -o libcollider++.so.1.0.1 src/Client_Server.o src/Buffer.o src/Bus.o src/Node.o -I/usr/local/include/boost/ -L/usr/local/lib/ -lboost_system -lboost_thread -lpthread -lstdc++ 
+	gcc -$(libtype) -o libcollider++.$(libsuffix) src/Client_Server.o src/Buffer.o src/Bus.o src/Node.o -I/usr/local/include/boost/ -L/usr/local/lib/ -lboost_system -lboost_thread -lpthread -lstdc++ 
 	mkdir build
-	mv libcollider++.so.1.0.1 build
+	mv libcollider++.$(libsuffix) build
 	rm -f src/*.o
+
 
 Client_Server.o : Client_Server.cpp Client_Server.hpp tnyosc.hpp
 	gcc -c -fPIC src/Client_Server.cpp -o src/Client_Server.o -Iinclude/ -Iinclude/tny_osc/ -DEH_DEBUG
@@ -22,9 +27,8 @@ clean:
 	rm -rf build
 
 install:
-	cp build/libcollider++.so.1.0.1 /usr/lib
-	chmod 0755 /usr/lib/libcollider++.so.1.0.1
+	cp build/libcollider++.$(libsuffix) /usr/lib
+	chmod 0755 /usr/lib/libcollider++.$(libsuffix)
 
 uninstall:
-	rm /usr/lib/libcollider++.so.1.0.1
-
+	rm /usr/lib/libcollider++.$(libsuffix)
