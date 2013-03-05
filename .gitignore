@@ -6,6 +6,12 @@ eh_syndefs.scd
 *.cpp~
 *.hpp~
 *.gitignore~
+build
+*.o
+*.o~
+*.dylib
+*.so
+*.a
 Doxygen~
 Makefile~
 Buffer_Test
