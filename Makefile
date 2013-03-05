@@ -1,8 +1,20 @@
 VPATH =src:include:include/tny_osc
-#suffix = .dylib
-#libtype = dynamiclib
-libtype = shared
-libsuffix = so
+mac_libsuffix = dylib
+mac_libtype = dynamiclib
+linux_libsuffix = so
+linux_libtype = shared
+
+platform = linux
+
+ifeq ($(platform), mac)
+  libtype = $(mac_libtype)
+  libsuffix = $(mac_libsuffix)
+endif
+
+ifeq ($(platform), linux)
+  libtype = $(linux_libtype)
+  libsuffix = $(linux_libsuffix)
+endif
 
 libcolliderpp: Client_Server.o Buffer.o Bus.o Node.o
 	gcc -$(libtype) -o libcollider++.$(libsuffix) src/Client_Server.o src/Buffer.o src/Bus.o src/Node.o -I/usr/local/include/boost/ -L/usr/local/lib/ -lboost_system -lboost_thread -lpthread -lstdc++ 
