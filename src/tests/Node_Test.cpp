@@ -25,6 +25,7 @@ int main(int argc, char* argv[])
  }
    
  Client_Server cs = Client_Server("MyServer", host, port, synthDefDir);
+// cs._dumpOSC(0);
 
  //random magnitude arg for CentroidBing synth
  boost::mt19937 magRng;
@@ -43,7 +44,7 @@ int main(int argc, char* argv[])
 
  //random sleep value for interesting timing
  boost::mt19937 sleepRng;
- boost::uniform_int<> sleepDist(5000, 110000);
+ boost::uniform_int<> sleepDist(50000, 1000000);
  boost::variate_generator<boost::mt19937, boost::uniform_int<> > randSleep(sleepRng, sleepDist);
 
  int count = 0;

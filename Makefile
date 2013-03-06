@@ -4,14 +4,14 @@ mac_libtype = dynamiclib
 linux_libsuffix = so
 linux_libtype = shared
 
-platform = linux
+p = linux
 
-ifeq ($(platform), mac)
+ifeq ($(p), mac)
   libtype = $(mac_libtype)
   libsuffix = $(mac_libsuffix)
 endif
 
-ifeq ($(platform), linux)
+ifeq ($(p), linux)
   libtype = $(linux_libtype)
   libsuffix = $(linux_libsuffix)
 endif
