@@ -24,16 +24,14 @@ libcolliderpp: Client_Server.o Buffer.o Bus.o Node.o
 
 
 Client_Server.o : Client_Server.cpp Client_Server.hpp tnyosc.hpp
-	gcc -c -fPIC src/Client_Server.cpp -o src/Client_Server.o -Iinclude/ -Iinclude/tny_osc/ -DEH_DEBUG
+	gcc -c -fPIC src/Client_Server.cpp -o src/Client_Server.o -Iinclude/ -Iinclude/tny_osc/ -DEH_DEBUG -DTNYOSC_WITH_BOOST
 
 Buffer.o : Buffer.cpp Buffer.hpp
-	gcc -c -fPIC src/Buffer.cpp -o src/Buffer.o -Iinclude/ -Iinclude/tny_osc/ -DEH_DEBUG
-
+	gcc -c -fPIC src/Buffer.cpp -o src/Buffer.o -Iinclude/ 
 Bus.o : Bus.cpp Bus.hpp
-	gcc -c -fPIC src/Bus.cpp -o src/Bus.o -Iinclude/ -Iinclude/tny_osc/ -DEH_DEBUG
-
+	gcc -c -fPIC src/Bus.cpp -o src/Bus.o -Iinclude/ 
 Node.o : Node.cpp Node.hpp
-	gcc -c -fPIC src/Node.cpp -o src/Node.o -Iinclude/ -Iinclude/tny_osc/ -DEH_DEBUG
+	gcc -c -fPIC src/Node.cpp -o src/Node.o -Iinclude/ 
 
 clean: 
 	rm -rf build

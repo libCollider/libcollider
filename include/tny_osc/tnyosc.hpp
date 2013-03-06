@@ -177,7 +177,7 @@ inline int gettimeofday(struct timeval *tv, struct timezone *tz)
 /// @ref [http://stackoverflow.com/questions/2641954/create-ntp-time-stamp-from-gettimeofday]
 inline uint64_t get_current_ntp_time()
 {
-  // time between 1-1-1900 and 1-1-1950
+  // time between 1-1-1900 and 1-1-1970
   static const uint64_t epoch = 2208988800UL;
   // max value of NTP fractional part
   static const uint64_t ntp_scale = 4294967295UL;
