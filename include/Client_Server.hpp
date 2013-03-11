@@ -1,6 +1,6 @@
 /// @file Client_Server.hpp
 /// @brief Header file for Client_Server.hpp
-/// @author Eric Hamdan 
+/// @author Eric Hamdan erichamdan@gmail.com 
 #ifndef CLIENT_SERVER
 #define CLIENT_SERVER
 

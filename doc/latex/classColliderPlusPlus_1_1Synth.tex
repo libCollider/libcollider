@@ -1,6 +1,15 @@
 \hypertarget{classColliderPlusPlus_1_1Synth}{\section{Collider\-Plus\-Plus\-:\-:Synth Class Reference}
 \label{classColliderPlusPlus_1_1Synth}\index{Collider\-Plus\-Plus\-::\-Synth@{Collider\-Plus\-Plus\-::\-Synth}}
 }
+
+
+This class represents a client-\/side version of a server synth.  
+
+
+
+
+{\ttfamily \#include $<$Node.\-hpp$>$}
+
 Inheritance diagram for Collider\-Plus\-Plus\-:\-:Synth\-:\begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -10,16 +19,74 @@ Inheritance diagram for Collider\-Plus\-Plus\-:\-:Synth\-:\begin{figure}[H]
 \subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\hypertarget{classColliderPlusPlus_1_1Synth_ac3f806d2e0109543b2e511a7b5b2fe79}{{\bfseries Synth} (\hyperlink{classColliderPlusPlus_1_1Client__Server}{Client\-\_\-\-Server} \&cs, const std\-::string \&def\-Name, int id, int add\-Action=T\-O\-\_\-\-H\-E\-A\-D, int target=D\-E\-F\-A\-U\-L\-T\-\_\-\-G\-R\-O\-U\-P)}\label{classColliderPlusPlus_1_1Synth_ac3f806d2e0109543b2e511a7b5b2fe79}
-
+\hyperlink{classColliderPlusPlus_1_1Synth_ac3f806d2e0109543b2e511a7b5b2fe79}{Synth} (\hyperlink{classColliderPlusPlus_1_1Client__Server}{Client\-\_\-\-Server} \&cs, const std\-::string \&def\-Name, int id, int add\-Action=T\-O\-\_\-\-H\-E\-A\-D, int target=D\-E\-F\-A\-U\-L\-T\-\_\-\-G\-R\-O\-U\-P)
 \item 
-\hypertarget{classColliderPlusPlus_1_1Synth_adf2410b3751b1aac52f3c8245f93f822}{{\bfseries Synth} (\hyperlink{classColliderPlusPlus_1_1Client__Server}{Client\-\_\-\-Server} \&cs, const std\-::string \&def\-Name, int id, std\-::map$<$ std\-::string, float $>$ \&args, int add\-Action=T\-O\-\_\-\-H\-E\-A\-D, int target=D\-E\-F\-A\-U\-L\-T\-\_\-\-G\-R\-O\-U\-P)}\label{classColliderPlusPlus_1_1Synth_adf2410b3751b1aac52f3c8245f93f822}
+\hyperlink{classColliderPlusPlus_1_1Synth_adf2410b3751b1aac52f3c8245f93f822}{Synth} (\hyperlink{classColliderPlusPlus_1_1Client__Server}{Client\-\_\-\-Server} \&cs, const std\-::string \&def\-Name, int id, std\-::map$<$ std\-::string, float $>$ \&args, int add\-Action=T\-O\-\_\-\-H\-E\-A\-D, int target=D\-E\-F\-A\-U\-L\-T\-\_\-\-G\-R\-O\-U\-P)
+\item 
+\hypertarget{classColliderPlusPlus_1_1Synth_a499506ce3ce3335a7885a81d21630da2}{\hyperlink{classColliderPlusPlus_1_1Synth_a499506ce3ce3335a7885a81d21630da2}{$\sim$\-Synth} ()}\label{classColliderPlusPlus_1_1Synth_a499506ce3ce3335a7885a81d21630da2}
 
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Destructor. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Additional Inherited Members}
+
+
+\subsection{Detailed Description}
+This class represents a client-\/side version of a server synth. 
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classColliderPlusPlus_1_1Synth_ac3f806d2e0109543b2e511a7b5b2fe79}{\index{Collider\-Plus\-Plus\-::\-Synth@{Collider\-Plus\-Plus\-::\-Synth}!Synth@{Synth}}
+\index{Synth@{Synth}!ColliderPlusPlus::Synth@{Collider\-Plus\-Plus\-::\-Synth}}
+\subsubsection[{Synth}]{\setlength{\rightskip}{0pt plus 5cm}Synth\-::\-Synth (
+\begin{DoxyParamCaption}
+\item[{{\bf Client\-\_\-\-Server} \&}]{cs, }
+\item[{const std\-::string \&}]{def\-Name, }
+\item[{int}]{id, }
+\item[{int}]{add\-Action = {\ttfamily TO\-\_\-HEAD}, }
+\item[{int}]{target = {\ttfamily DEFAULT\-\_\-GROUP}}
+\end{DoxyParamCaption}
+)}}\label{classColliderPlusPlus_1_1Synth_ac3f806d2e0109543b2e511a7b5b2fe79}
+Create a \hyperlink{classColliderPlusPlus_1_1Synth}{Synth} with a user defined name, id, add\-Action, and target If no add\-Action is specified, this \hyperlink{classColliderPlusPlus_1_1Synth}{Synth} is added to the head of target group If no target group is specified, this \hyperlink{classColliderPlusPlus_1_1Synth}{Synth} is added to the Default \hyperlink{classColliderPlusPlus_1_1Group}{Group} 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em Client\-\_\-\-Server\&} & \hyperlink{classColliderPlusPlus_1_1Client__Server}{Client\-\_\-\-Server} instance \\
+\hline
+\mbox{\tt in}  & {\em const} & std\-::string\& def\-Name \\
+\hline
+\mbox{\tt in}  & {\em int} & Id \\
+\hline
+\mbox{\tt in}  & {\em int} & Add Action \\
+\hline
+\mbox{\tt in}  & {\em int} & Target \hyperlink{classColliderPlusPlus_1_1Group}{Group} \\
+\hline
+\end{DoxyParams}
+\hypertarget{classColliderPlusPlus_1_1Synth_adf2410b3751b1aac52f3c8245f93f822}{\index{Collider\-Plus\-Plus\-::\-Synth@{Collider\-Plus\-Plus\-::\-Synth}!Synth@{Synth}}
+\index{Synth@{Synth}!ColliderPlusPlus::Synth@{Collider\-Plus\-Plus\-::\-Synth}}
+\subsubsection[{Synth}]{\setlength{\rightskip}{0pt plus 5cm}Synth\-::\-Synth (
+\begin{DoxyParamCaption}
+\item[{{\bf Client\-\_\-\-Server} \&}]{cs, }
+\item[{const std\-::string \&}]{def\-Name, }
+\item[{int}]{id, }
+\item[{std\-::map$<$ std\-::string, float $>$ \&}]{args, }
+\item[{int}]{add\-Action = {\ttfamily TO\-\_\-HEAD}, }
+\item[{int}]{target = {\ttfamily DEFAULT\-\_\-GROUP}}
+\end{DoxyParamCaption}
+)}}\label{classColliderPlusPlus_1_1Synth_adf2410b3751b1aac52f3c8245f93f822}
+Create a \hyperlink{classColliderPlusPlus_1_1Synth}{Synth} with a user defined name, id, \hyperlink{classColliderPlusPlus_1_1Node}{Node} args, add\-Action, and target If no add\-Action is specified, this \hyperlink{classColliderPlusPlus_1_1Synth}{Synth} is added to the head of target group If no target group is specified, this \hyperlink{classColliderPlusPlus_1_1Synth}{Synth} is added to the Default \hyperlink{classColliderPlusPlus_1_1Group}{Group} 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em Client\-\_\-\-Server\&} & \hyperlink{classColliderPlusPlus_1_1Client__Server}{Client\-\_\-\-Server} instance \\
+\hline
+\mbox{\tt in}  & {\em const} & std\-::string\& def\-Name \\
+\hline
+\mbox{\tt in}  & {\em int} & Id \\
+\hline
+\mbox{\tt in}  & {\em std\-::map$<$std\-::string,float$>$} & Args \\
+\hline
+\mbox{\tt in}  & {\em int} & Add Action \\
+\hline
+\mbox{\tt in}  & {\em int} & Target \hyperlink{classColliderPlusPlus_1_1Group}{Group} \\
+\hline
+\end{DoxyParams}
 
 
 The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
 \item 
-include/Node.\-hpp\item 
+include/\hyperlink{Node_8hpp}{Node.\-hpp}\item 
 src/Node.\-cpp\end{DoxyCompactItemize}

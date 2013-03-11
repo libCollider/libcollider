@@ -1,6 +1,15 @@
 \hypertarget{classColliderPlusPlus_1_1Node}{\section{Collider\-Plus\-Plus\-:\-:Node Class Reference}
 \label{classColliderPlusPlus_1_1Node}\index{Collider\-Plus\-Plus\-::\-Node@{Collider\-Plus\-Plus\-::\-Node}}
 }
+
+
+This class represents a client-\/side version of a server node (\hyperlink{classColliderPlusPlus_1_1Synth}{Synth} or \hyperlink{classColliderPlusPlus_1_1Group}{Group})  
+
+
+
+
+{\ttfamily \#include $<$Node.\-hpp$>$}
+
 Inheritance diagram for Collider\-Plus\-Plus\-:\-:Node\-:\begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -10,42 +19,44 @@ Inheritance diagram for Collider\-Plus\-Plus\-:\-:Node\-:\begin{figure}[H]
 \subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\hypertarget{classColliderPlusPlus_1_1Node_a71fb6780106a85088fc3e7f33e5d5e52}{{\bfseries Node} (const std\-::string \&def\-Name, int id)}\label{classColliderPlusPlus_1_1Node_a71fb6780106a85088fc3e7f33e5d5e52}
+\hypertarget{classColliderPlusPlus_1_1Node_ad7a34779cad45d997bfd6d3d8043c75f}{\hyperlink{classColliderPlusPlus_1_1Node_ad7a34779cad45d997bfd6d3d8043c75f}{Node} ()}\label{classColliderPlusPlus_1_1Node_ad7a34779cad45d997bfd6d3d8043c75f}
 
+\begin{DoxyCompactList}\small\item\em Default Constructor. \end{DoxyCompactList}\item 
+\hyperlink{classColliderPlusPlus_1_1Node_a71fb6780106a85088fc3e7f33e5d5e52}{Node} (const std\-::string \&def\-Name, int id)
 \item 
-\hypertarget{classColliderPlusPlus_1_1Node_a261794de64a2198ca94e2c6410f3845f}{int {\bfseries \-\_\-get\-Id} () const }\label{classColliderPlusPlus_1_1Node_a261794de64a2198ca94e2c6410f3845f}
+\hypertarget{classColliderPlusPlus_1_1Node_aa0840c3cb5c7159be6d992adecd2097c}{\hyperlink{classColliderPlusPlus_1_1Node_aa0840c3cb5c7159be6d992adecd2097c}{$\sim$\-Node} ()}\label{classColliderPlusPlus_1_1Node_aa0840c3cb5c7159be6d992adecd2097c}
 
+\begin{DoxyCompactList}\small\item\em Destructor. \end{DoxyCompactList}\item 
+int \hyperlink{classColliderPlusPlus_1_1Node_a261794de64a2198ca94e2c6410f3845f}{\-\_\-get\-Id} () const 
 \item 
-\hypertarget{classColliderPlusPlus_1_1Node_a5c1390cb98645d55ada8b547a1ecf496}{void {\bfseries \-\_\-run} (\hyperlink{classColliderPlusPlus_1_1Client__Server}{Client\-\_\-\-Server} \&cs)}\label{classColliderPlusPlus_1_1Node_a5c1390cb98645d55ada8b547a1ecf496}
+\hypertarget{classColliderPlusPlus_1_1Node_a5c1390cb98645d55ada8b547a1ecf496}{void \hyperlink{classColliderPlusPlus_1_1Node_a5c1390cb98645d55ada8b547a1ecf496}{\-\_\-run} (\hyperlink{classColliderPlusPlus_1_1Client__Server}{Client\-\_\-\-Server} \&cs)}\label{classColliderPlusPlus_1_1Node_a5c1390cb98645d55ada8b547a1ecf496}
 
+\begin{DoxyCompactList}\small\item\em Command the server to run this \hyperlink{classColliderPlusPlus_1_1Node}{Node}. \end{DoxyCompactList}\item 
+\hypertarget{classColliderPlusPlus_1_1Node_a67149c1c5c041254d6d232189d536beb}{void \hyperlink{classColliderPlusPlus_1_1Node_a67149c1c5c041254d6d232189d536beb}{\-\_\-stop} (\hyperlink{classColliderPlusPlus_1_1Client__Server}{Client\-\_\-\-Server} \&cs)}\label{classColliderPlusPlus_1_1Node_a67149c1c5c041254d6d232189d536beb}
+
+\begin{DoxyCompactList}\small\item\em Command the server to stop this \hyperlink{classColliderPlusPlus_1_1Node}{Node}. \end{DoxyCompactList}\item 
+\hypertarget{classColliderPlusPlus_1_1Node_aa0314218cf221dc32ae0f4e40a294f5c}{void \hyperlink{classColliderPlusPlus_1_1Node_aa0314218cf221dc32ae0f4e40a294f5c}{\-\_\-free} (\hyperlink{classColliderPlusPlus_1_1Client__Server}{Client\-\_\-\-Server} \&cs)}\label{classColliderPlusPlus_1_1Node_aa0314218cf221dc32ae0f4e40a294f5c}
+
+\begin{DoxyCompactList}\small\item\em Command the server to free this \hyperlink{classColliderPlusPlus_1_1Node}{Node}. \end{DoxyCompactList}\item 
+bool \hyperlink{classColliderPlusPlus_1_1Node_a52123c9868b5e1833750158c870c3b87}{\-\_\-is\-Playing} ()
 \item 
-\hypertarget{classColliderPlusPlus_1_1Node_a67149c1c5c041254d6d232189d536beb}{void {\bfseries \-\_\-stop} (\hyperlink{classColliderPlusPlus_1_1Client__Server}{Client\-\_\-\-Server} \&cs)}\label{classColliderPlusPlus_1_1Node_a67149c1c5c041254d6d232189d536beb}
-
+bool \hyperlink{classColliderPlusPlus_1_1Node_a5f073a198b55b4c471e772ca2661d144}{\-\_\-is\-Running} ()
 \item 
-\hypertarget{classColliderPlusPlus_1_1Node_aa0314218cf221dc32ae0f4e40a294f5c}{void {\bfseries \-\_\-free} (\hyperlink{classColliderPlusPlus_1_1Client__Server}{Client\-\_\-\-Server} \&cs)}\label{classColliderPlusPlus_1_1Node_aa0314218cf221dc32ae0f4e40a294f5c}
-
+std\-::string \hyperlink{classColliderPlusPlus_1_1Node_a47ab8ce687a4336189a6cc629cdec56d}{\-\_\-get\-Def\-Name} () const 
 \item 
-\hypertarget{classColliderPlusPlus_1_1Node_a52123c9868b5e1833750158c870c3b87}{bool {\bfseries \-\_\-is\-Playing} ()}\label{classColliderPlusPlus_1_1Node_a52123c9868b5e1833750158c870c3b87}
+\hypertarget{classColliderPlusPlus_1_1Node_ae7c26584a0d757d76ae6c3ce58e8fd9f}{void \hyperlink{classColliderPlusPlus_1_1Node_ae7c26584a0d757d76ae6c3ce58e8fd9f}{\-\_\-query} (\hyperlink{classColliderPlusPlus_1_1Client__Server}{Client\-\_\-\-Server} \&cs)}\label{classColliderPlusPlus_1_1Node_ae7c26584a0d757d76ae6c3ce58e8fd9f}
 
+\begin{DoxyCompactList}\small\item\em Query the server for this \hyperlink{classColliderPlusPlus_1_1Node}{Node}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{Indent}{\bf Control and Bus Mapping Functions}\par
+\begin{DoxyCompactItemize}
 \item 
-\hypertarget{classColliderPlusPlus_1_1Node_a5f073a198b55b4c471e772ca2661d144}{bool {\bfseries \-\_\-is\-Running} ()}\label{classColliderPlusPlus_1_1Node_a5f073a198b55b4c471e772ca2661d144}
-
+void \hyperlink{classColliderPlusPlus_1_1Node_a24201cfbe86e712cdd17313a54079d3a}{\-\_\-set} (\hyperlink{classColliderPlusPlus_1_1Client__Server}{Client\-\_\-\-Server} \&cs, std\-::map$<$ std\-::string, float $>$ \&control\-Vals)
 \item 
-\hypertarget{classColliderPlusPlus_1_1Node_a47ab8ce687a4336189a6cc629cdec56d}{std\-::string {\bfseries \-\_\-get\-Def\-Name} () const }\label{classColliderPlusPlus_1_1Node_a47ab8ce687a4336189a6cc629cdec56d}
-
+void \hyperlink{classColliderPlusPlus_1_1Node_a9dd9bee73c31baa6e3584e81a06a2ad0}{\-\_\-setn} (\hyperlink{classColliderPlusPlus_1_1Client__Server}{Client\-\_\-\-Server} \&cs, std\-::map$<$ std\-::string, float\mbox{[}$\,$\mbox{]}$>$ \&control\-Ranges)
 \item 
-\hypertarget{classColliderPlusPlus_1_1Node_ae7c26584a0d757d76ae6c3ce58e8fd9f}{void {\bfseries \-\_\-query} (\hyperlink{classColliderPlusPlus_1_1Client__Server}{Client\-\_\-\-Server} \&cs)}\label{classColliderPlusPlus_1_1Node_ae7c26584a0d757d76ae6c3ce58e8fd9f}
-
-\item 
-\hypertarget{classColliderPlusPlus_1_1Node_a24201cfbe86e712cdd17313a54079d3a}{void {\bfseries \-\_\-set} (\hyperlink{classColliderPlusPlus_1_1Client__Server}{Client\-\_\-\-Server} \&cs, std\-::map$<$ std\-::string, float $>$ \&control\-Vals)}\label{classColliderPlusPlus_1_1Node_a24201cfbe86e712cdd17313a54079d3a}
-
-\item 
-\hypertarget{classColliderPlusPlus_1_1Node_a9dd9bee73c31baa6e3584e81a06a2ad0}{void {\bfseries \-\_\-setn} (\hyperlink{classColliderPlusPlus_1_1Client__Server}{Client\-\_\-\-Server} \&cs, std\-::map$<$ std\-::string, float\mbox{[}$\,$\mbox{]}$>$ \&control\-Ranges)}\label{classColliderPlusPlus_1_1Node_a9dd9bee73c31baa6e3584e81a06a2ad0}
-
-\item 
-\hypertarget{classColliderPlusPlus_1_1Node_a8b6f3b2a7274fe1a95cb309ed4dd60cb}{void {\bfseries \-\_\-bus\-Map} (\hyperlink{classColliderPlusPlus_1_1Client__Server}{Client\-\_\-\-Server} \&cs, std\-::map$<$ std\-::string, \hyperlink{classColliderPlusPlus_1_1Bus}{Bus} $>$ \&map)}\label{classColliderPlusPlus_1_1Node_a8b6f3b2a7274fe1a95cb309ed4dd60cb}
-
+void \hyperlink{classColliderPlusPlus_1_1Node_a8b6f3b2a7274fe1a95cb309ed4dd60cb}{\-\_\-bus\-Map} (\hyperlink{classColliderPlusPlus_1_1Client__Server}{Client\-\_\-\-Server} \&cs, std\-::map$<$ std\-::string, \hyperlink{classColliderPlusPlus_1_1Bus}{Bus} $>$ \&map)
 \end{DoxyCompactItemize}
+\end{Indent}
 \subsection*{Protected Attributes}
 \begin{DoxyCompactItemize}
 \item 
@@ -63,7 +74,116 @@ Inheritance diagram for Collider\-Plus\-Plus\-:\-:Node\-:\begin{figure}[H]
 \end{DoxyCompactItemize}
 
 
+\subsection{Detailed Description}
+This class represents a client-\/side version of a server node (\hyperlink{classColliderPlusPlus_1_1Synth}{Synth} or \hyperlink{classColliderPlusPlus_1_1Group}{Group}) 
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classColliderPlusPlus_1_1Node_a71fb6780106a85088fc3e7f33e5d5e52}{\index{Collider\-Plus\-Plus\-::\-Node@{Collider\-Plus\-Plus\-::\-Node}!Node@{Node}}
+\index{Node@{Node}!ColliderPlusPlus::Node@{Collider\-Plus\-Plus\-::\-Node}}
+\subsubsection[{Node}]{\setlength{\rightskip}{0pt plus 5cm}Node\-::\-Node (
+\begin{DoxyParamCaption}
+\item[{const std\-::string \&}]{def\-Name, }
+\item[{int}]{id}
+\end{DoxyParamCaption}
+)}}\label{classColliderPlusPlus_1_1Node_a71fb6780106a85088fc3e7f33e5d5e52}
+Create a \hyperlink{classColliderPlusPlus_1_1Node}{Node} with a user defined name and Id 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em const} & std\-::string\& Name \\
+\hline
+\mbox{\tt in}  & {\em int} & Id \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classColliderPlusPlus_1_1Node_a8b6f3b2a7274fe1a95cb309ed4dd60cb}{\index{Collider\-Plus\-Plus\-::\-Node@{Collider\-Plus\-Plus\-::\-Node}!\-\_\-bus\-Map@{\-\_\-bus\-Map}}
+\index{\-\_\-bus\-Map@{\-\_\-bus\-Map}!ColliderPlusPlus::Node@{Collider\-Plus\-Plus\-::\-Node}}
+\subsubsection[{\-\_\-bus\-Map}]{\setlength{\rightskip}{0pt plus 5cm}void Node\-::\-\_\-bus\-Map (
+\begin{DoxyParamCaption}
+\item[{{\bf Client\-\_\-\-Server} \&}]{cs, }
+\item[{std\-::map$<$ std\-::string, {\bf Bus} $>$ \&}]{map}
+\end{DoxyParamCaption}
+)}}\label{classColliderPlusPlus_1_1Node_a8b6f3b2a7274fe1a95cb309ed4dd60cb}
+Set this \hyperlink{classColliderPlusPlus_1_1Node}{Node} with specified bus mappings 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em Client\-\_\-\-Server\&} & \hyperlink{classColliderPlusPlus_1_1Client__Server}{Client\-\_\-\-Server} instance \\
+\hline
+\mbox{\tt in}  & {\em std\-::map$<$std\-::string,Bus$>$\&} & map \\
+\hline
+\end{DoxyParams}
+\hypertarget{classColliderPlusPlus_1_1Node_a47ab8ce687a4336189a6cc629cdec56d}{\index{Collider\-Plus\-Plus\-::\-Node@{Collider\-Plus\-Plus\-::\-Node}!\-\_\-get\-Def\-Name@{\-\_\-get\-Def\-Name}}
+\index{\-\_\-get\-Def\-Name@{\-\_\-get\-Def\-Name}!ColliderPlusPlus::Node@{Collider\-Plus\-Plus\-::\-Node}}
+\subsubsection[{\-\_\-get\-Def\-Name}]{\setlength{\rightskip}{0pt plus 5cm}std\-::string Collider\-Plus\-Plus\-::\-Node\-::\-\_\-get\-Def\-Name (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}}\label{classColliderPlusPlus_1_1Node_a47ab8ce687a4336189a6cc629cdec56d}
+Returns the name of this \hyperlink{classColliderPlusPlus_1_1Node}{Node} \begin{DoxyReturn}{Returns}
+\-\_\-def\-Name 
+\end{DoxyReturn}
+\hypertarget{classColliderPlusPlus_1_1Node_a261794de64a2198ca94e2c6410f3845f}{\index{Collider\-Plus\-Plus\-::\-Node@{Collider\-Plus\-Plus\-::\-Node}!\-\_\-get\-Id@{\-\_\-get\-Id}}
+\index{\-\_\-get\-Id@{\-\_\-get\-Id}!ColliderPlusPlus::Node@{Collider\-Plus\-Plus\-::\-Node}}
+\subsubsection[{\-\_\-get\-Id}]{\setlength{\rightskip}{0pt plus 5cm}int Collider\-Plus\-Plus\-::\-Node\-::\-\_\-get\-Id (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}}\label{classColliderPlusPlus_1_1Node_a261794de64a2198ca94e2c6410f3845f}
+Returns the Id of this \hyperlink{classColliderPlusPlus_1_1Node}{Node} \begin{DoxyReturn}{Returns}
+\-\_\-id 
+\end{DoxyReturn}
+\hypertarget{classColliderPlusPlus_1_1Node_a52123c9868b5e1833750158c870c3b87}{\index{Collider\-Plus\-Plus\-::\-Node@{Collider\-Plus\-Plus\-::\-Node}!\-\_\-is\-Playing@{\-\_\-is\-Playing}}
+\index{\-\_\-is\-Playing@{\-\_\-is\-Playing}!ColliderPlusPlus::Node@{Collider\-Plus\-Plus\-::\-Node}}
+\subsubsection[{\-\_\-is\-Playing}]{\setlength{\rightskip}{0pt plus 5cm}bool Collider\-Plus\-Plus\-::\-Node\-::\-\_\-is\-Playing (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classColliderPlusPlus_1_1Node_a52123c9868b5e1833750158c870c3b87}
+Returns true if this \hyperlink{classColliderPlusPlus_1_1Node}{Node} is currently playing, else false \begin{DoxyReturn}{Returns}
+true if currently playing, else false 
+\end{DoxyReturn}
+\hypertarget{classColliderPlusPlus_1_1Node_a5f073a198b55b4c471e772ca2661d144}{\index{Collider\-Plus\-Plus\-::\-Node@{Collider\-Plus\-Plus\-::\-Node}!\-\_\-is\-Running@{\-\_\-is\-Running}}
+\index{\-\_\-is\-Running@{\-\_\-is\-Running}!ColliderPlusPlus::Node@{Collider\-Plus\-Plus\-::\-Node}}
+\subsubsection[{\-\_\-is\-Running}]{\setlength{\rightskip}{0pt plus 5cm}bool Collider\-Plus\-Plus\-::\-Node\-::\-\_\-is\-Running (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classColliderPlusPlus_1_1Node_a5f073a198b55b4c471e772ca2661d144}
+Returns true if this \hyperlink{classColliderPlusPlus_1_1Node}{Node} is currently running, else false \begin{DoxyReturn}{Returns}
+true if currently running, else false 
+\end{DoxyReturn}
+\hypertarget{classColliderPlusPlus_1_1Node_a24201cfbe86e712cdd17313a54079d3a}{\index{Collider\-Plus\-Plus\-::\-Node@{Collider\-Plus\-Plus\-::\-Node}!\-\_\-set@{\-\_\-set}}
+\index{\-\_\-set@{\-\_\-set}!ColliderPlusPlus::Node@{Collider\-Plus\-Plus\-::\-Node}}
+\subsubsection[{\-\_\-set}]{\setlength{\rightskip}{0pt plus 5cm}void Node\-::\-\_\-set (
+\begin{DoxyParamCaption}
+\item[{{\bf Client\-\_\-\-Server} \&}]{cs, }
+\item[{std\-::map$<$ std\-::string, float $>$ \&}]{control\-Vals}
+\end{DoxyParamCaption}
+)}}\label{classColliderPlusPlus_1_1Node_a24201cfbe86e712cdd17313a54079d3a}
+Set this \hyperlink{classColliderPlusPlus_1_1Node}{Node} with specified control values 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em Client\-\_\-\-Server\&} & \hyperlink{classColliderPlusPlus_1_1Client__Server}{Client\-\_\-\-Server} instance \\
+\hline
+\mbox{\tt in}  & {\em std\-::map$<$std\-::string,float$>$\&} & Control Values \\
+\hline
+\end{DoxyParams}
+\hypertarget{classColliderPlusPlus_1_1Node_a9dd9bee73c31baa6e3584e81a06a2ad0}{\index{Collider\-Plus\-Plus\-::\-Node@{Collider\-Plus\-Plus\-::\-Node}!\-\_\-setn@{\-\_\-setn}}
+\index{\-\_\-setn@{\-\_\-setn}!ColliderPlusPlus::Node@{Collider\-Plus\-Plus\-::\-Node}}
+\subsubsection[{\-\_\-setn}]{\setlength{\rightskip}{0pt plus 5cm}void Node\-::\-\_\-setn (
+\begin{DoxyParamCaption}
+\item[{{\bf Client\-\_\-\-Server} \&}]{cs, }
+\item[{std\-::map$<$ std\-::string, float\mbox{[}$\,$\mbox{]}$>$ \&}]{control\-Ranges}
+\end{DoxyParamCaption}
+)}}\label{classColliderPlusPlus_1_1Node_a9dd9bee73c31baa6e3584e81a06a2ad0}
+Set this \hyperlink{classColliderPlusPlus_1_1Node}{Node} with specified control range values 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em Client\-\_\-\-Server\&} & \hyperlink{classColliderPlusPlus_1_1Client__Server}{Client\-\_\-\-Server} instance \\
+\hline
+\mbox{\tt in}  & {\em std\-::map$<$std\-::string,float\mbox{[}$\,$\mbox{]}$>$\&} & Control Ranges \\
+\hline
+\end{DoxyParams}
+
+
 The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
 \item 
-include/Node.\-hpp\item 
+include/\hyperlink{Node_8hpp}{Node.\-hpp}\item 
 src/Node.\-cpp\end{DoxyCompactItemize}

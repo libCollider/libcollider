@@ -1,6 +1,15 @@
 \hypertarget{classColliderPlusPlus_1_1Group}{\section{Collider\-Plus\-Plus\-:\-:Group Class Reference}
 \label{classColliderPlusPlus_1_1Group}\index{Collider\-Plus\-Plus\-::\-Group@{Collider\-Plus\-Plus\-::\-Group}}
 }
+
+
+This class represents a client-\/side version of a server group.  
+
+
+
+
+{\ttfamily \#include $<$Node.\-hpp$>$}
+
 Inheritance diagram for Collider\-Plus\-Plus\-:\-:Group\-:\begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -10,19 +19,76 @@ Inheritance diagram for Collider\-Plus\-Plus\-:\-:Group\-:\begin{figure}[H]
 \subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\hypertarget{classColliderPlusPlus_1_1Group_ac33222e7c7705d374dba6e4d5b97acf5}{{\bfseries Group} (\hyperlink{classColliderPlusPlus_1_1Client__Server}{Client\-\_\-\-Server} \&cs, const std\-::string \&name, int id, int add\-Action=T\-O\-\_\-\-H\-E\-A\-D, int target=D\-E\-F\-A\-U\-L\-T\-\_\-\-G\-R\-O\-U\-P)}\label{classColliderPlusPlus_1_1Group_ac33222e7c7705d374dba6e4d5b97acf5}
-
+\hyperlink{classColliderPlusPlus_1_1Group_ac33222e7c7705d374dba6e4d5b97acf5}{Group} (\hyperlink{classColliderPlusPlus_1_1Client__Server}{Client\-\_\-\-Server} \&cs, const std\-::string \&name, int id, int add\-Action=T\-O\-\_\-\-H\-E\-A\-D, int target=D\-E\-F\-A\-U\-L\-T\-\_\-\-G\-R\-O\-U\-P)
 \item 
-\hypertarget{classColliderPlusPlus_1_1Group_a343180ba103935aa4f88d1671764bf97}{void {\bfseries \-\_\-free\-All\-Synths} (\hyperlink{classColliderPlusPlus_1_1Client__Server}{Client\-\_\-\-Server} \&cs)}\label{classColliderPlusPlus_1_1Group_a343180ba103935aa4f88d1671764bf97}
+\hypertarget{classColliderPlusPlus_1_1Group_aed00a22ff227ee2657ae44a5cbcedf7c}{\hyperlink{classColliderPlusPlus_1_1Group_aed00a22ff227ee2657ae44a5cbcedf7c}{$\sim$\-Group} ()}\label{classColliderPlusPlus_1_1Group_aed00a22ff227ee2657ae44a5cbcedf7c}
 
+\begin{DoxyCompactList}\small\item\em Destructor. \end{DoxyCompactList}\item 
+void \hyperlink{classColliderPlusPlus_1_1Group_a343180ba103935aa4f88d1671764bf97}{\-\_\-free\-All\-Synths} (\hyperlink{classColliderPlusPlus_1_1Client__Server}{Client\-\_\-\-Server} \&cs)
 \item 
-\hypertarget{classColliderPlusPlus_1_1Group_a3ed1ee8595e234c4417225d271ecab42}{void {\bfseries \-\_\-deep\-Free\-All\-Synths} (\hyperlink{classColliderPlusPlus_1_1Client__Server}{Client\-\_\-\-Server} \&cs)}\label{classColliderPlusPlus_1_1Group_a3ed1ee8595e234c4417225d271ecab42}
-
+void \hyperlink{classColliderPlusPlus_1_1Group_a3ed1ee8595e234c4417225d271ecab42}{\-\_\-deep\-Free\-All\-Synths} (\hyperlink{classColliderPlusPlus_1_1Client__Server}{Client\-\_\-\-Server} \&cs)
 \end{DoxyCompactItemize}
 \subsection*{Additional Inherited Members}
 
 
+\subsection{Detailed Description}
+This class represents a client-\/side version of a server group. 
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classColliderPlusPlus_1_1Group_ac33222e7c7705d374dba6e4d5b97acf5}{\index{Collider\-Plus\-Plus\-::\-Group@{Collider\-Plus\-Plus\-::\-Group}!Group@{Group}}
+\index{Group@{Group}!ColliderPlusPlus::Group@{Collider\-Plus\-Plus\-::\-Group}}
+\subsubsection[{Group}]{\setlength{\rightskip}{0pt plus 5cm}Group\-::\-Group (
+\begin{DoxyParamCaption}
+\item[{{\bf Client\-\_\-\-Server} \&}]{cs, }
+\item[{const std\-::string \&}]{name, }
+\item[{int}]{id, }
+\item[{int}]{add\-Action = {\ttfamily TO\-\_\-HEAD}, }
+\item[{int}]{target = {\ttfamily DEFAULT\-\_\-GROUP}}
+\end{DoxyParamCaption}
+)}}\label{classColliderPlusPlus_1_1Group_ac33222e7c7705d374dba6e4d5b97acf5}
+Create a \hyperlink{classColliderPlusPlus_1_1Group}{Group} with a user defined name, id, add\-Action, and target If no add\-Action is specified, this \hyperlink{classColliderPlusPlus_1_1Group}{Group} is added to the head of target group If no target group is specified, this \hyperlink{classColliderPlusPlus_1_1Synth}{Synth} is added to the Default \hyperlink{classColliderPlusPlus_1_1Group}{Group} 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em Client\-\_\-\-Server\&} & \hyperlink{classColliderPlusPlus_1_1Client__Server}{Client\-\_\-\-Server} instance \\
+\hline
+\mbox{\tt in}  & {\em const} & std\-::string\& Name \\
+\hline
+\mbox{\tt in}  & {\em int} & Id \\
+\hline
+\mbox{\tt in}  & {\em int} & Add Action \\
+\hline
+\mbox{\tt in}  & {\em int} & Target \hyperlink{classColliderPlusPlus_1_1Group}{Group} \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classColliderPlusPlus_1_1Group_a3ed1ee8595e234c4417225d271ecab42}{\index{Collider\-Plus\-Plus\-::\-Group@{Collider\-Plus\-Plus\-::\-Group}!\-\_\-deep\-Free\-All\-Synths@{\-\_\-deep\-Free\-All\-Synths}}
+\index{\-\_\-deep\-Free\-All\-Synths@{\-\_\-deep\-Free\-All\-Synths}!ColliderPlusPlus::Group@{Collider\-Plus\-Plus\-::\-Group}}
+\subsubsection[{\-\_\-deep\-Free\-All\-Synths}]{\setlength{\rightskip}{0pt plus 5cm}void Group\-::\-\_\-deep\-Free\-All\-Synths (
+\begin{DoxyParamCaption}
+\item[{{\bf Client\-\_\-\-Server} \&}]{cs}
+\end{DoxyParamCaption}
+)}}\label{classColliderPlusPlus_1_1Group_a3ed1ee8595e234c4417225d271ecab42}
+Free all Nodes in this \hyperlink{classColliderPlusPlus_1_1Group}{Group} and in all Sub-\/\-Groups 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em Client\-\_\-\-Server\&} & \hyperlink{classColliderPlusPlus_1_1Client__Server}{Client\-\_\-\-Server} instance \\
+\hline
+\end{DoxyParams}
+\hypertarget{classColliderPlusPlus_1_1Group_a343180ba103935aa4f88d1671764bf97}{\index{Collider\-Plus\-Plus\-::\-Group@{Collider\-Plus\-Plus\-::\-Group}!\-\_\-free\-All\-Synths@{\-\_\-free\-All\-Synths}}
+\index{\-\_\-free\-All\-Synths@{\-\_\-free\-All\-Synths}!ColliderPlusPlus::Group@{Collider\-Plus\-Plus\-::\-Group}}
+\subsubsection[{\-\_\-free\-All\-Synths}]{\setlength{\rightskip}{0pt plus 5cm}void Group\-::\-\_\-free\-All\-Synths (
+\begin{DoxyParamCaption}
+\item[{{\bf Client\-\_\-\-Server} \&}]{cs}
+\end{DoxyParamCaption}
+)}}\label{classColliderPlusPlus_1_1Group_a343180ba103935aa4f88d1671764bf97}
+Free all Nodes in this \hyperlink{classColliderPlusPlus_1_1Group}{Group} 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em Client\-\_\-\-Server\&} & \hyperlink{classColliderPlusPlus_1_1Client__Server}{Client\-\_\-\-Server} instance \\
+\hline
+\end{DoxyParams}
+
+
 The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
 \item 
-include/Node.\-hpp\item 
+include/\hyperlink{Node_8hpp}{Node.\-hpp}\item 
 src/Node.\-cpp\end{DoxyCompactItemize}
