@@ -1,6 +1,26 @@
 var searchData=
 [
   ['_5fallocbuffer',['_allocBuffer',['../classColliderPlusPlus_1_1Client__Server.html#aade82fef586a608c0d7ee84addc7c6c1',1,'ColliderPlusPlus::Client_Server']]],
+  ['_5fallocreadbuffer',['_allocReadBuffer',['../classColliderPlusPlus_1_1Client__Server.html#a55b2f23d98d10f62e90b6c551f95bee4',1,'ColliderPlusPlus::Client_Server']]],
+  ['_5fcreategroup',['_createGroup',['../classColliderPlusPlus_1_1Client__Server.html#a5f13a514f42e2e7bb0ae975f046f7c17',1,'ColliderPlusPlus::Client_Server']]],
+  ['_5fcreatenode',['_createNode',['../classColliderPlusPlus_1_1Client__Server.html#a29c6c0fd0bd45dc08520f7899954dbdf',1,'ColliderPlusPlus::Client_Server::_createNode(int nodeId, int addAction=TO_HEAD, int target=DEFAULT_GROUP, int type=SYNTH)'],['../classColliderPlusPlus_1_1Client__Server.html#a132d13603d1a0f2c51eff83718e8561d',1,'ColliderPlusPlus::Client_Server::_createNode(const std::string &amp;name, int nodeId, int addAction=TO_HEAD, int target=DEFAULT_GROUP, int type=SYNTH)']]],
+  ['_5fcreatesynth',['_createSynth',['../classColliderPlusPlus_1_1Client__Server.html#a1ff94df5092263456350196a13a12cc2',1,'ColliderPlusPlus::Client_Server::_createSynth(const std::string &amp;name, int nodeId, int addAction=TO_HEAD, int target=DEFAULT_GROUP)'],['../classColliderPlusPlus_1_1Client__Server.html#ad72cc7de9811b12ea63815cc17dabe8d',1,'ColliderPlusPlus::Client_Server::_createSynth(const std::string &amp;name, int nodeId, std::map&lt; std::string, float &gt; &amp;args, int addAction=TO_HEAD, int target=DEFAULT_GROUP)']]],
+  ['_5fdeepfreeallsynths',['_deepFreeAllSynths',['../classColliderPlusPlus_1_1Client__Server.html#a0c39de34592133a18a977a967bd1dc7a',1,'ColliderPlusPlus::Client_Server']]],
+  ['_5fdumposc',['_dumpOSC',['../classColliderPlusPlus_1_1Client__Server.html#a52205c38d60f01ecacb7d933f4755c02',1,'ColliderPlusPlus::Client_Server']]],
+  ['_5ffreeallsynths',['_freeAllSynths',['../classColliderPlusPlus_1_1Client__Server.html#abab1835658a244782d96777bf88192ed',1,'ColliderPlusPlus::Client_Server']]],
+  ['_5ffreebuffer',['_freeBuffer',['../classColliderPlusPlus_1_1Client__Server.html#acae8664fb2626d8e3a608b079e63ebf6',1,'ColliderPlusPlus::Client_Server']]],
+  ['_5ffreenode',['_freeNode',['../classColliderPlusPlus_1_1Client__Server.html#af22d109a9292a06808871100bdf0abe4',1,'ColliderPlusPlus::Client_Server']]],
   ['_5fgetname',['_getName',['../classColliderPlusPlus_1_1Client__Server.html#ac2f5c4bddaf2bbd6a7ab15c8c42163e7',1,'ColliderPlusPlus::Client_Server']]],
-  ['_5floadsynthdef',['_loadSynthDef',['../classColliderPlusPlus_1_1Client__Server.html#a8aba41e38cf5d292adf2b759ff637f79',1,'ColliderPlusPlus::Client_Server']]]
+  ['_5floadsynthdef',['_loadSynthDef',['../classColliderPlusPlus_1_1Client__Server.html#a8aba41e38cf5d292adf2b759ff637f79',1,'ColliderPlusPlus::Client_Server']]],
+  ['_5floadsynthdefdirectory',['_loadSynthDefDirectory',['../classColliderPlusPlus_1_1Client__Server.html#ab980baddbd3905e2dc8b429d2b71d83c',1,'ColliderPlusPlus::Client_Server']]],
+  ['_5fnextbuffernum',['_nextBufferNum',['../classColliderPlusPlus_1_1Client__Server.html#a5f39e21b7834a06568250cce4cafae3c',1,'ColliderPlusPlus::Client_Server']]],
+  ['_5fnextnodeid',['_nextNodeId',['../classColliderPlusPlus_1_1Client__Server.html#aef5ff53324f90cae73b5a23f560e6cb7',1,'ColliderPlusPlus::Client_Server']]],
+  ['_5fpingscsynth',['_pingScsynth',['../classColliderPlusPlus_1_1Client__Server.html#a49d7fa9a360a1fe8b32b9cabc8e4fafc',1,'ColliderPlusPlus::Client_Server']]],
+  ['_5fprintcurrentnodeids',['_printCurrentNodeIds',['../classColliderPlusPlus_1_1Client__Server.html#a0e48411b1875280bed41a8d5011c1a7e',1,'ColliderPlusPlus::Client_Server']]],
+  ['_5fquerybuffer',['_queryBuffer',['../classColliderPlusPlus_1_1Client__Server.html#a009b94661bc4072d8ad198101aed1536',1,'ColliderPlusPlus::Client_Server']]],
+  ['_5fquerynode',['_queryNode',['../classColliderPlusPlus_1_1Client__Server.html#aa7b293e8b9e4b75a46d78a169962a243',1,'ColliderPlusPlus::Client_Server']]],
+  ['_5fquerynodetree',['_queryNodeTree',['../classColliderPlusPlus_1_1Client__Server.html#ac71996de28e349d32bc5d6aef07524ac',1,'ColliderPlusPlus::Client_Server']]],
+  ['_5fquit',['_quit',['../classColliderPlusPlus_1_1Client__Server.html#a4f32e463940de2cdad9817c0bf63ae7c',1,'ColliderPlusPlus::Client_Server']]],
+  ['_5frunnode',['_runNode',['../classColliderPlusPlus_1_1Client__Server.html#ab48df010f59d4b4f8275cf6d6b9859eb',1,'ColliderPlusPlus::Client_Server']]],
+  ['_5fsetnodecontrols',['_setNodeControls',['../classColliderPlusPlus_1_1Client__Server.html#a0620f55c7167c3094143d905647bf439',1,'ColliderPlusPlus::Client_Server']]]
 ];
