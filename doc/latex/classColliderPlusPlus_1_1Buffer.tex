@@ -1,42 +1,181 @@
 \hypertarget{classColliderPlusPlus_1_1Buffer}{\section{Collider\-Plus\-Plus\-:\-:Buffer Class Reference}
 \label{classColliderPlusPlus_1_1Buffer}\index{Collider\-Plus\-Plus\-::\-Buffer@{Collider\-Plus\-Plus\-::\-Buffer}}
 }
+
+
+This class represents a client-\/side version of a server buffer.  
+
+
+
+
+{\ttfamily \#include $<$Buffer.\-hpp$>$}
+
 \subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\hypertarget{classColliderPlusPlus_1_1Buffer_aea5b364a9ec1815f0dd3746d8577a986}{{\bfseries Buffer} (int buf\-Num)}\label{classColliderPlusPlus_1_1Buffer_aea5b364a9ec1815f0dd3746d8577a986}
+\hypertarget{classColliderPlusPlus_1_1Buffer_ae7ef2cd201190fde551dcb902627112b}{\hyperlink{classColliderPlusPlus_1_1Buffer_ae7ef2cd201190fde551dcb902627112b}{Buffer} ()}\label{classColliderPlusPlus_1_1Buffer_ae7ef2cd201190fde551dcb902627112b}
 
+\begin{DoxyCompactList}\small\item\em Default Constructor. \end{DoxyCompactList}\item 
+\hyperlink{classColliderPlusPlus_1_1Buffer_aea5b364a9ec1815f0dd3746d8577a986}{Buffer} (int buf\-Num)
 \item 
-\hypertarget{classColliderPlusPlus_1_1Buffer_a6d2eb844b20eb62158d5d77bcb5d568c}{int {\bfseries \-\_\-get\-Buf\-Num} () const }\label{classColliderPlusPlus_1_1Buffer_a6d2eb844b20eb62158d5d77bcb5d568c}
+\hypertarget{classColliderPlusPlus_1_1Buffer_a59b8743e4a5f731bdd0c4185c9ef263b}{\hyperlink{classColliderPlusPlus_1_1Buffer_a59b8743e4a5f731bdd0c4185c9ef263b}{$\sim$\-Buffer} ()}\label{classColliderPlusPlus_1_1Buffer_a59b8743e4a5f731bdd0c4185c9ef263b}
 
+\begin{DoxyCompactList}\small\item\em Destructor. \end{DoxyCompactList}\item 
+int \hyperlink{classColliderPlusPlus_1_1Buffer_a6d2eb844b20eb62158d5d77bcb5d568c}{\-\_\-get\-Buf\-Num} () const 
 \item 
-\hypertarget{classColliderPlusPlus_1_1Buffer_adbd84c84d0c13d9dcc96e36edce17448}{int {\bfseries \-\_\-get\-Frame\-Num} () const }\label{classColliderPlusPlus_1_1Buffer_adbd84c84d0c13d9dcc96e36edce17448}
-
+int \hyperlink{classColliderPlusPlus_1_1Buffer_adbd84c84d0c13d9dcc96e36edce17448}{\-\_\-get\-Frame\-Num} () const 
 \item 
-\hypertarget{classColliderPlusPlus_1_1Buffer_a1eca16cfed94680f3a14adcd4dfe42c9}{int {\bfseries \-\_\-get\-Chan\-Num} () const }\label{classColliderPlusPlus_1_1Buffer_a1eca16cfed94680f3a14adcd4dfe42c9}
-
+int \hyperlink{classColliderPlusPlus_1_1Buffer_a1eca16cfed94680f3a14adcd4dfe42c9}{\-\_\-get\-Chan\-Num} () const 
 \item 
-\hypertarget{classColliderPlusPlus_1_1Buffer_a6887218a82f341f668117cd24548921a}{int {\bfseries \-\_\-get\-Samp\-Rate} () const }\label{classColliderPlusPlus_1_1Buffer_a6887218a82f341f668117cd24548921a}
-
+int \hyperlink{classColliderPlusPlus_1_1Buffer_a6887218a82f341f668117cd24548921a}{\-\_\-get\-Samp\-Rate} () const 
 \item 
-\hypertarget{classColliderPlusPlus_1_1Buffer_a94c409839084712d7cc10fd46e520d68}{const std\-::string \& {\bfseries \-\_\-get\-File\-Path} () const }\label{classColliderPlusPlus_1_1Buffer_a94c409839084712d7cc10fd46e520d68}
-
+const std\-::string \& \hyperlink{classColliderPlusPlus_1_1Buffer_a94c409839084712d7cc10fd46e520d68}{\-\_\-get\-File\-Path} () const 
 \item 
-\hypertarget{classColliderPlusPlus_1_1Buffer_a910866172f991f67da5b6a258cfe91b7}{void {\bfseries \-\_\-alloc} (\hyperlink{classColliderPlusPlus_1_1Client__Server}{Client\-\_\-\-Server} \&cs, int num\-Frames, int num\-Channels)}\label{classColliderPlusPlus_1_1Buffer_a910866172f991f67da5b6a258cfe91b7}
-
+void \hyperlink{classColliderPlusPlus_1_1Buffer_a910866172f991f67da5b6a258cfe91b7}{\-\_\-alloc} (\hyperlink{classColliderPlusPlus_1_1Client__Server}{Client\-\_\-\-Server} \&cs, int num\-Frames, int num\-Channels)
 \item 
-\hypertarget{classColliderPlusPlus_1_1Buffer_a9c778cdbd7058e35149a3f40dc5ab835}{void {\bfseries \-\_\-free} (\hyperlink{classColliderPlusPlus_1_1Client__Server}{Client\-\_\-\-Server} \&cs)}\label{classColliderPlusPlus_1_1Buffer_a9c778cdbd7058e35149a3f40dc5ab835}
-
+void \hyperlink{classColliderPlusPlus_1_1Buffer_a9c778cdbd7058e35149a3f40dc5ab835}{\-\_\-free} (\hyperlink{classColliderPlusPlus_1_1Client__Server}{Client\-\_\-\-Server} \&cs)
 \item 
-\hypertarget{classColliderPlusPlus_1_1Buffer_a2bab98cd804cda15d3fc1128cb6bfbb4}{void {\bfseries \-\_\-query} (\hyperlink{classColliderPlusPlus_1_1Client__Server}{Client\-\_\-\-Server} \&cs)}\label{classColliderPlusPlus_1_1Buffer_a2bab98cd804cda15d3fc1128cb6bfbb4}
-
+void \hyperlink{classColliderPlusPlus_1_1Buffer_a2bab98cd804cda15d3fc1128cb6bfbb4}{\-\_\-query} (\hyperlink{classColliderPlusPlus_1_1Client__Server}{Client\-\_\-\-Server} \&cs)
 \item 
-\hypertarget{classColliderPlusPlus_1_1Buffer_a1b583c7909290f0e28bd973a4ce3d4f2}{void {\bfseries \-\_\-alloc\-Read} (\hyperlink{classColliderPlusPlus_1_1Client__Server}{Client\-\_\-\-Server} \&cs, const std\-::string \&file\-Path, int start\-File\-Frame=0, int num\-Frames=-\/1)}\label{classColliderPlusPlus_1_1Buffer_a1b583c7909290f0e28bd973a4ce3d4f2}
-
+void \hyperlink{classColliderPlusPlus_1_1Buffer_a1b583c7909290f0e28bd973a4ce3d4f2}{\-\_\-alloc\-Read} (\hyperlink{classColliderPlusPlus_1_1Client__Server}{Client\-\_\-\-Server} \&cs, const std\-::string \&file\-Path, int start\-File\-Frame=0, int num\-Frames=-\/1)
 \end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+This class represents a client-\/side version of a server buffer. 
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classColliderPlusPlus_1_1Buffer_aea5b364a9ec1815f0dd3746d8577a986}{\index{Collider\-Plus\-Plus\-::\-Buffer@{Collider\-Plus\-Plus\-::\-Buffer}!Buffer@{Buffer}}
+\index{Buffer@{Buffer}!ColliderPlusPlus::Buffer@{Collider\-Plus\-Plus\-::\-Buffer}}
+\subsubsection[{Buffer}]{\setlength{\rightskip}{0pt plus 5cm}Buffer\-::\-Buffer (
+\begin{DoxyParamCaption}
+\item[{int}]{buf\-Num}
+\end{DoxyParamCaption}
+)}}\label{classColliderPlusPlus_1_1Buffer_aea5b364a9ec1815f0dd3746d8577a986}
+Create a \hyperlink{classColliderPlusPlus_1_1Buffer}{Buffer} with buffer number specified by buf\-Num parameter 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em int} & \hyperlink{classColliderPlusPlus_1_1Buffer}{Buffer} Number \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classColliderPlusPlus_1_1Buffer_a910866172f991f67da5b6a258cfe91b7}{\index{Collider\-Plus\-Plus\-::\-Buffer@{Collider\-Plus\-Plus\-::\-Buffer}!\-\_\-alloc@{\-\_\-alloc}}
+\index{\-\_\-alloc@{\-\_\-alloc}!ColliderPlusPlus::Buffer@{Collider\-Plus\-Plus\-::\-Buffer}}
+\subsubsection[{\-\_\-alloc}]{\setlength{\rightskip}{0pt plus 5cm}void Buffer\-::\-\_\-alloc (
+\begin{DoxyParamCaption}
+\item[{{\bf Client\-\_\-\-Server} \&}]{cs, }
+\item[{int}]{num\-Frames, }
+\item[{int}]{num\-Channels}
+\end{DoxyParamCaption}
+)}}\label{classColliderPlusPlus_1_1Buffer_a910866172f991f67da5b6a258cfe91b7}
+Command server to allocate memory for this \hyperlink{classColliderPlusPlus_1_1Buffer}{Buffer} 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em Client\-\_\-\-Server\&} & \hyperlink{classColliderPlusPlus_1_1Client__Server}{Client\-\_\-\-Server} instance \\
+\hline
+\mbox{\tt in}  & {\em int} & Number of Sample Frames \\
+\hline
+\mbox{\tt in}  & {\em int} & Number of Channels \\
+\hline
+\end{DoxyParams}
+\hypertarget{classColliderPlusPlus_1_1Buffer_a1b583c7909290f0e28bd973a4ce3d4f2}{\index{Collider\-Plus\-Plus\-::\-Buffer@{Collider\-Plus\-Plus\-::\-Buffer}!\-\_\-alloc\-Read@{\-\_\-alloc\-Read}}
+\index{\-\_\-alloc\-Read@{\-\_\-alloc\-Read}!ColliderPlusPlus::Buffer@{Collider\-Plus\-Plus\-::\-Buffer}}
+\subsubsection[{\-\_\-alloc\-Read}]{\setlength{\rightskip}{0pt plus 5cm}void Buffer\-::\-\_\-alloc\-Read (
+\begin{DoxyParamCaption}
+\item[{{\bf Client\-\_\-\-Server} \&}]{cs, }
+\item[{const std\-::string \&}]{file\-Path, }
+\item[{int}]{start\-File\-Frame = {\ttfamily 0}, }
+\item[{int}]{num\-Frames = {\ttfamily -\/1}}
+\end{DoxyParamCaption}
+)}}\label{classColliderPlusPlus_1_1Buffer_a1b583c7909290f0e28bd973a4ce3d4f2}
+Command server to load specified Soundfile into \hyperlink{classColliderPlusPlus_1_1Buffer}{Buffer} and allocate just enough space for the Soundfile with the given offset specified by start\-File\-Frame 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em Client\-\_\-\-Server\&} & \hyperlink{classColliderPlusPlus_1_1Client__Server}{Client\-\_\-\-Server} instance \\
+\hline
+\mbox{\tt in}  & {\em const} & std\-::string\& Soundfile Path \\
+\hline
+\mbox{\tt in}  & {\em int} & Read file from this sample \\
+\hline
+\mbox{\tt in}  & {\em int} & Number of Sample Frames to allocate, -\/1 loads whole Soundfile \\
+\hline
+\end{DoxyParams}
+\hypertarget{classColliderPlusPlus_1_1Buffer_a9c778cdbd7058e35149a3f40dc5ab835}{\index{Collider\-Plus\-Plus\-::\-Buffer@{Collider\-Plus\-Plus\-::\-Buffer}!\-\_\-free@{\-\_\-free}}
+\index{\-\_\-free@{\-\_\-free}!ColliderPlusPlus::Buffer@{Collider\-Plus\-Plus\-::\-Buffer}}
+\subsubsection[{\-\_\-free}]{\setlength{\rightskip}{0pt plus 5cm}void Buffer\-::\-\_\-free (
+\begin{DoxyParamCaption}
+\item[{{\bf Client\-\_\-\-Server} \&}]{cs}
+\end{DoxyParamCaption}
+)}}\label{classColliderPlusPlus_1_1Buffer_a9c778cdbd7058e35149a3f40dc5ab835}
+Command server to free memory associated with this \hyperlink{classColliderPlusPlus_1_1Buffer}{Buffer} 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em Client\-\_\-\-Server\&} & \hyperlink{classColliderPlusPlus_1_1Client__Server}{Client\-\_\-\-Server} instance \\
+\hline
+\end{DoxyParams}
+\hypertarget{classColliderPlusPlus_1_1Buffer_a6d2eb844b20eb62158d5d77bcb5d568c}{\index{Collider\-Plus\-Plus\-::\-Buffer@{Collider\-Plus\-Plus\-::\-Buffer}!\-\_\-get\-Buf\-Num@{\-\_\-get\-Buf\-Num}}
+\index{\-\_\-get\-Buf\-Num@{\-\_\-get\-Buf\-Num}!ColliderPlusPlus::Buffer@{Collider\-Plus\-Plus\-::\-Buffer}}
+\subsubsection[{\-\_\-get\-Buf\-Num}]{\setlength{\rightskip}{0pt plus 5cm}int Collider\-Plus\-Plus\-::\-Buffer\-::\-\_\-get\-Buf\-Num (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}}\label{classColliderPlusPlus_1_1Buffer_a6d2eb844b20eb62158d5d77bcb5d568c}
+Returns this \hyperlink{classColliderPlusPlus_1_1Buffer}{Buffer}'s number as an int \begin{DoxyReturn}{Returns}
+int \hyperlink{classColliderPlusPlus_1_1Buffer}{Buffer} Number 
+\end{DoxyReturn}
+\hypertarget{classColliderPlusPlus_1_1Buffer_a1eca16cfed94680f3a14adcd4dfe42c9}{\index{Collider\-Plus\-Plus\-::\-Buffer@{Collider\-Plus\-Plus\-::\-Buffer}!\-\_\-get\-Chan\-Num@{\-\_\-get\-Chan\-Num}}
+\index{\-\_\-get\-Chan\-Num@{\-\_\-get\-Chan\-Num}!ColliderPlusPlus::Buffer@{Collider\-Plus\-Plus\-::\-Buffer}}
+\subsubsection[{\-\_\-get\-Chan\-Num}]{\setlength{\rightskip}{0pt plus 5cm}int Collider\-Plus\-Plus\-::\-Buffer\-::\-\_\-get\-Chan\-Num (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}}\label{classColliderPlusPlus_1_1Buffer_a1eca16cfed94680f3a14adcd4dfe42c9}
+Returns this \hyperlink{classColliderPlusPlus_1_1Buffer}{Buffer}'s channel count as an int \begin{DoxyReturn}{Returns}
+int \hyperlink{classColliderPlusPlus_1_1Buffer}{Buffer} channel count 
+\end{DoxyReturn}
+\hypertarget{classColliderPlusPlus_1_1Buffer_a94c409839084712d7cc10fd46e520d68}{\index{Collider\-Plus\-Plus\-::\-Buffer@{Collider\-Plus\-Plus\-::\-Buffer}!\-\_\-get\-File\-Path@{\-\_\-get\-File\-Path}}
+\index{\-\_\-get\-File\-Path@{\-\_\-get\-File\-Path}!ColliderPlusPlus::Buffer@{Collider\-Plus\-Plus\-::\-Buffer}}
+\subsubsection[{\-\_\-get\-File\-Path}]{\setlength{\rightskip}{0pt plus 5cm}const std\-::string\& Collider\-Plus\-Plus\-::\-Buffer\-::\-\_\-get\-File\-Path (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}}\label{classColliderPlusPlus_1_1Buffer_a94c409839084712d7cc10fd46e520d68}
+Returns the file path of this \hyperlink{classColliderPlusPlus_1_1Buffer}{Buffer}'s loaded soundfile \begin{DoxyReturn}{Returns}
+const std\-::string\& Soundfile Path 
+\end{DoxyReturn}
+\hypertarget{classColliderPlusPlus_1_1Buffer_adbd84c84d0c13d9dcc96e36edce17448}{\index{Collider\-Plus\-Plus\-::\-Buffer@{Collider\-Plus\-Plus\-::\-Buffer}!\-\_\-get\-Frame\-Num@{\-\_\-get\-Frame\-Num}}
+\index{\-\_\-get\-Frame\-Num@{\-\_\-get\-Frame\-Num}!ColliderPlusPlus::Buffer@{Collider\-Plus\-Plus\-::\-Buffer}}
+\subsubsection[{\-\_\-get\-Frame\-Num}]{\setlength{\rightskip}{0pt plus 5cm}int Collider\-Plus\-Plus\-::\-Buffer\-::\-\_\-get\-Frame\-Num (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}}\label{classColliderPlusPlus_1_1Buffer_adbd84c84d0c13d9dcc96e36edce17448}
+Returns this \hyperlink{classColliderPlusPlus_1_1Buffer}{Buffer}'s sample frame count as an int \begin{DoxyReturn}{Returns}
+int \hyperlink{classColliderPlusPlus_1_1Buffer}{Buffer} sample frame count 
+\end{DoxyReturn}
+\hypertarget{classColliderPlusPlus_1_1Buffer_a6887218a82f341f668117cd24548921a}{\index{Collider\-Plus\-Plus\-::\-Buffer@{Collider\-Plus\-Plus\-::\-Buffer}!\-\_\-get\-Samp\-Rate@{\-\_\-get\-Samp\-Rate}}
+\index{\-\_\-get\-Samp\-Rate@{\-\_\-get\-Samp\-Rate}!ColliderPlusPlus::Buffer@{Collider\-Plus\-Plus\-::\-Buffer}}
+\subsubsection[{\-\_\-get\-Samp\-Rate}]{\setlength{\rightskip}{0pt plus 5cm}int Collider\-Plus\-Plus\-::\-Buffer\-::\-\_\-get\-Samp\-Rate (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}}\label{classColliderPlusPlus_1_1Buffer_a6887218a82f341f668117cd24548921a}
+Returns this \hyperlink{classColliderPlusPlus_1_1Buffer}{Buffer}'s sample rate \begin{DoxyReturn}{Returns}
+int \hyperlink{classColliderPlusPlus_1_1Buffer}{Buffer} sample rate 
+\end{DoxyReturn}
+\hypertarget{classColliderPlusPlus_1_1Buffer_a2bab98cd804cda15d3fc1128cb6bfbb4}{\index{Collider\-Plus\-Plus\-::\-Buffer@{Collider\-Plus\-Plus\-::\-Buffer}!\-\_\-query@{\-\_\-query}}
+\index{\-\_\-query@{\-\_\-query}!ColliderPlusPlus::Buffer@{Collider\-Plus\-Plus\-::\-Buffer}}
+\subsubsection[{\-\_\-query}]{\setlength{\rightskip}{0pt plus 5cm}void Buffer\-::\-\_\-query (
+\begin{DoxyParamCaption}
+\item[{{\bf Client\-\_\-\-Server} \&}]{cs}
+\end{DoxyParamCaption}
+)}}\label{classColliderPlusPlus_1_1Buffer_a2bab98cd804cda15d3fc1128cb6bfbb4}
+Command server to query this \hyperlink{classColliderPlusPlus_1_1Buffer}{Buffer} 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em Client\-\_\-\-Server\&} & \hyperlink{classColliderPlusPlus_1_1Client__Server}{Client\-\_\-\-Server} instance \\
+\hline
+\end{DoxyParams}
 
 
 The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
 \item 
-include/Buffer.\-hpp\item 
+include/\hyperlink{Buffer_8hpp}{Buffer.\-hpp}\item 
 src/Buffer.\-cpp\end{DoxyCompactItemize}

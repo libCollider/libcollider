@@ -1,3 +1,6 @@
+/// @file ColliderPlusPlus.hpp
+/// @brief Header file for ColliderPlusPlus.hpp
+/// @author Eric Hamdan erichamdan@gmail.com
 #ifndef COLLIDER_PLUS_PLUS
 #define COLLIDER_PLUS_PLUS
 
