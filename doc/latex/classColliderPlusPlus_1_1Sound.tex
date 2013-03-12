@@ -1,0 +1,75 @@
+\hypertarget{classColliderPlusPlus_1_1Sound}{\section{Collider\-Plus\-Plus\-:\-:Sound Class Reference}
+\label{classColliderPlusPlus_1_1Sound}\index{Collider\-Plus\-Plus\-::\-Sound@{Collider\-Plus\-Plus\-::\-Sound}}
+}
+
+
+{\ttfamily \#include $<$Sound.\-hpp$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classColliderPlusPlus_1_1Sound_a21450f1e1b863970c556f07678908560}{Sound} (const std\-::string \&filepath=\char`\"{}\char`\"{})
+\item 
+\hypertarget{classColliderPlusPlus_1_1Sound_a0ae9f80837e343e016952def28815072}{\hyperlink{classColliderPlusPlus_1_1Sound_a0ae9f80837e343e016952def28815072}{$\sim$\-Sound} ()}\label{classColliderPlusPlus_1_1Sound_a0ae9f80837e343e016952def28815072}
+
+\begin{DoxyCompactList}\small\item\em Deallocates server-\/side buffer associated with this instance. \end{DoxyCompactList}\item 
+\hypertarget{classColliderPlusPlus_1_1Sound_aa399d67d29cb8085a3af4c9e5d920482}{void {\bfseries set\-Playback\-Position} (float seconds)}\label{classColliderPlusPlus_1_1Sound_aa399d67d29cb8085a3af4c9e5d920482}
+
+\item 
+\hypertarget{classColliderPlusPlus_1_1Sound_ab64f46659f59a6d7b7bc206cca6402cf}{void {\bfseries set\-Gain} (float gain)}\label{classColliderPlusPlus_1_1Sound_ab64f46659f59a6d7b7bc206cca6402cf}
+
+\item 
+\hypertarget{classColliderPlusPlus_1_1Sound_a294e50c05c4303918110ba493fedd42e}{void {\bfseries set\-Pitch} (float pitch\-Scalar)}\label{classColliderPlusPlus_1_1Sound_a294e50c05c4303918110ba493fedd42e}
+
+\item 
+\hypertarget{classColliderPlusPlus_1_1Sound_aaf0f1826c66e65f7f25d5a0f87e2d2a2}{void {\bfseries fade} (float final\-Gain, float fade\-Duration)}\label{classColliderPlusPlus_1_1Sound_aaf0f1826c66e65f7f25d5a0f87e2d2a2}
+
+\end{DoxyCompactItemize}
+\begin{Indent}{\bf Playback Functions}\par
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{classColliderPlusPlus_1_1Sound_ae43b88fa91c65c281ca869a2061df608}{play} (float seconds=0)
+\item 
+\hypertarget{classColliderPlusPlus_1_1Sound_a2c0ff57814e80a5b99104bee71dbac13}{void \hyperlink{classColliderPlusPlus_1_1Sound_a2c0ff57814e80a5b99104bee71dbac13}{pause} ()}\label{classColliderPlusPlus_1_1Sound_a2c0ff57814e80a5b99104bee71dbac13}
+
+\begin{DoxyCompactList}\small\item\em Pauses the sound source at the current playback position. \end{DoxyCompactList}\item 
+\hypertarget{classColliderPlusPlus_1_1Sound_a7010e6bcdd47d51b359c364883574a5d}{void \hyperlink{classColliderPlusPlus_1_1Sound_a7010e6bcdd47d51b359c364883574a5d}{stop} ()}\label{classColliderPlusPlus_1_1Sound_a7010e6bcdd47d51b359c364883574a5d}
+
+\begin{DoxyCompactList}\small\item\em Stops playing the sound source. Playback will resume from the beginning. \end{DoxyCompactList}\item 
+\hypertarget{classColliderPlusPlus_1_1Sound_a2a2643c6ee9b4d535d1986072640d512}{void {\bfseries loop} (bool loop)}\label{classColliderPlusPlus_1_1Sound_a2a2643c6ee9b4d535d1986072640d512}
+
+\end{DoxyCompactItemize}
+\end{Indent}
+
+
+\subsection{Detailed Description}
+This class represents a user manipulable Soundfile Player, essentially mirroring the O\-A\-S class of the same name by Shreenidhi Chowkwale https\-://github.com/\-Cal\-V\-R/\-Open-\/\-Audio-\/\-Server/blob/master/client/src/\-Sound.\-h 
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classColliderPlusPlus_1_1Sound_a21450f1e1b863970c556f07678908560}{\index{Collider\-Plus\-Plus\-::\-Sound@{Collider\-Plus\-Plus\-::\-Sound}!Sound@{Sound}}
+\index{Sound@{Sound}!ColliderPlusPlus::Sound@{Collider\-Plus\-Plus\-::\-Sound}}
+\subsubsection[{Sound}]{\setlength{\rightskip}{0pt plus 5cm}Collider\-Plus\-Plus\-::\-Sound\-::\-Sound (
+\begin{DoxyParamCaption}
+\item[{const std\-::string \&}]{filepath = {\ttfamily \char`\"{}\char`\"{}}}
+\end{DoxyParamCaption}
+)}}\label{classColliderPlusPlus_1_1Sound_a21450f1e1b863970c556f07678908560}
+Create a new sound source Channel count is determined by file 
+
+\subsection{Member Function Documentation}
+\hypertarget{classColliderPlusPlus_1_1Sound_ae43b88fa91c65c281ca869a2061df608}{\index{Collider\-Plus\-Plus\-::\-Sound@{Collider\-Plus\-Plus\-::\-Sound}!play@{play}}
+\index{play@{play}!ColliderPlusPlus::Sound@{Collider\-Plus\-Plus\-::\-Sound}}
+\subsubsection[{play}]{\setlength{\rightskip}{0pt plus 5cm}void Collider\-Plus\-Plus\-::\-Sound\-::play (
+\begin{DoxyParamCaption}
+\item[{float}]{seconds = {\ttfamily 0}}
+\end{DoxyParamCaption}
+)}}\label{classColliderPlusPlus_1_1Sound_ae43b88fa91c65c281ca869a2061df608}
+Play the sound source from specified position. Default is beginning of file 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em float} & Playback position seconds \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+include/Sound.\-hpp\end{DoxyCompactItemize}

@@ -177,7 +177,7 @@ inline int gettimeofday(struct timeval *tv, struct timezone *tz)
 /// @ref [http://stackoverflow.com/questions/2641954/create-ntp-time-stamp-from-gettimeofday]
 inline uint64_t get_current_ntp_time()
 {
-  // time between 1-1-1900 and 1-1-1970
+  // time between 1-1-1900 and 1-1-1950
   static const uint64_t epoch = 2208988800UL;
   // max value of NTP fractional part
   static const uint64_t ntp_scale = 4294967295UL;
@@ -443,12 +443,10 @@ class Bundle {
   /// @param[in] ntp_time NTP Timestamp
   /// @see get_current_ntp_time
   void set_timetag(uint64_t ntp_time) {
-    uint64_t sec = htonl((uint32_t)(ntp_time >> 32));
-    uint64_t frac = htonl((uint32_t)ntp_time);
-    uint64_t a = sec << 32 | frac;
+    uint64_t a = htonll(ntp_time);
     ByteArray b(8);
     memcpy(&b[0], (char*)&a, 8);
-    data_.insert(data_.begin()+8, b.begin(), b.end()); }
+    std::copy(b.begin(), b.end(), data_.begin()+8); }
 
   /// Returns a complete byte array of this OSC bundle as a tnyosc::ByteArray
   /// type.
