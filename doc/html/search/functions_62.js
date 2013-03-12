@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['buffer',['Buffer',['../classColliderPlusPlus_1_1Buffer.html#ae7ef2cd201190fde551dcb902627112b',1,'ColliderPlusPlus::Buffer::Buffer()'],['../classColliderPlusPlus_1_1Buffer.html#aea5b364a9ec1815f0dd3746d8577a986',1,'ColliderPlusPlus::Buffer::Buffer(int bufNum)']]],
-  ['bus',['Bus',['../classColliderPlusPlus_1_1Bus.html#aacf35e62456128245a02db34334f9a3d',1,'ColliderPlusPlus::Bus']]]
+  ['buffer',['Buffer',['../classColliderPlusPlus_1_1Buffer.html#aac5d271b57c8b6410b790794cfb790e1',1,'ColliderPlusPlus::Buffer::Buffer()'],['../classColliderPlusPlus_1_1Buffer.html#a85de27433fc01a2d524e9ef5d3bc2e45',1,'ColliderPlusPlus::Buffer::Buffer(int bufNum)']]],
+  ['bus',['Bus',['../classColliderPlusPlus_1_1Bus.html#a2573707ab0adc378f8c4db656209c289',1,'ColliderPlusPlus::Bus']]]
 ];
