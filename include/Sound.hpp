@@ -6,6 +6,12 @@
 #define SOUND
 
 #include <string>
+#include "Buffer.hpp"
+#include "Client_Server.hpp"
+#include "Node.hpp"
+
+#define NEW_PAUSED 0
+#define NEW 1
 
 namespace ColliderPlusPlus {
 
@@ -18,7 +24,7 @@ namespace ColliderPlusPlus {
 	
         /// Create a new sound source 
 	/// Channel count is determined by file
-	Sound(const std::string &filepath = "");
+	Sound(const std::string &filepath, const int initAction = 0);
   
       	/// Deallocates server-side buffer associated with this instance
 	~Sound();
@@ -28,29 +34,43 @@ namespace ColliderPlusPlus {
 	
 	/// Play the sound source from specified position. Default is beginning of file
         /// @param[in] float Playback position seconds
-        void play(float seconds = 0);
+        void _play();
+
+      //  void _play(float seconds);
  
         /// Pauses the sound source at the current playback position
-        void pause();
+        void _stop();
 
         /// Stops playing the sound source. Playback will resume from the beginning
-        void stop();
+      //  void _pause();
 
-        void loop(bool loop);
+        bool _loop(bool loop);
         // @}
 
-	void setPlaybackPosition(float seconds);
+//	void _setPlaybackPosition(float seconds);
 
-        void setGain(float gain);
+  //      void _setGain(float gain);
 
-	void setPitch(float pitchScalar);
+//	void _setPitch(float pitchScalar);
 
-        void fade(float finalGain, float fadeDuration);
+  //      void _fade(float finalGain, float fadeDuration);
  
-        
-
-
     private:
+
+        _init(const std::string &filepath);
+	
+	Client_Server * _cs;
+	Buffer * _buffer;
+        Synth * _synth;
+	std::string _filePath;
+
+        std::vector<std::string, float> args;
+	
+	float _pitchScalar;
+	float _gain;
+        int _initAction;
+	bool _isLooping;
+        bool _isPlaying;
   }
 } //namespace ColliderPlusPlus
 #endif
