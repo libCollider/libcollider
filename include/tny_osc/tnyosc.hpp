@@ -444,10 +444,10 @@ class Bundle {
   /// @see get_current_ntp_time
   void set_timetag(uint64_t ntp_time) {
     uint64_t a = htonll(ntp_time);
-    ByteArray b(8);
-    memcpy(&b[0], (char*)&a, 8);
-    std::copy(b.begin(), b.end(), data_.begin()+8); }
-
+   // ByteArray b(8);
+   // memcpy(&b[0], (char*)&a, 8);
+   // std::copy(b.begin(), b.end(), data_.begin()+8); }
+    memcpy(&data_[8], &a, 8); }
   /// Returns a complete byte array of this OSC bundle as a tnyosc::ByteArray
   /// type.
   ///
