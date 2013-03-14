@@ -346,6 +346,44 @@ void Client_Server::_createSynth(const std::string& name, int nodeId,
    } //end catch
 }
 
+void Client_Server::_createPausedSynth(const std::string& name, int nodeId,
+					 	int addAction, int target)
+{
+   try {
+
+   io_service io_service;
+   udp::resolver resolver(io_service);
+   udp::resolver::query query(udp::v4(), _getHost(), _getPort());
+   udp::endpoint receiver_endpoint = *resolver.resolve(query);
+   udp::socket socket(io_service);
+   socket.open(udp::v4());
+   
+   Message::Ptr msg(new Message("/s_new"));
+   msg->append(name);
+   msg->append(nodeId);
+   msg->append(addAction);
+   msg->append(target);
+
+   Message::Ptr msg2(new Message("/n_run"));
+   msg2->append(nodeId);
+   msg2->append(0);
+
+   Bundle::Ptr bundle(new Bundle());
+   bundle->append(msg);
+   bundle->append(msg2);
+   
+   #ifdef EH_DEBUG
+   cout << "\nSend: /s_new " << name << " " << nodeId 
+		<< "+ /n_run " << nodeId << " 0" << " command to server..." << endl;
+   #endif
+   socket.send_to(buffer(bundle->data(), bundle->size()), receiver_endpoint);
+   } //end try
+   
+   catch (std::exception& e) {
+    cerr << e.what() << endl;
+   } //end catch
+}
+
 void Client_Server::_createSynth(const std::string& name, int nodeId,
 			std::map<std::string, float> &args, int addAction, int target)
 {
@@ -376,6 +414,52 @@ void Client_Server::_createSynth(const std::string& name, int nodeId,
    cout << "\nSend: /s_new " << name << " " << nodeId <<" command to server..." << endl;
    #endif
    socket.send_to(buffer(msg->data(), msg->size()), receiver_endpoint);
+   } //end try
+   
+   catch (std::exception& e) {
+    cerr << e.what() << endl;
+   } //end catch
+}
+
+void Client_Server::_createPausedSynth(const std::string& name, int nodeId,
+			std::map<std::string, float> &args, int addAction, int target)
+{
+   try {
+   
+   io_service io_service;
+   udp::resolver resolver(io_service);
+   udp::resolver::query query(udp::v4(), _getHost(), _getPort());
+   udp::endpoint receiver_endpoint = *resolver.resolve(query);
+   udp::socket socket(io_service);
+   socket.open(udp::v4());
+   
+   Message::Ptr msg(new Message("/s_new"));
+   msg->append(name);
+   msg->append(nodeId);
+   msg->append(addAction);
+   msg->append(target);
+  
+   std::map<std::string,float>::iterator i = args.begin();
+
+      for(; i != args.end(); ++i)
+      { 
+        msg->append(i->first);
+        msg->append(i->second);
+      }
+
+   Message::Ptr msg2(new Message("/n_run"));
+   msg2->append(nodeId);
+   msg2->append(0);
+
+   Bundle::Ptr bundle(new Bundle());
+   bundle->append(msg);
+   bundle->append(msg2);
+   
+   #ifdef EH_DEBUG
+   cout << "\nSend: /s_new " << name << " " << nodeId 
+		<< "+ /n_run " << nodeId << " 0" << " command to server..." << endl;
+   #endif
+   socket.send_to(buffer(bundle->data(), bundle->size()), receiver_endpoint);
    } //end try
    
    catch (std::exception& e) {

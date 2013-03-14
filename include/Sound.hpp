@@ -6,6 +6,7 @@
 #define SOUND
 
 #include <string>
+#include <map>
 #include "Buffer.hpp"
 #include "Client_Server.hpp"
 #include "Node.hpp"
@@ -24,10 +25,11 @@ namespace ColliderPlusPlus {
 	
         /// Create a new sound source 
 	/// Channel count is determined by file
-	Sound(const std::string &filepath, const int initAction = 0);
+	Sound(Client_Server * cs, const std::string &filepath, int initAction = 0);
   
       	/// Deallocates server-side buffer associated with this instance
 	~Sound();
+
 
         // {@
 	/// @name Playback Functions
@@ -44,7 +46,7 @@ namespace ColliderPlusPlus {
         /// Stops playing the sound source. Playback will resume from the beginning
       //  void _pause();
 
-        bool _loop(bool loop);
+        int _loop(bool loop);
         // @}
 
 //	void _setPlaybackPosition(float seconds);
@@ -57,20 +59,20 @@ namespace ColliderPlusPlus {
  
     private:
 
-        _init(const std::string &filepath);
+        void _init(const std::string &filepath, Client_Server * cs);
 	
 	Client_Server * _cs;
 	Buffer * _buffer;
         Synth * _synth;
 	std::string _filePath;
 
-        std::vector<std::string, float> args;
+        std::map<std::string, float> args;
 	
 	float _pitchScalar;
 	float _gain;
         int _initAction;
 	bool _isLooping;
         bool _isPlaying;
-  }
+  };
 } //namespace ColliderPlusPlus
 #endif

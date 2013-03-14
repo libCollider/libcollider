@@ -16,8 +16,8 @@ ifeq ($(p), linux)
   libsuffix = $(linux_libsuffix)
 endif
 
-libcolliderpp: Client_Server.o Buffer.o Bus.o Node.o
-	gcc -$(libtype) -o libcollider++.$(libsuffix) src/Client_Server.o src/Buffer.o src/Bus.o src/Node.o -I/usr/local/include/boost/ -L/usr/local/lib/ -lboost_system -lboost_thread -lpthread -lstdc++ 
+libcolliderpp: Client_Server.o Buffer.o Bus.o Node.o Sound.o
+	gcc -$(libtype) -o libcollider++.$(libsuffix) src/Client_Server.o src/Buffer.o src/Bus.o src/Node.o src/Sound.o -I/usr/local/include/boost/ -L/usr/local/lib/ -lboost_system -lboost_thread -lpthread -lstdc++ 
 	mkdir build
 	mv libcollider++.$(libsuffix) build
 	rm -f src/*.o
@@ -32,6 +32,8 @@ Bus.o : Bus.cpp Bus.hpp
 	gcc -c -fPIC src/Bus.cpp -o src/Bus.o -Iinclude/ 
 Node.o : Node.cpp Node.hpp
 	gcc -c -fPIC src/Node.cpp -o src/Node.o -Iinclude/ 
+Sound.o : Sound.cpp Sound.hpp
+	gcc -c -fPIC src/Sound.cpp -o src/Sound.o -Iinclude/
 
 clean: 
 	rm -rf build

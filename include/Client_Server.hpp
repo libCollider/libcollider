@@ -123,6 +123,14 @@ namespace ColliderPlusPlus {
      	void _createSynth(const std::string& name, int nodeId,
 			              int addAction = TO_HEAD, int target = DEFAULT_GROUP);
 
+        /// Command the server to create a new PAUSED Synth specified by the Name parameter
+        /// @param[in] std::string Name
+	/// @param[in] int Node Id
+        /// @param[in] int Add Action
+	/// @param[in] int Target Group
+	/// @param[in] int Type (Synth or Group)
+     	void _createPausedSynth(const std::string& name, int nodeId,
+			              int addAction = TO_HEAD, int target = DEFAULT_GROUP);
 
         /// Command the server to create a new Synth specified by the Name parameter 
         /// with user specified arguments
@@ -133,6 +141,18 @@ namespace ColliderPlusPlus {
 	/// @param[in] int Target Group
 	/// @param[in] int Type (Synth or Group)
 	void _createSynth(const std::string& name, int nodeId, 
+			        std::map<std::string, float> &args, 
+			               int addAction = TO_HEAD,int target = DEFAULT_GROUP);
+
+        /// Command the server to create a new PAUSED Synth specified by the Name parameter 
+        /// with user specified arguments
+        /// @param[in] std::string Name
+	/// @param[in] int Node Id
+        /// @param[in] std::map<std::string, float> Args
+        /// @param[in] int Add Action
+	/// @param[in] int Target Group
+	/// @param[in] int Type (Synth or Group)
+	void _createPausedSynth(const std::string& name, int nodeId, 
 			        std::map<std::string, float> &args, 
 			               int addAction = TO_HEAD,int target = DEFAULT_GROUP);
 
