@@ -34,7 +34,7 @@ int main(int argc, char* argv[])
   sArgs["bufnum"] = b._getBufNum();
   sArgs["stutterRate"] = 7;
   sArgs["rate"] = 3.0;
-  Synth s(cs, "SoundFile_Stutter_Loop_Stereo", cs._nextNodeId(), sArgs);
+  Synth s(cs, "SoundFile_Stutter_Loop_Stereo", cs._nextNodeId(), sArgs, 1);
 
   int count = 0;
   float scaledTime = getScaledTime(2, TIME_GRANULARITY_MICROSECONDS);
@@ -51,7 +51,7 @@ int main(int argc, char* argv[])
   std::map<std::string, float> cArgs;
   cArgs["bufnum"] = b._getBufNum();
   cArgs["amp"] = 1.0;
-  Synth c(cs, "SoundFile_Event_Stereo", cs._nextNodeId(), cArgs);
+  Synth c(cs, "SoundFile_Event_Stereo", cs._nextNodeId(), cArgs, 1);
  
   run_time(9.85, TIME_GRANULARITY_MICROSECONDS);
 
