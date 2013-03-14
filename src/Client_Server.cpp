@@ -374,7 +374,7 @@ void Client_Server::_createPausedSynth(const std::string& name, int nodeId,
    
    #ifdef EH_DEBUG
    cout << "\nSend: /s_new " << name << " " << nodeId 
-		<< "+ /n_run " << nodeId << " 0" << " command to server..." << endl;
+		<< " + /n_run " << nodeId << " 0" << " command to server..." << endl;
    #endif
    socket.send_to(buffer(bundle->data(), bundle->size()), receiver_endpoint);
    } //end try
@@ -457,7 +457,7 @@ void Client_Server::_createPausedSynth(const std::string& name, int nodeId,
    
    #ifdef EH_DEBUG
    cout << "\nSend: /s_new " << name << " " << nodeId 
-		<< "+ /n_run " << nodeId << " 0" << " command to server..." << endl;
+		<< " + /n_run " << nodeId << " 0" << " command to server..." << endl;
    #endif
    socket.send_to(buffer(bundle->data(), bundle->size()), receiver_endpoint);
    } //end try

@@ -101,8 +101,9 @@ namespace ColliderPlusPlus {
         /// @param[in] int Id
 	/// @param[in] int Add Action
         /// @param[in] int Target Group
-	Synth(Client_Server &cs, const std::string& defName, int id,
-		    int addAction = TO_HEAD, int target = DEFAULT_GROUP, int initAction = 0);
+	Synth(Client_Server &cs, const std::string& defName, 
+		 int id, int initAction = 0, 
+			       int addAction = TO_HEAD, int target = DEFAULT_GROUP);
   
         /// Create a Synth with a user defined name, id, Node args, addAction, and target
         /// If no addAction is specified, this Synth is added to the head of target group
@@ -114,8 +115,8 @@ namespace ColliderPlusPlus {
 	/// @param[in] int Add Action
         /// @param[in] int Target Group
 	Synth(Client_Server &cs, const std::string& defName, 
-		 int id, std::map<std::string,float> &args,
-		    int addAction = TO_HEAD, int target = DEFAULT_GROUP, int initAction = 0);
+		 int id, std::map<std::string,float> &args, int initAction = 0,
+		                int addAction = TO_HEAD, int target = DEFAULT_GROUP);
   
         /// Destructor
 	~Synth();

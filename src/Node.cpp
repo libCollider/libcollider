@@ -64,31 +64,23 @@ void Node::_busMap(Client_Server &cs, std::map<std::string, Bus> &map)
 }
 
 Synth::Synth(Client_Server &cs, const std::string& defName, 
-				int id, int addAction, int target, int initAction)
+				int id, int initAction, int addAction, int target)
 :Node(defName, id)
 { 
   if(initAction == 0)
       cs._createPausedSynth(_defName, _id, addAction, target);
   else if(initAction == 1)
       cs._createSynth(_defName, _id, addAction, target);
-  else {
-      std::cout << "Invalid initAction. Exiting." << std::endl;
-      exit(0);
-  }
 }
 
 Synth::Synth(Client_Server &cs, const std::string& defName, int id,
-     std::map<std::string,float> &args, int addAction, int target, int initAction)
+     std::map<std::string,float> &args, int initAction, int addAction, int target)
 :Node(defName, id)
 { 
   if(initAction == 0)
       cs._createPausedSynth(_defName, _id, args, addAction, target);
   if(initAction == 1)
       cs._createSynth(_defName, _id, args, addAction, target);
-  else {
-      std::cout << "Invalid initAction. Exiting." << std::endl;
-      exit(0);
-  }
 }
 
 Synth::~Synth()

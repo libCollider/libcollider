@@ -25,7 +25,7 @@ int main(int argc, char* argv[])
  }
    
  Client_Server cs = Client_Server("MyServer", host, port, synthDefDir);
-// cs._dumpOSC(0);
+ cs._dumpOSC(1);
 
  //random magnitude arg for CentroidBing synth
  boost::mt19937 magRng;
@@ -60,7 +60,7 @@ int main(int argc, char* argv[])
  args["pan"] = randPanVal;
 
  //Object style
- Synth synth(cs,"CentroidBing",-1, args);
+ Synth synth(cs,"CentroidBing",-1, args, 1);
 
  //Equiv. Message style
  //cs._createSynth("CentroidBing", -1, args);
