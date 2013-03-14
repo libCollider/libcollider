@@ -69,7 +69,7 @@ Synth::Synth(Client_Server &cs, const std::string& defName,
 { 
   if(initAction == 0)
       cs._createPausedSynth(_defName, _id, addAction, target);
-  else if(initAction == 1)
+  if(initAction == 1)
       cs._createSynth(_defName, _id, addAction, target);
 }
 
