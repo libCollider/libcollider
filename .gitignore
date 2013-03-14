@@ -12,10 +12,14 @@ build
 *.dylib
 *.so
 *.a
+*.sh~
 Doxygen~
 Makefile~
 Buffer_Test
 Node_Test
 Bus_Test
-*.sh~
+Buffer_Example
+Node_Example
+Bus_Example
 Grain_Test
+Grain_Example
