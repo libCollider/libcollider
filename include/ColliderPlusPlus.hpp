@@ -9,5 +9,6 @@
 #include "Node.hpp"
 #include "Bus.hpp"
 #include "Buffer.hpp"
+#include "Sound.hpp"
 
 #endif
