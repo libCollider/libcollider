@@ -20,8 +20,6 @@ libcolliderpp: Client_Server.o Buffer.o Bus.o Node.o Sound.o
 	gcc -$(libtype) -o libcollider++.$(libsuffix) src/Client_Server.o src/Buffer.o src/Bus.o src/Node.o src/Sound.o -I/usr/local/include/boost/ -L/usr/local/lib/ -lboost_system -lboost_thread -lpthread -lstdc++ 
 	mkdir build
 	mv libcollider++.$(libsuffix) build
-	rm -f src/*.o
-
 
 Client_Server.o : Client_Server.cpp Client_Server.hpp tnyosc.hpp
 	gcc -c -fPIC src/Client_Server.cpp -o src/Client_Server.o -Iinclude/ -Iinclude/tny_osc/ -DEH_DEBUG -DTNYOSC_WITH_BOOST
