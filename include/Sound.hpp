@@ -30,32 +30,44 @@ namespace ColliderPlusPlus {
       	/// Deallocates server-side buffer associated with this instance
 	~Sound();
 
-
         // {@
 	/// @name Playback Functions
 	
-	/// Play the sound source from specified position. Default is beginning of file
-        /// @param[in] float Playback position seconds
+	/// Play the sound source from the last position.
         void _play();
 
-      //  void _play(float seconds);
- 
         /// Pauses the sound source at the current playback position
         void _stop();
 
-        /// Stops playing the sound source. Playback will resume from the beginning
-      //  void _pause();
-
+        /// Set the looping state
+	/// false = no looping, true = looping 
+        /// @param[in] bool loop
         int _loop(bool loop);
         // @}
 
-//	void _setPlaybackPosition(float seconds);
+       
+        /*// {@
+	/// @name Sound Parameter Functions
 
-  //      void _setGain(float gain);
+        /// Set the current playback position in seconds 
+        /// @param[in] float seconds
+	void _setPlaybackPosition(float seconds);
+  
+        /// Set the current gain from 0 - 1
+        /// @param[in] float gain
+        void _setGain(float gain);
 
-//	void _setPitch(float pitchScalar);
+        /// Set the current playback rate
+	/// 1 is regular, 2 is double speed, .5 half speed etc.
+	/// @param[in] float rateScalar
+        void _setRate(float rateScalar);
 
-  //      void _fade(float finalGain, float fadeDuration);
+        /// Initiate a linear fade in/out relative to the
+        /// gain at the time this function is called
+        /// @param[in] float final gain
+        /// @param[in] float fade duration
+        void _fade(float finalGain, float fadeDuration);
+        // @}*/
  
     private:
 

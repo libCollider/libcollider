@@ -1,19 +1,14 @@
 VPATH =src:include:include/tny_osc
-mac_libsuffix = dylib
-mac_libtype = dynamiclib
-linux_libsuffix = so
-linux_libtype = shared
+UNAME := $(shell uname)
 
-p = linux
-
-ifeq ($(p), mac)
-  libtype = $(mac_libtype)
-  libsuffix = $(mac_libsuffix)
+ifeq ($(UNAME), Darwin)
+  libtype = dynamiclib
+  libsuffix = dylib
 endif
 
-ifeq ($(p), linux)
-  libtype = $(linux_libtype)
-  libsuffix = $(linux_libsuffix)
+ifeq ($(UNAME), Linux)
+  libtype = shared
+  libsuffix = so
 endif
 
 libcolliderpp: Client_Server.o Buffer.o Bus.o Node.o Sound.o
