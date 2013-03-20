@@ -27,8 +27,8 @@ int main(int argc, char* argv[])
   Client_Server cs("Server", host, port, synthDefDir);
   cs._dumpOSC(1);
   
-  Buffer b(cs._nextBufferNum());
-  b._allocRead(cs, soundfile);
+  Buffer b(&cs, cs._nextBufferNum());
+  b._allocRead(soundfile);
 
   std::map<std::string, float> sArgs;
   sArgs["bufnum"] = b._getBufNum();
@@ -44,7 +44,7 @@ int main(int argc, char* argv[])
     std::cin >> a;
   } 
 
-  b._free(cs);
+  b._free();
 
   return 0;
 }

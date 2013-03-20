@@ -19,7 +19,7 @@ namespace ColliderPlusPlus {
   
         /// Create a Buffer with buffer number specified by bufNum parameter
         /// @param[in] int Buffer Number
-	Buffer(int bufNum);
+	Buffer(Client_Server * cs, int bufNum);
    
         /// Destructor
         ~Buffer();
@@ -48,15 +48,15 @@ namespace ColliderPlusPlus {
         /// @param[in] Client_Server& Client_Server instance
         /// @param[in] int Number of Sample Frames
         /// @param[in] int Number of Channels
-        void _alloc(Client_Server &cs, int numFrames, int numChannels);
+        void _alloc(int numFrames, int numChannels);
 
         /// Command server to free memory associated with this Buffer
         /// @param[in] Client_Server& Client_Server instance
-	void _free(Client_Server &cs);
+	void _free();
 
         /// Command server to query this Buffer
         /// @param[in] Client_Server& Client_Server instance
-        void _query(Client_Server &cs); //Finish me
+        void _query(); //Finish me
 
         /// Command server to load specified Soundfile into Buffer and allocate
         /// just enough space for the Soundfile with the given offset
@@ -65,19 +65,20 @@ namespace ColliderPlusPlus {
         /// @param[in] const std::string& Soundfile Path
         /// @param[in] int Read file from this sample
         /// @param[in] int Number of Sample Frames to allocate, -1 loads whole Soundfile
-	void _allocRead(Client_Server &cs,
-			  	    const std::string& filePath, 
+	void _allocRead(const std::string& filePath, 
 				       	  int startFileFrame = 0,
 						 int numFrames = -1); 
 
-    private:	
+        bool _getManuallyFreed() {return _manuallyFreed;}
 
-	//members
+    private:
 	int _bufNum;
 	int _numFrames;
 	int _numChans;
 	int _sampRate;
 	const std::string _filePath;
+        bool _manuallyFreed;
+	Client_Server * _cs;
   };
 } //namespace ColliderPlusPlus
 
