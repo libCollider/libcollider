@@ -60,7 +60,7 @@ int main(int argc, char* argv[])
  args["pan"] = randPanVal;
 
  //Object style
- Synth synth(&cs,"default",cs._nextNodeId(), args, 1);
+ Synth synth(&cs,"CentroidBing", -1, args, 1);
 
  //Equiv. Message style
  //cs._createSynth("CentroidBing", -1, args);
