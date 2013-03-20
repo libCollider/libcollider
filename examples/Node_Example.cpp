@@ -24,7 +24,7 @@ int main(int argc, char* argv[])
   return 1;
  }
    
- Client_Server cs = Client_Server("MyServer", host, port, synthDefDir);
+ Client_Server cs("MyServer", host, port, synthDefDir);
  cs._dumpOSC(1);
 
  //random magnitude arg for CentroidBing synth
@@ -60,7 +60,7 @@ int main(int argc, char* argv[])
  args["pan"] = randPanVal;
 
  //Object style
- Synth synth(cs,"CentroidBing",-1, args, 1);
+ Synth synth(&cs,"default",cs._nextNodeId(), args, 1);
 
  //Equiv. Message style
  //cs._createSynth("CentroidBing", -1, args);
@@ -72,9 +72,7 @@ int main(int argc, char* argv[])
 
  //All done
  sleep(1);
- //cs._quit();
-
- return 0;
+  return 0;
 }
 
 bool init(int argc, char* argv[], const char* &host, const char* &port, std::string &synthDefDir)

@@ -30,12 +30,6 @@ namespace ColliderPlusPlus {
         /// Create a default Client_Server. 
         Client_Server();
 
-        /// Create a Client_Server with a user defined name and specific
-        /// scsyndef directory to load upon instantiation
-        /// @param[in] const std::string& Name
-        /// @param[in] cont std::string& SynthDef Directory
-      	Client_Server(const std::string& name, const std::string& synthDefDir);
-
         /// Create a Client_Server with a user defined name, host address, port,
         /// and specific scsyndef directory to load upon instantiation
         /// @param[in] const std::string& Name
