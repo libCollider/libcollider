@@ -88,7 +88,6 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
-<a href="#pro-attribs">Protected Attributes</a> &#124;
 <a href="classColliderPlusPlus_1_1Node-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">ColliderPlusPlus::Node Class Reference</div>  </div>
@@ -113,73 +112,64 @@ Inheritance diagram for ColliderPlusPlus::Node:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:aaad80bfe23840414c3522f5a25f5771a"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aaad80bfe23840414c3522f5a25f5771a"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classColliderPlusPlus_1_1Node.html#aaad80bfe23840414c3522f5a25f5771a">Node</a> ()</td></tr>
-<tr class="memdesc:aaad80bfe23840414c3522f5a25f5771a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default Constructor. <br/></td></tr>
-<tr class="separator:aaad80bfe23840414c3522f5a25f5771a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a306340cc9340b97bbdd0df858c8a4185"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classColliderPlusPlus_1_1Node.html#a306340cc9340b97bbdd0df858c8a4185">Node</a> (const std::string &amp;defName, int id)</td></tr>
-<tr class="separator:a306340cc9340b97bbdd0df858c8a4185"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab0bc89b38db96dea7086833453b8bf12"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classColliderPlusPlus_1_1Node.html#ab0bc89b38db96dea7086833453b8bf12">Node</a> (<a class="el" href="classColliderPlusPlus_1_1Client__Server.html">Client_Server</a> *cs, const std::string &amp;defName, int id)</td></tr>
+<tr class="separator:ab0bc89b38db96dea7086833453b8bf12"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae1198291ae5d81dd34474b7cf52438cd"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ae1198291ae5d81dd34474b7cf52438cd"></a>
 &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classColliderPlusPlus_1_1Node.html#ae1198291ae5d81dd34474b7cf52438cd">~Node</a> ()</td></tr>
 <tr class="memdesc:ae1198291ae5d81dd34474b7cf52438cd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructor. <br/></td></tr>
 <tr class="separator:ae1198291ae5d81dd34474b7cf52438cd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a261794de64a2198ca94e2c6410f3845f"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classColliderPlusPlus_1_1Node.html#a261794de64a2198ca94e2c6410f3845f">_getId</a> () const </td></tr>
 <tr class="separator:a261794de64a2198ca94e2c6410f3845f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a97a4981f950823a4326bd87caa7826f0"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a97a4981f950823a4326bd87caa7826f0"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classColliderPlusPlus_1_1Node.html#a97a4981f950823a4326bd87caa7826f0">_run</a> (<a class="el" href="classColliderPlusPlus_1_1Client__Server.html">Client_Server</a> &amp;cs)</td></tr>
-<tr class="memdesc:a97a4981f950823a4326bd87caa7826f0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Command the server to run this <a class="el" href="classColliderPlusPlus_1_1Node.html" title="This class represents a client-side version of a server node (Synth or Group)">Node</a>. <br/></td></tr>
-<tr class="separator:a97a4981f950823a4326bd87caa7826f0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:acb5dda7d418dfb041871815f2828f1ba"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="acb5dda7d418dfb041871815f2828f1ba"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classColliderPlusPlus_1_1Node.html#acb5dda7d418dfb041871815f2828f1ba">_stop</a> (<a class="el" href="classColliderPlusPlus_1_1Client__Server.html">Client_Server</a> &amp;cs)</td></tr>
-<tr class="memdesc:acb5dda7d418dfb041871815f2828f1ba"><td class="mdescLeft">&#160;</td><td class="mdescRight">Command the server to stop this <a class="el" href="classColliderPlusPlus_1_1Node.html" title="This class represents a client-side version of a server node (Synth or Group)">Node</a>. <br/></td></tr>
-<tr class="separator:acb5dda7d418dfb041871815f2828f1ba"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abca0b4c65fc62a5f749bc8c9d9898211"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="abca0b4c65fc62a5f749bc8c9d9898211"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classColliderPlusPlus_1_1Node.html#abca0b4c65fc62a5f749bc8c9d9898211">_free</a> (<a class="el" href="classColliderPlusPlus_1_1Client__Server.html">Client_Server</a> &amp;cs)</td></tr>
-<tr class="memdesc:abca0b4c65fc62a5f749bc8c9d9898211"><td class="mdescLeft">&#160;</td><td class="mdescRight">Command the server to free this <a class="el" href="classColliderPlusPlus_1_1Node.html" title="This class represents a client-side version of a server node (Synth or Group)">Node</a>. <br/></td></tr>
-<tr class="separator:abca0b4c65fc62a5f749bc8c9d9898211"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a52123c9868b5e1833750158c870c3b87"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classColliderPlusPlus_1_1Node.html#a52123c9868b5e1833750158c870c3b87">_isPlaying</a> ()</td></tr>
-<tr class="separator:a52123c9868b5e1833750158c870c3b87"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5f073a198b55b4c471e772ca2661d144"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classColliderPlusPlus_1_1Node.html#a5f073a198b55b4c471e772ca2661d144">_isRunning</a> ()</td></tr>
-<tr class="separator:a5f073a198b55b4c471e772ca2661d144"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a52a06de4f27d8e2e9410a474b90c4890"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a52a06de4f27d8e2e9410a474b90c4890"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classColliderPlusPlus_1_1Node.html#a52a06de4f27d8e2e9410a474b90c4890">_run</a> ()</td></tr>
+<tr class="memdesc:a52a06de4f27d8e2e9410a474b90c4890"><td class="mdescLeft">&#160;</td><td class="mdescRight">Command the server to run this <a class="el" href="classColliderPlusPlus_1_1Node.html" title="This class represents a client-side version of a server node (Synth or Group)">Node</a>. <br/></td></tr>
+<tr class="separator:a52a06de4f27d8e2e9410a474b90c4890"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad038d5f7d52e71915b3cb9053ff037ae"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ad038d5f7d52e71915b3cb9053ff037ae"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classColliderPlusPlus_1_1Node.html#ad038d5f7d52e71915b3cb9053ff037ae">_stop</a> ()</td></tr>
+<tr class="memdesc:ad038d5f7d52e71915b3cb9053ff037ae"><td class="mdescLeft">&#160;</td><td class="mdescRight">Command the server to stop this <a class="el" href="classColliderPlusPlus_1_1Node.html" title="This class represents a client-side version of a server node (Synth or Group)">Node</a>. <br/></td></tr>
+<tr class="separator:ad038d5f7d52e71915b3cb9053ff037ae"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a600fbe666439888a7615dd045abf915a"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a600fbe666439888a7615dd045abf915a"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classColliderPlusPlus_1_1Node.html#a600fbe666439888a7615dd045abf915a">_free</a> ()</td></tr>
+<tr class="memdesc:a600fbe666439888a7615dd045abf915a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Command the server to free this <a class="el" href="classColliderPlusPlus_1_1Node.html" title="This class represents a client-side version of a server node (Synth or Group)">Node</a>. <br/></td></tr>
+<tr class="separator:a600fbe666439888a7615dd045abf915a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aee7913614aa6282d7113fa639e0930da"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classColliderPlusPlus_1_1Node.html#aee7913614aa6282d7113fa639e0930da">_isPlaying</a> () const </td></tr>
+<tr class="separator:aee7913614aa6282d7113fa639e0930da"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa72353a98f6ffcce20021ad44cc05c04"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classColliderPlusPlus_1_1Node.html#aa72353a98f6ffcce20021ad44cc05c04">_isRunning</a> () const </td></tr>
+<tr class="separator:aa72353a98f6ffcce20021ad44cc05c04"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a64c684c140c9f5fccd64c37e1a94a25e"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classColliderPlusPlus_1_1Node.html#a64c684c140c9f5fccd64c37e1a94a25e">_getManuallyFreed</a> () const </td></tr>
+<tr class="separator:a64c684c140c9f5fccd64c37e1a94a25e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a47ab8ce687a4336189a6cc629cdec56d"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classColliderPlusPlus_1_1Node.html#a47ab8ce687a4336189a6cc629cdec56d">_getDefName</a> () const </td></tr>
 <tr class="separator:a47ab8ce687a4336189a6cc629cdec56d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a796ea51c38b6894b93ebafe8eae316b9"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a796ea51c38b6894b93ebafe8eae316b9"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classColliderPlusPlus_1_1Node.html#a796ea51c38b6894b93ebafe8eae316b9">_query</a> (<a class="el" href="classColliderPlusPlus_1_1Client__Server.html">Client_Server</a> &amp;cs)</td></tr>
-<tr class="memdesc:a796ea51c38b6894b93ebafe8eae316b9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Query the server for this <a class="el" href="classColliderPlusPlus_1_1Node.html" title="This class represents a client-side version of a server node (Synth or Group)">Node</a>. <br/></td></tr>
-<tr class="separator:a796ea51c38b6894b93ebafe8eae316b9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a43f4b705ce1f66c57828ddb1083cdca0"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classColliderPlusPlus_1_1Client__Server.html">Client_Server</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classColliderPlusPlus_1_1Node.html#a43f4b705ce1f66c57828ddb1083cdca0">_getClientServer</a> () const </td></tr>
+<tr class="separator:a43f4b705ce1f66c57828ddb1083cdca0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae3a86f1c3960228c989cfac0c403a68f"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ae3a86f1c3960228c989cfac0c403a68f"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classColliderPlusPlus_1_1Node.html#ae3a86f1c3960228c989cfac0c403a68f">_query</a> ()</td></tr>
+<tr class="memdesc:ae3a86f1c3960228c989cfac0c403a68f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Query the server for this <a class="el" href="classColliderPlusPlus_1_1Node.html" title="This class represents a client-side version of a server node (Synth or Group)">Node</a>. <br/></td></tr>
+<tr class="separator:ae3a86f1c3960228c989cfac0c403a68f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr><td colspan="2"><div class="groupHeader">Control and Bus Mapping Functions</div></td></tr>
-<tr class="memitem:a114d15e7c1f14462983f602fb2164dc1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classColliderPlusPlus_1_1Node.html#a114d15e7c1f14462983f602fb2164dc1">_set</a> (<a class="el" href="classColliderPlusPlus_1_1Client__Server.html">Client_Server</a> &amp;cs, std::map&lt; std::string, float &gt; &amp;controlVals)</td></tr>
-<tr class="separator:a114d15e7c1f14462983f602fb2164dc1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aef01261b4c0d4046c63a857b864ae824"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classColliderPlusPlus_1_1Node.html#aef01261b4c0d4046c63a857b864ae824">_setn</a> (<a class="el" href="classColliderPlusPlus_1_1Client__Server.html">Client_Server</a> &amp;cs, std::map&lt; std::string, float[]&gt; &amp;controlRanges)</td></tr>
-<tr class="separator:aef01261b4c0d4046c63a857b864ae824"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af654f15c4f2de2b96b69c1992d6de33e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classColliderPlusPlus_1_1Node.html#af654f15c4f2de2b96b69c1992d6de33e">_busMap</a> (<a class="el" href="classColliderPlusPlus_1_1Client__Server.html">Client_Server</a> &amp;cs, std::map&lt; std::string, <a class="el" href="classColliderPlusPlus_1_1Bus.html">Bus</a> &gt; &amp;map)</td></tr>
-<tr class="separator:af654f15c4f2de2b96b69c1992d6de33e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-attribs"></a>
-Protected Attributes</h2></td></tr>
-<tr class="memitem:a089f73464d3a7c0f9f7432a02779cafa"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a089f73464d3a7c0f9f7432a02779cafa"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><b>_id</b></td></tr>
-<tr class="separator:a089f73464d3a7c0f9f7432a02779cafa"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad37555cf7d7cbccf7dc564cf9fb519b3"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ad37555cf7d7cbccf7dc564cf9fb519b3"></a>
-std::string&#160;</td><td class="memItemRight" valign="bottom"><b>_defName</b></td></tr>
-<tr class="separator:ad37555cf7d7cbccf7dc564cf9fb519b3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6e76eb59c93e21a54e6ce3c1635b107e"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a6e76eb59c93e21a54e6ce3c1635b107e"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>_playing</b></td></tr>
-<tr class="separator:a6e76eb59c93e21a54e6ce3c1635b107e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af8d1c6e6e3997fd110158816282490a9"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="af8d1c6e6e3997fd110158816282490a9"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>_running</b></td></tr>
-<tr class="separator:af8d1c6e6e3997fd110158816282490a9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae5cea16e458fa9a5cd12161572b07655"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classColliderPlusPlus_1_1Node.html#ae5cea16e458fa9a5cd12161572b07655">_set</a> (std::map&lt; std::string, float &gt; &amp;controlVals)</td></tr>
+<tr class="separator:ae5cea16e458fa9a5cd12161572b07655"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acf6441855c6e1e33fc88f3d2186842ad"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classColliderPlusPlus_1_1Node.html#acf6441855c6e1e33fc88f3d2186842ad">_setn</a> (std::map&lt; std::string, float[]&gt; &amp;controlRanges)</td></tr>
+<tr class="separator:acf6441855c6e1e33fc88f3d2186842ad"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae93e0d9cb8b20d658cdb21033a9017fe"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classColliderPlusPlus_1_1Node.html#ae93e0d9cb8b20d658cdb21033a9017fe">_busMap</a> (std::map&lt; std::string, <a class="el" href="classColliderPlusPlus_1_1Bus.html">Bus</a> &gt; &amp;map)</td></tr>
+<tr class="separator:ae93e0d9cb8b20d658cdb21033a9017fe"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>This class represents a client-side version of a server node (<a class="el" href="classColliderPlusPlus_1_1Synth.html" title="This class represents a client-side version of a server synth.">Synth</a> or <a class="el" href="classColliderPlusPlus_1_1Group.html" title="This class represents a client-side version of a server group.">Group</a>) </p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a class="anchor" id="a306340cc9340b97bbdd0df858c8a4185"></a>
+<a class="anchor" id="ab0bc89b38db96dea7086833453b8bf12"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
           <td class="memname">ColliderPlusPlus::Node::Node </td>
           <td>(</td>
+          <td class="paramtype"><a class="el" href="classColliderPlusPlus_1_1Client__Server.html">Client_Server</a> *&#160;</td>
+          <td class="paramname"><em>cs</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
           <td class="paramtype">const std::string &amp;&#160;</td>
           <td class="paramname"><em>defName</em>, </td>
         </tr>
@@ -208,26 +198,16 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>_running</b></td></tr
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a class="anchor" id="af654f15c4f2de2b96b69c1992d6de33e"></a>
+<a class="anchor" id="ae93e0d9cb8b20d658cdb21033a9017fe"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
           <td class="memname">void ColliderPlusPlus::Node::_busMap </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="classColliderPlusPlus_1_1Client__Server.html">Client_Server</a> &amp;&#160;</td>
-          <td class="paramname"><em>cs</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
           <td class="paramtype">std::map&lt; std::string, <a class="el" href="classColliderPlusPlus_1_1Bus.html">Bus</a> &gt; &amp;&#160;</td>
-          <td class="paramname"><em>map</em>&#160;</td>
-        </tr>
-        <tr>
+          <td class="paramname"><em>map</em></td><td>)</td>
           <td></td>
-          <td>)</td>
-          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -239,6 +219,31 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>_running</b></td></tr
   </table>
   </dd>
 </dl>
+
+</div>
+</div>
+<a class="anchor" id="a43f4b705ce1f66c57828ddb1083cdca0"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classColliderPlusPlus_1_1Client__Server.html">Client_Server</a>* ColliderPlusPlus::Node::_getClientServer </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Return this <a class="el" href="classColliderPlusPlus_1_1Node.html" title="This class represents a client-side version of a server node (Synth or Group)">Node</a>'s <a class="el" href="classColliderPlusPlus_1_1Client__Server.html" title="This class represents a client-side version of scsynth, the SuperCollider audio server.">Client_Server</a> pointer </p>
+<dl class="section return"><dt>Returns</dt><dd>_cs </dd></dl>
 
 </div>
 </div>
@@ -292,7 +297,32 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>_running</b></td></tr
 
 </div>
 </div>
-<a class="anchor" id="a52123c9868b5e1833750158c870c3b87"></a>
+<a class="anchor" id="a64c684c140c9f5fccd64c37e1a94a25e"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool ColliderPlusPlus::Node::_getManuallyFreed </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Returns true if the <a class="el" href="classColliderPlusPlus_1_1Node.html" title="This class represents a client-side version of a server node (Synth or Group)">Node</a> was freed from the server by calling <a class="el" href="classColliderPlusPlus_1_1Node.html#a600fbe666439888a7615dd045abf915a" title="Command the server to free this Node.">_free()</a> BEFORE the destructor of this <a class="el" href="classColliderPlusPlus_1_1Node.html" title="This class represents a client-side version of a server node (Synth or Group)">Node</a> is called </p>
+<dl class="section return"><dt>Returns</dt><dd>true if freed from server with <a class="el" href="classColliderPlusPlus_1_1Node.html#a600fbe666439888a7615dd045abf915a" title="Command the server to free this Node.">_free()</a> prior to destruction </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="aee7913614aa6282d7113fa639e0930da"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -303,7 +333,7 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>_running</b></td></tr
           <td class="memname">bool ColliderPlusPlus::Node::_isPlaying </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
-          <td></td>
+          <td> const</td>
         </tr>
       </table>
   </td>
@@ -317,7 +347,7 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>_running</b></td></tr
 
 </div>
 </div>
-<a class="anchor" id="a5f073a198b55b4c471e772ca2661d144"></a>
+<a class="anchor" id="aa72353a98f6ffcce20021ad44cc05c04"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -328,7 +358,7 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>_running</b></td></tr
           <td class="memname">bool ColliderPlusPlus::Node::_isRunning </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
-          <td></td>
+          <td> const</td>
         </tr>
       </table>
   </td>
@@ -342,26 +372,16 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>_running</b></td></tr
 
 </div>
 </div>
-<a class="anchor" id="a114d15e7c1f14462983f602fb2164dc1"></a>
+<a class="anchor" id="ae5cea16e458fa9a5cd12161572b07655"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
           <td class="memname">void ColliderPlusPlus::Node::_set </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="classColliderPlusPlus_1_1Client__Server.html">Client_Server</a> &amp;&#160;</td>
-          <td class="paramname"><em>cs</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
           <td class="paramtype">std::map&lt; std::string, float &gt; &amp;&#160;</td>
-          <td class="paramname"><em>controlVals</em>&#160;</td>
-        </tr>
-        <tr>
+          <td class="paramname"><em>controlVals</em></td><td>)</td>
           <td></td>
-          <td>)</td>
-          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -376,33 +396,23 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>_running</b></td></tr
 
 </div>
 </div>
-<a class="anchor" id="aef01261b4c0d4046c63a857b864ae824"></a>
+<a class="anchor" id="acf6441855c6e1e33fc88f3d2186842ad"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
           <td class="memname">void ColliderPlusPlus::Node::_setn </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="classColliderPlusPlus_1_1Client__Server.html">Client_Server</a> &amp;&#160;</td>
-          <td class="paramname"><em>cs</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
           <td class="paramtype">std::map&lt; std::string, float[]&gt; &amp;&#160;</td>
-          <td class="paramname"><em>controlRanges</em>&#160;</td>
-        </tr>
-        <tr>
+          <td class="paramname"><em>controlRanges</em></td><td>)</td>
           <td></td>
-          <td>)</td>
-          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 <p>Set this <a class="el" href="classColliderPlusPlus_1_1Node.html" title="This class represents a client-side version of a server node (Synth or Group)">Node</a> with specified control range values </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">Client_Server&amp;</td><td><a class="el" href="classColliderPlusPlus_1_1Client__Server.html" title="This class represents a client-side version of scsynth, the SuperCollider audio server.">Client_Server</a> instance </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">Client_Server&amp;</td><td>Client_Ser ver instance </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">std::map&lt;std::string,float[]&gt;&amp;</td><td>Control Ranges </td></tr>
   </table>
   </dd>
@@ -416,7 +426,7 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>_running</b></td></tr
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Mar 12 2013 14:53:53 for Collider++ by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Wed Mar 20 2013 14:03:06 for Collider++ by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.3.1-20130209
 </small></address>

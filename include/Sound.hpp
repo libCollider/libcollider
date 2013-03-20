@@ -1,5 +1,5 @@
-/// @file Client_Server.hpp
-/// @brief Header file for Client_Server.hpp
+/// @file Sound.hpp
+/// @brief Header file for Sound.hpp
 /// @author Eric Hamdan erichamdan@gmail.com
 
 #ifndef SOUND
@@ -16,9 +16,9 @@
 
 namespace ColliderPlusPlus {
 
-  /// This class represents a user manipulable Soundfile Player, essentially mirroring
+  /// @brief This class represents a user manipulable Soundfile Player, essentially mirroring
   /// the OAS class of the same name by Shreenidhi Chowkwale
-  /// @ref https://github.com/CalVR/Open-Audio-Server/blob/master/client/src/Sound.h
+  /// @refs https://github.com/CalVR/Open-Audio-Server/blob/master/client/src/Sound.h
   class Sound 
   {
     public:

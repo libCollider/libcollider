@@ -104,48 +104,49 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;</div>
 <div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;        <a class="code" href="classColliderPlusPlus_1_1Buffer.html#aac5d271b57c8b6410b790794cfb790e1" title="Default Constructor.">Buffer</a>();</div>
 <div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;  </div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;        <a class="code" href="classColliderPlusPlus_1_1Buffer.html#aac5d271b57c8b6410b790794cfb790e1" title="Default Constructor.">Buffer</a>(<span class="keywordtype">int</span> bufNum);</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;   </div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;        <a class="code" href="classColliderPlusPlus_1_1Buffer.html#a62178f1cb35c5654c0b16d78526de7e8" title="Destructor.">~Buffer</a>();</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;  </div>
-<div class="line"><a name="l00029"></a><span class="lineno"><a class="code" href="classColliderPlusPlus_1_1Buffer.html#a6d2eb844b20eb62158d5d77bcb5d568c">   29</a></span>&#160;        <span class="keywordtype">int</span> <a class="code" href="classColliderPlusPlus_1_1Buffer.html#a6d2eb844b20eb62158d5d77bcb5d568c">_getBufNum</a>()<span class="keyword"> const </span>{<span class="keywordflow">return</span> _bufNum;} <span class="comment">//return id of server-side buffer</span></div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;  </div>
-<div class="line"><a name="l00033"></a><span class="lineno"><a class="code" href="classColliderPlusPlus_1_1Buffer.html#adbd84c84d0c13d9dcc96e36edce17448">   33</a></span>&#160;        <span class="keywordtype">int</span> <a class="code" href="classColliderPlusPlus_1_1Buffer.html#adbd84c84d0c13d9dcc96e36edce17448">_getFrameNum</a>()<span class="keyword"> const </span>{<span class="keywordflow">return</span> _numFrames;} <span class="comment">//return sample frames of server-side buffer</span></div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;</div>
-<div class="line"><a name="l00037"></a><span class="lineno"><a class="code" href="classColliderPlusPlus_1_1Buffer.html#a1eca16cfed94680f3a14adcd4dfe42c9">   37</a></span>&#160;        <span class="keywordtype">int</span> <a class="code" href="classColliderPlusPlus_1_1Buffer.html#a1eca16cfed94680f3a14adcd4dfe42c9">_getChanNum</a>()<span class="keyword"> const </span>{<span class="keywordflow">return</span> _numChans;}</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160; </div>
-<div class="line"><a name="l00041"></a><span class="lineno"><a class="code" href="classColliderPlusPlus_1_1Buffer.html#a6887218a82f341f668117cd24548921a">   41</a></span>&#160;        <span class="keywordtype">int</span> <a class="code" href="classColliderPlusPlus_1_1Buffer.html#a6887218a82f341f668117cd24548921a">_getSampRate</a>()<span class="keyword"> const </span>{<span class="keywordflow">return</span> _sampRate;}</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;</div>
-<div class="line"><a name="l00045"></a><span class="lineno"><a class="code" href="classColliderPlusPlus_1_1Buffer.html#a94c409839084712d7cc10fd46e520d68">   45</a></span>&#160;        <span class="keyword">const</span> std::string&amp; <a class="code" href="classColliderPlusPlus_1_1Buffer.html#a94c409839084712d7cc10fd46e520d68">_getFilePath</a>()<span class="keyword"> const </span>{<span class="keywordflow">return</span> _filePath;}</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="classColliderPlusPlus_1_1Buffer.html#a2e1c0e2f38b8426a1c0d4a9e0c804b3c">_alloc</a>(<a class="code" href="classColliderPlusPlus_1_1Client__Server.html" title="This class represents a client-side version of scsynth, the SuperCollider audio server.">Client_Server</a> &amp;cs, <span class="keywordtype">int</span> numFrames, <span class="keywordtype">int</span> numChannels);</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;        <a class="code" href="classColliderPlusPlus_1_1Buffer.html#aac5d271b57c8b6410b790794cfb790e1" title="Default Constructor.">Buffer</a>(<a class="code" href="classColliderPlusPlus_1_1Client__Server.html" title="This class represents a client-side version of scsynth, the SuperCollider audio server.">Client_Server</a> * cs, <span class="keywordtype">int</span> bufNum);</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;   </div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;        <a class="code" href="classColliderPlusPlus_1_1Buffer.html#a62178f1cb35c5654c0b16d78526de7e8" title="Destructor.">~Buffer</a>();</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;  </div>
+<div class="line"><a name="l00030"></a><span class="lineno"><a class="code" href="classColliderPlusPlus_1_1Buffer.html#a6d2eb844b20eb62158d5d77bcb5d568c">   30</a></span>&#160;        <span class="keywordtype">int</span> <a class="code" href="classColliderPlusPlus_1_1Buffer.html#a6d2eb844b20eb62158d5d77bcb5d568c">_getBufNum</a>()<span class="keyword"> const </span>{<span class="keywordflow">return</span> _bufNum;} <span class="comment">//return id of server-side buffer</span></div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;  </div>
+<div class="line"><a name="l00034"></a><span class="lineno"><a class="code" href="classColliderPlusPlus_1_1Buffer.html#adbd84c84d0c13d9dcc96e36edce17448">   34</a></span>&#160;        <span class="keywordtype">int</span> <a class="code" href="classColliderPlusPlus_1_1Buffer.html#adbd84c84d0c13d9dcc96e36edce17448">_getFrameNum</a>()<span class="keyword"> const </span>{<span class="keywordflow">return</span> _numFrames;} <span class="comment">//return sample frames of server-side buffer</span></div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;</div>
+<div class="line"><a name="l00038"></a><span class="lineno"><a class="code" href="classColliderPlusPlus_1_1Buffer.html#a1eca16cfed94680f3a14adcd4dfe42c9">   38</a></span>&#160;        <span class="keywordtype">int</span> <a class="code" href="classColliderPlusPlus_1_1Buffer.html#a1eca16cfed94680f3a14adcd4dfe42c9">_getChanNum</a>()<span class="keyword"> const </span>{<span class="keywordflow">return</span> _numChans;}</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160; </div>
+<div class="line"><a name="l00042"></a><span class="lineno"><a class="code" href="classColliderPlusPlus_1_1Buffer.html#a6887218a82f341f668117cd24548921a">   42</a></span>&#160;        <span class="keywordtype">int</span> <a class="code" href="classColliderPlusPlus_1_1Buffer.html#a6887218a82f341f668117cd24548921a">_getSampRate</a>()<span class="keyword"> const </span>{<span class="keywordflow">return</span> _sampRate;}</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;</div>
+<div class="line"><a name="l00046"></a><span class="lineno"><a class="code" href="classColliderPlusPlus_1_1Buffer.html#a94c409839084712d7cc10fd46e520d68">   46</a></span>&#160;        <span class="keyword">const</span> std::string&amp; <a class="code" href="classColliderPlusPlus_1_1Buffer.html#a94c409839084712d7cc10fd46e520d68">_getFilePath</a>()<span class="keyword"> const </span>{<span class="keywordflow">return</span> _filePath;}</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;</div>
+<div class="line"><a name="l00051"></a><span class="lineno"><a class="code" href="classColliderPlusPlus_1_1Buffer.html#abe0bd6783d6619ad9df0b5b6cd194d73">   51</a></span>&#160;        <span class="keywordtype">bool</span> <a class="code" href="classColliderPlusPlus_1_1Buffer.html#abe0bd6783d6619ad9df0b5b6cd194d73">_getManuallyFreed</a>()<span class="keyword"> const </span>{<span class="keywordflow">return</span> _manuallyFreed;}</div>
 <div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="classColliderPlusPlus_1_1Buffer.html#a10acc708ea62e5d3f9ca6cf07b5c6f5b">_free</a>(<a class="code" href="classColliderPlusPlus_1_1Client__Server.html" title="This class represents a client-side version of scsynth, the SuperCollider audio server.">Client_Server</a> &amp;cs);</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="classColliderPlusPlus_1_1Buffer.html#a91e33c0cdebd0f7c9b2938412f83d48d">_query</a>(<a class="code" href="classColliderPlusPlus_1_1Client__Server.html" title="This class represents a client-side version of scsynth, the SuperCollider audio server.">Client_Server</a> &amp;cs); <span class="comment">//Finish me</span></div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="classColliderPlusPlus_1_1Buffer.html#a8406cefb68adce591dbb6a4fb47f5c85">_allocRead</a>(<a class="code" href="classColliderPlusPlus_1_1Client__Server.html" title="This class represents a client-side version of scsynth, the SuperCollider audio server.">Client_Server</a> &amp;cs,</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;                                    <span class="keyword">const</span> std::string&amp; filePath, </div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;                                          <span class="keywordtype">int</span> startFileFrame = 0,</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;                                                 <span class="keywordtype">int</span> numFrames = -1); </div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;    <span class="keyword">private</span>:    </div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;</div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;        <span class="comment">//members</span></div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;        <span class="keywordtype">int</span> _bufNum;</div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;        <span class="keywordtype">int</span> _numFrames;</div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;        <span class="keywordtype">int</span> _numChans;</div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;        <span class="keywordtype">int</span> _sampRate;</div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;        <span class="keyword">const</span> std::string _filePath;</div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;  };</div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;} <span class="comment">//namespace ColliderPlusPlus</span></div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;</div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="classColliderPlusPlus_1_1Buffer.html#af0248190521ac9b499da2595f5519b12">_alloc</a>(<span class="keywordtype">int</span> numFrames, <span class="keywordtype">int</span> numChannels);</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="classColliderPlusPlus_1_1Buffer.html#acdb1aca3342219a321ff61645de4551f">_free</a>();</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="classColliderPlusPlus_1_1Buffer.html#a15072b705358d59e252e1f6d515e3b94">_query</a>(); <span class="comment">//Finish me</span></div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="classColliderPlusPlus_1_1Buffer.html#a0cbb99a9823f18b151f7f7da4bcf56a7">_allocRead</a>(<span class="keyword">const</span> std::string&amp; filePath, </div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;                                          <span class="keywordtype">int</span> startFileFrame = 0,</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;                                                 <span class="keywordtype">int</span> numFrames = -1); </div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;    <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;        <span class="keywordtype">int</span> _bufNum;</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;        <span class="keywordtype">int</span> _numFrames;</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;        <span class="keywordtype">int</span> _numChans;</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;        <span class="keywordtype">int</span> _sampRate;</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;        <span class="keyword">const</span> std::string _filePath;</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;        <span class="keywordtype">bool</span> _manuallyFreed;</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;        <a class="code" href="classColliderPlusPlus_1_1Client__Server.html" title="This class represents a client-side version of scsynth, the SuperCollider audio server.">Client_Server</a> * _cs;</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;  };</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;} <span class="comment">//namespace ColliderPlusPlus</span></div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;<span class="preprocessor"></span></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Mar 12 2013 14:53:53 for Collider++ by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Wed Mar 20 2013 14:03:06 for Collider++ by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.3.1-20130209
 </small></address>

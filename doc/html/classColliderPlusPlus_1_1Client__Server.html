@@ -105,8 +105,6 @@ Public Member Functions</h2></td></tr>
 &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classColliderPlusPlus_1_1Client__Server.html#aa179711b3f9a10b86e95bf99bdc2718c">Client_Server</a> ()</td></tr>
 <tr class="memdesc:aa179711b3f9a10b86e95bf99bdc2718c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create a default <a class="el" href="classColliderPlusPlus_1_1Client__Server.html" title="This class represents a client-side version of scsynth, the SuperCollider audio server.">Client_Server</a>. <br/></td></tr>
 <tr class="separator:aa179711b3f9a10b86e95bf99bdc2718c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1b3c915afa0f93cc1c58f11d19f81df7"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classColliderPlusPlus_1_1Client__Server.html#a1b3c915afa0f93cc1c58f11d19f81df7">Client_Server</a> (const std::string &amp;name, const std::string &amp;synthDefDir)</td></tr>
-<tr class="separator:a1b3c915afa0f93cc1c58f11d19f81df7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a04d0177e0c05ab03825c9820fedea3d7"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classColliderPlusPlus_1_1Client__Server.html#a04d0177e0c05ab03825c9820fedea3d7">Client_Server</a> (const std::string &amp;name, const char *host, const char *port, const std::string &amp;synthDefDir)</td></tr>
 <tr class="separator:a04d0177e0c05ab03825c9820fedea3d7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a462cbd7e74b2c5f5073865e29d528505"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a462cbd7e74b2c5f5073865e29d528505"></a>
@@ -153,8 +151,12 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 <tr class="separator:a6924420f2e0adcfbccdd41c8e8d84ef2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0ad9d70cad6f9efdc28661c786740c18"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classColliderPlusPlus_1_1Client__Server.html#a0ad9d70cad6f9efdc28661c786740c18">_createSynth</a> (const std::string &amp;name, int nodeId, int addAction=TO_HEAD, int target=DEFAULT_GROUP)</td></tr>
 <tr class="separator:a0ad9d70cad6f9efdc28661c786740c18"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9748aa2e41f6f439e314584f13a59411"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classColliderPlusPlus_1_1Client__Server.html#a9748aa2e41f6f439e314584f13a59411">_createPausedSynth</a> (const std::string &amp;name, int nodeId, int addAction=TO_HEAD, int target=DEFAULT_GROUP)</td></tr>
+<tr class="separator:a9748aa2e41f6f439e314584f13a59411"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a40d2e779b8abe2ca1f4ef2a36b9d9ad1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classColliderPlusPlus_1_1Client__Server.html#a40d2e779b8abe2ca1f4ef2a36b9d9ad1">_createSynth</a> (const std::string &amp;name, int nodeId, std::map&lt; std::string, float &gt; &amp;args, int addAction=TO_HEAD, int target=DEFAULT_GROUP)</td></tr>
 <tr class="separator:a40d2e779b8abe2ca1f4ef2a36b9d9ad1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5e4fb35eb6a72e4bd8391f56faf02dbd"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classColliderPlusPlus_1_1Client__Server.html#a5e4fb35eb6a72e4bd8391f56faf02dbd">_createPausedSynth</a> (const std::string &amp;name, int nodeId, std::map&lt; std::string, float &gt; &amp;args, int addAction=TO_HEAD, int target=DEFAULT_GROUP)</td></tr>
+<tr class="separator:a5e4fb35eb6a72e4bd8391f56faf02dbd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a488b74748594b325e52f5e003c9ca7b8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classColliderPlusPlus_1_1Client__Server.html#a488b74748594b325e52f5e003c9ca7b8">_createGroup</a> (int nodeId, int addAction=TO_HEAD, int target=DEFAULT_GROUP)</td></tr>
 <tr class="separator:a488b74748594b325e52f5e003c9ca7b8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6a7d155ca004a6a26409517a3f762aee"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classColliderPlusPlus_1_1Client__Server.html#a6a7d155ca004a6a26409517a3f762aee">_runNode</a> (int nodeId, int flag)</td></tr>
@@ -180,40 +182,6 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>This class represents a client-side version of scsynth, the SuperCollider audio server. </p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a class="anchor" id="a1b3c915afa0f93cc1c58f11d19f81df7"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">ColliderPlusPlus::Client_Server::Client_Server </td>
-          <td>(</td>
-          <td class="paramtype">const std::string &amp;&#160;</td>
-          <td class="paramname"><em>name</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const std::string &amp;&#160;</td>
-          <td class="paramname"><em>synthDefDir</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>Create a <a class="el" href="classColliderPlusPlus_1_1Client__Server.html" title="This class represents a client-side version of scsynth, the SuperCollider audio server.">Client_Server</a> with a user defined name and specific scsyndef directory to load upon instantiation </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">const</td><td>std::string&amp; Name </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">cont</td><td>std::string&amp; SynthDef Directory </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
 <a class="anchor" id="a04d0177e0c05ab03825c9820fedea3d7"></a>
 <div class="memitem">
 <div class="memproto">
@@ -489,6 +457,111 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">std::string</td><td>Name </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">int</td><td><a class="el" href="classColliderPlusPlus_1_1Node.html" title="This class represents a client-side version of a server node (Synth or Group)">Node</a> Id </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">int</td><td>Add Action </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">int</td><td>Target <a class="el" href="classColliderPlusPlus_1_1Group.html" title="This class represents a client-side version of a server group.">Group</a> </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">int</td><td>Type (<a class="el" href="classColliderPlusPlus_1_1Synth.html" title="This class represents a client-side version of a server synth.">Synth</a> or <a class="el" href="classColliderPlusPlus_1_1Group.html" title="This class represents a client-side version of a server group.">Group</a>) </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="a9748aa2e41f6f439e314584f13a59411"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ColliderPlusPlus::Client_Server::_createPausedSynth </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>name</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>nodeId</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>addAction</em> = <code>TO_HEAD</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>target</em> = <code>DEFAULT_GROUP</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Command the server to create a new PAUSED <a class="el" href="classColliderPlusPlus_1_1Synth.html" title="This class represents a client-side version of a server synth.">Synth</a> specified by the Name parameter </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">std::string</td><td>Name </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">int</td><td><a class="el" href="classColliderPlusPlus_1_1Node.html" title="This class represents a client-side version of a server node (Synth or Group)">Node</a> Id </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">int</td><td>Add Action </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">int</td><td>Target <a class="el" href="classColliderPlusPlus_1_1Group.html" title="This class represents a client-side version of a server group.">Group</a> </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">int</td><td>Type (<a class="el" href="classColliderPlusPlus_1_1Synth.html" title="This class represents a client-side version of a server synth.">Synth</a> or <a class="el" href="classColliderPlusPlus_1_1Group.html" title="This class represents a client-side version of a server group.">Group</a>) </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="a5e4fb35eb6a72e4bd8391f56faf02dbd"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ColliderPlusPlus::Client_Server::_createPausedSynth </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>name</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>nodeId</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::map&lt; std::string, float &gt; &amp;&#160;</td>
+          <td class="paramname"><em>args</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>addAction</em> = <code>TO_HEAD</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>target</em> = <code>DEFAULT_GROUP</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Command the server to create a new PAUSED <a class="el" href="classColliderPlusPlus_1_1Synth.html" title="This class represents a client-side version of a server synth.">Synth</a> specified by the Name parameter with user specified arguments </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">std::string</td><td>Name </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">int</td><td><a class="el" href="classColliderPlusPlus_1_1Node.html" title="This class represents a client-side version of a server node (Synth or Group)">Node</a> Id </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">std::map&lt;std::string,float&gt;</td><td>Args </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">int</td><td>Add Action </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">int</td><td>Target <a class="el" href="classColliderPlusPlus_1_1Group.html" title="This class represents a client-side version of a server group.">Group</a> </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">int</td><td>Type (<a class="el" href="classColliderPlusPlus_1_1Synth.html" title="This class represents a client-side version of a server synth.">Synth</a> or <a class="el" href="classColliderPlusPlus_1_1Group.html" title="This class represents a client-side version of a server group.">Group</a>) </td></tr>
@@ -897,7 +970,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Mar 12 2013 14:53:53 for Collider++ by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Wed Mar 20 2013 14:03:06 for Collider++ by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.3.1-20130209
 </small></address>

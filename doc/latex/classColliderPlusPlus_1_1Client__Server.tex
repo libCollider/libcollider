@@ -16,8 +16,6 @@ This class represents a client-\/side version of scsynth, the Super\-Collider au
 \hypertarget{classColliderPlusPlus_1_1Client__Server_aa179711b3f9a10b86e95bf99bdc2718c}{\hyperlink{classColliderPlusPlus_1_1Client__Server_aa179711b3f9a10b86e95bf99bdc2718c}{Client\-\_\-\-Server} ()}\label{classColliderPlusPlus_1_1Client__Server_aa179711b3f9a10b86e95bf99bdc2718c}
 
 \begin{DoxyCompactList}\small\item\em Create a default \hyperlink{classColliderPlusPlus_1_1Client__Server}{Client\-\_\-\-Server}. \end{DoxyCompactList}\item 
-\hyperlink{classColliderPlusPlus_1_1Client__Server_a1b3c915afa0f93cc1c58f11d19f81df7}{Client\-\_\-\-Server} (const std\-::string \&name, const std\-::string \&synth\-Def\-Dir)
-\item 
 \hyperlink{classColliderPlusPlus_1_1Client__Server_a04d0177e0c05ab03825c9820fedea3d7}{Client\-\_\-\-Server} (const std\-::string \&name, const char $\ast$host, const char $\ast$port, const std\-::string \&synth\-Def\-Dir)
 \item 
 \hypertarget{classColliderPlusPlus_1_1Client__Server_a462cbd7e74b2c5f5073865e29d528505}{\hyperlink{classColliderPlusPlus_1_1Client__Server_a462cbd7e74b2c5f5073865e29d528505}{$\sim$\-Client\-\_\-\-Server} ()}\label{classColliderPlusPlus_1_1Client__Server_a462cbd7e74b2c5f5073865e29d528505}
@@ -63,7 +61,11 @@ void \hyperlink{classColliderPlusPlus_1_1Client__Server_a6924420f2e0adcfbccdd41c
 \item 
 void \hyperlink{classColliderPlusPlus_1_1Client__Server_a0ad9d70cad6f9efdc28661c786740c18}{\-\_\-create\-Synth} (const std\-::string \&name, int node\-Id, int add\-Action=T\-O\-\_\-\-H\-E\-A\-D, int target=D\-E\-F\-A\-U\-L\-T\-\_\-\-G\-R\-O\-U\-P)
 \item 
+void \hyperlink{classColliderPlusPlus_1_1Client__Server_a9748aa2e41f6f439e314584f13a59411}{\-\_\-create\-Paused\-Synth} (const std\-::string \&name, int node\-Id, int add\-Action=T\-O\-\_\-\-H\-E\-A\-D, int target=D\-E\-F\-A\-U\-L\-T\-\_\-\-G\-R\-O\-U\-P)
+\item 
 void \hyperlink{classColliderPlusPlus_1_1Client__Server_a40d2e779b8abe2ca1f4ef2a36b9d9ad1}{\-\_\-create\-Synth} (const std\-::string \&name, int node\-Id, std\-::map$<$ std\-::string, float $>$ \&args, int add\-Action=T\-O\-\_\-\-H\-E\-A\-D, int target=D\-E\-F\-A\-U\-L\-T\-\_\-\-G\-R\-O\-U\-P)
+\item 
+void \hyperlink{classColliderPlusPlus_1_1Client__Server_a5e4fb35eb6a72e4bd8391f56faf02dbd}{\-\_\-create\-Paused\-Synth} (const std\-::string \&name, int node\-Id, std\-::map$<$ std\-::string, float $>$ \&args, int add\-Action=T\-O\-\_\-\-H\-E\-A\-D, int target=D\-E\-F\-A\-U\-L\-T\-\_\-\-G\-R\-O\-U\-P)
 \item 
 void \hyperlink{classColliderPlusPlus_1_1Client__Server_a488b74748594b325e52f5e003c9ca7b8}{\-\_\-create\-Group} (int node\-Id, int add\-Action=T\-O\-\_\-\-H\-E\-A\-D, int target=D\-E\-F\-A\-U\-L\-T\-\_\-\-G\-R\-O\-U\-P)
 \item 
@@ -96,21 +98,6 @@ void \hyperlink{classColliderPlusPlus_1_1Client__Server_ad4f4ff49145681381f451ba
 This class represents a client-\/side version of scsynth, the Super\-Collider audio server. 
 
 \subsection{Constructor \& Destructor Documentation}
-\hypertarget{classColliderPlusPlus_1_1Client__Server_a1b3c915afa0f93cc1c58f11d19f81df7}{\index{Collider\-Plus\-Plus\-::\-Client\-\_\-\-Server@{Collider\-Plus\-Plus\-::\-Client\-\_\-\-Server}!Client\-\_\-\-Server@{Client\-\_\-\-Server}}
-\index{Client\-\_\-\-Server@{Client\-\_\-\-Server}!ColliderPlusPlus::Client_Server@{Collider\-Plus\-Plus\-::\-Client\-\_\-\-Server}}
-\subsubsection[{Client\-\_\-\-Server}]{\setlength{\rightskip}{0pt plus 5cm}Collider\-Plus\-Plus\-::\-Client\-\_\-\-Server\-::\-Client\-\_\-\-Server (
-\begin{DoxyParamCaption}
-\item[{const std\-::string \&}]{name, }
-\item[{const std\-::string \&}]{synth\-Def\-Dir}
-\end{DoxyParamCaption}
-)}}\label{classColliderPlusPlus_1_1Client__Server_a1b3c915afa0f93cc1c58f11d19f81df7}
-Create a \hyperlink{classColliderPlusPlus_1_1Client__Server}{Client\-\_\-\-Server} with a user defined name and specific scsyndef directory to load upon instantiation 
-\begin{DoxyParams}[1]{Parameters}
-\mbox{\tt in}  & {\em const} & std\-::string\& Name \\
-\hline
-\mbox{\tt in}  & {\em cont} & std\-::string\& Synth\-Def Directory \\
-\hline
-\end{DoxyParams}
 \hypertarget{classColliderPlusPlus_1_1Client__Server_a04d0177e0c05ab03825c9820fedea3d7}{\index{Collider\-Plus\-Plus\-::\-Client\-\_\-\-Server@{Collider\-Plus\-Plus\-::\-Client\-\_\-\-Server}!Client\-\_\-\-Server@{Client\-\_\-\-Server}}
 \index{Client\-\_\-\-Server@{Client\-\_\-\-Server}!ColliderPlusPlus::Client_Server@{Collider\-Plus\-Plus\-::\-Client\-\_\-\-Server}}
 \subsubsection[{Client\-\_\-\-Server}]{\setlength{\rightskip}{0pt plus 5cm}Collider\-Plus\-Plus\-::\-Client\-\_\-\-Server\-::\-Client\-\_\-\-Server (
@@ -235,6 +222,55 @@ Command the server to create a new \hyperlink{classColliderPlusPlus_1_1Node}{Nod
 \mbox{\tt in}  & {\em std\-::string} & Name \\
 \hline
 \mbox{\tt in}  & {\em int} & \hyperlink{classColliderPlusPlus_1_1Node}{Node} Id \\
+\hline
+\mbox{\tt in}  & {\em int} & Add Action \\
+\hline
+\mbox{\tt in}  & {\em int} & Target \hyperlink{classColliderPlusPlus_1_1Group}{Group} \\
+\hline
+\mbox{\tt in}  & {\em int} & Type (\hyperlink{classColliderPlusPlus_1_1Synth}{Synth} or \hyperlink{classColliderPlusPlus_1_1Group}{Group}) \\
+\hline
+\end{DoxyParams}
+\hypertarget{classColliderPlusPlus_1_1Client__Server_a9748aa2e41f6f439e314584f13a59411}{\index{Collider\-Plus\-Plus\-::\-Client\-\_\-\-Server@{Collider\-Plus\-Plus\-::\-Client\-\_\-\-Server}!\-\_\-create\-Paused\-Synth@{\-\_\-create\-Paused\-Synth}}
+\index{\-\_\-create\-Paused\-Synth@{\-\_\-create\-Paused\-Synth}!ColliderPlusPlus::Client_Server@{Collider\-Plus\-Plus\-::\-Client\-\_\-\-Server}}
+\subsubsection[{\-\_\-create\-Paused\-Synth}]{\setlength{\rightskip}{0pt plus 5cm}void Collider\-Plus\-Plus\-::\-Client\-\_\-\-Server\-::\-\_\-create\-Paused\-Synth (
+\begin{DoxyParamCaption}
+\item[{const std\-::string \&}]{name, }
+\item[{int}]{node\-Id, }
+\item[{int}]{add\-Action = {\ttfamily TO\-\_\-HEAD}, }
+\item[{int}]{target = {\ttfamily DEFAULT\-\_\-GROUP}}
+\end{DoxyParamCaption}
+)}}\label{classColliderPlusPlus_1_1Client__Server_a9748aa2e41f6f439e314584f13a59411}
+Command the server to create a new P\-A\-U\-S\-E\-D \hyperlink{classColliderPlusPlus_1_1Synth}{Synth} specified by the Name parameter 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em std\-::string} & Name \\
+\hline
+\mbox{\tt in}  & {\em int} & \hyperlink{classColliderPlusPlus_1_1Node}{Node} Id \\
+\hline
+\mbox{\tt in}  & {\em int} & Add Action \\
+\hline
+\mbox{\tt in}  & {\em int} & Target \hyperlink{classColliderPlusPlus_1_1Group}{Group} \\
+\hline
+\mbox{\tt in}  & {\em int} & Type (\hyperlink{classColliderPlusPlus_1_1Synth}{Synth} or \hyperlink{classColliderPlusPlus_1_1Group}{Group}) \\
+\hline
+\end{DoxyParams}
+\hypertarget{classColliderPlusPlus_1_1Client__Server_a5e4fb35eb6a72e4bd8391f56faf02dbd}{\index{Collider\-Plus\-Plus\-::\-Client\-\_\-\-Server@{Collider\-Plus\-Plus\-::\-Client\-\_\-\-Server}!\-\_\-create\-Paused\-Synth@{\-\_\-create\-Paused\-Synth}}
+\index{\-\_\-create\-Paused\-Synth@{\-\_\-create\-Paused\-Synth}!ColliderPlusPlus::Client_Server@{Collider\-Plus\-Plus\-::\-Client\-\_\-\-Server}}
+\subsubsection[{\-\_\-create\-Paused\-Synth}]{\setlength{\rightskip}{0pt plus 5cm}void Collider\-Plus\-Plus\-::\-Client\-\_\-\-Server\-::\-\_\-create\-Paused\-Synth (
+\begin{DoxyParamCaption}
+\item[{const std\-::string \&}]{name, }
+\item[{int}]{node\-Id, }
+\item[{std\-::map$<$ std\-::string, float $>$ \&}]{args, }
+\item[{int}]{add\-Action = {\ttfamily TO\-\_\-HEAD}, }
+\item[{int}]{target = {\ttfamily DEFAULT\-\_\-GROUP}}
+\end{DoxyParamCaption}
+)}}\label{classColliderPlusPlus_1_1Client__Server_a5e4fb35eb6a72e4bd8391f56faf02dbd}
+Command the server to create a new P\-A\-U\-S\-E\-D \hyperlink{classColliderPlusPlus_1_1Synth}{Synth} specified by the Name parameter with user specified arguments 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em std\-::string} & Name \\
+\hline
+\mbox{\tt in}  & {\em int} & \hyperlink{classColliderPlusPlus_1_1Node}{Node} Id \\
+\hline
+\mbox{\tt in}  & {\em std\-::map$<$std\-::string,float$>$} & Args \\
 \hline
 \mbox{\tt in}  & {\em int} & Add Action \\
 \hline
