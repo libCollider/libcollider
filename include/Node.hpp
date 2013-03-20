@@ -28,8 +28,6 @@ namespace ColliderPlusPlus {
         /// @returns _id
         int _getId() const {return _id;}
 
-        Client_Server* _getClientServer() const {return _cs;};
-
         /// Command the server to run this Node
 	void _run(); //mod running flag
     
@@ -41,17 +39,24 @@ namespace ColliderPlusPlus {
 
         /// Returns true if this Node is currently playing, else false
         /// @returns true if currently playing, else false
-   	bool _isPlaying()  {return _playing;}  //fix me
+   	bool _isPlaying() const {return _playing;}  //fix me
   
         /// Returns true if this Node is currently running, else false
         /// @returns true if currently running, else false
-   	bool _isRunning()  {return _running;}	//fix me
+   	bool _isRunning() const {return _running;}	//fix me
 
-        bool _getManuallyFreed() {return _manuallyFreed;}
+        /// Returns true if the Node was freed from the server by 
+        /// calling _free() BEFORE the destructor of this Node is called
+        /// @returns true if freed from server with _free() prior to destruction 
+        bool _getManuallyFreed() const {return _manuallyFreed;}
   
         /// Returns the name of this Node
         /// @returns _defName
         std::string _getDefName() const {return _defName;}
+
+        /// Return this Node's Client_Server pointer
+        /// @returns _cs
+        Client_Server* _getClientServer() const {return _cs;};
   
         /// Query the server for this Node
         void _query();

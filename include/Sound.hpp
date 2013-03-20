@@ -23,8 +23,7 @@ namespace ColliderPlusPlus {
   {
     public:
 	
-        /// Create a new sound source 
-	/// Channel count is determined by file
+        /// Create a new sound source
 	Sound(Client_Server * cs, const std::string &filepath, int initAction = 0);
   
       	/// Deallocates server-side buffer associated with this instance

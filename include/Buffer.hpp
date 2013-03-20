@@ -18,6 +18,7 @@ namespace ColliderPlusPlus {
         Buffer();
   
         /// Create a Buffer with buffer number specified by bufNum parameter
+	/// @param[in] Client_Server instance
         /// @param[in] int Buffer Number
 	Buffer(Client_Server * cs, int bufNum);
    
@@ -44,6 +45,11 @@ namespace ColliderPlusPlus {
         /// @returns const std::string& Soundfile Path
 	const std::string& _getFilePath() const {return _filePath;}
 
+        /// Returns true if the Node was freed from the server by 
+        /// calling _free() BEFORE the destructor of this Node is called
+        /// @returns true if freed from server with _free() prior to destruction
+        bool _getManuallyFreed() const {return _manuallyFreed;}
+
         /// Command server to allocate memory for this Buffer
         /// @param[in] Client_Server& Client_Server instance
         /// @param[in] int Number of Sample Frames
@@ -68,8 +74,6 @@ namespace ColliderPlusPlus {
 	void _allocRead(const std::string& filePath, 
 				       	  int startFileFrame = 0,
 						 int numFrames = -1); 
-
-        bool _getManuallyFreed() {return _manuallyFreed;}
 
     private:
 	int _bufNum;
