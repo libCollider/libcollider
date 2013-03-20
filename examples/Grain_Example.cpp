@@ -24,15 +24,17 @@ int main(int argc, char* argv[])
     return 1;
   }
 
-
   Client_Server cs("Server", host, port, synthDefDir);
-  Buffer b(cs._nextBufferNum());
-  b._allocRead(cs, soundfile);
+  cs._dumpOSC(1);
+  
+  Buffer b(&cs, cs._nextBufferNum());
+  b._allocRead(soundfile);
 
   std::map<std::string, float> sArgs;
   sArgs["bufnum"] = b._getBufNum();
 
-  Synth s(cs, "TGrain2", cs._nextNodeId(), sArgs, 1);
+  Synth s(&cs, "TGrain2", cs._nextNodeId(), sArgs, 1);
+  cs._queryNodeTree();
   
   std::cout << "Type 'q' and enter to quit\n" << std::endl;
 
@@ -42,8 +44,7 @@ int main(int argc, char* argv[])
     std::cin >> a;
   } 
 
-  s._free(cs);
-  b._free(cs);
+  b._free();
 
   return 0;
 }
@@ -51,7 +52,6 @@ int main(int argc, char* argv[])
 bool init(int argc, char* argv[], const char* &host,
 	 const char* &port, std::string &soundfile, std::string &synthDefDir)
 {  
-
   if(argc != 5)
   {
     return false;
@@ -63,5 +63,4 @@ bool init(int argc, char* argv[], const char* &host,
   synthDefDir = argv[4];
 
   return true;
-
 }

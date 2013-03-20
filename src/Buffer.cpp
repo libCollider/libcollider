@@ -9,43 +9,45 @@ Buffer::Buffer()
 
 }
 
-Buffer::Buffer(int bufNum)
-:_bufNum(bufNum), _numFrames(0), _numChans(0), _sampRate(44100), _filePath("")
+Buffer::Buffer(Client_Server * cs, int bufNum)
+:_bufNum(bufNum), _numFrames(0), _numChans(0),
+ _sampRate(44100), _filePath(""), _manuallyFreed(false)
 {
-
-
+  _cs = cs;
 }
 
 Buffer::~Buffer()
 {
-
-
+  if(_getManuallyFreed() != true)
+ 	_free();
 }
 
-void Buffer::_alloc(Client_Server &cs, int numFrames, int numChans)
+void Buffer::_alloc(int numFrames, int numChans)
 {
-  if(!cs._allocBuffer(_bufNum, _numFrames, _numChans))
+  if(!_cs->_allocBuffer(_bufNum, _numFrames, _numChans))
 	exit(0);
 
   _numFrames = numFrames;
   _numChans = numChans;  
 }
 
-void Buffer::_free(Client_Server &cs)
+void Buffer::_free()
 {
-  if(!cs._freeBuffer(_bufNum))
+  if(!_cs->_freeBuffer(_bufNum))
  	exit(0);
+  else
+  	_manuallyFreed = true;  
 }
 
-void Buffer::_query(Client_Server &cs)
+void Buffer::_query()
 {
-  cs._queryBuffer(_bufNum);
+  _cs->_queryBuffer(_bufNum);
 }
 
-void Buffer::_allocRead(Client_Server &cs, const std::string& filePath, int startFileFrame, 
+void Buffer::_allocRead(const std::string& filePath, int startFileFrame, 
 				int numFrames)
 { 
-  if(!cs._allocReadBuffer(_bufNum, filePath, startFileFrame, numFrames))
+  if(!_cs->_allocReadBuffer(_bufNum, filePath, startFileFrame, numFrames))
   {
     exit(0);
   } 

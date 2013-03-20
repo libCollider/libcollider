@@ -13,7 +13,7 @@ endif
 
 libcolliderpp: Client_Server.o Buffer.o Bus.o Node.o Sound.o
 	gcc -$(libtype) -o libcollider++.$(libsuffix) src/Client_Server.o src/Buffer.o src/Bus.o src/Node.o src/Sound.o -I/usr/local/include/boost/ -L/usr/local/lib/ -lboost_system -lboost_thread -lpthread -lstdc++ 
-	mkdir build
+	mkdir -p build
 	mv libcollider++.$(libsuffix) build
 
 Client_Server.o : Client_Server.cpp Client_Server.hpp tnyosc.hpp
@@ -29,7 +29,7 @@ Sound.o : Sound.cpp Sound.hpp
 	gcc -c -fPIC src/Sound.cpp -o src/Sound.o -Iinclude/
 
 clean: 
-	rm -rf build
+	rm -rf $(wildcard build)
 
 install:
 	cp build/libcollider++.$(libsuffix) /usr/lib

@@ -27,15 +27,6 @@ Client_Server::Client_Server()
   _createDefaultGroup();
 }
 
-Client_Server::Client_Server(const std::string& name, const std::string& synthDefDir)
-:_name(name), _nextNode(1000), _bufferNum(0)
-{
-  _setHost("127.0.0.1");
-  _setPort("57110");
-  _createDefaultGroup();
-  _initializeSynthDefs(synthDefDir);
-}
-
 Client_Server::Client_Server(const std::string& name, const char *host, 
 				    const char *port, const std::string& synthDefDir)
 :_name(name), _nextNode(1000), _bufferNum(0)

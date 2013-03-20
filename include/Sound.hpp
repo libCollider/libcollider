@@ -23,8 +23,7 @@ namespace ColliderPlusPlus {
   {
     public:
 	
-        /// Create a new sound source 
-	/// Channel count is determined by file
+        /// Create a new sound source
 	Sound(Client_Server * cs, const std::string &filepath, int initAction = 0);
   
       	/// Deallocates server-side buffer associated with this instance
@@ -44,7 +43,6 @@ namespace ColliderPlusPlus {
         /// @param[in] bool loop
         int _loop(bool loop);
         // @}
-
        
         /*// {@
 	/// @name Sound Parameter Functions
@@ -71,11 +69,11 @@ namespace ColliderPlusPlus {
  
     private:
 
-        void _init(const std::string &filepath, Client_Server * cs);
+        void _init(Client_Server * cs, const std::string &filepath, int initAction);
 	
 	Client_Server * _cs;
 	Buffer * _buffer;
-        Synth * _synth;
+        Synth *  _synth;
 	std::string _filePath;
 
         std::map<std::string, float> args;

@@ -9,6 +9,7 @@
 namespace ColliderPlusPlus {
 
   /// This class represents a client-side version of a server bus
+  /// INCOMPLETE
   class Bus
   {
     public:
