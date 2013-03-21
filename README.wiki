@@ -1,0 +1,19 @@
+==Project Overview==
+
+Welcome to Collider++!
+
+==Getting Started==
+
+===Dependencies===
+
+* [http://www.boost.org/ Boost 1.53.0] for the network sending/receiving. You WILL need to build some of the non-header only libraries. Following the basic build and install process under section 5 here [http://www.boost.org/doc/libs/1_53_0/more/getting_started/unix-variants.html] will do the trick.
+
+===Building and Installing===
+
+# Install the dependencies above, if you haven't already done so
+# Get the Collider++ source code from the [https://github.com/colliderplusplus/colliderplusplus Github repository:]<pre>git clone git://github.com/colliderplusplus/colliderplusplus.git</pre>
+# Goto the root directory of the repo
+# Compile with <pre>make</pre>
+#* With sudo priviledges, you can install with <pre>make install</pre>
+
+===Set-Up===
