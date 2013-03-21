@@ -11,6 +11,7 @@ ifeq ($(UNAME), Linux)
   libsuffix = so
 endif
 
+INSTALL_DIR = /usr/lib/
 BOOST_INCLUDE_DIR = /usr/local/include/boost/
 BOOST_LIB_DIR = /usr/local/lib/
 
@@ -20,7 +21,7 @@ libcolliderpp: Client_Server.o Buffer.o Bus.o Node.o Sound.o
 	mv libcollider++.$(libsuffix) build
 
 Client_Server.o : Client_Server.cpp Client_Server.hpp tnyosc.hpp
-	gcc -c -fPIC src/Client_Server.cpp -o src/Client_Server.o -I$(BOOST_INCLUDE_DIR) -Iinclude/ -Iinclude/tny_osc/ -DEH_DEBUG -DTNYOSC_WITH_BOOST
+	gcc -c -fPIC src/Client_Server.cpp -o src/Client_Server.o -I$(BOOST_INCLUDE_DIR) -Iinclude/ -Iinclude/tny_osc/ -DTNYOSC_WITH_BOOST -DEH_DEBUG 
 
 Buffer.o : Buffer.cpp Buffer.hpp
 	gcc -c -fPIC src/Buffer.cpp -o src/Buffer.o -Iinclude/ 
@@ -36,8 +37,8 @@ clean:
 	rm -rf $(wildcard build)
 
 install:
-	cp build/libcollider++.$(libsuffix) /usr/lib
-	chmod 0755 /usr/lib/libcollider++.$(libsuffix)
+	cp build/libcollider++.$(libsuffix) $(INSTALL_DIR)
+	chmod 0755 $(INSTALL_DIR)libcollider++.$(libsuffix)
 
 uninstall:
-	rm /usr/lib/libcollider++.$(libsuffix)
+	rm $(INSTALL_DIR)libcollider++.$(libsuffix)
