@@ -175,7 +175,7 @@ inline int gettimeofday(struct timeval *tv, struct timezone *tz)
 /// Get the current NTP timestamp by calling gettimeofday.
 ///
 /// @ref [http://stackoverflow.com/questions/2641954/create-ntp-time-stamp-from-gettimeofday]
-inline uint64_t get_current_ntp_time(uint64_t offset = 0)
+inline uint64_t get_current_ntp_time(struct timeval &offset)
 {
   // time between 1-1-1900 and 1-1-1950
   static const uint64_t epoch = 2208988800UL;
@@ -184,12 +184,28 @@ inline uint64_t get_current_ntp_time(uint64_t offset = 0)
 
   struct timeval tv;
   gettimeofday(&tv, NULL);
-  uint64_t tv_ntp = tv.tv_sec + epoch + offset;
+  tv.tv_sec += offset.tv_sec;
+  tv.tv_usec += offset.tv_usec;
+  uint64_t tv_ntp = tv.tv_sec + epoch;
   // convert tv_usec to a fraction of a second
   uint64_t tv_usecs = (tv.tv_usec * ntp_scale) / 1000000UL;
   return ((tv_ntp << 32) | tv_usecs);
 }
 
+inline uint64_t get_current_ntp_time()
+{
+  // time between 1-1-1900 and 1-1-1950
+  static const uint64_t epoch = 2208988800UL;
+  // max value of NTP fractional part
+  static const uint64_t ntp_scale = 4294967296UL;
+
+  struct timeval tv;
+  gettimeofday(&tv, NULL);
+  uint64_t tv_ntp = tv.tv_sec + epoch;
+  // convert tv_usec to a fraction of a second
+  uint64_t tv_usecs = (tv.tv_usec * ntp_scale) / 1000000UL;
+  return ((tv_ntp << 32) | tv_usecs);
+}
 
 /// This class represents an Open Sound Control message. It supports Open Sound
 /// Control 1.0 and 1.1 specifications and extra non-standard arguments listed
