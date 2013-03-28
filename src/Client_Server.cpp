@@ -2,8 +2,6 @@
 #include <iostream>
 #include <unistd.h>
 #include <list>
-#include <boost/asio.hpp>
-#include <boost/array.hpp>
 #include <string.h>
 #include <sys/socket.h>
 #include <netinet/in.h>
@@ -11,10 +9,6 @@
 
 using namespace ColliderPlusPlus;
 using namespace tnyosc;
-
-using boost::asio::io_service;
-using boost::asio::ip::udp;
-using boost::asio::buffer;
 using std::cout;
 using std::cerr;
 using std::cin;
@@ -138,6 +132,7 @@ void Client_Server::send_msg_no_reply(tnyosc::Message * msg, const char * send_m
 
 void Client_Server::send_msg_with_reply(tnyosc::Message * msg, const char * send_msg)
 {
+   _async_result = false;
    int sockfd, n;
    struct sockaddr_in servaddr;
    char receive_buffer[1024];
@@ -201,6 +196,7 @@ void Client_Server::send_bundle_no_reply(tnyosc::Bundle * bundle, const char * s
 
 void Client_Server::send_bundle_with_reply(tnyosc::Bundle * bundle, const char * send_msg)
 {
+   _async_result = false;
    int sockfd, n;
    struct sockaddr_in servaddr;
    char receive_buffer[1024];
@@ -659,68 +655,24 @@ void Client_Server::_createDefaultGroup()
 void server_done(const std::string& address, 
 		const std::vector<tnyosc::Argument>& argv, void* user_data)
 { 
-      cout << "server received command: " << argv[0].data.s << endl;
-      cout << "server reply: " << address << endl;
-      bool * async_result = (bool*)user_data;	 
-      *async_result = true;
-     
-
-  /* if(argv.size() == 2)
-   {
-      cout << "\ncommand received: " << argv[0].data.s << endl;
-      cout << "server reply: " << address << endl;
-
-      if (strcmp(argv[0].data.s,"/b_alloc") == 0)
-      {
-         cout << "buffer alloc success" << endl;
-         bool * async_result = (bool*)user_data;	 
-         *async_result = true;
-      }
-
-      if (strcmp(argv[0].data.s,"/b_allocRead") == 0)
-      {
-         cout << "buffer allocRead success" << endl;
-         bool * async_result = (bool*)user_data;	 
-         *async_result = true;
-      }
-
-      if (strcmp(argv[0].data.s,"/quit") == 0)
-	 cout << "server quit success argv2\n" << endl;
-   }
-
-   else if(argv.size() == 1)
-   {
-      cout << "command received: " << argv[0].data.s << endl;
-      cout << "server reply: " << address << endl;
-	
-      if (strcmp(argv[0].data.s,"/quit") == 0)
-	 cout << "server quit success argv1\n" << endl;
-   }*/
+   #ifdef PRINT_DEBUG
+   cout << "\nserver received command: " << argv[0].data.s << endl;
+   cout << "server reply: " << address << endl;
+   #endif
+   bool * async_result = (bool*)user_data;	 
+   *async_result = true;
 }
 
 void fail(const std::string& address, 
 		const std::vector<tnyosc::Argument>& argv, void* user_data)
 {
-   if(argv.size() != 2)
-   {
-      cerr << "fail: something went wrong." << endl;
-   }
-
-   else
-   {
-      cout << "server received command: " << argv[0].data.s << endl;
-      cout << "server reply: " << address << endl;
-      cout << "error: : " << argv[1].data.s << endl;
-   
-      if (strcmp(argv[1].data.s, "/b_alloc") == 0)
-      {
-         cout << "buffer alloc failed" << endl;
-         bool * async_result = (bool*)user_data;	 
-         *async_result = false;
-      }
-   
-   }
-
+   #ifdef PRINT_DEBUG
+   cout << "\nserver received command: " << argv[0].data.s << endl;
+   cout << "server reply: " << address << endl;
+   cout << "error: : " << argv[1].data.s << endl;
+   #endif
+   bool * async_result = (bool*)user_data;	 
+   *async_result = false;
 }
 
 void status_reply(const std::string& address, 
