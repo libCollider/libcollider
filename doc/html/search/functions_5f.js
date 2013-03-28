@@ -32,7 +32,6 @@ var searchData=
   ['_5floop',['_loop',['../classColliderPlusPlus_1_1Sound.html#abdbe1ade10accf84a92c4b1e77fe84ae',1,'ColliderPlusPlus::Sound']]],
   ['_5fnextbuffernum',['_nextBufferNum',['../classColliderPlusPlus_1_1Client__Server.html#af8224413e4b5bb059ba8b6165459dd7d',1,'ColliderPlusPlus::Client_Server']]],
   ['_5fnextnodeid',['_nextNodeId',['../classColliderPlusPlus_1_1Client__Server.html#a4c45d5eb7b6bef9dd50c6376f3752d3e',1,'ColliderPlusPlus::Client_Server']]],
-  ['_5fpingscsynth',['_pingScsynth',['../classColliderPlusPlus_1_1Client__Server.html#a1fcd07a4320a82fe6072d84689d9b8c6',1,'ColliderPlusPlus::Client_Server']]],
   ['_5fplay',['_play',['../classColliderPlusPlus_1_1Sound.html#a0dacdc770784bcef22c99d9c927487c2',1,'ColliderPlusPlus::Sound']]],
   ['_5fprintcurrentnodeids',['_printCurrentNodeIds',['../classColliderPlusPlus_1_1Client__Server.html#a7d4511e809e49a26725750a8d3d859aa',1,'ColliderPlusPlus::Client_Server']]],
   ['_5fquery',['_query',['../classColliderPlusPlus_1_1Buffer.html#a15072b705358d59e252e1f6d515e3b94',1,'ColliderPlusPlus::Buffer::_query()'],['../classColliderPlusPlus_1_1Node.html#ae3a86f1c3960228c989cfac0c403a68f',1,'ColliderPlusPlus::Node::_query()']]],
@@ -45,5 +44,6 @@ var searchData=
   ['_5fset',['_set',['../classColliderPlusPlus_1_1Node.html#ae5cea16e458fa9a5cd12161572b07655',1,'ColliderPlusPlus::Node']]],
   ['_5fsetn',['_setn',['../classColliderPlusPlus_1_1Node.html#acf6441855c6e1e33fc88f3d2186842ad',1,'ColliderPlusPlus::Node']]],
   ['_5fsetnodecontrols',['_setNodeControls',['../classColliderPlusPlus_1_1Client__Server.html#a54cbee6b8ac056f77d0df2e77d79d260',1,'ColliderPlusPlus::Client_Server']]],
+  ['_5fstatus',['_status',['../classColliderPlusPlus_1_1Client__Server.html#aac2f57518188e9c3fd9bede4c6bf7a6b',1,'ColliderPlusPlus::Client_Server']]],
   ['_5fstop',['_stop',['../classColliderPlusPlus_1_1Node.html#ad038d5f7d52e71915b3cb9053ff037ae',1,'ColliderPlusPlus::Node::_stop()'],['../classColliderPlusPlus_1_1Sound.html#a799d86cf5a3e1fa9cdde8882658405db',1,'ColliderPlusPlus::Sound::_stop()']]]
 ];

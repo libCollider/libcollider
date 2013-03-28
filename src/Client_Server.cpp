@@ -15,7 +15,7 @@ using std::cin;
 using std::string;
 using std::endl;
 
-void diep(const char * s)
+void error(const char * s)
 {
   perror(s);
   exit(1);
@@ -45,7 +45,7 @@ Client_Server::Client_Server(const std::string& name, const char *host,
 
 Client_Server::~Client_Server()
 {
-  _quit();
+  
 }
 
 std::string Client_Server::_getName()
@@ -110,7 +110,7 @@ void Client_Server::send_msg_no_reply(tnyosc::Message * msg, const char * send_m
    struct sockaddr_in servaddr;
    
    if ( (sockfd=socket(AF_INET, SOCK_DGRAM, IPPROTO_UDP)) == -1)
-       diep("socket");
+       error("socket");
    bzero(&servaddr, sizeof(servaddr));
    servaddr.sin_family = AF_INET;
    servaddr.sin_port = htons((unsigned short)strtoul(_getPort(), NULL, 0));
@@ -124,9 +124,10 @@ void Client_Server::send_msg_no_reply(tnyosc::Message * msg, const char * send_m
    if(send_msg != NULL)
    cout << send_msg << endl;
    #endif
+
    if (sendto(sockfd, msg->data(), msg->size(), 0, 
 			      (struct sockaddr *)&servaddr, sizeof(servaddr)) == -1)
-       diep("sendto()");
+       error("sendto()");
    close(sockfd);
 }
 
@@ -138,7 +139,7 @@ void Client_Server::send_msg_with_reply(tnyosc::Message * msg, const char * send
    char receive_buffer[1024];
    
    if ( (sockfd=socket(AF_INET, SOCK_DGRAM, IPPROTO_UDP)) == -1)
-       diep("socket");
+       error("socket");
    bzero(&servaddr, sizeof(servaddr));
    servaddr.sin_family = AF_INET;
    servaddr.sin_port = htons((unsigned short)strtoul(_getPort(), NULL, 0));
@@ -152,9 +153,10 @@ void Client_Server::send_msg_with_reply(tnyosc::Message * msg, const char * send
    if(send_msg != NULL)
    cout << send_msg << endl;
    #endif
+
    if (sendto(sockfd, msg->data(), msg->size(), 0, 
 			      (struct sockaddr *)&servaddr, sizeof(servaddr)) == -1)
-       diep("sendto()");
+       error("sendto()");
 
    n = recvfrom(sockfd, receive_buffer, sizeof(receive_buffer), 0, NULL, NULL);
 
@@ -174,7 +176,7 @@ void Client_Server::send_bundle_no_reply(tnyosc::Bundle * bundle, const char * s
    struct sockaddr_in servaddr;
    
    if ( (sockfd=socket(AF_INET, SOCK_DGRAM, IPPROTO_UDP)) == -1)
-       diep("socket");
+       error("socket");
    bzero(&servaddr, sizeof(servaddr));
    servaddr.sin_family = AF_INET;
    servaddr.sin_port = htons(57110);
@@ -188,9 +190,10 @@ void Client_Server::send_bundle_no_reply(tnyosc::Bundle * bundle, const char * s
    if(send_msg != NULL)
    cout << send_msg << endl;
    #endif
+
    if (sendto(sockfd, bundle->data(), bundle->size(), 0, 
 			      (struct sockaddr *)&servaddr, sizeof(servaddr)) == -1)
-       diep("sendto()");
+       error("sendto()");
    close(sockfd);
 }
 
@@ -202,7 +205,7 @@ void Client_Server::send_bundle_with_reply(tnyosc::Bundle * bundle, const char *
    char receive_buffer[1024];
    
    if ( (sockfd=socket(AF_INET, SOCK_DGRAM, IPPROTO_UDP)) == -1)
-       diep("socket");
+       error("socket");
    bzero(&servaddr, sizeof(servaddr));
    servaddr.sin_family = AF_INET;
    servaddr.sin_port = htons(57110);
@@ -216,9 +219,10 @@ void Client_Server::send_bundle_with_reply(tnyosc::Bundle * bundle, const char *
    if(send_msg != NULL)
    cout << send_msg << endl;
    #endif
+
    if (sendto(sockfd, bundle->data(), bundle->size(), 0, 
 			      (struct sockaddr *)&servaddr, sizeof(servaddr)) == -1)
-       diep("sendto()");
+       error("sendto()");
 
    n = recvfrom(sockfd, receive_buffer, sizeof(receive_buffer), 0, NULL, NULL);
 
@@ -236,7 +240,6 @@ void Client_Server::send_bundle_with_reply(tnyosc::Bundle * bundle, const char *
 void Client_Server::_dumpOSC(int toggle)
 {
    Message * msg = new Message("/dumpOSC");
- //  Message msg("/dumpOSC");
    msg->append(toggle);
  
    #ifdef PRINT_DEBUG
@@ -266,7 +269,6 @@ void Client_Server::_queryNodeTree()
    delete msg;
 } 
 
-//Currently hangs up, don't know why
 void Client_Server::_queryNode(int nodeId)
 {
    Message * msg = new Message("/n_query");
@@ -774,10 +776,11 @@ void status_reply(const std::string& address,
    else
    {
       cout << "server reply: " << address << endl;
-     // cout << "command received: " << argv[0].data.s << endl;
+    //cout << "command received: " << argv[0].data.s << endl;
    }
 }
 
+//finish me
 void node_info(const std::string& address, 
 		const std::vector<tnyosc::Argument>& argv, void* user_data)
 {
@@ -785,6 +788,7 @@ void node_info(const std::string& address,
 
 }
 
+//finish me
 void buffer_info(const std::string& address, 
 		const std::vector<tnyosc::Argument>& argv, void* user_data)
 {
@@ -804,6 +808,6 @@ void Client_Server::_setUpOSCDispatcher()
 {
    _dispatcher.add_method("/done", NULL, &server_done, &_async_result);
    _dispatcher.add_method("/fail", NULL, &fail, &_async_result);
-   _dispatcher.add_method("/n_info", NULL, &node_info, NULL);
-   _dispatcher.add_method("/status.reply", NULL, &status_reply, NULL);
+   _dispatcher.add_method("/n_info", NULL, &node_info, NULL); //finish me
+   _dispatcher.add_method("/status.reply", NULL, &status_reply, NULL); //finish me
 }
