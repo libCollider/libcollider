@@ -1,5 +1,4 @@
 #include "ColliderPlusPlus.hpp"
-#include <unistd.h>
 #include <iostream>
 #include <map>
 #include <string>
@@ -36,7 +35,7 @@ int main(int argc, char* argv[])
   Synth s(&cs, "TGrain2", cs._nextNodeId(), sArgs, 1);
   cs._queryNodeTree();
   
-  std::cout << "Type 'q' and enter to quit\n" << std::endl;
+  std::cout << "\nType 'q' and enter to quit\n" << std::endl;
 
   char a;
   while(a != 'q')
