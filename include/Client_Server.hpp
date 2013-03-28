@@ -7,6 +7,8 @@
 #include <string>
 #include <vector> 
 #include <map>
+#include "tnyosc-dispatch.hpp"
+#include "tnyosc.hpp"
  
 #define TO_HEAD      0
 #define TO_TAIL      1
@@ -71,7 +73,7 @@ namespace ColliderPlusPlus {
 	void _queryNode(int nodeId);
 
         /// Does nothing
-        void _pingScsynth();//Finish me
+        void _status();//Finish me
 
         /// Command the server to quit 
 	void _quit();
@@ -218,8 +220,12 @@ namespace ColliderPlusPlus {
     private:
         //Methods
         void _createDefaultGroup();
-	int _pushFirstNodeId(int nextNode);
         void _initializeSynthDefs(const std::string& synthDefDir);
+        void _setUpOSCDispatcher();
+        void send_msg_with_reply(tnyosc::Message * msg, const char * send_msg = NULL);
+        void send_msg_no_reply(tnyosc::Message * msg, const char * send_msg = NULL);	
+        void send_bundle_with_reply(tnyosc::Bundle * bundle, const char * send_msg = NULL);
+        void send_bundle_no_reply(tnyosc::Bundle * bundle, const char * send_msg = NULL);
 
 	//OSC/UDP
 	void _setPort(const char *port);
@@ -231,9 +237,13 @@ namespace ColliderPlusPlus {
         std::string _name;
 	const char* _port;
         const char* _host;
-        int _nextNode;
-	int _bufferNum;
-	std::vector<int> _nodeIDs;	
+      	std::vector<int> _nodeIDs;
+        tnyosc::Dispatcher _dispatcher;	
+
+        bool _async_result;
+
+        int _NodeIDGenerator;
+        int _BufferIDGenerator;
   };
 } //namespace ColliderPlusPlus
 #endif

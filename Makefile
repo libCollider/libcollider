@@ -1,4 +1,4 @@
-VPATH =src:include:include/tny_osc
+VPATH =src:src/tny_osc:include:include/tny_osc
 UNAME := $(shell uname)
 
 ifeq ($(UNAME), Darwin)
@@ -20,17 +20,17 @@ libcolliderpp: Client_Server.o Buffer.o Bus.o Node.o Sound.o
 	mkdir -p build
 	mv libcollider++.$(libsuffix) build
 
-Client_Server.o : Client_Server.cpp Client_Server.hpp tnyosc.hpp
-	gcc -c -fPIC src/Client_Server.cpp -o src/Client_Server.o -I$(BOOST_INCLUDE_DIR) -Iinclude/ -Iinclude/tny_osc/ -DTNYOSC_WITH_BOOST -DEH_DEBUG 
+Client_Server.o : Client_Server.cpp tnyosc-dispatch.cc Client_Server.hpp tnyosc.hpp tnyosc-dispatch.hpp
+	gcc -c -fPIC -o src/Client_Server.o src/cs_tnyosc-dispatch_unity.cpp -I$(BOOST_INCLUDE_DIR) -Iinclude/ -Iinclude/tny_osc/ -DTNYOSC_WITH_BOOST -DPRINT_DEBUG 
 
 Buffer.o : Buffer.cpp Buffer.hpp
-	gcc -c -fPIC src/Buffer.cpp -o src/Buffer.o -Iinclude/ 
+	gcc -c -fPIC -o src/Buffer.o  src/Buffer.cpp -Iinclude/ -Iinclude/tny_osc/
 Bus.o : Bus.cpp Bus.hpp
-	gcc -c -fPIC src/Bus.cpp -o src/Bus.o -Iinclude/ 
+	gcc -c -fPIC -o src/Bus.o  src/Bus.cpp -Iinclude/ -Iinclude/tny_osc/
 Node.o : Node.cpp Node.hpp
-	gcc -c -fPIC src/Node.cpp -o src/Node.o -Iinclude/ 
+	gcc -c -fPIC -o src/Node.o  src/Node.cpp -Iinclude/ -Iinclude/tny_osc/
 Sound.o : Sound.cpp Sound.hpp
-	gcc -c -fPIC src/Sound.cpp -o src/Sound.o -Iinclude/
+	gcc -c -fPIC -o src/Sound.o  src/Sound.cpp -Iinclude/ -Iinclude/tny_osc/
 
 clean: 
 	rm src/*.o
