@@ -1,5 +1,4 @@
 #include "Sound.hpp"
-#include <iostream>
 
 using namespace ColliderPlusPlus;
 
