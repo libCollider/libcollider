@@ -218,7 +218,7 @@ namespace ColliderPlusPlus {
         // @}
 
     private:
-        //Methods
+        //Functions
         void _createDefaultGroup();
         void _initializeSynthDefs(const std::string& synthDefDir);
         void _setUpOSCDispatcher();
@@ -233,15 +233,12 @@ namespace ColliderPlusPlus {
         const char* _getPort();
         const char* _getHost();
 
-	//Members
         std::string _name;
 	const char* _port;
         const char* _host;
       	std::vector<int> _nodeIDs;
         tnyosc::Dispatcher _dispatcher;	
-
         bool _async_result;
-
         int _NodeIDGenerator;
         int _BufferIDGenerator;
   };

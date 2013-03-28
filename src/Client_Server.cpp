@@ -765,19 +765,11 @@ void fail(const std::string& address,
    *async_result = false;
 }
 
+//finish me
 void status_reply(const std::string& address, 
 		const std::vector<tnyosc::Argument>& argv, void* user_data)
 {
-   if(argv.size() != 9)
-   {
-      cerr << "status_reply: something went wrong." << endl;
-   }
-
-   else
-   {
-      cout << "server reply: " << address << endl;
-    //cout << "command received: " << argv[0].data.s << endl;
-   }
+   
 }
 
 //finish me
@@ -785,23 +777,13 @@ void node_info(const std::string& address,
 		const std::vector<tnyosc::Argument>& argv, void* user_data)
 {
 
-
 }
 
 //finish me
 void buffer_info(const std::string& address, 
 		const std::vector<tnyosc::Argument>& argv, void* user_data)
 {
-   if(argv.size() != 4)
-   {
-      cerr << "buffer_info: something went wrong." << endl;
-   }
 
-   else
-   {
-      cout << "server reply: " << address << endl;
-      cout << "command received: " << argv[0].data.s << endl;
-   }
 }
 
 void Client_Server::_setUpOSCDispatcher()
@@ -810,4 +792,5 @@ void Client_Server::_setUpOSCDispatcher()
    _dispatcher.add_method("/fail", NULL, &fail, &_async_result);
    _dispatcher.add_method("/n_info", NULL, &node_info, NULL); //finish me
    _dispatcher.add_method("/status.reply", NULL, &status_reply, NULL); //finish me
+   _dispatcher.add_method("/b_info", NULL, &buffer_info, NULL); //finish me
 }
