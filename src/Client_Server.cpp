@@ -45,7 +45,7 @@ Client_Server::Client_Server(const std::string& name, const char *host,
 
 Client_Server::~Client_Server()
 {
-
+  _quit();
 }
 
 std::string Client_Server::_getName()
@@ -324,7 +324,17 @@ void Client_Server::_createNode(int nodeId, int addAction, int target, int type)
    msg->append(nodeId);
    msg->append(addAction);
    msg->append(target);
+
+  #ifdef PRINT_DEBUG
+   char send_msg[100];
+   snprintf(send_msg, 100, 
+	"\nsending: %s default %d %d %d command to the server",
+			 typeTag.c_str(), nodeId, addAction, target);
+   send_msg_no_reply(msg, send_msg);
+   #else
    send_msg_no_reply(msg);
+   #endif
+
    delete msg;
 }
 
@@ -343,7 +353,17 @@ void Client_Server::_createNode(const std::string& name, int nodeId,
    msg->append(nodeId);
    msg->append(addAction);
    msg->append(target);
+
+   #ifdef PRINT_DEBUG
+   char send_msg[100];
+   snprintf(send_msg, 100, 
+	"\nsending: %s %s %d %d %d command to the server",
+			 typeTag.c_str(), name.c_str(), nodeId, addAction, target);
+   send_msg_no_reply(msg, send_msg);
+   #else
    send_msg_no_reply(msg);
+   #endif
+
    delete msg;
 }
 
@@ -355,7 +375,17 @@ void Client_Server::_createSynth(const std::string& name, int nodeId,
    msg->append(nodeId);
    msg->append(addAction);
    msg->append(target);
+ 
+   #ifdef PRINT_DEBUG
+   char send_msg[100];
+   snprintf(send_msg, 100, 
+	"\nsending: /s_new %s %d %d %d command to the server",
+			 name.c_str(), nodeId, addAction, target);
+   send_msg_no_reply(msg, send_msg);
+   #else
    send_msg_no_reply(msg);
+   #endif
+ 
    delete msg;
 }
 
@@ -375,7 +405,19 @@ void Client_Server::_createPausedSynth(const std::string& name, int nodeId,
    Bundle * bundle = new Bundle();
    bundle->append(msg);
    bundle->append(msg2);
+ 
+   #ifdef PRINT_DEBUG
+   char send_msg[100];
+   snprintf(send_msg, 100, 
+	"\nsending bundle [ \
+	 \n/s_new %s %d %d %d \
+         \n/n_run %d \
+         \n]", name.c_str(), nodeId, addAction, target, nodeId);
+   send_bundle_no_reply(bundle, send_msg);
+   #else
    send_bundle_no_reply(bundle);
+   #endif
+ 
    delete bundle;
    delete msg2;
    delete msg;   
@@ -397,7 +439,17 @@ void Client_Server::_createSynth(const std::string& name, int nodeId,
         msg->append(i->first);
         msg->append(i->second);
       }
+
+   #ifdef PRINT_DEBUG
+   char send_msg[100];
+   snprintf(send_msg, 100, 
+	"\nsending: /s_new %s %d %d %d + args command to the server", 
+				name.c_str(), nodeId, addAction, target); 
+   send_msg_no_reply(msg, send_msg);
+   #else
    send_msg_no_reply(msg);
+   #endif
+
    delete msg;
 }
 
@@ -425,7 +477,19 @@ void Client_Server::_createPausedSynth(const std::string& name, int nodeId,
    Bundle * bundle = new Bundle();
    bundle->append(msg);
    bundle->append(msg2);
+ 
+   #ifdef PRINT_DEBUG
+   char send_msg[100];
+   snprintf(send_msg, 100, 
+	"\nsending bundle [ \
+	 \n/s_new %s %d %d %d + args \
+         \n/n_run %d \
+         \n]", name.c_str(), nodeId, addAction, target, nodeId);
+   send_bundle_no_reply(bundle, send_msg);
+   #else
    send_bundle_no_reply(bundle);
+   #endif
+
    delete bundle;
    delete msg2;
    delete msg;
@@ -437,7 +501,16 @@ void Client_Server::_createGroup(int nodeId, int addAction, int target)
    msg->append(nodeId);
    msg->append(addAction);
    msg->append(target);
+   
+   #ifdef PRINT_DEBUG
+   char send_msg[100]; 
+   snprintf(send_msg, 100, 
+	"\nsending: /g_new %d %d %d command to the server", nodeId, addAction, target);
+   send_msg_no_reply(msg, send_msg);
+   #else
    send_msg_no_reply(msg);
+   #endif
+
    delete msg;
 }
 
@@ -447,14 +520,18 @@ bool Client_Server::_allocBuffer(int bufNum, int numFrames, int numChans)
    msg->append(bufNum);
    msg->append(numFrames);
    msg->append(numChans);
+
+   #ifdef PRINT_DEBUG
+   char send_msg[100]; 
+   snprintf(send_msg, 100, 
+	"\nsending: /b_alloc %d %d %d command to the server", bufNum, numFrames, numChans);
+   send_msg_with_reply(msg, send_msg);
+   #else
    send_msg_with_reply(msg);
+   #endif
 
    delete msg;
    return _async_result;
-   /*#ifdef PRINT_DEBUG
-   cout << "\nSend: /b_alloc " << bufNum<< " " << numFrames << " " 
-			<< numChans << " command to server..." << endl;
-   #endif*/ 
 }
 
 bool Client_Server::_allocReadBuffer(int bufNum, 
@@ -466,14 +543,19 @@ bool Client_Server::_allocReadBuffer(int bufNum,
    msg->append(filePath);
    msg->append(startFileFrame);
    msg->append(numFrames);
+
+   #ifdef PRINT_DEBUG
+   char send_msg[200]; 
+   snprintf(send_msg, 200, 
+	"\nsending: /b_allocRead %d %s %d %d command to the server", 
+			bufNum, filePath.c_str(), startFileFrame, numFrames);
+   send_msg_with_reply(msg, send_msg);
+   #else
    send_msg_with_reply(msg);
+   #endif
 
    delete msg;
    return _async_result;   
-  /* #ifdef PRINT_DEBUG
-   cout << "\nSend: /b_allocRead " << bufNum <<" "<<filePath<<" "
-			<<startFileFrame<<" "<<numFrames<<" command to server..." << endl;
-   #endif*/
 }
 
 bool Client_Server::_freeBuffer(int bufNum)
@@ -482,8 +564,8 @@ bool Client_Server::_freeBuffer(int bufNum)
    msg->append(bufNum);
    
    #ifdef PRINT_DEBUG
-   char * send_msg;
-   sprintf(send_msg, "sending: /b_free %d command to the server", bufNum);
+   char send_msg[200];
+   snprintf(send_msg, 200, "\nsending: /b_free %d command to the server", bufNum);
    send_msg_with_reply(msg, send_msg);
    #else
    send_msg_with_reply(msg);
@@ -497,11 +579,17 @@ void Client_Server::_queryBuffer(int bufNum)
 {
    Message * msg = new Message("/b_query");
    msg->append(bufNum);
+ 
+   #ifdef PRINT_DEBUG
+   char send_msg[100]; 
+   snprintf(send_msg, 100, 
+	"\nsending: /b_query %d command to the server", bufNum);
+   send_msg_with_reply(msg, send_msg);
+   #else
    send_msg_with_reply(msg);
+   #endif
+ 
    delete msg;
-   /*#ifdef PRINT_DEBUG
-   cout << "\nSend: /b_query " << bufNum << " command to server..." << endl;
-   #endif*/
 }
 
 void Client_Server::_runNode(int nodeId, int flag)
@@ -509,22 +597,34 @@ void Client_Server::_runNode(int nodeId, int flag)
    Message * msg = new Message("/n_run");
    msg->append(nodeId);
    msg->append(flag);
+
+   #ifdef PRINT_DEBUG
+   char send_msg[100];
+   snprintf(send_msg, 100, 
+	"\nsending: /n_run %d %d command to the server", nodeId, flag);
+   send_msg_no_reply(msg, send_msg);
+   #else
    send_msg_no_reply(msg);
+   #endif
+
    delete msg;
-   /*#ifdef PRINT_DEBUG
-   cout << "\nSend: /n_run " << nodeId << " " << flag << " command to server..." << endl;
-   #endif*/
 }
 
 void Client_Server::_freeNode(int nodeId)
 {
    Message * msg = new Message ("/n_free");
    msg->append(nodeId);
+
+   #ifdef PRINT_DEBUG
+   char send_msg[100];
+   snprintf(send_msg, 100, 
+	"\nsending: /n_free %d command to the server", nodeId);
+   send_msg_no_reply(msg, send_msg);
+   #else
    send_msg_no_reply(msg);
+   #endif
+
    delete msg;
-   /*#ifdef PRINT_DEBUG
-   cout << "\nSend: /n_free " << nodeId <<" command to server..." << endl;
-   #endif*/
 }
 
 void Client_Server::_setNodeControls(int nodeId, std::map<std::string, float> &controlVals)
@@ -540,81 +640,68 @@ void Client_Server::_setNodeControls(int nodeId, std::map<std::string, float> &c
      msg->append(i->second);
    }
 
-   send_msg_no_reply(msg);
-   delete msg;
-   /*#ifdef PRINT_DEBUG
-   cout << "\nSend: /n_set with args command to server..." << endl;
-   #endif*/
-}
-
-/*void Client_Server::_setNodeControlRanges(std::map<string, float []> &controlRanges)
-{
-  try {
    #ifdef PRINT_DEBUG
-   cout << "\nSend: /n_setn with args command to server..." << endl;
+   char send_msg[100];
+   snprintf(send_msg, 100, 
+	"\nsending: /n_set %d + args command to the server", nodeId);
+   send_msg_no_reply(msg, send_msg);
+   #else
+   send_msg_no_reply(msg);
    #endif
-   
-   //Udp via Boost
-   io_service io_service;
-   udp::resolver resolver(io_service);
-   udp::resolver::query query(udp::v4(), _getHost(), _getPort());
-   udp::endpoint receiver_endpoint = *resolver.resolve(query);
-   udp::socket socket(io_service);
-   socket.open(udp::v4());
-   
-   //create a OSC message using tnyosc.hpp
-   Message msg("/n_set");
-   
-   //Iterate through arguments and append to message
-   std::map<std::string, float[]>::iterator i = controlVals.begin();
 
-   for(; i != args.end(); ++i)
-   { 
-     msg.append((*i).first);
-     msg.append((*i).second);
-   }
-
-   //send the message 
-   socket.send_to(buffer(msg.data(), msg.size()), receiver_endpoint);
-   } //end try
-   
-   catch (std::exception& e) {
-    cerr << e.what() << endl;
-   }
-}*/
+   delete msg;
+}
 
 void Client_Server::_freeAllSynths(int groupId)
 {
    Message * msg = new Message ("/g_freeAll");
    msg->append(groupId);
+ 
+   #ifdef PRINT_DEBUG
+   char send_msg[100];
+   snprintf(send_msg, 100, 
+	"\nsending: /g_freeAll %d command to the server", groupId);
+   send_msg_no_reply(msg, send_msg);
+   #else
    send_msg_no_reply(msg);
+   #endif
+
    delete msg;
-   /*#ifdef PRINT_DEBUG
-   cout << "\nSend: /g_freeAll " << groupId <<" command to server..." << endl;
-   #endif*/
 }
 
 void Client_Server::_deepFreeAllSynths(int groupId)
 {
    Message * msg = new Message ("/g_deepFree");
    msg->append(groupId);
+
+   #ifdef PRINT_DEBUG
+   char send_msg[100];
+   snprintf(send_msg, 100, 
+	"\nsending: /g_deepFree %d command to the server", groupId);
+   send_msg_no_reply(msg, send_msg);
+   #else
    send_msg_no_reply(msg);
+   #endif
+
    delete msg;
-   /*#ifdef PRINT_DEBUG
-   cout << "\nSend: /g_deepFree " << groupId <<" command to server..." << endl;
-   #endif*/
 }
 
 bool Client_Server::_loadSynthDef(const std::string& synthDefName)
 {
    Message * msg = new Message ("/d_load"); 
-   msg->append(synthDefName);  
+   msg->append(synthDefName); 
+ 
+   #ifdef PRINT_DEBUG
+   char send_msg[100];
+   snprintf(send_msg, 100, 
+	"\nsending: /d_load %s command to the server", synthDefName.c_str());
+   send_msg_with_reply(msg, send_msg);
+   #else
    send_msg_with_reply(msg);
+   #endif
+
    delete msg;
    return _async_result;
-   /*#ifdef PRINT_DEBUG
-   cout << "\nSend: /d_load " << synthDefName << " command to server..." << endl;
-   #endif*/
 }
 
 bool Client_Server::_loadSynthDefDirectory(const std::string& synthDefDir)
@@ -633,9 +720,6 @@ bool Client_Server::_loadSynthDefDirectory(const std::string& synthDefDir)
 
    delete msg;
    return _async_result;
-   /*#ifdef PRINT_DEBUG
-   cout << "\nSend: /d_loadDir " << synthDefDir << " command to server..." << endl;
-   #endif*/
 }
 
 void Client_Server::_createDefaultGroup()
@@ -644,11 +728,15 @@ void Client_Server::_createDefaultGroup()
    msg->append(1);
    msg->append(0);
    msg->append(0);
-   send_msg_no_reply(msg);  
+ 
+   #ifdef PRINT_DEBUG
+   const char * send_msg = "\nsending: /g_new 1 0 0 command to the server";
+   send_msg_no_reply(msg, send_msg);
+   #else
+   send_msg_no_reply(msg);
+   #endif  
+
    delete msg;
-   /*#ifdef PRINT_DEBUG
-   cout << "\nSend: /g_new 1 0 0 command to server..." << endl;
-   #endif*/
 }
 
 //OSC dispatch

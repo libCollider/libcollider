@@ -21,7 +21,7 @@ libcolliderpp: Client_Server.o Buffer.o Bus.o Node.o Sound.o
 	mv libcollider++.$(libsuffix) build
 
 Client_Server.o : Client_Server.cpp tnyosc-dispatch.cc Client_Server.hpp tnyosc.hpp tnyosc-dispatch.hpp
-	gcc -c -fPIC -o src/Client_Server.o src/cs_tnyosc-dispatch_unity.cpp -Iinclude/ -Iinclude/tny_osc/ #-DPRINT_DEBUG 
+	gcc -c -fPIC -o src/Client_Server.o src/cs_tnyosc-dispatch_unity.cpp -Iinclude/ -Iinclude/tny_osc/ -DPRINT_DEBUG 
 
 Buffer.o : Buffer.cpp Buffer.hpp
 	gcc -c -fPIC -o src/Buffer.o  src/Buffer.cpp -Iinclude/ -Iinclude/tny_osc/
