@@ -3,31 +3,33 @@
 
 using namespace ColliderPlusPlus;
 
-Buffer::Buffer()
-{
-
-}
-
-Buffer::Buffer(Client_Server * cs, int bufNum)
-:_bufNum(bufNum), _numFrames(0), _numChans(0),
+Buffer::Buffer(Client_Server * cs)
+:_numFrames(0), _numChans(0),
  _sampRate(44100), _filePath(""), _manuallyFreed(false)
 {
   _cs = cs;
+  _bufNum = _cs->_nextBufferNum();
+  _cs->_add_buffer(this);
 }
 
 Buffer::~Buffer()
 {
   if(_getManuallyFreed() != true)
- 	_free();
+ 	_cs->_freeBuffer_no_reply(_bufNum);
 }
 
 void Buffer::_alloc(int numFrames, int numChans)
 {
+  _numFrames = numFrames;
+  _numChans = numChans;
+
   if(!_cs->_allocBuffer(_bufNum, _numFrames, _numChans))
 	exit(0);
 
-  _numFrames = numFrames;
-  _numChans = numChans;  
+  #ifdef PRINT_DEBUG
+  std::cout << "\nsyncing buffer # " << _getBufNum() << std::endl;
+  #endif
+  _sync(); 
 }
 
 void Buffer::_free()
@@ -38,7 +40,7 @@ void Buffer::_free()
   	_manuallyFreed = true;  
 }
 
-void Buffer::_query()
+void Buffer::_sync()
 {
   _cs->_queryBuffer(_bufNum);
 }
@@ -50,4 +52,9 @@ void Buffer::_allocRead(const std::string& filePath, int startFileFrame,
   {
     exit(0);
   } 
+
+  #ifdef PRINT_DEBUG
+  std::cout << "\nsyncing buffer # " << _getBufNum() << std::endl;
+  #endif
+  _sync();
 }

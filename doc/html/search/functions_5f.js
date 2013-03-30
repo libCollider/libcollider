@@ -1,5 +1,6 @@
 var searchData=
 [
+  ['_5fadd_5fbuffer',['_add_buffer',['../classColliderPlusPlus_1_1Client__Server.html#a0ed8cb6f780d472bbe8b41f2435d4020',1,'ColliderPlusPlus::Client_Server']]],
   ['_5falloc',['_alloc',['../classColliderPlusPlus_1_1Buffer.html#af0248190521ac9b499da2595f5519b12',1,'ColliderPlusPlus::Buffer']]],
   ['_5fallocbuffer',['_allocBuffer',['../classColliderPlusPlus_1_1Client__Server.html#ad8a85d8a8f25f1f1b0133078dbd4c4d3',1,'ColliderPlusPlus::Client_Server']]],
   ['_5fallocread',['_allocRead',['../classColliderPlusPlus_1_1Buffer.html#a0cbb99a9823f18b151f7f7da4bcf56a7',1,'ColliderPlusPlus::Buffer']]],
@@ -34,7 +35,7 @@ var searchData=
   ['_5fnextnodeid',['_nextNodeId',['../classColliderPlusPlus_1_1Client__Server.html#a4c45d5eb7b6bef9dd50c6376f3752d3e',1,'ColliderPlusPlus::Client_Server']]],
   ['_5fplay',['_play',['../classColliderPlusPlus_1_1Sound.html#a0dacdc770784bcef22c99d9c927487c2',1,'ColliderPlusPlus::Sound']]],
   ['_5fprintcurrentnodeids',['_printCurrentNodeIds',['../classColliderPlusPlus_1_1Client__Server.html#a7d4511e809e49a26725750a8d3d859aa',1,'ColliderPlusPlus::Client_Server']]],
-  ['_5fquery',['_query',['../classColliderPlusPlus_1_1Buffer.html#a15072b705358d59e252e1f6d515e3b94',1,'ColliderPlusPlus::Buffer::_query()'],['../classColliderPlusPlus_1_1Node.html#ae3a86f1c3960228c989cfac0c403a68f',1,'ColliderPlusPlus::Node::_query()']]],
+  ['_5fquery',['_query',['../classColliderPlusPlus_1_1Node.html#ae3a86f1c3960228c989cfac0c403a68f',1,'ColliderPlusPlus::Node']]],
   ['_5fquerybuffer',['_queryBuffer',['../classColliderPlusPlus_1_1Client__Server.html#ad4f4ff49145681381f451ba91a6c07e2',1,'ColliderPlusPlus::Client_Server']]],
   ['_5fquerynode',['_queryNode',['../classColliderPlusPlus_1_1Client__Server.html#a990e5c77c2579445279baa2f2850bf62',1,'ColliderPlusPlus::Client_Server']]],
   ['_5fquerynodetree',['_queryNodeTree',['../classColliderPlusPlus_1_1Client__Server.html#a89364c9a2410454377434ee3eb2446ed',1,'ColliderPlusPlus::Client_Server']]],
@@ -42,8 +43,13 @@ var searchData=
   ['_5frun',['_run',['../classColliderPlusPlus_1_1Node.html#a52a06de4f27d8e2e9410a474b90c4890',1,'ColliderPlusPlus::Node']]],
   ['_5frunnode',['_runNode',['../classColliderPlusPlus_1_1Client__Server.html#a6a7d155ca004a6a26409517a3f762aee',1,'ColliderPlusPlus::Client_Server']]],
   ['_5fset',['_set',['../classColliderPlusPlus_1_1Node.html#ae5cea16e458fa9a5cd12161572b07655',1,'ColliderPlusPlus::Node']]],
+  ['_5fsetbufnum',['_setBufNum',['../classColliderPlusPlus_1_1Buffer.html#a4b9618d72d61ee996dd345a27211bb28',1,'ColliderPlusPlus::Buffer']]],
   ['_5fsetn',['_setn',['../classColliderPlusPlus_1_1Node.html#acf6441855c6e1e33fc88f3d2186842ad',1,'ColliderPlusPlus::Node']]],
   ['_5fsetnodecontrols',['_setNodeControls',['../classColliderPlusPlus_1_1Client__Server.html#a54cbee6b8ac056f77d0df2e77d79d260',1,'ColliderPlusPlus::Client_Server']]],
+  ['_5fsetnumchans',['_setNumChans',['../classColliderPlusPlus_1_1Buffer.html#a7bb84b89cba1bbdcc85d5cd4e6cb8225',1,'ColliderPlusPlus::Buffer']]],
+  ['_5fsetnumframes',['_setNumFrames',['../classColliderPlusPlus_1_1Buffer.html#a7edaeb1498a61623447082277c4cbb7a',1,'ColliderPlusPlus::Buffer']]],
+  ['_5fsetsamprate',['_setSampRate',['../classColliderPlusPlus_1_1Buffer.html#a041e66c0645096ce0d134e6a1e1e93f3',1,'ColliderPlusPlus::Buffer']]],
   ['_5fstatus',['_status',['../classColliderPlusPlus_1_1Client__Server.html#aac2f57518188e9c3fd9bede4c6bf7a6b',1,'ColliderPlusPlus::Client_Server']]],
-  ['_5fstop',['_stop',['../classColliderPlusPlus_1_1Node.html#ad038d5f7d52e71915b3cb9053ff037ae',1,'ColliderPlusPlus::Node::_stop()'],['../classColliderPlusPlus_1_1Sound.html#a799d86cf5a3e1fa9cdde8882658405db',1,'ColliderPlusPlus::Sound::_stop()']]]
+  ['_5fstop',['_stop',['../classColliderPlusPlus_1_1Node.html#ad038d5f7d52e71915b3cb9053ff037ae',1,'ColliderPlusPlus::Node::_stop()'],['../classColliderPlusPlus_1_1Sound.html#a799d86cf5a3e1fa9cdde8882658405db',1,'ColliderPlusPlus::Sound::_stop()']]],
+  ['_5fsync',['_sync',['../classColliderPlusPlus_1_1Buffer.html#a2fd3166c7e5f7980176f265d4c6d8a53',1,'ColliderPlusPlus::Buffer']]]
 ];

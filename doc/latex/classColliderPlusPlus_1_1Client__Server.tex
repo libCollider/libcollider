@@ -43,7 +43,7 @@ void \hyperlink{classColliderPlusPlus_1_1Client__Server_ae0fb9a18089043723fff0b1
 \begin{DoxyCompactList}\small\item\em Query a specific node for its info on the server. \end{DoxyCompactList}\item 
 \hypertarget{classColliderPlusPlus_1_1Client__Server_aac2f57518188e9c3fd9bede4c6bf7a6b}{void \hyperlink{classColliderPlusPlus_1_1Client__Server_aac2f57518188e9c3fd9bede4c6bf7a6b}{\-\_\-status} ()}\label{classColliderPlusPlus_1_1Client__Server_aac2f57518188e9c3fd9bede4c6bf7a6b}
 
-\begin{DoxyCompactList}\small\item\em Does nothing. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Send /status command to server, replies with /status\-\_\-info. \end{DoxyCompactList}\item 
 \hypertarget{classColliderPlusPlus_1_1Client__Server_ae6c23572a95f5645687ac50167f28ace}{void \hyperlink{classColliderPlusPlus_1_1Client__Server_ae6c23572a95f5645687ac50167f28ace}{\-\_\-quit} ()}\label{classColliderPlusPlus_1_1Client__Server_ae6c23572a95f5645687ac50167f28ace}
 
 \begin{DoxyCompactList}\small\item\em Command the server to quit. \end{DoxyCompactList}\end{DoxyCompactItemize}
@@ -87,9 +87,14 @@ bool \hyperlink{classColliderPlusPlus_1_1Client__Server_ad8a85d8a8f25f1f1b013307
 \item 
 bool \hyperlink{classColliderPlusPlus_1_1Client__Server_a5dd10ce383bba35133c7057dee000170}{\-\_\-free\-Buffer} (int buf\-Num)
 \item 
+\hypertarget{classColliderPlusPlus_1_1Client__Server_a96eeaddefced0fe608a6f50e70a8924d}{void {\bfseries \-\_\-free\-Buffer\-\_\-no\-\_\-reply} (int buf\-Num)}\label{classColliderPlusPlus_1_1Client__Server_a96eeaddefced0fe608a6f50e70a8924d}
+
+\item 
 bool \hyperlink{classColliderPlusPlus_1_1Client__Server_a293596d6659f4b6bfb5d46e2b310cfa2}{\-\_\-alloc\-Read\-Buffer} (int buf\-Num, const std\-::string \&file\-Path, int start\-File\-Frame=0, int num\-Frames=-\/1)
 \item 
 void \hyperlink{classColliderPlusPlus_1_1Client__Server_ad4f4ff49145681381f451ba91a6c07e2}{\-\_\-query\-Buffer} (int buf\-Num)
+\item 
+void \hyperlink{classColliderPlusPlus_1_1Client__Server_a0ed8cb6f780d472bbe8b41f2435d4020}{\-\_\-add\-\_\-buffer} (void $\ast$buffer)
 \end{DoxyCompactItemize}
 \end{Indent}
 
@@ -122,6 +127,18 @@ Create a \hyperlink{classColliderPlusPlus_1_1Client__Server}{Client\-\_\-\-Serve
 
 
 \subsection{Member Function Documentation}
+\hypertarget{classColliderPlusPlus_1_1Client__Server_a0ed8cb6f780d472bbe8b41f2435d4020}{\index{Collider\-Plus\-Plus\-::\-Client\-\_\-\-Server@{Collider\-Plus\-Plus\-::\-Client\-\_\-\-Server}!\-\_\-add\-\_\-buffer@{\-\_\-add\-\_\-buffer}}
+\index{\-\_\-add\-\_\-buffer@{\-\_\-add\-\_\-buffer}!ColliderPlusPlus::Client_Server@{Collider\-Plus\-Plus\-::\-Client\-\_\-\-Server}}
+\subsubsection[{\-\_\-add\-\_\-buffer}]{\setlength{\rightskip}{0pt plus 5cm}void Collider\-Plus\-Plus\-::\-Client\-\_\-\-Server\-::\-\_\-add\-\_\-buffer (
+\begin{DoxyParamCaption}
+\item[{void $\ast$}]{buffer}
+\end{DoxyParamCaption}
+)}}\label{classColliderPlusPlus_1_1Client__Server_a0ed8cb6f780d472bbe8b41f2435d4020}
+Add a pointer to a \hyperlink{classColliderPlusPlus_1_1Buffer}{Buffer} instance to the \-\_\-buffers vector 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em void} & $\ast$ buffer \\
+\hline
+\end{DoxyParams}
 \hypertarget{classColliderPlusPlus_1_1Client__Server_ad8a85d8a8f25f1f1b0133078dbd4c4d3}{\index{Collider\-Plus\-Plus\-::\-Client\-\_\-\-Server@{Collider\-Plus\-Plus\-::\-Client\-\_\-\-Server}!\-\_\-alloc\-Buffer@{\-\_\-alloc\-Buffer}}
 \index{\-\_\-alloc\-Buffer@{\-\_\-alloc\-Buffer}!ColliderPlusPlus::Client_Server@{Collider\-Plus\-Plus\-::\-Client\-\_\-\-Server}}
 \subsubsection[{\-\_\-alloc\-Buffer}]{\setlength{\rightskip}{0pt plus 5cm}bool Collider\-Plus\-Plus\-::\-Client\-\_\-\-Server\-::\-\_\-alloc\-Buffer (

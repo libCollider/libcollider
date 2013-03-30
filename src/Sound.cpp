@@ -21,15 +21,16 @@ Sound::~Sound()
 void Sound::_init(Client_Server * cs, const std::string &filepath, int initAction)
 {
   _cs = cs;
-  _buffer = new Buffer(_cs, _cs->_nextBufferNum());
+  _buffer = new Buffer(_cs);
   _buffer->_allocRead(filepath);
   args["bufnum"] = _buffer->_getBufNum();
   args["rate"] = _pitchScalar;
   args["looping"] = 0;
   
-  //Add conditional based on buffer chanNum that determines 
-  //synthdef to be loaded
-  _synth = new Synth(_cs, "SoundFile_Loop_Stereo", _cs->_nextNodeId(), args, initAction);
+  if(_buffer->_getChanNum() == 2)
+     _synth = new Synth(_cs, "SoundFile_Loop_Stereo", _cs->_nextNodeId(), args, initAction);
+  else
+     _synth = new Synth(_cs, "SoundFile_Loop_Mono", _cs->_nextNodeId(), args, initAction);
 }
 
 void Sound::_play()

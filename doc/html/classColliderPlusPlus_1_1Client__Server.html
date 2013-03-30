@@ -134,7 +134,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 <tr class="separator:a990e5c77c2579445279baa2f2850bf62"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aac2f57518188e9c3fd9bede4c6bf7a6b"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aac2f57518188e9c3fd9bede4c6bf7a6b"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classColliderPlusPlus_1_1Client__Server.html#aac2f57518188e9c3fd9bede4c6bf7a6b">_status</a> ()</td></tr>
-<tr class="memdesc:aac2f57518188e9c3fd9bede4c6bf7a6b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Does nothing. <br/></td></tr>
+<tr class="memdesc:aac2f57518188e9c3fd9bede4c6bf7a6b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Send /status command to server, replies with /status_info. <br/></td></tr>
 <tr class="separator:aac2f57518188e9c3fd9bede4c6bf7a6b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae6c23572a95f5645687ac50167f28ace"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ae6c23572a95f5645687ac50167f28ace"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classColliderPlusPlus_1_1Client__Server.html#ae6c23572a95f5645687ac50167f28ace">_quit</a> ()</td></tr>
@@ -174,10 +174,15 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 <tr class="separator:ad8a85d8a8f25f1f1b0133078dbd4c4d3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5dd10ce383bba35133c7057dee000170"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classColliderPlusPlus_1_1Client__Server.html#a5dd10ce383bba35133c7057dee000170">_freeBuffer</a> (int bufNum)</td></tr>
 <tr class="separator:a5dd10ce383bba35133c7057dee000170"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a96eeaddefced0fe608a6f50e70a8924d"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a96eeaddefced0fe608a6f50e70a8924d"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>_freeBuffer_no_reply</b> (int bufNum)</td></tr>
+<tr class="separator:a96eeaddefced0fe608a6f50e70a8924d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a293596d6659f4b6bfb5d46e2b310cfa2"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classColliderPlusPlus_1_1Client__Server.html#a293596d6659f4b6bfb5d46e2b310cfa2">_allocReadBuffer</a> (int bufNum, const std::string &amp;filePath, int startFileFrame=0, int numFrames=-1)</td></tr>
 <tr class="separator:a293596d6659f4b6bfb5d46e2b310cfa2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad4f4ff49145681381f451ba91a6c07e2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classColliderPlusPlus_1_1Client__Server.html#ad4f4ff49145681381f451ba91a6c07e2">_queryBuffer</a> (int bufNum)</td></tr>
 <tr class="separator:ad4f4ff49145681381f451ba91a6c07e2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0ed8cb6f780d472bbe8b41f2435d4020"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classColliderPlusPlus_1_1Client__Server.html#a0ed8cb6f780d472bbe8b41f2435d4020">_add_buffer</a> (void *buffer)</td></tr>
+<tr class="separator:a0ed8cb6f780d472bbe8b41f2435d4020"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>This class represents a client-side version of scsynth, the SuperCollider audio server. </p>
@@ -231,6 +236,29 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
+<a class="anchor" id="a0ed8cb6f780d472bbe8b41f2435d4020"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ColliderPlusPlus::Client_Server::_add_buffer </td>
+          <td>(</td>
+          <td class="paramtype">void *&#160;</td>
+          <td class="paramname"><em>buffer</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Add a pointer to a <a class="el" href="classColliderPlusPlus_1_1Buffer.html" title="This class represents a client-side version of a server buffer.">Buffer</a> instance to the _buffers vector </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">void</td><td>* buffer </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <a class="anchor" id="ad8a85d8a8f25f1f1b0133078dbd4c4d3"></a>
 <div class="memitem">
 <div class="memproto">
@@ -970,7 +998,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Mar 28 2013 16:03:28 for Collider++ by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sat Mar 30 2013 01:00:53 for Collider++ by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.3.1-20130209
 </small></address>

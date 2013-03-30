@@ -12,7 +12,7 @@
 #Grain_Test: Grain_Test.cpp
 #	gcc -Wall -o Grain_Test Grain_Test.cpp -I../include/ -lcollider++ -lstdc++
 
-all: Sound_Test Client_Server_Test
+all: Sound_Test Client_Server_Test Buffer_Test
 
 Sound_Test: Sound_Test.cpp 
 	gcc -Wall -o Sound_Test Sound_Test.cpp -I../include/ -I../include/tny_osc -lcollider++ -lstdc++
@@ -20,6 +20,9 @@ Sound_Test: Sound_Test.cpp
 Client_Server_Test: Client_Server_Test.cpp
 	gcc -Wall -o Client_Server_Test Client_Server_Test.cpp -I../include/ -I../include/tny_osc -lcollider++ -lstdc++
 
+Buffer_Test: Buffer_Test.cpp
+	gcc -Wall -o Buffer_Test Buffer_Test.cpp -I../include/ -I../include/tny_osc -lcollider++ -lstdc++
+
 
 clean:
-	rm Client_Server_Test Sound_Test
+	rm Client_Server_Test Sound_Test Buffer_Test

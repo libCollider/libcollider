@@ -1,4 +1,5 @@
 #include "Client_Server.hpp"
+#include "Buffer.hpp"
 #include <iostream>
 #include <unistd.h>
 #include <list>
@@ -93,6 +94,11 @@ const char* Client_Server::_getPort()
 const char* Client_Server::_getHost()
 {
   return _host;
+}
+
+void Client_Server::_add_buffer(void * buffer)
+{ 
+   _buffers[((Buffer*)buffer)->_getBufNum()] = buffer;
 }
 
 void Client_Server::_printCurrentNodeIds()
@@ -577,6 +583,23 @@ bool Client_Server::_freeBuffer(int bufNum)
    return _async_result;
 }
 
+void Client_Server::_freeBuffer_no_reply(int bufNum)
+{
+   Message * msg = new Message("/b_free");
+   msg->append(bufNum);
+   
+   #ifdef PRINT_DEBUG
+   char send_msg[200];
+   snprintf(send_msg, 200, "\nsending: /b_free %d command to the server", bufNum);
+   send_msg_no_reply(msg, send_msg);
+   #else
+   send_msg_no_reply(msg);
+   #endif
+
+   delete msg;
+}
+
+
 void Client_Server::_queryBuffer(int bufNum)
 {
    Message * msg = new Message("/b_query");
@@ -779,11 +802,13 @@ void node_info(const std::string& address,
 
 }
 
-//finish me
 void buffer_info(const std::string& address, 
 		const std::vector<tnyosc::Argument>& argv, void* user_data)
 {
-
+   std::map<int, void*> * buffers = (std::map<int, void*> *) user_data;     
+   ((Buffer*)((*buffers)[argv[0].data.i]))->_setNumFrames(argv[1].data.i);
+   ((Buffer*)((*buffers)[argv[0].data.i]))->_setNumChans(argv[2].data.i);
+   ((Buffer*)((*buffers)[argv[0].data.i]))->_setSampRate(argv[3].data.f);
 }
 
 void Client_Server::_setUpOSCDispatcher()
@@ -792,5 +817,5 @@ void Client_Server::_setUpOSCDispatcher()
    _dispatcher.add_method("/fail", NULL, &fail, &_async_result);
    _dispatcher.add_method("/n_info", NULL, &node_info, NULL); //finish me
    _dispatcher.add_method("/status.reply", NULL, &status_reply, NULL); //finish me
-   _dispatcher.add_method("/b_info", NULL, &buffer_info, NULL); //finish me
+   _dispatcher.add_method("/b_info", NULL, &buffer_info, &_buffers);
 }

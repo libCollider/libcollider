@@ -24,7 +24,7 @@ Client_Server.o : Client_Server.cpp tnyosc-dispatch.cc Client_Server.hpp tnyosc.
 	gcc -c -fPIC -o src/Client_Server.o src/cs_tnyosc-dispatch_unity.cpp -Iinclude/ -Iinclude/tny_osc/ -DPRINT_DEBUG 
 
 Buffer.o : Buffer.cpp Buffer.hpp
-	gcc -c -fPIC -o src/Buffer.o  src/Buffer.cpp -Iinclude/ -Iinclude/tny_osc/
+	gcc -c -fPIC -o src/Buffer.o  src/Buffer.cpp -Iinclude/ -Iinclude/tny_osc/ -DPRINT_DEBUG
 Bus.o : Bus.cpp Bus.hpp
 	gcc -c -fPIC -o src/Bus.o  src/Bus.cpp -Iinclude/ -Iinclude/tny_osc/
 Node.o : Node.cpp Node.hpp

@@ -9,6 +9,7 @@
 #include <map>
 #include "tnyosc-dispatch.hpp"
 #include "tnyosc.hpp"
+//#include "Buffer.hpp"
  
 #define TO_HEAD      0
 #define TO_TAIL      1
@@ -72,8 +73,8 @@ namespace ColliderPlusPlus {
         /// Query a specific node for its info on the server
 	void _queryNode(int nodeId);
 
-        /// Does nothing
-        void _status();//Finish me
+        /// Send /status command to server, replies with /status_info
+        void _status();
 
         /// Command the server to quit 
 	void _quit();
@@ -186,6 +187,7 @@ namespace ColliderPlusPlus {
         void _deepFreeAllSynths(int groupId); 
 	// @}
 
+
         // @{
 	/// @name Buffer Functions
 
@@ -200,6 +202,8 @@ namespace ColliderPlusPlus {
         /// @param[in] int Buffer Number
         /// @returns true if success, else false
 	bool _freeBuffer(int bufNum);
+
+        void _freeBuffer_no_reply(int bufNum);
   
         /// Return true if buffer allocation and soundfile read was successful, else false
         /// @param[in] int Buffer Number
@@ -215,6 +219,10 @@ namespace ColliderPlusPlus {
         /// Query a Buffer specified by the Buffer number
         /// @param[in] int Buffer Number 
         void _queryBuffer(int bufNum);
+ 
+        /// Add a pointer to a Buffer instance to the _buffers vector 
+        /// @param[in] void * buffer
+        void _add_buffer(void* buffer);
         // @}
 
     private:
@@ -237,6 +245,7 @@ namespace ColliderPlusPlus {
 	const char* _port;
         const char* _host;
       	std::vector<int> _nodeIDs;
+        std::map<int, void*> _buffers;
         tnyosc::Dispatcher _dispatcher;	
         bool _async_result;
         int _NodeIDGenerator;

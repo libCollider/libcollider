@@ -26,8 +26,15 @@ int main(int argc, char* argv[])
   Client_Server cs("Server", host, port, synthDefDir);
   cs._dumpOSC(1);
   
-  Buffer b(&cs, cs._nextBufferNum());
+  Buffer b(&cs);
   b._allocRead(soundfile);
+
+  if(b._getChanNum() == 2)
+  {
+     std::cerr << "\nSoundfile must be mono for this module! Exiting." << std::endl;
+     b._free();
+     return 1;
+  }
 
   std::map<std::string, float> sArgs;
   sArgs["bufnum"] = b._getBufNum();
