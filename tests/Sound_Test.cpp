@@ -26,7 +26,7 @@ int main(int argc, char* argv[])
   cs._dumpOSC(1);
   Sound sound(&cs, soundfile, NEW);
   sound._loop(true);
-
+  
   usleep(1000000);
 
   sound._stop(); 

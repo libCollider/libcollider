@@ -38,10 +38,6 @@ namespace ColliderPlusPlus {
         /// @returns int Buffer sample rate
  	int _getSampRate() const {return _sampRate;}
 
-        /// Returns the file path of this Buffer's loaded soundfile
-        /// @returns const std::string& Soundfile Path
-	const std::string& _getFilePath() const {return _filePath;}
-
         /// Returns true if the Node was freed from the server by 
         /// calling _free() BEFORE the destructor of this Node is called
         /// @returns true if freed from server with _free() prior to destruction
@@ -95,7 +91,6 @@ namespace ColliderPlusPlus {
 	int _numFrames;
 	int _numChans;
 	int _sampRate;
-	const std::string _filePath;
         bool _manuallyFreed;
 	Client_Server * _cs;
   };
