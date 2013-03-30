@@ -26,9 +26,9 @@ int main(int argc, char* argv[])
 
   Client_Server cs("Server", host, port, synthDefDir);
   cs._dumpOSC(1);
-  Buffer b(&cs);
-  Buffer c(&cs);
-  Buffer d(&cs);
+  Buffer b(&cs, cs._nextBufferNum());
+  Buffer c(&cs, cs._nextBufferNum());
+  Buffer d(&cs, cs._nextBufferNum());
   print_info(b);
   print_info(c);
   print_info(d);
@@ -43,7 +43,7 @@ int main(int argc, char* argv[])
   std::vector<Buffer*>::iterator it;
   for(it = buffers.begin(); it != buffers.end() ; it++)
   {
-     *it = new Buffer(&cs);
+     *it = new Buffer(&cs, cs._nextBufferNum());
      (*it)->_alloc(1024, 2);   
   }
   

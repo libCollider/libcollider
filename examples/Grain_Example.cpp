@@ -26,7 +26,7 @@ int main(int argc, char* argv[])
   Client_Server cs("Server", host, port, synthDefDir);
   cs._dumpOSC(1);
   
-  Buffer b(&cs);
+  Buffer b(&cs, cs._nextBufferNum());
   b._allocRead(soundfile);
 
   if(b._getChanNum() == 2)
