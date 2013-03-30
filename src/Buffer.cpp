@@ -3,12 +3,11 @@
 
 using namespace ColliderPlusPlus;
 
-Buffer::Buffer(Client_Server * cs)
-:_numFrames(0), _numChans(0),
+Buffer::Buffer(Client_Server * cs, int bufNum)
+:_bufNum(bufNum), _numFrames(0), _numChans(0),
  _sampRate(44100), _manuallyFreed(false)
 {
   _cs = cs;
-  _bufNum = _cs->_nextBufferNum();
   _cs->_add_buffer(this);
 }
 

@@ -9,7 +9,6 @@
 #include <map>
 #include "tnyosc-dispatch.hpp"
 #include "tnyosc.hpp"
-//#include "Buffer.hpp"
  
 #define TO_HEAD      0
 #define TO_TAIL      1
@@ -50,7 +49,7 @@ namespace ColliderPlusPlus {
 
         /// Returns this Client_Server's user defined name as a std:string
         /// @return This Client_Server's name as a std::string
-        std::string _getName();
+        std::string _getName() const { return _name;}
 
         /// Returns a unique Node id (int) starting from 1000
         /// @returns A unique Node id (int)

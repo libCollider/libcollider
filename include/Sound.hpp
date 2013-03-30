@@ -74,7 +74,6 @@ namespace ColliderPlusPlus {
 	Client_Server * _cs;
 	Buffer * _buffer;
         Synth *  _synth;
-	std::string _filePath;
 
         std::map<std::string, float> args;
 	

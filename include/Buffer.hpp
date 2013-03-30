@@ -17,7 +17,7 @@ namespace ColliderPlusPlus {
         /// Create a Buffer with buffer number specified by bufNum parameter
 	/// @param[in] Client_Server instance
         /// @param[in] int Buffer Number
-	Buffer(Client_Server * cs);
+	Buffer(Client_Server * cs, int bufNum);
    
         /// Destructor
         ~Buffer();

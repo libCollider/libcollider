@@ -49,11 +49,6 @@ Client_Server::~Client_Server()
   
 }
 
-std::string Client_Server::_getName()
-{
-  return _name; 
-}
-
 void Client_Server::_initializeSynthDefs(const std::string& synthDefDir)
 {
   if(!_loadSynthDefDirectory(synthDefDir))

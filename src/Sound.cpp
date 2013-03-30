@@ -5,9 +5,8 @@ using namespace ColliderPlusPlus;
 Sound::Sound(Client_Server * cs, const std::string &filepath, int initAction)
 : _isLooping(false), _isPlaying(false), _gain(1), _pitchScalar(1) 
 {
-  _filePath = filepath;
   _initAction = initAction;
-  _init(cs, _filePath, _initAction);  
+  _init(cs, filepath, _initAction);  
 }
 
 Sound::~Sound()
@@ -21,7 +20,7 @@ Sound::~Sound()
 void Sound::_init(Client_Server * cs, const std::string &filepath, int initAction)
 {
   _cs = cs;
-  _buffer = new Buffer(_cs);
+  _buffer = new Buffer(_cs, _cs->_nextBufferNum());
   _buffer->_allocRead(filepath);
   args["bufnum"] = _buffer->_getBufNum();
   args["rate"] = _pitchScalar;
