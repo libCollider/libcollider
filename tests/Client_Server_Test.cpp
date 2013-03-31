@@ -25,6 +25,8 @@ int main(int argc, char* argv[])
   Client_Server cs("Server", host, port, synthDefDir);
   std::cout << "breakpoint 1" << std::endl;
   cs.dumpOSC(1);
+  usleep(2000000);
+ 
   cs.allocBuffer(cs.nextBufferNum(), 1024, 2);
   cs.status();
 

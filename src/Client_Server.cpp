@@ -783,20 +783,19 @@ void fail(const std::string& address,
    *async_result = false;
 }
 
-//finish me
 void status_reply(const std::string& address, 
 		const std::vector<tnyosc::Argument>& argv, void* user_data)
 {
-   cout << "\nstatus.reply : " << endl;
-   cout << argv[0].data.i << endl;
-   cout << argv[1].data.i << endl;
-   cout << argv[2].data.i << endl;
-   cout << argv[3].data.i << endl;
-   cout << argv[4].data.i << endl;
-   cout << argv[5].data.f << endl;
-   cout << argv[6].data.f << endl;
-   cout << argv[7].data.d << endl;
-   cout << argv[8].data.d << endl;
+   cout << "\nstatus.reply: " << endl;
+   // argv[0].data.i UNUSED!!
+   cout << "# of ugens: " << argv[1].data.i << endl; 
+   cout << "# of synths: " << argv[2].data.i << endl;
+   cout << "# of groups: " << argv[3].data.i << endl;
+   cout << "# of loaded scsyndefs: " << argv[4].data.i << endl;
+   cout << "dsp CPU usage: " << argv[5].data.f << endl;
+   cout << "dsp CPU peak percent: " <<  argv[6].data.f << endl;
+   cout << "nominal sample rate: " << argv[7].data.d << endl;
+   cout << "actual sample rate: " << argv[8].data.d << endl;
 }
 
 //finish me
@@ -820,6 +819,6 @@ void Client_Server::setUpOSCDispatcher()
    dispatcher.add_method("/done", NULL, &server_done, &async_result);
    dispatcher.add_method("/fail", NULL, &fail, &async_result);
    dispatcher.add_method("/n_info", NULL, &node_info, NULL); //finish me
-   dispatcher.add_method("/status.reply", NULL, &status_reply, NULL); //finish me
+   dispatcher.add_method("/status.reply", NULL, &status_reply, NULL); 
    dispatcher.add_method("/b_info", NULL, &buffer_info, &buffers);
 }
