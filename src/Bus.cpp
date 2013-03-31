@@ -14,7 +14,7 @@ Bus::~Bus()
 
 }
 
-void Bus::_setFloats(std::vector<float> &values)
+void Bus::setFloats(std::vector<float> &values)
 {
 
 

@@ -108,33 +108,33 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160; </div>
 <div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;        <a class="code" href="classColliderPlusPlus_1_1Node.html#ae1198291ae5d81dd34474b7cf52438cd" title="Destructor.">~Node</a>();</div>
 <div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;   </div>
-<div class="line"><a name="l00029"></a><span class="lineno"><a class="code" href="classColliderPlusPlus_1_1Node.html#a261794de64a2198ca94e2c6410f3845f">   29</a></span>&#160;        <span class="keywordtype">int</span> <a class="code" href="classColliderPlusPlus_1_1Node.html#a261794de64a2198ca94e2c6410f3845f">_getId</a>()<span class="keyword"> const </span>{<span class="keywordflow">return</span> _id;}</div>
+<div class="line"><a name="l00029"></a><span class="lineno"><a class="code" href="classColliderPlusPlus_1_1Node.html#a8fe1785ce07ad46c422c7451f21a30fb">   29</a></span>&#160;        <span class="keywordtype">int</span> <a class="code" href="classColliderPlusPlus_1_1Node.html#a8fe1785ce07ad46c422c7451f21a30fb">getId</a>()<span class="keyword"> const </span>{<span class="keywordflow">return</span> id;}</div>
 <div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="classColliderPlusPlus_1_1Node.html#a52a06de4f27d8e2e9410a474b90c4890" title="Command the server to run this Node.">_run</a>(); <span class="comment">//mod running flag</span></div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="classColliderPlusPlus_1_1Node.html#aab0fa08436f6493b166067a7e761c36a" title="Command the server to run this Node.">run</a>(); <span class="comment">//mod running flag</span></div>
 <div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    </div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="classColliderPlusPlus_1_1Node.html#ad038d5f7d52e71915b3cb9053ff037ae" title="Command the server to stop this Node.">_stop</a>(); <span class="comment">//mod running flag</span></div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="classColliderPlusPlus_1_1Node.html#a44da500743469ad8a4729967d1d8e2b4" title="Command the server to stop this Node.">stop</a>(); <span class="comment">//mod running flag</span></div>
 <div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;     </div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="classColliderPlusPlus_1_1Node.html#a600fbe666439888a7615dd045abf915a" title="Command the server to free this Node.">_free</a>(); <span class="comment">//add check for running</span></div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="classColliderPlusPlus_1_1Node.html#a858d838d243f84bbb56287a7d03bb893" title="Command the server to free this Node.">free</a>(); <span class="comment">//add check for running</span></div>
 <div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;</div>
-<div class="line"><a name="l00042"></a><span class="lineno"><a class="code" href="classColliderPlusPlus_1_1Node.html#aee7913614aa6282d7113fa639e0930da">   42</a></span>&#160;        <span class="keywordtype">bool</span> <a class="code" href="classColliderPlusPlus_1_1Node.html#aee7913614aa6282d7113fa639e0930da">_isPlaying</a>()<span class="keyword"> const </span>{<span class="keywordflow">return</span> _playing;}  <span class="comment">//fix me</span></div>
+<div class="line"><a name="l00042"></a><span class="lineno"><a class="code" href="classColliderPlusPlus_1_1Node.html#a980fe197227f373665bf11814c7e9867">   42</a></span>&#160;        <span class="keywordtype">bool</span> <a class="code" href="classColliderPlusPlus_1_1Node.html#a980fe197227f373665bf11814c7e9867">isPlaying</a>()<span class="keyword"> const </span>{<span class="keywordflow">return</span> playing;}  <span class="comment">//fix me</span></div>
 <div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;  </div>
-<div class="line"><a name="l00046"></a><span class="lineno"><a class="code" href="classColliderPlusPlus_1_1Node.html#aa72353a98f6ffcce20021ad44cc05c04">   46</a></span>&#160;        <span class="keywordtype">bool</span> <a class="code" href="classColliderPlusPlus_1_1Node.html#aa72353a98f6ffcce20021ad44cc05c04">_isRunning</a>()<span class="keyword"> const </span>{<span class="keywordflow">return</span> _running;}      <span class="comment">//fix me</span></div>
+<div class="line"><a name="l00046"></a><span class="lineno"><a class="code" href="classColliderPlusPlus_1_1Node.html#a8acec667be684ccb5711e2364f9812d0">   46</a></span>&#160;        <span class="keywordtype">bool</span> <a class="code" href="classColliderPlusPlus_1_1Node.html#a8acec667be684ccb5711e2364f9812d0">isRunning</a>()<span class="keyword"> const </span>{<span class="keywordflow">return</span> running;}        <span class="comment">//fix me</span></div>
 <div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;</div>
-<div class="line"><a name="l00051"></a><span class="lineno"><a class="code" href="classColliderPlusPlus_1_1Node.html#a64c684c140c9f5fccd64c37e1a94a25e">   51</a></span>&#160;        <span class="keywordtype">bool</span> <a class="code" href="classColliderPlusPlus_1_1Node.html#a64c684c140c9f5fccd64c37e1a94a25e">_getManuallyFreed</a>()<span class="keyword"> const </span>{<span class="keywordflow">return</span> _manuallyFreed;}</div>
+<div class="line"><a name="l00051"></a><span class="lineno"><a class="code" href="classColliderPlusPlus_1_1Node.html#ab91b556772c61c19f4e622b754d8b424">   51</a></span>&#160;        <span class="keywordtype">bool</span> <a class="code" href="classColliderPlusPlus_1_1Node.html#ab91b556772c61c19f4e622b754d8b424">getManuallyFreed</a>()<span class="keyword"> const </span>{<span class="keywordflow">return</span> manuallyFreed;}</div>
 <div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;  </div>
-<div class="line"><a name="l00055"></a><span class="lineno"><a class="code" href="classColliderPlusPlus_1_1Node.html#a47ab8ce687a4336189a6cc629cdec56d">   55</a></span>&#160;        std::string <a class="code" href="classColliderPlusPlus_1_1Node.html#a47ab8ce687a4336189a6cc629cdec56d">_getDefName</a>()<span class="keyword"> const </span>{<span class="keywordflow">return</span> _defName;}</div>
+<div class="line"><a name="l00055"></a><span class="lineno"><a class="code" href="classColliderPlusPlus_1_1Node.html#a40acccb0f1661a08404ee9dcdb27f051">   55</a></span>&#160;        std::string <a class="code" href="classColliderPlusPlus_1_1Node.html#a40acccb0f1661a08404ee9dcdb27f051">getDefName</a>()<span class="keyword"> const </span>{<span class="keywordflow">return</span> defName;}</div>
 <div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;</div>
-<div class="line"><a name="l00059"></a><span class="lineno"><a class="code" href="classColliderPlusPlus_1_1Node.html#a43f4b705ce1f66c57828ddb1083cdca0">   59</a></span>&#160;        <a class="code" href="classColliderPlusPlus_1_1Client__Server.html" title="This class represents a client-side version of scsynth, the SuperCollider audio server.">Client_Server</a>* <a class="code" href="classColliderPlusPlus_1_1Node.html#a43f4b705ce1f66c57828ddb1083cdca0">_getClientServer</a>()<span class="keyword"> const </span>{<span class="keywordflow">return</span> _cs;};</div>
+<div class="line"><a name="l00059"></a><span class="lineno"><a class="code" href="classColliderPlusPlus_1_1Node.html#a41449e5eb6d9e9233554ebcec371a5ba">   59</a></span>&#160;        <a class="code" href="classColliderPlusPlus_1_1Client__Server.html" title="This class represents a client-side version of scsynth, the SuperCollider audio server.">Client_Server</a>* <a class="code" href="classColliderPlusPlus_1_1Node.html#a41449e5eb6d9e9233554ebcec371a5ba">getClientServer</a>()<span class="keyword"> const </span>{<span class="keywordflow">return</span> cs;};</div>
 <div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;  </div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="classColliderPlusPlus_1_1Node.html#ae3a86f1c3960228c989cfac0c403a68f" title="Query the server for this Node.">_query</a>();</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="classColliderPlusPlus_1_1Node.html#ac5bcb8776e2a46de4746882e1c3ab3f8" title="Query the server for this Node.">query</a>();</div>
 <div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;</div>
 <div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;        <span class="comment">// @{</span></div>
 <div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;<span class="comment"></span>   </div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="classColliderPlusPlus_1_1Node.html#ae5cea16e458fa9a5cd12161572b07655">_set</a>(std::map&lt;std::string, float&gt; &amp;controlVals);</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;        <span class="keywordtype">void</span> <span class="keyword">set</span>(std::map&lt;std::string, float&gt; &amp;controlVals);</div>
 <div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;     </div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="classColliderPlusPlus_1_1Node.html#acf6441855c6e1e33fc88f3d2186842ad">_setn</a>(std::map&lt;std::string, <span class="keywordtype">float</span>[]&gt; &amp;controlRanges);</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="classColliderPlusPlus_1_1Node.html#a898b7636dbf6c20c331625e7df397e1e">setn</a>(std::map&lt;std::string, <span class="keywordtype">float</span>[]&gt; &amp;controlRanges);</div>
 <div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;</div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="classColliderPlusPlus_1_1Node.html#ae93e0d9cb8b20d658cdb21033a9017fe">_busMap</a>(std::map&lt;std::string, Bus&gt; &amp;map);</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="classColliderPlusPlus_1_1Node.html#a9cdb4fc9fac7d1cca8f1924a2668425b">busMap</a>(std::map&lt;std::string, Bus&gt; &amp;map);</div>
 <div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;        <span class="comment">// @}</span></div>
 <div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;</div>
 <div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;        <span class="comment">//TO_DO</span></div>
@@ -144,13 +144,13 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;        <span class="comment">//Trace</span></div>
 <div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;        </div>
 <div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;   <span class="keyword">private</span>:</div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;        <span class="keywordtype">int</span> _id;</div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;        std::string _defName;</div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;        <span class="keywordtype">bool</span> _playing;</div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;        <span class="keywordtype">bool</span> _running;</div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;        <span class="keywordtype">bool</span> _manuallyFreed;</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;        <span class="keywordtype">int</span> id;</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;        std::string defName;</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;        <span class="keywordtype">bool</span> playing;</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;        <span class="keywordtype">bool</span> running;</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;        <span class="keywordtype">bool</span> manuallyFreed;</div>
 <div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;</div>
-<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;        <a class="code" href="classColliderPlusPlus_1_1Client__Server.html" title="This class represents a client-side version of scsynth, the SuperCollider audio server.">Client_Server</a> * _cs;</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;        <a class="code" href="classColliderPlusPlus_1_1Client__Server.html" title="This class represents a client-side version of scsynth, the SuperCollider audio server.">Client_Server</a> * cs;</div>
 <div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160; };</div>
 <div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;</div>
 <div class="line"><a name="l00100"></a><span class="lineno"><a class="code" href="classColliderPlusPlus_1_1Synth.html">  100</a></span>&#160; <span class="keyword">class </span><a class="code" href="classColliderPlusPlus_1_1Synth.html" title="This class represents a client-side version of a server synth.">Synth</a>: <span class="keyword">public</span> <a class="code" href="classColliderPlusPlus_1_1Node.html" title="This class represents a client-side version of a server node (Synth or Group)">Node</a></div>
@@ -178,9 +178,9 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;  </div>
 <div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;        <a class="code" href="classColliderPlusPlus_1_1Group.html#aa7f0bbd9db8735ee8dc5fdfc8c7239cf" title="Destructor.">~Group</a>();</div>
 <div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;</div>
-<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="classColliderPlusPlus_1_1Group.html#a9971a4ef8ee6a65dfcec9ee46bf10400">_freeAllSynths</a>();</div>
+<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="classColliderPlusPlus_1_1Group.html#a8c19052c483b66455bcaa5fc9e82ee30">freeAllSynths</a>();</div>
 <div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;    </div>
-<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="classColliderPlusPlus_1_1Group.html#a0f1d13c4e637eec0bc4f2baa8faeb5cb">_deepFreeAllSynths</a>();</div>
+<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="classColliderPlusPlus_1_1Group.html#ad19d4e19f0a9c71cfc4e28c587dd5c30">deepFreeAllSynths</a>();</div>
 <div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;</div>
 <div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;   <span class="keyword">private</span>:</div>
 <div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160; };</div>
@@ -200,7 +200,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sat Mar 30 2013 13:02:32 for Collider++ by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sat Mar 30 2013 18:38:12 for Collider++ by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.3.1-20130209
 </small></address>

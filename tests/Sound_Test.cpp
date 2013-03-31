@@ -23,13 +23,13 @@ int main(int argc, char* argv[])
   }
 
   Client_Server cs("Server", host, port, synthDefDir);
-  cs._dumpOSC(1);
+  cs.dumpOSC(1);
   Sound sound(&cs, soundfile, NEW);
-  sound._loop(true);
+  sound.loop(true);
   
   usleep(1000000);
 
-  sound._stop(); 
+  sound.stop(); 
 
   return 0;
 }

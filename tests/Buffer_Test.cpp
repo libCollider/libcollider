@@ -25,16 +25,16 @@ int main(int argc, char* argv[])
   std::cout << "\nRunning Buffer test..." << std::endl;
 
   Client_Server cs("Server", host, port, synthDefDir);
-  cs._dumpOSC(1);
-  Buffer b(&cs, cs._nextBufferNum());
-  Buffer c(&cs, cs._nextBufferNum());
-  Buffer d(&cs, cs._nextBufferNum());
+  cs.dumpOSC(1);
+  Buffer b(&cs, cs.nextBufferNum());
+  Buffer c(&cs, cs.nextBufferNum());
+  Buffer d(&cs, cs.nextBufferNum());
   print_info(b);
   print_info(c);
   print_info(d);
-  b._allocRead("/Users/administrator/Music/test_audio/cheesecake.aiff");
-  c._allocRead("/Users/administrator/Music/test_audio/bass_clarinet-d3.wav");
-  d._allocRead("/Users/administrator/Music/all-8ch.wav");
+  b.allocRead("/Users/administrator/Music/test_audio/cheesecake.aiff");
+  c.allocRead("/Users/administrator/Music/test_audio/bass_clarinet-d3.wav");
+  d.allocRead("/Users/administrator/Music/all-8ch.wav");
   print_info(b);
   print_info(c);
   print_info(d);
@@ -43,19 +43,19 @@ int main(int argc, char* argv[])
   std::vector<Buffer*>::iterator it;
   for(it = buffers.begin(); it != buffers.end() ; it++)
   {
-     *it = new Buffer(&cs, cs._nextBufferNum());
-     (*it)->_alloc(1024, 2);   
+     *it = new Buffer(&cs, cs.nextBufferNum());
+     (*it)->alloc(1024, 2);   
   }
   
   for(it = buffers.begin(); it != buffers.end() ; it++)
   {
-     (*it)->_free();
+     (*it)->free();
      delete *it;
   }
   
-  d._free();
-  c._free();
-  b._free();
+  d.free();
+  c.free();
+  b.free();
 
   //cs._quit();   
 
@@ -78,8 +78,8 @@ bool init(int argc, char* argv[], const char* &host, const char* &port, std::str
 
 void print_info(Buffer &buffer)
 {
-  std::cout << "\nbuffer # " << buffer._getBufNum() << std::endl;
-  std::cout << "# of frames: " << buffer._getFrameNum() << std::endl;
-  std::cout << "# of channels: " << buffer._getChanNum() << std::endl;
-  std::cout << "samplerate: " << buffer._getSampRate() << std::endl;
+  std::cout << "\nbuffer # " << buffer.getBufNum() << std::endl;
+  std::cout << "# of frames: " << buffer.getFrameNum() << std::endl;
+  std::cout << "# of channels: " << buffer.getChanNum() << std::endl;
+  std::cout << "samplerate: " << buffer.getSampRate() << std::endl;
 }

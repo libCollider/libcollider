@@ -24,23 +24,23 @@ int main(int argc, char* argv[])
   }
 
   Client_Server cs("Server", host, port, synthDefDir);
-  cs._dumpOSC(1);
+  cs.dumpOSC(1);
   
-  Buffer b(&cs, cs._nextBufferNum());
-  b._allocRead(soundfile);
+  Buffer b(&cs, cs.nextBufferNum());
+  b.allocRead(soundfile);
 
-  if(b._getChanNum() == 2)
+  if(b.getChanNum() == 2)
   {
      std::cerr << "\nSoundfile must be mono for this module! Exiting." << std::endl;
-     b._free();
+     b.free();
      return 1;
   }
 
   std::map<std::string, float> sArgs;
-  sArgs["bufnum"] = b._getBufNum();
+  sArgs["bufnum"] = b.getBufNum();
 
-  Synth s(&cs, "TGrain2", cs._nextNodeId(), sArgs, 1);
-  cs._queryNodeTree();
+  Synth s(&cs, "TGrain2", cs.nextNodeId(), sArgs, 1);
+  cs.queryNodeTree();
   
   std::cout << "\nType 'q' and enter to quit\n" << std::endl;
 
@@ -50,7 +50,7 @@ int main(int argc, char* argv[])
     std::cin >> a;
   } 
 
-  b._free();
+  b.free();
 
   return 0;
 }

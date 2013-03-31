@@ -28,13 +28,13 @@ int main(int argc, char* argv[])
   }
 
   Client_Server cs("Server", host, port, synthDefDir);
-  Buffer b(&cs, cs._nextBufferNum());
-  b._allocRead(soundfile);
+  Buffer b(&cs, cs.nextBufferNum());
+  b.allocRead(soundfile);
   std::map<std::string, float> sArgs;
-  sArgs["bufnum"] = b._getBufNum();
+  sArgs["bufnum"] = b.getBufNum();
   sArgs["stutterRate"] = 7;
   sArgs["rate"] = 3.0;
-  Synth s(&cs, "SoundFile_Stutter_Loop_Stereo", cs._nextNodeId(), sArgs, 1);
+  Synth s(&cs, "SoundFile_Stutter_Loop_Stereo", cs.nextNodeId(), sArgs, 1);
 
   int count = 0;
   float scaledTime = getScaledTime(2, TIME_GRANULARITY_MICROSECONDS);
@@ -42,26 +42,26 @@ int main(int argc, char* argv[])
   {
     sArgs["stutterRate"] *= 0.9;
     sArgs["rate"] *= 0.9;
-    s._set(sArgs);
+    s.set(sArgs);
     usleep(TIME_GRANULARITY_MICROSECONDS);
     ++count;
   }
   
-  s._stop();
+  s.stop();
   std::map<std::string, float> cArgs;
-  cArgs["bufnum"] = b._getBufNum();
+  cArgs["bufnum"] = b.getBufNum();
   cArgs["amp"] = 1.0;
-  Synth c(&cs, "SoundFile_Event_Stereo", cs._nextNodeId(), cArgs, 1);
+  Synth c(&cs, "SoundFile_Event_Stereo", cs.nextNodeId(), cArgs, 1);
  
   run_time(9.85, TIME_GRANULARITY_MICROSECONDS);
 
   cArgs["rate"] = 1.5;
-  c._set(cArgs); 
+  c.set(cArgs); 
   
   run_time(5, TIME_GRANULARITY_MICROSECONDS);
 
   cArgs["rate"] = 1.0;
-  c._set(cArgs);
+  c.set(cArgs);
     
   run_time(20, TIME_GRANULARITY_MICROSECONDS);
 
@@ -70,7 +70,7 @@ int main(int argc, char* argv[])
   while(count < scaledTime )
   {
     cArgs["rate"] *= 0.9;
-    c._set(cArgs);
+    c.set(cArgs);
     usleep(TIME_GRANULARITY_MICROSECONDS);
     ++count;
   }
@@ -80,7 +80,7 @@ int main(int argc, char* argv[])
   while(count < scaledTime )
   {
     cArgs["rate"] += 0.01;
-    c._set(cArgs);
+    c.set(cArgs);
     usleep(250000);
     ++count;
   }
@@ -92,7 +92,7 @@ int main(int argc, char* argv[])
   while(count < scaledTime )
   {
     cArgs["rate"] += 0.01;
-    c._set(cArgs);
+    c.set(cArgs);
     usleep(TIME_GRANULARITY_MICROSECONDS);
     ++count;
   }
@@ -104,13 +104,13 @@ int main(int argc, char* argv[])
   while(count < scaledTime )
   {
     cArgs["amp"] *= 0.8;
-    c._set(cArgs);
+    c.set(cArgs);
     usleep(TIME_GRANULARITY_MICROSECONDS);
     ++count;
   }
   
-  c._stop();
-  b._free();
+  c.stop();
+  b.free();
 
   return 0;
 }

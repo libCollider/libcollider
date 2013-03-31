@@ -7,10 +7,10 @@
 
 using namespace ColliderPlusPlus; 
 
-Node::Node(Client_Server * cs, const std::string& defName, int id)
-: _id(id), _defName(defName), _manuallyFreed(false)
+Node::Node(Client_Server * other, const std::string& defName, int id)
+: id(id), defName(defName), manuallyFreed(false)
 {
-  _cs = cs;
+  cs = other;
 }
 
 Node::~Node()
@@ -18,42 +18,42 @@ Node::~Node()
  
 }
 
-void Node::_run()
+void Node::run()
 {
-  _cs->_runNode(_id, 1);
-  _running = true;  
+  cs->runNode(id, 1);
+  running = true;  
 }
 
 
-void Node::_stop()
+void Node::stop()
 {
-  _cs->_runNode(_id, 0);   
-  _running = false; 
+  cs->runNode(id, 0);   
+  running = false; 
 }
 
 
-void Node::_free()
+void Node::free()
 {
-  _cs->_freeNode(_id);
-  _manuallyFreed = true;
+  cs->freeNode(id);
+  manuallyFreed = true;
 }
 
-void Node::_query()
+void Node::query()
 {
-  _cs->_queryNode(_id);
+  cs->queryNode(id);
 }
 
-void Node::_set(std::map<std::string, float> &controlVals)
+void Node::set(std::map<std::string, float> &controlVals)
 {
-  _cs->_setNodeControls(_id, controlVals);
+  cs->setNodeControls(id, controlVals);
 }
 
-void Node::_setn(std::map<std::string, float[]> &controlRanges)
+void Node::setn(std::map<std::string, float[]> &controlRanges)
 {
  
 }
 
-void Node::_busMap(std::map<std::string, Bus> &map)
+void Node::busMap(std::map<std::string, Bus> &map)
 {
 
 }
@@ -63,9 +63,9 @@ Synth::Synth(Client_Server * cs, const std::string& defName,
 :Node(cs, defName, id)
 { 
   if(initAction == 0)
-      _getClientServer()->_createPausedSynth(_getDefName(), _getId(), addAction, target);
+      getClientServer()->createPausedSynth(getDefName(), getId(), addAction, target);
   if(initAction == 1)
-      _getClientServer()->_createSynth(_getDefName(), _getId(), addAction, target);
+      getClientServer()->createSynth(getDefName(), getId(), addAction, target);
 }
 
 Synth::Synth(Client_Server * cs, const std::string& defName, int id,
@@ -73,37 +73,37 @@ Synth::Synth(Client_Server * cs, const std::string& defName, int id,
 :Node(cs, defName, id)
 { 
   if(initAction == 0)
-     _getClientServer()->_createPausedSynth(_getDefName(), _getId(), args, addAction, target);
+     getClientServer()->createPausedSynth(getDefName(), getId(), args, addAction, target);
   if(initAction == 1)
-     _getClientServer()->_createSynth(_getDefName(), _getId(), args, addAction, target);
+     getClientServer()->createSynth(getDefName(), getId(), args, addAction, target);
 }
 
 Synth::~Synth()
 {
-  if(_getId() != -1 && _getId() >= 0 && _getManuallyFreed() != true)
-     _getClientServer()->_freeNode(_getId());
+  if(getId() != -1 && getId() >= 0 && getManuallyFreed() != true)
+     getClientServer()->freeNode(getId());
 }
 
 Group::Group(Client_Server * cs, const std::string& defName, int id, int addAction, int target)
 :Node(cs, "Group", id)
 {
-  _getClientServer()->_createGroup(_getId());
+  getClientServer()->createGroup(getId());
 }
 
 Group::~Group()
 {
-  if(_getId() != -1 && _getId() >= 0 && _getManuallyFreed() != true )
-     _getClientServer()->_freeNode(_getId());
+  if(getId() != -1 && getId() >= 0 && getManuallyFreed() != true )
+     getClientServer()->freeNode(getId());
 }
 
-void Group::_freeAllSynths()
+void Group::freeAllSynths()
 {
-  _getClientServer()->_freeAllSynths(_getId());	 
+  getClientServer()->freeAllSynths(getId());	 
 }
 
-void Group::_deepFreeAllSynths()
+void Group::deepFreeAllSynths()
 {
-  _getClientServer()->_deepFreeAllSynths(_getId());
+  getClientServer()->deepFreeAllSynths(getId());
 }
 
 RootNode::RootNode(Client_Server * cs): Group(cs, "Default", ROOT_NODE)

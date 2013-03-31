@@ -23,25 +23,25 @@ void error(const char * s)
 }
 
 Client_Server::Client_Server()
-:_name("Default Server"), _NodeIDGenerator(1000), _BufferIDGenerator(0)
+:name("Default Server"), NodeIDGenerator(1000), BufferIDGenerator(0)
 {
-  _async_result = false;
-  _setHost("127.0.0.1");
-  _setPort("57110");
-  _setUpOSCDispatcher();
-  _createDefaultGroup();
+   async_result = false;
+   setHost("127.0.0.1");
+   setPort("57110");
+   setUpOSCDispatcher();
+   createDefaultGroup();
 }
 
 Client_Server::Client_Server(const std::string& name, const char *host, 
 				    const char *port, const std::string& synthDefDir)
-:_name(name), _NodeIDGenerator(1000), _BufferIDGenerator(0)
+:name(name), NodeIDGenerator(1000), BufferIDGenerator(0)
 {
-  _async_result = false;
-  _setHost(host);
-  _setPort(port);
-  _setUpOSCDispatcher();
-  _createDefaultGroup();
-  _initializeSynthDefs(synthDefDir);
+   async_result = false;
+   setHost(host);
+   setPort(port);
+   setUpOSCDispatcher();
+   createDefaultGroup();
+   initializeSynthDefs(synthDefDir);
 }
 
 Client_Server::~Client_Server()
@@ -49,57 +49,57 @@ Client_Server::~Client_Server()
   
 }
 
-void Client_Server::_initializeSynthDefs(const std::string& synthDefDir)
+void Client_Server::initializeSynthDefs(const std::string& synthDefDir)
 {
-  if(!_loadSynthDefDirectory(synthDefDir))
+  if(!loadSynthDefDirectory(synthDefDir))
   {  
     cout << "\nError loading synthdefDirectory. Exiting." << endl;
     exit(0);
   }
 }
 
-int Client_Server::_nextNodeId()
+int Client_Server::nextNodeId()
 {
-   int nextNode = _NodeIDGenerator++;
+   int nextNode = NodeIDGenerator++;
    return nextNode;
 }
 
-int Client_Server::_nextBufferNum()
+int Client_Server::nextBufferNum()
 {
-   int nextBuffer = _BufferIDGenerator++;
+   int nextBuffer = BufferIDGenerator++;
    return nextBuffer;
 }
 
-void Client_Server::_setPort(const char *port)
+void Client_Server::setPort(const char *port)
 {
-  _port = port;
+  port = port;
 }
 
-void Client_Server::_setHost(const char *host)
+void Client_Server::setHost(const char *host)
 {
-  _host = host;
+  host = host;
 }
 
-const char* Client_Server::_getPort()
+const char* Client_Server::getPort()
 {
-  return _port;
+  return port;
 }
 
 
-const char* Client_Server::_getHost()
+const char* Client_Server::getHost()
 {
-  return _host;
+  return host;
 }
 
-void Client_Server::_add_buffer(void * buffer)
+void Client_Server::addBuffer(void * buffer)
 { 
-   _buffers[((Buffer*)buffer)->_getBufNum()] = buffer;
+   buffers[((Buffer*)buffer)->getBufNum()] = buffer;
 }
 
-void Client_Server::_printCurrentNodeIds()
+void Client_Server::printCurrentNodeIds()
 {
-  std::vector<int>::iterator iter = _nodeIDs.begin();
-  for(; iter != _nodeIDs.end();iter++)
+  std::vector<int>::iterator iter = nodeIDs.begin();
+  for(; iter != nodeIDs.end();iter++)
   {
     cout << "Node id: " << *iter << endl;
   } 
@@ -114,8 +114,8 @@ void Client_Server::send_msg_no_reply(tnyosc::Message * msg, const char * send_m
        error("socket");
    bzero(&servaddr, sizeof(servaddr));
    servaddr.sin_family = AF_INET;
-   servaddr.sin_port = htons((unsigned short)strtoul(_getPort(), NULL, 0));
-   if (inet_aton(_getHost(), &servaddr.sin_addr) == 0)
+   servaddr.sin_port = htons((unsigned short)strtoul(getPort(), NULL, 0));
+   if (inet_aton(getHost(), &servaddr.sin_addr) == 0)
    {
        cout << "inet_aton() failed" << endl;
        exit(1);
@@ -134,7 +134,7 @@ void Client_Server::send_msg_no_reply(tnyosc::Message * msg, const char * send_m
 
 void Client_Server::send_msg_with_reply(tnyosc::Message * msg, const char * send_msg)
 {
-   _async_result = false;
+   async_result = false;
    int sockfd, n;
    struct sockaddr_in servaddr;
    char receive_buffer[1024];
@@ -143,8 +143,8 @@ void Client_Server::send_msg_with_reply(tnyosc::Message * msg, const char * send
        error("socket");
    bzero(&servaddr, sizeof(servaddr));
    servaddr.sin_family = AF_INET;
-   servaddr.sin_port = htons((unsigned short)strtoul(_getPort(), NULL, 0));
-   if (inet_aton(_getHost(), &servaddr.sin_addr) == 0)
+   servaddr.sin_port = htons((unsigned short)strtoul(getPort(), NULL, 0));
+   if (inet_aton(getHost(), &servaddr.sin_addr) == 0)
    {
        cout << "inet_aton() failed" << endl;
        exit(1);
@@ -162,7 +162,7 @@ void Client_Server::send_msg_with_reply(tnyosc::Message * msg, const char * send
    n = recvfrom(sockfd, receive_buffer, sizeof(receive_buffer), 0, NULL, NULL);
 
    std::list<CallbackRef> callback_list = 
-     _dispatcher.match_methods(receive_buffer, n);
+     dispatcher.match_methods(receive_buffer, n);
 
    std::list<CallbackRef>::iterator it = callback_list.begin();
      for (; it != callback_list.end(); ++it) {
@@ -181,7 +181,7 @@ void Client_Server::send_bundle_no_reply(tnyosc::Bundle * bundle, const char * s
    bzero(&servaddr, sizeof(servaddr));
    servaddr.sin_family = AF_INET;
    servaddr.sin_port = htons(57110);
-   if (inet_aton(_getHost(), &servaddr.sin_addr) == 0)
+   if (inet_aton(getHost(), &servaddr.sin_addr) == 0)
    {
        cout << "inet_aton() failed" << endl;
        exit(1);
@@ -200,7 +200,7 @@ void Client_Server::send_bundle_no_reply(tnyosc::Bundle * bundle, const char * s
 
 void Client_Server::send_bundle_with_reply(tnyosc::Bundle * bundle, const char * send_msg)
 {
-   _async_result = false;
+   async_result = false;
    int sockfd, n;
    struct sockaddr_in servaddr;
    char receive_buffer[1024];
@@ -210,7 +210,7 @@ void Client_Server::send_bundle_with_reply(tnyosc::Bundle * bundle, const char *
    bzero(&servaddr, sizeof(servaddr));
    servaddr.sin_family = AF_INET;
    servaddr.sin_port = htons(57110);
-   if (inet_aton(_getHost(), &servaddr.sin_addr) == 0)
+   if (inet_aton(getHost(), &servaddr.sin_addr) == 0)
    {
        cout << "inet_aton() failed" << endl;
        exit(1);
@@ -228,7 +228,7 @@ void Client_Server::send_bundle_with_reply(tnyosc::Bundle * bundle, const char *
    n = recvfrom(sockfd, receive_buffer, sizeof(receive_buffer), 0, NULL, NULL);
 
    std::list<CallbackRef> callback_list = 
-     _dispatcher.match_methods(receive_buffer, n);
+     dispatcher.match_methods(receive_buffer, n);
 
    std::list<CallbackRef>::iterator it = callback_list.begin();
      for (; it != callback_list.end(); ++it) {
@@ -238,7 +238,7 @@ void Client_Server::send_bundle_with_reply(tnyosc::Bundle * bundle, const char *
 }
 
 //Commands
-void Client_Server::_dumpOSC(int toggle)
+void Client_Server::dumpOSC(int toggle)
 {
    Message * msg = new Message("/dumpOSC");
    msg->append(toggle);
@@ -254,7 +254,7 @@ void Client_Server::_dumpOSC(int toggle)
    delete msg;
 }
 
-void Client_Server::_queryNodeTree()
+void Client_Server::queryNodeTree()
 {
    Message * msg = new Message("/g_dumpTree");
    msg->append(0);
@@ -270,7 +270,7 @@ void Client_Server::_queryNodeTree()
    delete msg;
 } 
 
-void Client_Server::_queryNode(int nodeId)
+void Client_Server::queryNode(int nodeId)
 {
    Message * msg = new Message("/n_query");
    msg->append(nodeId);
@@ -285,7 +285,7 @@ void Client_Server::_queryNode(int nodeId)
    delete msg;
 }
 
-void Client_Server::_status()
+void Client_Server::status()
 {
    Message * msg = new Message("/status");  
  
@@ -299,7 +299,7 @@ void Client_Server::_status()
    delete msg;
 } 
 
-void Client_Server::_quit()
+void Client_Server::quit()
 {
    Message * msg = new Message("/quit");
 
@@ -313,7 +313,7 @@ void Client_Server::_quit()
    delete msg;
 }
 
-void Client_Server::_createNode(int nodeId, int addAction, int target, int type)
+void Client_Server::createNode(int nodeId, int addAction, int target, int type)
 {
    std::string typeTag;
 
@@ -341,7 +341,7 @@ void Client_Server::_createNode(int nodeId, int addAction, int target, int type)
    delete msg;
 }
 
-void Client_Server::_createNode(const std::string& name, int nodeId, 
+void Client_Server::createNode(const std::string& name, int nodeId, 
 		     int addAction, int target, int type)
 {
    std::string typeTag; 
@@ -370,7 +370,7 @@ void Client_Server::_createNode(const std::string& name, int nodeId,
    delete msg;
 }
 
-void Client_Server::_createSynth(const std::string& name, int nodeId,
+void Client_Server::createSynth(const std::string& name, int nodeId,
 					 	int addAction, int target)
 {
    Message * msg = new Message("/s_new");
@@ -392,7 +392,7 @@ void Client_Server::_createSynth(const std::string& name, int nodeId,
    delete msg;
 }
 
-void Client_Server::_createPausedSynth(const std::string& name, int nodeId,
+void Client_Server::createPausedSynth(const std::string& name, int nodeId,
 					 	int addAction, int target)
 {   
    Message * msg = new Message("/s_new");
@@ -426,7 +426,7 @@ void Client_Server::_createPausedSynth(const std::string& name, int nodeId,
    delete msg;   
 }
 
-void Client_Server::_createSynth(const std::string& name, int nodeId,
+void Client_Server::createSynth(const std::string& name, int nodeId,
 			std::map<std::string, float> &args, int addAction, int target)
 {
    Message * msg = new Message("/s_new");
@@ -456,7 +456,7 @@ void Client_Server::_createSynth(const std::string& name, int nodeId,
    delete msg;
 }
 
-void Client_Server::_createPausedSynth(const std::string& name, int nodeId,
+void Client_Server::createPausedSynth(const std::string& name, int nodeId,
 			std::map<std::string, float> &args, int addAction, int target)
 {
    Message * msg = new Message("/s_new");
@@ -498,7 +498,7 @@ void Client_Server::_createPausedSynth(const std::string& name, int nodeId,
    delete msg;
 }
 
-void Client_Server::_createGroup(int nodeId, int addAction, int target)
+void Client_Server::createGroup(int nodeId, int addAction, int target)
 {
    Message * msg = new Message("/g_new");
    msg->append(nodeId);
@@ -517,7 +517,7 @@ void Client_Server::_createGroup(int nodeId, int addAction, int target)
    delete msg;
 }
 
-bool Client_Server::_allocBuffer(int bufNum, int numFrames, int numChans)
+bool Client_Server::allocBuffer(int bufNum, int numFrames, int numChans)
 {
    Message * msg = new Message("/b_alloc");
    msg->append(bufNum);
@@ -534,10 +534,10 @@ bool Client_Server::_allocBuffer(int bufNum, int numFrames, int numChans)
    #endif
 
    delete msg;
-   return _async_result;
+   return async_result;
 }
 
-bool Client_Server::_allocReadBuffer(int bufNum, 
+bool Client_Server::allocReadBuffer(int bufNum, 
 			const std::string& filePath, int startFileFrame, 
 				int numFrames)
 {
@@ -558,10 +558,10 @@ bool Client_Server::_allocReadBuffer(int bufNum,
    #endif
 
    delete msg;
-   return _async_result;   
+   return async_result;   
 }
 
-bool Client_Server::_freeBuffer(int bufNum)
+bool Client_Server::freeBuffer(int bufNum)
 {
    Message * msg = new Message("/b_free");
    msg->append(bufNum);
@@ -575,10 +575,10 @@ bool Client_Server::_freeBuffer(int bufNum)
    #endif
 
    delete msg;
-   return _async_result;
+   return async_result;
 }
 
-void Client_Server::_freeBuffer_no_reply(int bufNum)
+void Client_Server::freeBuffer_no_reply(int bufNum)
 {
    Message * msg = new Message("/b_free");
    msg->append(bufNum);
@@ -595,7 +595,7 @@ void Client_Server::_freeBuffer_no_reply(int bufNum)
 }
 
 
-void Client_Server::_queryBuffer(int bufNum)
+void Client_Server::queryBuffer(int bufNum)
 {
    Message * msg = new Message("/b_query");
    msg->append(bufNum);
@@ -612,7 +612,7 @@ void Client_Server::_queryBuffer(int bufNum)
    delete msg;
 }
 
-void Client_Server::_runNode(int nodeId, int flag)
+void Client_Server::runNode(int nodeId, int flag)
 {
    Message * msg = new Message("/n_run");
    msg->append(nodeId);
@@ -630,7 +630,7 @@ void Client_Server::_runNode(int nodeId, int flag)
    delete msg;
 }
 
-void Client_Server::_freeNode(int nodeId)
+void Client_Server::freeNode(int nodeId)
 {
    Message * msg = new Message ("/n_free");
    msg->append(nodeId);
@@ -647,7 +647,7 @@ void Client_Server::_freeNode(int nodeId)
    delete msg;
 }
 
-void Client_Server::_setNodeControls(int nodeId, std::map<std::string, float> &controlVals)
+void Client_Server::setNodeControls(int nodeId, std::map<std::string, float> &controlVals)
 {
    Message * msg = new Message ("/n_set");
    msg->append(nodeId);
@@ -672,7 +672,7 @@ void Client_Server::_setNodeControls(int nodeId, std::map<std::string, float> &c
    delete msg;
 }
 
-void Client_Server::_freeAllSynths(int groupId)
+void Client_Server::freeAllSynths(int groupId)
 {
    Message * msg = new Message ("/g_freeAll");
    msg->append(groupId);
@@ -689,7 +689,7 @@ void Client_Server::_freeAllSynths(int groupId)
    delete msg;
 }
 
-void Client_Server::_deepFreeAllSynths(int groupId)
+void Client_Server::deepFreeAllSynths(int groupId)
 {
    Message * msg = new Message ("/g_deepFree");
    msg->append(groupId);
@@ -706,7 +706,7 @@ void Client_Server::_deepFreeAllSynths(int groupId)
    delete msg;
 }
 
-bool Client_Server::_loadSynthDef(const std::string& synthDefName)
+bool Client_Server::loadSynthDef(const std::string& synthDefName)
 {
    Message * msg = new Message ("/d_load"); 
    msg->append(synthDefName); 
@@ -721,10 +721,10 @@ bool Client_Server::_loadSynthDef(const std::string& synthDefName)
    #endif
 
    delete msg;
-   return _async_result;
+   return async_result;
 }
 
-bool Client_Server::_loadSynthDefDirectory(const std::string& synthDefDir)
+bool Client_Server::loadSynthDefDirectory(const std::string& synthDefDir)
 {
    Message * msg = new Message ("/d_loadDir"); 
    msg->append(synthDefDir); 
@@ -739,10 +739,10 @@ bool Client_Server::_loadSynthDefDirectory(const std::string& synthDefDir)
    #endif
 
    delete msg;
-   return _async_result;
+   return async_result;
 }
 
-void Client_Server::_createDefaultGroup()
+void Client_Server::createDefaultGroup()
 {
    Message * msg = new Message ("/g_new");
    msg->append(1);
@@ -801,16 +801,16 @@ void buffer_info(const std::string& address,
 		const std::vector<tnyosc::Argument>& argv, void* user_data)
 {
    std::map<int, void*> * buffers = (std::map<int, void*> *) user_data;     
-   ((Buffer*)((*buffers)[argv[0].data.i]))->_setNumFrames(argv[1].data.i);
-   ((Buffer*)((*buffers)[argv[0].data.i]))->_setNumChans(argv[2].data.i);
-   ((Buffer*)((*buffers)[argv[0].data.i]))->_setSampRate(argv[3].data.f);
+   ((Buffer*)((*buffers)[argv[0].data.i]))->setNumFrames(argv[1].data.i);
+   ((Buffer*)((*buffers)[argv[0].data.i]))->setNumChans(argv[2].data.i);
+   ((Buffer*)((*buffers)[argv[0].data.i]))->setSampRate(argv[3].data.f);
 }
 
-void Client_Server::_setUpOSCDispatcher()
+void Client_Server::setUpOSCDispatcher()
 {
-   _dispatcher.add_method("/done", NULL, &server_done, &_async_result);
-   _dispatcher.add_method("/fail", NULL, &fail, &_async_result);
-   _dispatcher.add_method("/n_info", NULL, &node_info, NULL); //finish me
-   _dispatcher.add_method("/status.reply", NULL, &status_reply, NULL); //finish me
-   _dispatcher.add_method("/b_info", NULL, &buffer_info, &_buffers);
+   dispatcher.add_method("/done", NULL, &server_done, &async_result);
+   dispatcher.add_method("/fail", NULL, &fail, &async_result);
+   dispatcher.add_method("/n_info", NULL, &node_info, NULL); //finish me
+   dispatcher.add_method("/status.reply", NULL, &status_reply, NULL); //finish me
+   dispatcher.add_method("/b_info", NULL, &buffer_info, &buffers);
 }

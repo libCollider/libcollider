@@ -2,64 +2,64 @@
 
 using namespace ColliderPlusPlus;
 
-Sound::Sound(Client_Server * cs, const std::string &filepath, int initAction)
-: _isLooping(false), _isPlaying(false), _gain(1), _pitchScalar(1) 
+Sound::Sound(Client_Server * cs, const std::string &filepath, int ia)
+: isLooping(false), isPlaying(false), gain(1), pitchScalar(1) 
 {
-  _initAction = initAction;
-  _init(cs, filepath, _initAction);  
+  initAction = ia;
+  init(cs, filepath, initAction);  
 }
 
 Sound::~Sound()
 {
-  if(_buffer)
-    delete _buffer;
-  if(_synth)
-    delete _synth;
+  if(buffer)
+    delete buffer;
+  if(synth)
+    delete synth;
 }
 
-void Sound::_init(Client_Server * cs, const std::string &filepath, int initAction)
+void Sound::init(Client_Server * cs, const std::string &filepath, int initAction)
 {
-  _cs = cs;
-  _buffer = new Buffer(_cs, _cs->_nextBufferNum());
-  _buffer->_allocRead(filepath);
-  args["bufnum"] = _buffer->_getBufNum();
-  args["rate"] = _pitchScalar;
+  cs = cs;
+  buffer = new Buffer(cs, cs->nextBufferNum());
+  buffer->allocRead(filepath);
+  args["bufnum"] = buffer->getBufNum();
+  args["rate"] = pitchScalar;
   args["looping"] = 0;
   
-  if(_buffer->_getChanNum() == 2)
-     _synth = new Synth(_cs, "SoundFile_Loop_Stereo", _cs->_nextNodeId(), args, initAction);
+  if(buffer->getChanNum() == 2)
+     synth = new Synth(cs, "SoundFile_Loop_Stereo", cs->nextNodeId(), args, initAction);
   else
-     _synth = new Synth(_cs, "SoundFile_Loop_Mono", _cs->_nextNodeId(), args, initAction);
+     synth = new Synth(cs, "SoundFile_Loop_Mono", cs->nextNodeId(), args, initAction);
 }
 
-void Sound::_play()
+void Sound::play()
 {
-  _synth->_run();
+  synth->run();
 }
 
-void Sound::_stop()
+void Sound::stop()
 {
-  _synth->_stop();
+  synth->stop();
 }
 
-int Sound::_loop(bool loop)
+int Sound::loop(bool loop)
 {
-  if(_isLooping == loop)
+  if(isLooping == loop)
     return 1;
 
-  _isLooping = loop;
+  isLooping = loop;
 
   if(loop == true) {
     args["looping"] = 1;
-    _synth->_set(args);
-    _isLooping = loop;
+    synth->set(args);
+    isLooping = loop;
     return 0;
   }
 
   else if(loop == false) {
     args["looping"] = 0;
-    _synth->_set(args);
-    _isLooping = loop;
+    synth->set(args);
+    isLooping = loop;
     return 0;
   }
 

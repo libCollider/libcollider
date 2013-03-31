@@ -20,7 +20,7 @@ namespace ColliderPlusPlus {
         /// Destructor
         ~Bus();
 
-        void _setFloats(std::vector<float> &values);
+        void setFloats(std::vector<float> &values);
 
     private:
 

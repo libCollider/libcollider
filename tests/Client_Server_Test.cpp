@@ -23,12 +23,12 @@ int main(int argc, char* argv[])
   std::cout << "\nRunning Client_Server test..." << std::endl;
 
   Client_Server cs("Server", host, port, synthDefDir);
-  cs._dumpOSC(1);
- // cs._allocBuffer(cs._nextBufferNum(), 1024, 2);
- // cs._status();
+  cs.dumpOSC(1);
+  cs.allocBuffer(cs.nextBufferNum(), 1024, 2);
+  cs.status();
 
-  //usleep(2000000);
-  cs._quit();   
+  usleep(2000000);
+  cs.quit();   
 
   return 0;
 }

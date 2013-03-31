@@ -33,15 +33,15 @@ namespace ColliderPlusPlus {
 	/// @name Playback Functions
 	
 	/// Play the sound source from the last position.
-        void _play();
+        void play();
 
         /// Pauses the sound source at the current playback position
-        void _stop();
+        void stop();
 
         /// Set the looping state
 	/// false = no looping, true = looping 
         /// @param[in] bool loop
-        int _loop(bool loop);
+        int loop(bool loop);
         // @}
        
         /*// {@
@@ -69,19 +69,19 @@ namespace ColliderPlusPlus {
  
     private:
 
-        void _init(Client_Server * cs, const std::string &filepath, int initAction);
+        void init(Client_Server * cs, const std::string &filepath, int initAction);
 	
-	Client_Server * _cs;
-	Buffer * _buffer;
-        Synth *  _synth;
+	Client_Server * cs;
+	Buffer * buffer;
+        Synth *  synth;
 
         std::map<std::string, float> args;
 	
-	float _pitchScalar;
-	float _gain;
-        int _initAction;
-	bool _isLooping;
-        bool _isPlaying;
+	float pitchScalar;
+	float gain;
+        int initAction;
+	bool isLooping;
+        bool isPlaying;
   };
 } //namespace ColliderPlusPlus
 #endif
