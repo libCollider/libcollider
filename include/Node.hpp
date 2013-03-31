@@ -19,13 +19,13 @@ namespace ColliderPlusPlus {
         /// Create a Node with a user defined name and Id
         /// @param[in] const std::string& Name
         /// @param[in] int Id        
-	Node(Client_Server * cs, const std::string& defName, int id);
+	Node(Client_Server * other, const std::string& defName, int id_);
  
         /// Destructor
         ~Node();
    
         /// Returns the Id of this Node
-        /// @returns _id
+        /// @returns id
         int getId() const {return id;}
 
         /// Command the server to run this Node
@@ -46,16 +46,16 @@ namespace ColliderPlusPlus {
    	bool isRunning() const {return running;}	//fix me
 
         /// Returns true if the Node was freed from the server by 
-        /// calling _free() BEFORE the destructor of this Node is called
-        /// @returns true if freed from server with _free() prior to destruction 
+        /// calling free() BEFORE the destructor of this Node is called
+        /// @returns true if freed from server with free() prior to destruction 
         bool getManuallyFreed() const {return manuallyFreed;}
   
         /// Returns the name of this Node
-        /// @returns _defName
+        /// @returns defName
         std::string getDefName() const {return defName;}
 
         /// Return this Node's Client_Server pointer
-        /// @returns _cs
+        /// @returns cs
         Client_Server* getClientServer() const {return cs;};
   
         /// Query the server for this Node
@@ -70,7 +70,7 @@ namespace ColliderPlusPlus {
         void set(std::map<std::string, float> &controlVals);
      
         /// Set this Node with specified control range values 
-        /// @param[in] Client_Server& Client_Ser	ver instance
+        /// @param[in] Client_Server& Client_Server instance
         /// @param[in] std::map<std::string, float[]>& Control Ranges
         void setn(std::map<std::string, float[]> &controlRanges);
 
@@ -109,8 +109,8 @@ namespace ColliderPlusPlus {
         /// @param[in] int Id
 	/// @param[in] int Add Action
         /// @param[in] int Target Group
-	Synth(Client_Server * cs, const std::string& defName, 
-		 int id, int initAction = 0, 
+	Synth(Client_Server * other, const std::string& defName, 
+		 int id_, int initAction = 0, 
 			       int addAction = TO_HEAD, int target = DEFAULT_GROUP);
   
         /// Create a Synth with a user defined name, id, Node args, addAction, and target
@@ -122,8 +122,8 @@ namespace ColliderPlusPlus {
         /// @param[in] std::map<std::string, float> Args
 	/// @param[in] int Add Action
         /// @param[in] int Target Group
-	Synth(Client_Server * cs, const std::string& defName, 
-		 int id, std::map<std::string,float> &args, int initAction = 0,
+	Synth(Client_Server * other, const std::string& defName, 
+		 int id_, std::map<std::string,float> &args, int initAction = 0,
 		                int addAction = TO_HEAD, int target = DEFAULT_GROUP);
   
         /// Destructor
@@ -144,7 +144,7 @@ namespace ColliderPlusPlus {
         /// @param[in] int Id
 	/// @param[in] int Add Action
         /// @param[in] int Target Group
-	Group(Client_Server * cs, const std::string& name, int id, 
+	Group(Client_Server * other, const std::string& name, int id_, 
 				int addAction = TO_HEAD, int target = DEFAULT_GROUP);
   
         /// Destructor
@@ -168,7 +168,7 @@ namespace ColliderPlusPlus {
 
         /// Create a Root Node
         /// @param[in] Client_Server& Client_Server instance
-	RootNode(Client_Server * cs);
+	RootNode(Client_Server * other);
    
         /// Destructor
 	~RootNode();

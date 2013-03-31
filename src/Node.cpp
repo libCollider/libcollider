@@ -7,8 +7,8 @@
 
 using namespace ColliderPlusPlus; 
 
-Node::Node(Client_Server * other, const std::string& defName, int id)
-: id(id), defName(defName), manuallyFreed(false)
+Node::Node(Client_Server * other, const std::string& defName, int id_)
+: id(id_), defName(defName), manuallyFreed(false)
 {
   cs = other;
 }
@@ -58,9 +58,9 @@ void Node::busMap(std::map<std::string, Bus> &map)
 
 }
 
-Synth::Synth(Client_Server * cs, const std::string& defName, 
-				int id, int initAction, int addAction, int target)
-:Node(cs, defName, id)
+Synth::Synth(Client_Server * other, const std::string& defName, 
+				int id_, int initAction, int addAction, int target)
+:Node(other, defName, id_)
 { 
   if(initAction == 0)
       getClientServer()->createPausedSynth(getDefName(), getId(), addAction, target);
@@ -68,9 +68,9 @@ Synth::Synth(Client_Server * cs, const std::string& defName,
       getClientServer()->createSynth(getDefName(), getId(), addAction, target);
 }
 
-Synth::Synth(Client_Server * cs, const std::string& defName, int id,
+Synth::Synth(Client_Server * other, const std::string& defName, int id_,
      std::map<std::string,float> &args, int initAction, int addAction, int target)
-:Node(cs, defName, id)
+:Node(other, defName, id_)
 { 
   if(initAction == 0)
      getClientServer()->createPausedSynth(getDefName(), getId(), args, addAction, target);
@@ -84,8 +84,8 @@ Synth::~Synth()
      getClientServer()->freeNode(getId());
 }
 
-Group::Group(Client_Server * cs, const std::string& defName, int id, int addAction, int target)
-:Node(cs, "Group", id)
+Group::Group(Client_Server * other, const std::string& defName, int id_, int addAction, int target)
+:Node(other, "Group", id_)
 {
   getClientServer()->createGroup(getId());
 }
@@ -106,7 +106,7 @@ void Group::deepFreeAllSynths()
   getClientServer()->deepFreeAllSynths(getId());
 }
 
-RootNode::RootNode(Client_Server * cs): Group(cs, "Default", ROOT_NODE)
+RootNode::RootNode(Client_Server * other): Group(other, "Default", ROOT_NODE)
 {
   
 }

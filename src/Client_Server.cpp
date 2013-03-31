@@ -32,9 +32,9 @@ Client_Server::Client_Server()
    createDefaultGroup();
 }
 
-Client_Server::Client_Server(const std::string& name, const char *host, 
+Client_Server::Client_Server(const std::string& n, const char *host, 
 				    const char *port, const std::string& synthDefDir)
-:name(name), NodeIDGenerator(1000), BufferIDGenerator(0)
+:name(n), NodeIDGenerator(1000), BufferIDGenerator(0)
 {
    async_result = false;
    setHost(host);
@@ -70,14 +70,14 @@ int Client_Server::nextBufferNum()
    return nextBuffer;
 }
 
-void Client_Server::setPort(const char *port)
+void Client_Server::setPort(const char *p)
 {
-  port = port;
+  port = p;
 }
 
-void Client_Server::setHost(const char *host)
+void Client_Server::setHost(const char *h)
 {
-  host = host;
+  host = h;
 }
 
 const char* Client_Server::getPort()
@@ -787,7 +787,16 @@ void fail(const std::string& address,
 void status_reply(const std::string& address, 
 		const std::vector<tnyosc::Argument>& argv, void* user_data)
 {
-   
+   cout << "\nstatus.reply : " << endl;
+   cout << argv[0].data.i << endl;
+   cout << argv[1].data.i << endl;
+   cout << argv[2].data.i << endl;
+   cout << argv[3].data.i << endl;
+   cout << argv[4].data.i << endl;
+   cout << argv[5].data.f << endl;
+   cout << argv[6].data.f << endl;
+   cout << argv[7].data.d << endl;
+   cout << argv[8].data.d << endl;
 }
 
 //finish me

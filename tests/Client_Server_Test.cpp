@@ -23,6 +23,7 @@ int main(int argc, char* argv[])
   std::cout << "\nRunning Client_Server test..." << std::endl;
 
   Client_Server cs("Server", host, port, synthDefDir);
+  std::cout << "breakpoint 1" << std::endl;
   cs.dumpOSC(1);
   cs.allocBuffer(cs.nextBufferNum(), 1024, 2);
   cs.status();

@@ -13,7 +13,7 @@ This class represents a client-\/side version of a server buffer.
 \subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\hyperlink{classColliderPlusPlus_1_1Buffer_a253743cd16ea0a2579575dd9472a967d}{Buffer} (\hyperlink{classColliderPlusPlus_1_1Client__Server}{Client\-\_\-\-Server} $\ast$cs, int buf\-Num)
+\hyperlink{classColliderPlusPlus_1_1Buffer_af5728dbdffa6dd43efe7cc2e520462b2}{Buffer} (\hyperlink{classColliderPlusPlus_1_1Client__Server}{Client\-\_\-\-Server} $\ast$other, int buf\-Num)
 \item 
 \hypertarget{classColliderPlusPlus_1_1Buffer_a62178f1cb35c5654c0b16d78526de7e8}{\hyperlink{classColliderPlusPlus_1_1Buffer_a62178f1cb35c5654c0b16d78526de7e8}{$\sim$\-Buffer} ()}\label{classColliderPlusPlus_1_1Buffer_a62178f1cb35c5654c0b16d78526de7e8}
 
@@ -28,13 +28,13 @@ int \hyperlink{classColliderPlusPlus_1_1Buffer_aa0c5ce2e5ede311b515b7748fc7074d5
 \item 
 bool \hyperlink{classColliderPlusPlus_1_1Buffer_a021329a8faaecd4ebb58b291b1ded6c4}{get\-Manually\-Freed} () const 
 \item 
-void \hyperlink{classColliderPlusPlus_1_1Buffer_a42b8f222c59b41583c079892329ed4b3}{set\-Buf\-Num} (int buf\-Num)
+void \hyperlink{classColliderPlusPlus_1_1Buffer_a860869166e3ded181813158b8ba9159b}{set\-Buf\-Num} (int bn)
 \item 
-void \hyperlink{classColliderPlusPlus_1_1Buffer_aa6e5dd22f61dc017b2269ab591f774c1}{set\-Num\-Frames} (int num\-Frames)
+void \hyperlink{classColliderPlusPlus_1_1Buffer_a4326fdc6e8e7e988adf7188c8cfc5fc1}{set\-Num\-Frames} (int nf)
 \item 
-void \hyperlink{classColliderPlusPlus_1_1Buffer_a10dad9102c89405bd2f90d81528d1fd6}{set\-Num\-Chans} (int num\-Chans)
+void \hyperlink{classColliderPlusPlus_1_1Buffer_acfee7fb4d7e5ff2dadf2aae85abd6ff6}{set\-Num\-Chans} (int nc)
 \item 
-void \hyperlink{classColliderPlusPlus_1_1Buffer_a3eb246f4be7e091d799af74416450e8b}{set\-Samp\-Rate} (float samp\-Rate)
+void \hyperlink{classColliderPlusPlus_1_1Buffer_a028e5dc76e6b54faf9ef0a3c9eeb2ae1}{set\-Samp\-Rate} (float sr)
 \item 
 void \hyperlink{classColliderPlusPlus_1_1Buffer_a2d9c1a08d1e3080ed0b4a3780b18be15}{alloc} (int num\-Frames, int num\-Channels)
 \item 
@@ -50,14 +50,14 @@ void \hyperlink{classColliderPlusPlus_1_1Buffer_a57e3976a06f74c7605cb9523da6367c
 This class represents a client-\/side version of a server buffer. 
 
 \subsection{Constructor \& Destructor Documentation}
-\hypertarget{classColliderPlusPlus_1_1Buffer_a253743cd16ea0a2579575dd9472a967d}{\index{Collider\-Plus\-Plus\-::\-Buffer@{Collider\-Plus\-Plus\-::\-Buffer}!Buffer@{Buffer}}
+\hypertarget{classColliderPlusPlus_1_1Buffer_af5728dbdffa6dd43efe7cc2e520462b2}{\index{Collider\-Plus\-Plus\-::\-Buffer@{Collider\-Plus\-Plus\-::\-Buffer}!Buffer@{Buffer}}
 \index{Buffer@{Buffer}!ColliderPlusPlus::Buffer@{Collider\-Plus\-Plus\-::\-Buffer}}
 \subsubsection[{Buffer}]{\setlength{\rightskip}{0pt plus 5cm}Collider\-Plus\-Plus\-::\-Buffer\-::\-Buffer (
 \begin{DoxyParamCaption}
-\item[{{\bf Client\-\_\-\-Server} $\ast$}]{cs, }
+\item[{{\bf Client\-\_\-\-Server} $\ast$}]{other, }
 \item[{int}]{buf\-Num}
 \end{DoxyParamCaption}
-)}}\label{classColliderPlusPlus_1_1Buffer_a253743cd16ea0a2579575dd9472a967d}
+)}}\label{classColliderPlusPlus_1_1Buffer_af5728dbdffa6dd43efe7cc2e520462b2}
 Create a \hyperlink{classColliderPlusPlus_1_1Buffer}{Buffer} with buffer number specified by buf\-Num parameter 
 \begin{DoxyParams}[1]{Parameters}
 \mbox{\tt in}  & {\em Client\-Server} & instance \\
@@ -167,49 +167,49 @@ true if freed from server with \hyperlink{classColliderPlusPlus_1_1Buffer_ad4eb9
 Returns this \hyperlink{classColliderPlusPlus_1_1Buffer}{Buffer}'s sample rate \begin{DoxyReturn}{Returns}
 int \hyperlink{classColliderPlusPlus_1_1Buffer}{Buffer} sample rate 
 \end{DoxyReturn}
-\hypertarget{classColliderPlusPlus_1_1Buffer_a42b8f222c59b41583c079892329ed4b3}{\index{Collider\-Plus\-Plus\-::\-Buffer@{Collider\-Plus\-Plus\-::\-Buffer}!set\-Buf\-Num@{set\-Buf\-Num}}
+\hypertarget{classColliderPlusPlus_1_1Buffer_a860869166e3ded181813158b8ba9159b}{\index{Collider\-Plus\-Plus\-::\-Buffer@{Collider\-Plus\-Plus\-::\-Buffer}!set\-Buf\-Num@{set\-Buf\-Num}}
 \index{set\-Buf\-Num@{set\-Buf\-Num}!ColliderPlusPlus::Buffer@{Collider\-Plus\-Plus\-::\-Buffer}}
 \subsubsection[{set\-Buf\-Num}]{\setlength{\rightskip}{0pt plus 5cm}void Collider\-Plus\-Plus\-::\-Buffer\-::set\-Buf\-Num (
 \begin{DoxyParamCaption}
-\item[{int}]{buf\-Num}
+\item[{int}]{bn}
 \end{DoxyParamCaption}
-)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classColliderPlusPlus_1_1Buffer_a42b8f222c59b41583c079892329ed4b3}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classColliderPlusPlus_1_1Buffer_a860869166e3ded181813158b8ba9159b}
 Set this \hyperlink{classColliderPlusPlus_1_1Buffer}{Buffer}'s buffer number 
 \begin{DoxyParams}[1]{Parameters}
 \mbox{\tt in}  & {\em int} & buffer number \\
 \hline
 \end{DoxyParams}
-\hypertarget{classColliderPlusPlus_1_1Buffer_a10dad9102c89405bd2f90d81528d1fd6}{\index{Collider\-Plus\-Plus\-::\-Buffer@{Collider\-Plus\-Plus\-::\-Buffer}!set\-Num\-Chans@{set\-Num\-Chans}}
+\hypertarget{classColliderPlusPlus_1_1Buffer_acfee7fb4d7e5ff2dadf2aae85abd6ff6}{\index{Collider\-Plus\-Plus\-::\-Buffer@{Collider\-Plus\-Plus\-::\-Buffer}!set\-Num\-Chans@{set\-Num\-Chans}}
 \index{set\-Num\-Chans@{set\-Num\-Chans}!ColliderPlusPlus::Buffer@{Collider\-Plus\-Plus\-::\-Buffer}}
 \subsubsection[{set\-Num\-Chans}]{\setlength{\rightskip}{0pt plus 5cm}void Collider\-Plus\-Plus\-::\-Buffer\-::set\-Num\-Chans (
 \begin{DoxyParamCaption}
-\item[{int}]{num\-Chans}
+\item[{int}]{nc}
 \end{DoxyParamCaption}
-)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classColliderPlusPlus_1_1Buffer_a10dad9102c89405bd2f90d81528d1fd6}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classColliderPlusPlus_1_1Buffer_acfee7fb4d7e5ff2dadf2aae85abd6ff6}
 Set this \hyperlink{classColliderPlusPlus_1_1Buffer}{Buffer}'s channel count 
 \begin{DoxyParams}[1]{Parameters}
 \mbox{\tt in}  & {\em int} & channel count \\
 \hline
 \end{DoxyParams}
-\hypertarget{classColliderPlusPlus_1_1Buffer_aa6e5dd22f61dc017b2269ab591f774c1}{\index{Collider\-Plus\-Plus\-::\-Buffer@{Collider\-Plus\-Plus\-::\-Buffer}!set\-Num\-Frames@{set\-Num\-Frames}}
+\hypertarget{classColliderPlusPlus_1_1Buffer_a4326fdc6e8e7e988adf7188c8cfc5fc1}{\index{Collider\-Plus\-Plus\-::\-Buffer@{Collider\-Plus\-Plus\-::\-Buffer}!set\-Num\-Frames@{set\-Num\-Frames}}
 \index{set\-Num\-Frames@{set\-Num\-Frames}!ColliderPlusPlus::Buffer@{Collider\-Plus\-Plus\-::\-Buffer}}
 \subsubsection[{set\-Num\-Frames}]{\setlength{\rightskip}{0pt plus 5cm}void Collider\-Plus\-Plus\-::\-Buffer\-::set\-Num\-Frames (
 \begin{DoxyParamCaption}
-\item[{int}]{num\-Frames}
+\item[{int}]{nf}
 \end{DoxyParamCaption}
-)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classColliderPlusPlus_1_1Buffer_aa6e5dd22f61dc017b2269ab591f774c1}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classColliderPlusPlus_1_1Buffer_a4326fdc6e8e7e988adf7188c8cfc5fc1}
 Set this \hyperlink{classColliderPlusPlus_1_1Buffer}{Buffer}'s frame count 
 \begin{DoxyParams}[1]{Parameters}
 \mbox{\tt in}  & {\em int} & frame count \\
 \hline
 \end{DoxyParams}
-\hypertarget{classColliderPlusPlus_1_1Buffer_a3eb246f4be7e091d799af74416450e8b}{\index{Collider\-Plus\-Plus\-::\-Buffer@{Collider\-Plus\-Plus\-::\-Buffer}!set\-Samp\-Rate@{set\-Samp\-Rate}}
+\hypertarget{classColliderPlusPlus_1_1Buffer_a028e5dc76e6b54faf9ef0a3c9eeb2ae1}{\index{Collider\-Plus\-Plus\-::\-Buffer@{Collider\-Plus\-Plus\-::\-Buffer}!set\-Samp\-Rate@{set\-Samp\-Rate}}
 \index{set\-Samp\-Rate@{set\-Samp\-Rate}!ColliderPlusPlus::Buffer@{Collider\-Plus\-Plus\-::\-Buffer}}
 \subsubsection[{set\-Samp\-Rate}]{\setlength{\rightskip}{0pt plus 5cm}void Collider\-Plus\-Plus\-::\-Buffer\-::set\-Samp\-Rate (
 \begin{DoxyParamCaption}
-\item[{float}]{samp\-Rate}
+\item[{float}]{sr}
 \end{DoxyParamCaption}
-)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classColliderPlusPlus_1_1Buffer_a3eb246f4be7e091d799af74416450e8b}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classColliderPlusPlus_1_1Buffer_a028e5dc76e6b54faf9ef0a3c9eeb2ae1}
 Set this \hyperlink{classColliderPlusPlus_1_1Buffer}{Buffer}'s sample rate 
 \begin{DoxyParams}[1]{Parameters}
 \mbox{\tt in}  & {\em int} & sample rate \\

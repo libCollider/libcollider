@@ -24,7 +24,7 @@ namespace ColliderPlusPlus {
     public:
 	
         /// Create a new sound source
-	Sound(Client_Server * cs, const std::string &filepath, int initAction = 0);
+	Sound(Client_Server * other, const std::string &filepath, int initAction = 0);
   
       	/// Deallocates server-side buffer associated with this instance
 	~Sound();
@@ -69,7 +69,7 @@ namespace ColliderPlusPlus {
  
     private:
 
-        void init(Client_Server * cs, const std::string &filepath, int initAction);
+        void init(Client_Server * other, const std::string &filepath, int initAction);
 	
 	Client_Server * cs;
 	Buffer * buffer;

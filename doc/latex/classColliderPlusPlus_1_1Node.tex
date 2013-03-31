@@ -19,7 +19,7 @@ Inheritance diagram for Collider\-Plus\-Plus\-:\-:Node\-:\begin{figure}[H]
 \subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\hyperlink{classColliderPlusPlus_1_1Node_ab0bc89b38db96dea7086833453b8bf12}{Node} (\hyperlink{classColliderPlusPlus_1_1Client__Server}{Client\-\_\-\-Server} $\ast$cs, const std\-::string \&def\-Name, int id)
+\hyperlink{classColliderPlusPlus_1_1Node_a19e91e34364eaec92fa843b88c9fa380}{Node} (\hyperlink{classColliderPlusPlus_1_1Client__Server}{Client\-\_\-\-Server} $\ast$other, const std\-::string \&def\-Name, int id\-\_\-)
 \item 
 \hypertarget{classColliderPlusPlus_1_1Node_ae1198291ae5d81dd34474b7cf52438cd}{\hyperlink{classColliderPlusPlus_1_1Node_ae1198291ae5d81dd34474b7cf52438cd}{$\sim$\-Node} ()}\label{classColliderPlusPlus_1_1Node_ae1198291ae5d81dd34474b7cf52438cd}
 
@@ -64,15 +64,15 @@ void \hyperlink{classColliderPlusPlus_1_1Node_a9cdb4fc9fac7d1cca8f1924a2668425b}
 This class represents a client-\/side version of a server node (\hyperlink{classColliderPlusPlus_1_1Synth}{Synth} or \hyperlink{classColliderPlusPlus_1_1Group}{Group}) 
 
 \subsection{Constructor \& Destructor Documentation}
-\hypertarget{classColliderPlusPlus_1_1Node_ab0bc89b38db96dea7086833453b8bf12}{\index{Collider\-Plus\-Plus\-::\-Node@{Collider\-Plus\-Plus\-::\-Node}!Node@{Node}}
+\hypertarget{classColliderPlusPlus_1_1Node_a19e91e34364eaec92fa843b88c9fa380}{\index{Collider\-Plus\-Plus\-::\-Node@{Collider\-Plus\-Plus\-::\-Node}!Node@{Node}}
 \index{Node@{Node}!ColliderPlusPlus::Node@{Collider\-Plus\-Plus\-::\-Node}}
 \subsubsection[{Node}]{\setlength{\rightskip}{0pt plus 5cm}Collider\-Plus\-Plus\-::\-Node\-::\-Node (
 \begin{DoxyParamCaption}
-\item[{{\bf Client\-\_\-\-Server} $\ast$}]{cs, }
+\item[{{\bf Client\-\_\-\-Server} $\ast$}]{other, }
 \item[{const std\-::string \&}]{def\-Name, }
-\item[{int}]{id}
+\item[{int}]{id\-\_\-}
 \end{DoxyParamCaption}
-)}}\label{classColliderPlusPlus_1_1Node_ab0bc89b38db96dea7086833453b8bf12}
+)}}\label{classColliderPlusPlus_1_1Node_a19e91e34364eaec92fa843b88c9fa380}
 Create a \hyperlink{classColliderPlusPlus_1_1Node}{Node} with a user defined name and Id 
 \begin{DoxyParams}[1]{Parameters}
 \mbox{\tt in}  & {\em const} & std\-::string\& Name \\
@@ -105,7 +105,7 @@ Set this \hyperlink{classColliderPlusPlus_1_1Node}{Node} with specified bus mapp
 \end{DoxyParamCaption}
 ) const\hspace{0.3cm}{\ttfamily [inline]}}}\label{classColliderPlusPlus_1_1Node_a41449e5eb6d9e9233554ebcec371a5ba}
 Return this \hyperlink{classColliderPlusPlus_1_1Node}{Node}'s \hyperlink{classColliderPlusPlus_1_1Client__Server}{Client\-\_\-\-Server} pointer \begin{DoxyReturn}{Returns}
-\-\_\-cs 
+cs 
 \end{DoxyReturn}
 \hypertarget{classColliderPlusPlus_1_1Node_a40acccb0f1661a08404ee9dcdb27f051}{\index{Collider\-Plus\-Plus\-::\-Node@{Collider\-Plus\-Plus\-::\-Node}!get\-Def\-Name@{get\-Def\-Name}}
 \index{get\-Def\-Name@{get\-Def\-Name}!ColliderPlusPlus::Node@{Collider\-Plus\-Plus\-::\-Node}}
@@ -115,7 +115,7 @@ Return this \hyperlink{classColliderPlusPlus_1_1Node}{Node}'s \hyperlink{classCo
 \end{DoxyParamCaption}
 ) const\hspace{0.3cm}{\ttfamily [inline]}}}\label{classColliderPlusPlus_1_1Node_a40acccb0f1661a08404ee9dcdb27f051}
 Returns the name of this \hyperlink{classColliderPlusPlus_1_1Node}{Node} \begin{DoxyReturn}{Returns}
-\-\_\-def\-Name 
+def\-Name 
 \end{DoxyReturn}
 \hypertarget{classColliderPlusPlus_1_1Node_a8fe1785ce07ad46c422c7451f21a30fb}{\index{Collider\-Plus\-Plus\-::\-Node@{Collider\-Plus\-Plus\-::\-Node}!get\-Id@{get\-Id}}
 \index{get\-Id@{get\-Id}!ColliderPlusPlus::Node@{Collider\-Plus\-Plus\-::\-Node}}
@@ -125,7 +125,7 @@ Returns the name of this \hyperlink{classColliderPlusPlus_1_1Node}{Node} \begin{
 \end{DoxyParamCaption}
 ) const\hspace{0.3cm}{\ttfamily [inline]}}}\label{classColliderPlusPlus_1_1Node_a8fe1785ce07ad46c422c7451f21a30fb}
 Returns the Id of this \hyperlink{classColliderPlusPlus_1_1Node}{Node} \begin{DoxyReturn}{Returns}
-\-\_\-id 
+id 
 \end{DoxyReturn}
 \hypertarget{classColliderPlusPlus_1_1Node_ab91b556772c61c19f4e622b754d8b424}{\index{Collider\-Plus\-Plus\-::\-Node@{Collider\-Plus\-Plus\-::\-Node}!get\-Manually\-Freed@{get\-Manually\-Freed}}
 \index{get\-Manually\-Freed@{get\-Manually\-Freed}!ColliderPlusPlus::Node@{Collider\-Plus\-Plus\-::\-Node}}
@@ -134,8 +134,8 @@ Returns the Id of this \hyperlink{classColliderPlusPlus_1_1Node}{Node} \begin{Do
 {}
 \end{DoxyParamCaption}
 ) const\hspace{0.3cm}{\ttfamily [inline]}}}\label{classColliderPlusPlus_1_1Node_ab91b556772c61c19f4e622b754d8b424}
-Returns true if the \hyperlink{classColliderPlusPlus_1_1Node}{Node} was freed from the server by calling \-\_\-free() B\-E\-F\-O\-R\-E the destructor of this \hyperlink{classColliderPlusPlus_1_1Node}{Node} is called \begin{DoxyReturn}{Returns}
-true if freed from server with \-\_\-free() prior to destruction 
+Returns true if the \hyperlink{classColliderPlusPlus_1_1Node}{Node} was freed from the server by calling \hyperlink{classColliderPlusPlus_1_1Node_a858d838d243f84bbb56287a7d03bb893}{free()} B\-E\-F\-O\-R\-E the destructor of this \hyperlink{classColliderPlusPlus_1_1Node}{Node} is called \begin{DoxyReturn}{Returns}
+true if freed from server with \hyperlink{classColliderPlusPlus_1_1Node_a858d838d243f84bbb56287a7d03bb893}{free()} prior to destruction 
 \end{DoxyReturn}
 \hypertarget{classColliderPlusPlus_1_1Node_a980fe197227f373665bf11814c7e9867}{\index{Collider\-Plus\-Plus\-::\-Node@{Collider\-Plus\-Plus\-::\-Node}!is\-Playing@{is\-Playing}}
 \index{is\-Playing@{is\-Playing}!ColliderPlusPlus::Node@{Collider\-Plus\-Plus\-::\-Node}}
@@ -180,7 +180,7 @@ Set this \hyperlink{classColliderPlusPlus_1_1Node}{Node} with specified control 
 )}}\label{classColliderPlusPlus_1_1Node_a898b7636dbf6c20c331625e7df397e1e}
 Set this \hyperlink{classColliderPlusPlus_1_1Node}{Node} with specified control range values 
 \begin{DoxyParams}[1]{Parameters}
-\mbox{\tt in}  & {\em Client\-\_\-\-Server\&} & Client\-\_\-\-Ser ver instance \\
+\mbox{\tt in}  & {\em Client\-\_\-\-Server\&} & \hyperlink{classColliderPlusPlus_1_1Client__Server}{Client\-\_\-\-Server} instance \\
 \hline
 \mbox{\tt in}  & {\em std\-::map$<$std\-::string,float\mbox{[}$\,$\mbox{]}$>$\&} & Control Ranges \\
 \hline

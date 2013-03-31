@@ -112,8 +112,8 @@ Inheritance diagram for ColliderPlusPlus::Node:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:ab0bc89b38db96dea7086833453b8bf12"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classColliderPlusPlus_1_1Node.html#ab0bc89b38db96dea7086833453b8bf12">Node</a> (<a class="el" href="classColliderPlusPlus_1_1Client__Server.html">Client_Server</a> *cs, const std::string &amp;defName, int id)</td></tr>
-<tr class="separator:ab0bc89b38db96dea7086833453b8bf12"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a19e91e34364eaec92fa843b88c9fa380"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classColliderPlusPlus_1_1Node.html#a19e91e34364eaec92fa843b88c9fa380">Node</a> (<a class="el" href="classColliderPlusPlus_1_1Client__Server.html">Client_Server</a> *other, const std::string &amp;defName, int id_)</td></tr>
+<tr class="separator:a19e91e34364eaec92fa843b88c9fa380"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae1198291ae5d81dd34474b7cf52438cd"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ae1198291ae5d81dd34474b7cf52438cd"></a>
 &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classColliderPlusPlus_1_1Node.html#ae1198291ae5d81dd34474b7cf52438cd">~Node</a> ()</td></tr>
 <tr class="memdesc:ae1198291ae5d81dd34474b7cf52438cd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructor. <br/></td></tr>
@@ -157,7 +157,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>This class represents a client-side version of a server node (<a class="el" href="classColliderPlusPlus_1_1Synth.html" title="This class represents a client-side version of a server synth.">Synth</a> or <a class="el" href="classColliderPlusPlus_1_1Group.html" title="This class represents a client-side version of a server group.">Group</a>) </p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a class="anchor" id="ab0bc89b38db96dea7086833453b8bf12"></a>
+<a class="anchor" id="a19e91e34364eaec92fa843b88c9fa380"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
@@ -165,7 +165,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
           <td class="memname">ColliderPlusPlus::Node::Node </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="classColliderPlusPlus_1_1Client__Server.html">Client_Server</a> *&#160;</td>
-          <td class="paramname"><em>cs</em>, </td>
+          <td class="paramname"><em>other</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -177,7 +177,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>id</em>&#160;</td>
+          <td class="paramname"><em>id_</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -243,7 +243,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 </table>
 </div><div class="memdoc">
 <p>Return this <a class="el" href="classColliderPlusPlus_1_1Node.html" title="This class represents a client-side version of a server node (Synth or Group)">Node</a>'s <a class="el" href="classColliderPlusPlus_1_1Client__Server.html" title="This class represents a client-side version of scsynth, the SuperCollider audio server.">Client_Server</a> pointer </p>
-<dl class="section return"><dt>Returns</dt><dd>_cs </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>cs </dd></dl>
 
 </div>
 </div>
@@ -268,7 +268,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 </table>
 </div><div class="memdoc">
 <p>Returns the name of this <a class="el" href="classColliderPlusPlus_1_1Node.html" title="This class represents a client-side version of a server node (Synth or Group)">Node</a> </p>
-<dl class="section return"><dt>Returns</dt><dd>_defName </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>defName </dd></dl>
 
 </div>
 </div>
@@ -293,7 +293,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 </table>
 </div><div class="memdoc">
 <p>Returns the Id of this <a class="el" href="classColliderPlusPlus_1_1Node.html" title="This class represents a client-side version of a server node (Synth or Group)">Node</a> </p>
-<dl class="section return"><dt>Returns</dt><dd>_id </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>id </dd></dl>
 
 </div>
 </div>
@@ -317,8 +317,8 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Returns true if the <a class="el" href="classColliderPlusPlus_1_1Node.html" title="This class represents a client-side version of a server node (Synth or Group)">Node</a> was freed from the server by calling _free() BEFORE the destructor of this <a class="el" href="classColliderPlusPlus_1_1Node.html" title="This class represents a client-side version of a server node (Synth or Group)">Node</a> is called </p>
-<dl class="section return"><dt>Returns</dt><dd>true if freed from server with _free() prior to destruction </dd></dl>
+<p>Returns true if the <a class="el" href="classColliderPlusPlus_1_1Node.html" title="This class represents a client-side version of a server node (Synth or Group)">Node</a> was freed from the server by calling <a class="el" href="classColliderPlusPlus_1_1Node.html#a858d838d243f84bbb56287a7d03bb893" title="Command the server to free this Node.">free()</a> BEFORE the destructor of this <a class="el" href="classColliderPlusPlus_1_1Node.html" title="This class represents a client-side version of a server node (Synth or Group)">Node</a> is called </p>
+<dl class="section return"><dt>Returns</dt><dd>true if freed from server with <a class="el" href="classColliderPlusPlus_1_1Node.html#a858d838d243f84bbb56287a7d03bb893" title="Command the server to free this Node.">free()</a> prior to destruction </dd></dl>
 
 </div>
 </div>
@@ -412,7 +412,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 <p>Set this <a class="el" href="classColliderPlusPlus_1_1Node.html" title="This class represents a client-side version of a server node (Synth or Group)">Node</a> with specified control range values </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">Client_Server&amp;</td><td>Client_Ser ver instance </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">Client_Server&amp;</td><td><a class="el" href="classColliderPlusPlus_1_1Client__Server.html" title="This class represents a client-side version of scsynth, the SuperCollider audio server.">Client_Server</a> instance </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">std::map&lt;std::string,float[]&gt;&amp;</td><td>Control Ranges </td></tr>
   </table>
   </dd>
@@ -426,7 +426,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sat Mar 30 2013 18:38:12 for Collider++ by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sat Mar 30 2013 19:06:03 for Collider++ by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.3.1-20130209
 </small></address>

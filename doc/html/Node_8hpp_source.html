@@ -104,7 +104,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160; {</div>
 <div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;   <span class="keyword">public</span>:</div>
 <div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;      </div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;        <a class="code" href="classColliderPlusPlus_1_1Node.html#ab0bc89b38db96dea7086833453b8bf12">Node</a>(<a class="code" href="classColliderPlusPlus_1_1Client__Server.html" title="This class represents a client-side version of scsynth, the SuperCollider audio server.">Client_Server</a> * cs, <span class="keyword">const</span> std::string&amp; defName, <span class="keywordtype">int</span> <span class="keywordtype">id</span>);</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;        <a class="code" href="classColliderPlusPlus_1_1Node.html#a19e91e34364eaec92fa843b88c9fa380">Node</a>(<a class="code" href="classColliderPlusPlus_1_1Client__Server.html" title="This class represents a client-side version of scsynth, the SuperCollider audio server.">Client_Server</a> * other, <span class="keyword">const</span> std::string&amp; defName, <span class="keywordtype">int</span> id_);</div>
 <div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160; </div>
 <div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;        <a class="code" href="classColliderPlusPlus_1_1Node.html#ae1198291ae5d81dd34474b7cf52438cd" title="Destructor.">~Node</a>();</div>
 <div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;   </div>
@@ -157,12 +157,12 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160; {</div>
 <div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;   <span class="keyword">public</span>:</div>
 <div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;       </div>
-<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;        <a class="code" href="classColliderPlusPlus_1_1Synth.html#a5c95bece3a757b2c29d642b05d30ea6e">Synth</a>(<a class="code" href="classColliderPlusPlus_1_1Client__Server.html" title="This class represents a client-side version of scsynth, the SuperCollider audio server.">Client_Server</a> * cs, <span class="keyword">const</span> std::string&amp; defName, </div>
-<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;                 <span class="keywordtype">int</span> <span class="keywordtype">id</span>, <span class="keywordtype">int</span> initAction = 0, </div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;        <a class="code" href="classColliderPlusPlus_1_1Synth.html#a95d3df49d21a4c6844089ae7641a1be4">Synth</a>(<a class="code" href="classColliderPlusPlus_1_1Client__Server.html" title="This class represents a client-side version of scsynth, the SuperCollider audio server.">Client_Server</a> * other, <span class="keyword">const</span> std::string&amp; defName, </div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;                 <span class="keywordtype">int</span> id_, <span class="keywordtype">int</span> initAction = 0, </div>
 <div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;                               <span class="keywordtype">int</span> addAction = TO_HEAD, <span class="keywordtype">int</span> target = DEFAULT_GROUP);</div>
 <div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;  </div>
-<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;        <a class="code" href="classColliderPlusPlus_1_1Synth.html#a5c95bece3a757b2c29d642b05d30ea6e">Synth</a>(<a class="code" href="classColliderPlusPlus_1_1Client__Server.html" title="This class represents a client-side version of scsynth, the SuperCollider audio server.">Client_Server</a> * cs, <span class="keyword">const</span> std::string&amp; defName, </div>
-<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;                 <span class="keywordtype">int</span> <span class="keywordtype">id</span>, std::map&lt;std::string,float&gt; &amp;args, <span class="keywordtype">int</span> initAction = 0,</div>
+<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;        <a class="code" href="classColliderPlusPlus_1_1Synth.html#a95d3df49d21a4c6844089ae7641a1be4">Synth</a>(<a class="code" href="classColliderPlusPlus_1_1Client__Server.html" title="This class represents a client-side version of scsynth, the SuperCollider audio server.">Client_Server</a> * other, <span class="keyword">const</span> std::string&amp; defName, </div>
+<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;                 <span class="keywordtype">int</span> id_, std::map&lt;std::string,float&gt; &amp;args, <span class="keywordtype">int</span> initAction = 0,</div>
 <div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;                                <span class="keywordtype">int</span> addAction = TO_HEAD, <span class="keywordtype">int</span> target = DEFAULT_GROUP);</div>
 <div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;  </div>
 <div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;        <a class="code" href="classColliderPlusPlus_1_1Synth.html#a1fb61bf548db414b4dc543eac83216ae" title="Destructor.">~Synth</a>();</div>
@@ -173,7 +173,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160; {</div>
 <div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;   <span class="keyword">public</span>:</div>
 <div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;</div>
-<div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;        <a class="code" href="classColliderPlusPlus_1_1Group.html#ae6cc9c4e45c9e707387b3e9b52a3f0af">Group</a>(<a class="code" href="classColliderPlusPlus_1_1Client__Server.html" title="This class represents a client-side version of scsynth, the SuperCollider audio server.">Client_Server</a> * cs, <span class="keyword">const</span> std::string&amp; name, <span class="keywordtype">int</span> <span class="keywordtype">id</span>, </div>
+<div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;        <a class="code" href="classColliderPlusPlus_1_1Group.html#aa02ffbe182d42ab7d58e64791ea1d8b8">Group</a>(<a class="code" href="classColliderPlusPlus_1_1Client__Server.html" title="This class represents a client-side version of scsynth, the SuperCollider audio server.">Client_Server</a> * other, <span class="keyword">const</span> std::string&amp; name, <span class="keywordtype">int</span> id_, </div>
 <div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;                                <span class="keywordtype">int</span> addAction = TO_HEAD, <span class="keywordtype">int</span> target = DEFAULT_GROUP);</div>
 <div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;  </div>
 <div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;        <a class="code" href="classColliderPlusPlus_1_1Group.html#aa7f0bbd9db8735ee8dc5fdfc8c7239cf" title="Destructor.">~Group</a>();</div>
@@ -189,7 +189,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160; {</div>
 <div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;   <span class="keyword">public</span>:</div>
 <div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;</div>
-<div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;        <a class="code" href="classColliderPlusPlus_1_1RootNode.html#a6fcf7a82057e308fdee207298ffe1c4a">RootNode</a>(<a class="code" href="classColliderPlusPlus_1_1Client__Server.html" title="This class represents a client-side version of scsynth, the SuperCollider audio server.">Client_Server</a> * cs);</div>
+<div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;        <a class="code" href="classColliderPlusPlus_1_1RootNode.html#a646c4e811ff3af302eeed5cb808f7b5f">RootNode</a>(<a class="code" href="classColliderPlusPlus_1_1Client__Server.html" title="This class represents a client-side version of scsynth, the SuperCollider audio server.">Client_Server</a> * other);</div>
 <div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;   </div>
 <div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;        <a class="code" href="classColliderPlusPlus_1_1RootNode.html#a0b1f3caa18d7176ec4766990cadb48c4" title="Destructor.">~RootNode</a>();</div>
 <div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;   <span class="keyword">private</span>:</div>
@@ -200,7 +200,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sat Mar 30 2013 18:38:12 for Collider++ by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sat Mar 30 2013 19:06:02 for Collider++ by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.3.1-20130209
 </small></address>

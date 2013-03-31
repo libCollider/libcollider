@@ -3,8 +3,8 @@
 
 using namespace ColliderPlusPlus;
 
-Buffer::Buffer(Client_Server * other, int bufNum)
-:bufNum(bufNum), numFrames(0), numChans(0),
+Buffer::Buffer(Client_Server * other, int bn)
+:bufNum(bn), numFrames(0), numChans(0),
  sampRate(44100), manuallyFreed(false)
 {
   cs = other;
@@ -17,10 +17,10 @@ Buffer::~Buffer()
  	cs->freeBuffer_no_reply(bufNum);
 }
 
-void Buffer::alloc(int numFrames, int numChans)
+void Buffer::alloc(int nf, int nc)
 {
-  numFrames = numFrames;
-  numChans = numChans;
+  numFrames = nf;
+  numChans = nc;
 
   if(!cs->allocBuffer(bufNum, numFrames, numChans))
 	exit(0);

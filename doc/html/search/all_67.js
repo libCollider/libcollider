@@ -10,5 +10,5 @@ var searchData=
   ['getname',['getName',['../classColliderPlusPlus_1_1Client__Server.html#a060d9265bec3d3e1b0075dda129f8c58',1,'ColliderPlusPlus::Client_Server']]],
   ['getsamprate',['getSampRate',['../classColliderPlusPlus_1_1Buffer.html#aa0c5ce2e5ede311b515b7748fc7074d5',1,'ColliderPlusPlus::Buffer']]],
   ['group',['Group',['../classColliderPlusPlus_1_1Group.html',1,'ColliderPlusPlus']]],
-  ['group',['Group',['../classColliderPlusPlus_1_1Group.html#ae6cc9c4e45c9e707387b3e9b52a3f0af',1,'ColliderPlusPlus::Group']]]
+  ['group',['Group',['../classColliderPlusPlus_1_1Group.html#aa02ffbe182d42ab7d58e64791ea1d8b8',1,'ColliderPlusPlus::Group']]]
 ];

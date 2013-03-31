@@ -3,9 +3,8 @@
 using namespace ColliderPlusPlus;
 
 Sound::Sound(Client_Server * cs, const std::string &filepath, int ia)
-: isLooping(false), isPlaying(false), gain(1), pitchScalar(1) 
+: isLooping(false), isPlaying(false), gain(1), pitchScalar(1), initAction(ia) 
 {
-  initAction = ia;
   init(cs, filepath, initAction);  
 }
 
@@ -17,9 +16,9 @@ Sound::~Sound()
     delete synth;
 }
 
-void Sound::init(Client_Server * cs, const std::string &filepath, int initAction)
+void Sound::init(Client_Server * other, const std::string &filepath, int initAction)
 {
-  cs = cs;
+  cs = other;
   buffer = new Buffer(cs, cs->nextBufferNum());
   buffer->allocRead(filepath);
   args["bufnum"] = buffer->getBufNum();

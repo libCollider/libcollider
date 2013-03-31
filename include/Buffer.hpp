@@ -17,7 +17,7 @@ namespace ColliderPlusPlus {
         /// Create a Buffer with buffer number specified by bufNum parameter
 	/// @param[in] ClientServer instance
         /// @param[in] int Buffer Number
-	Buffer(Client_Server * cs, int bufNum);
+	Buffer(Client_Server * other, int bufNum);
    
         /// Destructor
         ~Buffer();
@@ -45,19 +45,19 @@ namespace ColliderPlusPlus {
 
         /// Set this Buffer's buffer number
         /// @param[in] int buffer number
-        void setBufNum(int bufNum) {bufNum = bufNum;}
+        void setBufNum(int bn) {bufNum = bn;}
 
         /// Set this Buffer's frame count
         /// @param[in] int frame count
-        void setNumFrames(int numFrames) {numFrames = numFrames;}
+        void setNumFrames(int nf) {numFrames = nf;}
     
         /// Set this Buffer's channel count
         /// @param[in] int channel count
-        void setNumChans(int numChans) {numChans = numChans;}
+        void setNumChans(int nc) {numChans = nc;}
  
         /// Set this Buffer's sample rate
         /// @param[in] int sample rate
-        void setSampRate(float sampRate) {sampRate = sampRate;}
+        void setSampRate(float sr) {sampRate = sr;}
 
         /// Command server to allocate memory for this Buffer
         /// @param[in] ClientServer& ClientServer instance
