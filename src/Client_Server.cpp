@@ -23,9 +23,8 @@ void error(const char * s)
 }
 
 Client_Server::Client_Server()
-:name("Default Server"), NodeIDGenerator(1000), BufferIDGenerator(0)
+:name("Default Server"), NodeIDGenerator(1000), BufferIDGenerator(0), async_result(false)
 {
-   async_result = false;
    setHost("127.0.0.1");
    setPort("57110");
    setUpOSCDispatcher();
@@ -34,9 +33,8 @@ Client_Server::Client_Server()
 
 Client_Server::Client_Server(const std::string& n, const char *host, 
 				    const char *port, const std::string& synthDefDir)
-:name(n), NodeIDGenerator(1000), BufferIDGenerator(0)
+:name(n), NodeIDGenerator(1000), BufferIDGenerator(0), async_result(false)
 {
-   async_result = false;
    setHost(host);
    setPort(port);
    setUpOSCDispatcher();
