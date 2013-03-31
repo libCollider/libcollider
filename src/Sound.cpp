@@ -46,8 +46,6 @@ int Sound::loop(bool loop)
   if(isLooping == loop)
     return 1;
 
-  isLooping = loop;
-
   if(loop == true) {
     args["looping"] = 1;
     synth->set(args);
