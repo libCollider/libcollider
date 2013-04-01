@@ -52,6 +52,7 @@ int main(int argc, char* argv[])
   cArgs["bufnum"] = b.getBufNum();
   cArgs["amp"] = 1.0;
   Synth c(&cs, "SoundFile_Event_Stereo", cs.nextNodeId(), cArgs, 1);
+  c.query();
  
   run_time(9.85, TIME_GRANULARITY_MICROSECONDS);
 

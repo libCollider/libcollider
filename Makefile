@@ -12,11 +12,9 @@ ifeq ($(UNAME), Linux)
 endif
 
 INSTALL_DIR = /usr/lib/
-BOOST_INCLUDE_DIR = /usr/local/include/boost/
-BOOST_LIB_DIR = /usr/local/lib/
 
 libcolliderpp: Client_Server.o Buffer.o Bus.o Node.o Sound.o
-	gcc -$(libtype) -o libcollider++.$(libsuffix) src/Client_Server.o src/Buffer.o src/Bus.o src/Node.o src/Sound.o -L$(BOOST_LIB_DIR) -lboost_system -lboost_thread -lpthread -lstdc++ 
+	gcc -$(libtype) -o libcollider++.$(libsuffix) src/Client_Server.o src/Buffer.o src/Bus.o src/Node.o src/Sound.o -lstdc++ 
 	mkdir -p build
 	mv libcollider++.$(libsuffix) build
 

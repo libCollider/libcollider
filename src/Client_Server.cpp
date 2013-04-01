@@ -274,7 +274,8 @@ void Client_Server::queryNode(int nodeId)
    msg->append(nodeId);
 
    #ifdef PRINT_DEBUG
-   const char * send_msg = "\nsending: /n_query command to the server";
+   char send_msg[100];
+   snprintf(send_msg, 100, "\nsending: /n_query %d command to the server", nodeId);
    send_msg_with_reply(msg, send_msg);
    #else
    send_msg_with_reply(msg);
@@ -800,7 +801,7 @@ void status_reply(const std::string& address,
 void node_info(const std::string& address, 
 		const std::vector<tnyosc::Argument>& argv, void* user_data)
 {
-
+   cout << "/node_info reply test" << endl;
 }
 
 void buffer_info(const std::string& address, 

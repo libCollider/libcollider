@@ -61,9 +61,10 @@ int main(int argc, char* argv[])
 
  //Object style
  Synth synth(&cs,"CentroidBing", -1, args, 1);
+// synth.query();
 
  //Equiv. Message style
- cs.createSynth("CentroidBing", -1, args);
+ //cs.createSynth("CentroidBing", -1, args);
 
  //Sleep for a random amount of time to make it interesting
  usleep(randSleep());
