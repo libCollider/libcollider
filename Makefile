@@ -22,16 +22,16 @@ tnyosc-dispatch.o : tnyosc-dispatch.cc tnyosc-dispatch.hpp tnyosc.hpp
 	gcc -c -fPIC -o src/tnyosc-dispatch.o src/tnyosc-dispatch.cc -Iinclude/tny_osc/
 
 Client_Server.o : Client_Server.cpp Client_Server.hpp tnyosc-dispatch.o
-	gcc -c -fPIC -o src/Client_Server.o src/Client_Server.cpp -Iinclude/ -Iinclude/tny_osc/ -DPRINT_DEBUG
+	gcc -c -fPIC -o src/Client_Server.o src/Client_Server.cpp -Iinclude/ -DPRINT_DEBUG
 
 Buffer.o : Buffer.cpp Buffer.hpp
-	gcc -c -fPIC -o src/Buffer.o  src/Buffer.cpp -Iinclude/ -Iinclude/tny_osc/ -DPRINT_DEBUG
+	gcc -c -fPIC -o src/Buffer.o  src/Buffer.cpp -Iinclude/ -DPRINT_DEBUG
 Bus.o : Bus.cpp Bus.hpp
-	gcc -c -fPIC -o src/Bus.o  src/Bus.cpp -Iinclude/ -Iinclude/tny_osc/
+	gcc -c -fPIC -o src/Bus.o  src/Bus.cpp -Iinclude/
 Node.o : Node.cpp Node.hpp
-	gcc -c -fPIC -o src/Node.o  src/Node.cpp -Iinclude/ -Iinclude/tny_osc/
+	gcc -c -fPIC -o src/Node.o  src/Node.cpp -Iinclude/
 Sound.o : Sound.cpp Sound.hpp
-	gcc -c -fPIC -o src/Sound.o  src/Sound.cpp -Iinclude/ -Iinclude/tny_osc/
+	gcc -c -fPIC -o src/Sound.o  src/Sound.cpp -Iinclude/
 
 clean: 
 	rm src/*.o

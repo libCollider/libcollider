@@ -7,8 +7,8 @@
 #include <string>
 #include <vector> 
 #include <map>
-#include "tnyosc-dispatch.hpp"
-#include "tnyosc.hpp"
+#include "tny_osc/tnyosc-dispatch.hpp"
+#include "tny_osc/tnyosc.hpp"
  
 #define TO_HEAD      0
 #define TO_TAIL      1
