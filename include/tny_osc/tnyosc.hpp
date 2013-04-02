@@ -52,6 +52,7 @@
 #include <vector>
 #include <algorithm>
 #include <iostream>
+#include <string.h>
 
 #ifdef TNYOSC_WITH_BOOST
 #include <boost/shared_ptr.hpp>

@@ -34,6 +34,7 @@
 #include <vector>
 #include <list>
 #include <tr1/memory>
+#include <stdint.h>
 
 #include <time.h>
 
