@@ -13,13 +13,16 @@ endif
 
 INSTALL_DIR = /usr/lib/
 
-libcolliderpp: Client_Server.o Buffer.o Bus.o Node.o Sound.o
-	gcc -$(libtype) -o libcollider++.$(libsuffix) src/Client_Server.o src/Buffer.o src/Bus.o src/Node.o src/Sound.o -lstdc++ 
+libcolliderpp: tnyosc-dispatch.o Client_Server.o Buffer.o Bus.o Node.o Sound.o 
+	gcc -$(libtype) -o libcollider++.$(libsuffix) src/tnyosc-dispatch.o src/Client_Server.o src/Buffer.o src/Bus.o src/Node.o src/Sound.o -lstdc++ 
 	mkdir -p build
 	mv libcollider++.$(libsuffix) build
 
-Client_Server.o : Client_Server.cpp tnyosc-dispatch.cc Client_Server.hpp tnyosc.hpp tnyosc-dispatch.hpp
-	gcc -c -fPIC -o src/Client_Server.o src/cs_tnyosc-dispatch_unity.cpp -Iinclude/ -Iinclude/tny_osc/ -DPRINT_DEBUG 
+tnyosc-dispatch.o : tnyosc-dispatch.cc tnyosc-dispatch.hpp tnyosc.hpp
+	gcc -c -fPIC -o src/tnyosc-dispatch.o src/tnyosc-dispatch.cc -Iinclude/tny_osc/
+
+Client_Server.o : Client_Server.cpp Client_Server.hpp tnyosc-dispatch.o
+	gcc -c -fPIC -o src/Client_Server.o src/Client_Server.cpp -Iinclude/ -Iinclude/tny_osc/ -DPRINT_DEBUG
 
 Buffer.o : Buffer.cpp Buffer.hpp
 	gcc -c -fPIC -o src/Buffer.o  src/Buffer.cpp -Iinclude/ -Iinclude/tny_osc/ -DPRINT_DEBUG
