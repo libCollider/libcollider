@@ -147,7 +147,21 @@ SynthDef(\CentroidBing, {
         y=0.05*SinOsc.ar(27+(50/(0.01+(mag**2))*(1+((10.0/(freq+0.01))*(SinOsc.ar(0.1+rake*27)+SinOsc.ar(0.1+dip*27))))));
         Out.ar(0,PanAz.ar(2,y*(mag**0.5)*10*EnvGen.ar(Env.perc(0.0, 2.1*(mag**2.2), 1, -8), 1, doneAction: 2),pan));
 }).writeDefFile(path);
-
+SynthDef(\CentroidBing24, {
+        arg freq=660.0,dip=90,rake=90,mag=1.0,frel=0.1,panlag=0.3,gate=0,lat=0,long=0;
+        var e,y,k;
+        var v,a,b,c,out,sig,vpan,pan;
+		vpan=lat/90.0;
+		pan=long/180.0;
+        y=0.05*SinOsc.ar(27+(50/(0.01+(mag**2))*(1+((10.0/(freq+0.01))*(SinOsc.ar(0.1+rake*27)+SinOsc.ar(0.1+dip*27))))));
+		//y=0.01*ClipNoise.ar;
+		v=PanAz.ar(4,y,vpan);
+		a=PanAz.ar(12,v.at(0),pan,0.5,2.0);
+		b=PanAz.ar(8,v.at(1),pan-(2.0/12.0),0.5,2.0);
+		c=PanAz.ar(4,v.at(2),pan-(0.25)-(2.0/12.0),0.5,2.0);
+		out=a.addAll(b).addAll(c);
+		Out.ar(0,out*10*EnvGen.ar(Env.perc(0.0, 2.1*(mag**2.2), 1, -8), 1, doneAction: 2));
+}).writeDefFile(path);
 )
 
 
