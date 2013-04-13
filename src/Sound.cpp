@@ -24,6 +24,7 @@ void Sound::init(Client_Server * other, const std::string &filepath, int initAct
   args["bufnum"] = buffer->getBufNum();
   args["rate"] = pitchScalar;
   args["looping"] = 0;
+  args["amp"] = 1;
   
   if(buffer->getChanNum() == 2)
      synth = new Synth(cs, "SoundFile_Loop_Stereo", cs->nextNodeId(), args, initAction);
@@ -39,6 +40,18 @@ void Sound::play()
 void Sound::stop()
 {
   synth->stop();
+}
+
+void Sound::setGain(float gain)
+{
+  args["amp"] = gain;
+  synth->set(args);
+}
+
+void Sound::setRate(float rateScalar)
+{
+  args["rate"] = rateScalar;
+  synth->set(args);
 }
 
 int Sound::loop(bool loop)
