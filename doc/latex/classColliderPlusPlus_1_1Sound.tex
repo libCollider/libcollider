@@ -31,6 +31,14 @@ This class represents a user manipulable Soundfile Player, essentially mirroring
 int \hyperlink{classColliderPlusPlus_1_1Sound_aad17d4b990faae4cf90c281e33d06155}{loop} (bool loop)
 \end{DoxyCompactItemize}
 \end{Indent}
+\begin{Indent}{\bf Sound Parameter Functions}\par
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{classColliderPlusPlus_1_1Sound_ab64f46659f59a6d7b7bc206cca6402cf}{set\-Gain} (float gain)
+\item 
+void \hyperlink{classColliderPlusPlus_1_1Sound_a5bd234602a61929747697677d972fc30}{set\-Rate} (float rate\-Scalar)
+\end{DoxyCompactItemize}
+\end{Indent}
 
 
 \subsection{Detailed Description}
@@ -47,6 +55,30 @@ This class represents a user manipulable Soundfile Player, essentially mirroring
 Set the looping state false = no looping, true = looping 
 \begin{DoxyParams}[1]{Parameters}
 \mbox{\tt in}  & {\em bool} & loop \\
+\hline
+\end{DoxyParams}
+\hypertarget{classColliderPlusPlus_1_1Sound_ab64f46659f59a6d7b7bc206cca6402cf}{\index{Collider\-Plus\-Plus\-::\-Sound@{Collider\-Plus\-Plus\-::\-Sound}!set\-Gain@{set\-Gain}}
+\index{set\-Gain@{set\-Gain}!ColliderPlusPlus::Sound@{Collider\-Plus\-Plus\-::\-Sound}}
+\subsubsection[{set\-Gain}]{\setlength{\rightskip}{0pt plus 5cm}void Collider\-Plus\-Plus\-::\-Sound\-::set\-Gain (
+\begin{DoxyParamCaption}
+\item[{float}]{gain}
+\end{DoxyParamCaption}
+)}}\label{classColliderPlusPlus_1_1Sound_ab64f46659f59a6d7b7bc206cca6402cf}
+Set the current gain from 0 -\/ 1 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em float} & gain \\
+\hline
+\end{DoxyParams}
+\hypertarget{classColliderPlusPlus_1_1Sound_a5bd234602a61929747697677d972fc30}{\index{Collider\-Plus\-Plus\-::\-Sound@{Collider\-Plus\-Plus\-::\-Sound}!set\-Rate@{set\-Rate}}
+\index{set\-Rate@{set\-Rate}!ColliderPlusPlus::Sound@{Collider\-Plus\-Plus\-::\-Sound}}
+\subsubsection[{set\-Rate}]{\setlength{\rightskip}{0pt plus 5cm}void Collider\-Plus\-Plus\-::\-Sound\-::set\-Rate (
+\begin{DoxyParamCaption}
+\item[{float}]{rate\-Scalar}
+\end{DoxyParamCaption}
+)}}\label{classColliderPlusPlus_1_1Sound_a5bd234602a61929747697677d972fc30}
+Set the current playback rate 1 is regular, 2 is double speed, .5 half speed etc. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em float} & rate\-Scalar \\
 \hline
 \end{DoxyParams}
 

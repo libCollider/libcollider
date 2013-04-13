@@ -120,6 +120,11 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 <tr class="separator:a7010e6bcdd47d51b359c364883574a5d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aad17d4b990faae4cf90c281e33d06155"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classColliderPlusPlus_1_1Sound.html#aad17d4b990faae4cf90c281e33d06155">loop</a> (bool loop)</td></tr>
 <tr class="separator:aad17d4b990faae4cf90c281e33d06155"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr><td colspan="2"><div class="groupHeader">Sound Parameter Functions</div></td></tr>
+<tr class="memitem:ab64f46659f59a6d7b7bc206cca6402cf"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classColliderPlusPlus_1_1Sound.html#ab64f46659f59a6d7b7bc206cca6402cf">setGain</a> (float gain)</td></tr>
+<tr class="separator:ab64f46659f59a6d7b7bc206cca6402cf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5bd234602a61929747697677d972fc30"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classColliderPlusPlus_1_1Sound.html#a5bd234602a61929747697677d972fc30">setRate</a> (float rateScalar)</td></tr>
+<tr class="separator:a5bd234602a61929747697677d972fc30"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>This class represents a user manipulable Soundfile Player, essentially mirroring the OAS class of the same name by Shreenidhi Chowkwale  <a href="https://github.com/CalVR/Open-Audio-Server/blob/master/client/src/Sound.h">https://github.com/CalVR/Open-Audio-Server/blob/master/client/src/Sound.h</a>. </p>
@@ -147,13 +152,59 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 
 </div>
 </div>
+<a class="anchor" id="ab64f46659f59a6d7b7bc206cca6402cf"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ColliderPlusPlus::Sound::setGain </td>
+          <td>(</td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>gain</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Set the current gain from 0 - 1 </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">float</td><td>gain </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="a5bd234602a61929747697677d972fc30"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ColliderPlusPlus::Sound::setRate </td>
+          <td>(</td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>rateScalar</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Set the current playback rate 1 is regular, 2 is double speed, .5 half speed etc. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">float</td><td>rateScalar </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following file:<ul>
 <li>include/<a class="el" href="Sound_8hpp_source.html">Sound.hpp</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed Apr 10 2013 14:57:39 for libCollider++ by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sat Apr 13 2013 08:06:22 for libCollider++ by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.3.1-20130209
 </small></address>
