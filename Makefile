@@ -12,6 +12,7 @@ ifeq ($(UNAME), Linux)
 endif
 
 INSTALL_DIR = /usr/lib/
+INCLUDE_DIR = /usr/include/
 
 libcolliderpp: tnyosc-dispatch.o Client_Server.o Buffer.o Bus.o Node.o Sound.o 
 	gcc -$(libtype) -o libcollider++.$(libsuffix) src/tnyosc-dispatch.o src/Client_Server.o src/Buffer.o src/Bus.o src/Node.o src/Sound.o -lstdc++ 
@@ -39,7 +40,10 @@ clean:
 
 install:
 	cp build/libcollider++.$(libsuffix) $(INSTALL_DIR)
+	mkdir -p $(INCLUDE_DIR)ColliderPlusPlus
+	cp -r include/* $(INCLUDE_DIR)ColliderPlusPlus
 	chmod 0755 $(INSTALL_DIR)libcollider++.$(libsuffix)
 
 uninstall:
 	rm $(INSTALL_DIR)libcollider++.$(libsuffix)
+	rm -r $(INCLUDE_DIR)ColliderPlusPlus
