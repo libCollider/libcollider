@@ -1,0 +1,88 @@
+\hypertarget{classsc_1_1Sound}{\section{sc\-:\-:Sound Class Reference}
+\label{classsc_1_1Sound}\index{sc\-::\-Sound@{sc\-::\-Sound}}
+}
+
+
+This class represents a user manipulable Soundfile Player, essentially mirroring the O\-A\-S class of the same name by Shreenidhi Chowkwale  \href{https://github.com/CalVR/Open-Audio-Server/blob/master/client/src/Sound.h}{\tt https\-://github.\-com/\-Cal\-V\-R/\-Open-\/\-Audio-\/\-Server/blob/master/client/src/\-Sound.\-h}.  
+
+
+
+
+{\ttfamily \#include $<$Sound.\-hpp$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{classsc_1_1Sound_a658cbf07e4afe2f9b0429a070a17d339}{\hyperlink{classsc_1_1Sound_a658cbf07e4afe2f9b0429a070a17d339}{Sound} (\hyperlink{classsc_1_1SCServer}{S\-C\-Server} $\ast$other, const std\-::string \&filepath, int init\-Action=0)}\label{classsc_1_1Sound_a658cbf07e4afe2f9b0429a070a17d339}
+
+\begin{DoxyCompactList}\small\item\em Create a new sound source. \end{DoxyCompactList}\item 
+\hypertarget{classsc_1_1Sound_ac05e395b00c36c796bb8aa707d1011af}{\hyperlink{classsc_1_1Sound_ac05e395b00c36c796bb8aa707d1011af}{$\sim$\-Sound} ()}\label{classsc_1_1Sound_ac05e395b00c36c796bb8aa707d1011af}
+
+\begin{DoxyCompactList}\small\item\em Deallocates server-\/side buffer associated with this instance. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{Indent}{\bf Playback Functions}\par
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{classsc_1_1Sound_a491c7b5026a733fa09df9b3ce38b32ba}{void \hyperlink{classsc_1_1Sound_a491c7b5026a733fa09df9b3ce38b32ba}{play} ()}\label{classsc_1_1Sound_a491c7b5026a733fa09df9b3ce38b32ba}
+
+\begin{DoxyCompactList}\small\item\em Play the sound source from the last position. \end{DoxyCompactList}\item 
+\hypertarget{classsc_1_1Sound_aaf5d0d8f2c5089445e0175ee415cdf0c}{void \hyperlink{classsc_1_1Sound_aaf5d0d8f2c5089445e0175ee415cdf0c}{stop} ()}\label{classsc_1_1Sound_aaf5d0d8f2c5089445e0175ee415cdf0c}
+
+\begin{DoxyCompactList}\small\item\em Pauses the sound source at the current playback position. \end{DoxyCompactList}\item 
+int \hyperlink{classsc_1_1Sound_a943faed99ce5d92f889aae1a908265c7}{set\-Loop} (bool loop)
+\end{DoxyCompactItemize}
+\end{Indent}
+\begin{Indent}{\bf Sound Parameter Functions}\par
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{classsc_1_1Sound_a443df566abe97dcf23a879a971310d23}{set\-Gain} (float gain)
+\item 
+void \hyperlink{classsc_1_1Sound_a358d46a4cfd52b885bcb1cbd1715893c}{set\-Rate} (float rate\-Scalar)
+\end{DoxyCompactItemize}
+\end{Indent}
+
+
+\subsection{Detailed Description}
+This class represents a user manipulable Soundfile Player, essentially mirroring the O\-A\-S class of the same name by Shreenidhi Chowkwale  \href{https://github.com/CalVR/Open-Audio-Server/blob/master/client/src/Sound.h}{\tt https\-://github.\-com/\-Cal\-V\-R/\-Open-\/\-Audio-\/\-Server/blob/master/client/src/\-Sound.\-h}. 
+
+\subsection{Member Function Documentation}
+\hypertarget{classsc_1_1Sound_a443df566abe97dcf23a879a971310d23}{\index{sc\-::\-Sound@{sc\-::\-Sound}!set\-Gain@{set\-Gain}}
+\index{set\-Gain@{set\-Gain}!sc::Sound@{sc\-::\-Sound}}
+\subsubsection[{set\-Gain}]{\setlength{\rightskip}{0pt plus 5cm}void sc\-::\-Sound\-::set\-Gain (
+\begin{DoxyParamCaption}
+\item[{float}]{gain}
+\end{DoxyParamCaption}
+)}}\label{classsc_1_1Sound_a443df566abe97dcf23a879a971310d23}
+Set the current gain from 0 -\/ 1 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em float} & gain \\
+\hline
+\end{DoxyParams}
+\hypertarget{classsc_1_1Sound_a943faed99ce5d92f889aae1a908265c7}{\index{sc\-::\-Sound@{sc\-::\-Sound}!set\-Loop@{set\-Loop}}
+\index{set\-Loop@{set\-Loop}!sc::Sound@{sc\-::\-Sound}}
+\subsubsection[{set\-Loop}]{\setlength{\rightskip}{0pt plus 5cm}int sc\-::\-Sound\-::set\-Loop (
+\begin{DoxyParamCaption}
+\item[{bool}]{loop}
+\end{DoxyParamCaption}
+)}}\label{classsc_1_1Sound_a943faed99ce5d92f889aae1a908265c7}
+Set the looping state false = no looping, true = looping 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em bool} & loop \\
+\hline
+\end{DoxyParams}
+\hypertarget{classsc_1_1Sound_a358d46a4cfd52b885bcb1cbd1715893c}{\index{sc\-::\-Sound@{sc\-::\-Sound}!set\-Rate@{set\-Rate}}
+\index{set\-Rate@{set\-Rate}!sc::Sound@{sc\-::\-Sound}}
+\subsubsection[{set\-Rate}]{\setlength{\rightskip}{0pt plus 5cm}void sc\-::\-Sound\-::set\-Rate (
+\begin{DoxyParamCaption}
+\item[{float}]{rate\-Scalar}
+\end{DoxyParamCaption}
+)}}\label{classsc_1_1Sound_a358d46a4cfd52b885bcb1cbd1715893c}
+Set the current playback rate 1 is regular, 2 is double speed, .5 half speed etc. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em float} & rate\-Scalar \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+include/\hyperlink{Sound_8hpp}{Sound.\-hpp}\end{DoxyCompactItemize}

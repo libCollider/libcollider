@@ -1,11 +1,11 @@
 var searchData=
 [
-  ['_7ebuffer',['~Buffer',['../classColliderPlusPlus_1_1Buffer.html#a62178f1cb35c5654c0b16d78526de7e8',1,'ColliderPlusPlus::Buffer']]],
-  ['_7ebus',['~Bus',['../classColliderPlusPlus_1_1Bus.html#a3940fb5fc3ab9d5b84c35fc1c9bd7ebe',1,'ColliderPlusPlus::Bus']]],
-  ['_7eclient_5fserver',['~Client_Server',['../classColliderPlusPlus_1_1Client__Server.html#a462cbd7e74b2c5f5073865e29d528505',1,'ColliderPlusPlus::Client_Server']]],
-  ['_7egroup',['~Group',['../classColliderPlusPlus_1_1Group.html#aa7f0bbd9db8735ee8dc5fdfc8c7239cf',1,'ColliderPlusPlus::Group']]],
-  ['_7enode',['~Node',['../classColliderPlusPlus_1_1Node.html#ae1198291ae5d81dd34474b7cf52438cd',1,'ColliderPlusPlus::Node']]],
-  ['_7erootnode',['~RootNode',['../classColliderPlusPlus_1_1RootNode.html#a0b1f3caa18d7176ec4766990cadb48c4',1,'ColliderPlusPlus::RootNode']]],
-  ['_7esound',['~Sound',['../classColliderPlusPlus_1_1Sound.html#a0ae9f80837e343e016952def28815072',1,'ColliderPlusPlus::Sound']]],
-  ['_7esynth',['~Synth',['../classColliderPlusPlus_1_1Synth.html#a1fb61bf548db414b4dc543eac83216ae',1,'ColliderPlusPlus::Synth']]]
+  ['_7ebuffer',['~Buffer',['../classsc_1_1Buffer.html#ab9ef17039f271262d3c3dbc979cdc85d',1,'sc::Buffer']]],
+  ['_7ebus',['~Bus',['../classsc_1_1Bus.html#acfbc415ad3d4399e21e6ffceae1767af',1,'sc::Bus']]],
+  ['_7egroup',['~Group',['../classsc_1_1Group.html#a10466798a0549aa877931be7ad226d63',1,'sc::Group']]],
+  ['_7enode',['~Node',['../classsc_1_1Node.html#a12fa05f533aa00bf553b9a46db1fcd45',1,'sc::Node']]],
+  ['_7erootnode',['~RootNode',['../classsc_1_1RootNode.html#a6dc8c84f94d46d7586cbcbd059b64a41',1,'sc::RootNode']]],
+  ['_7escserver',['~SCServer',['../classsc_1_1SCServer.html#a673ad092d5d67da3be3aa04f2ac19ec6',1,'sc::SCServer']]],
+  ['_7esound',['~Sound',['../classsc_1_1Sound.html#ac05e395b00c36c796bb8aa707d1011af',1,'sc::Sound']]],
+  ['_7esynth',['~Synth',['../classsc_1_1Synth.html#a1b52cbfb16f211e3d5ae909eed6420eb',1,'sc::Synth']]]
 ];

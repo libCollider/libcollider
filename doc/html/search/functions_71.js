@@ -1,8 +1,8 @@
 var searchData=
 [
-  ['query',['query',['../classColliderPlusPlus_1_1Node.html#ac5bcb8776e2a46de4746882e1c3ab3f8',1,'ColliderPlusPlus::Node']]],
-  ['querybuffer',['queryBuffer',['../classColliderPlusPlus_1_1Client__Server.html#a8813b8acfb68ee8e75486303ba373f23',1,'ColliderPlusPlus::Client_Server']]],
-  ['querynode',['queryNode',['../classColliderPlusPlus_1_1Client__Server.html#a24847ad20895ba57d1244768c90ddda1',1,'ColliderPlusPlus::Client_Server']]],
-  ['querynodetree',['queryNodeTree',['../classColliderPlusPlus_1_1Client__Server.html#aa8924710d457d023118ead6f05076335',1,'ColliderPlusPlus::Client_Server']]],
-  ['quit',['quit',['../classColliderPlusPlus_1_1Client__Server.html#ab00723903fd13e9e368cc912c7775c00',1,'ColliderPlusPlus::Client_Server']]]
+  ['query',['query',['../classsc_1_1Node.html#a349c4d4891b78f7a495d4b646feae3a1',1,'sc::Node']]],
+  ['querybuffer',['queryBuffer',['../classsc_1_1SCServer.html#acbd0a404dbd4e2cc98e46d088643908b',1,'sc::SCServer']]],
+  ['querynode',['queryNode',['../classsc_1_1SCServer.html#a775f079ad6a09282356ae161b186e345',1,'sc::SCServer']]],
+  ['querynodetree',['queryNodeTree',['../classsc_1_1SCServer.html#ad057f9ca7dab818c259f95f41e3a575e',1,'sc::SCServer']]],
+  ['quit',['quit',['../classsc_1_1SCServer.html#aa148428f939df4dbad71639a3273f312',1,'sc::SCServer']]]
 ];

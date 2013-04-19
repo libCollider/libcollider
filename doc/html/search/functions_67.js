@@ -1,13 +1,13 @@
 var searchData=
 [
-  ['getbufnum',['getBufNum',['../classColliderPlusPlus_1_1Buffer.html#a0c00584a7afb6fc0e0a8791cd4a8f0b5',1,'ColliderPlusPlus::Buffer']]],
-  ['getchannum',['getChanNum',['../classColliderPlusPlus_1_1Buffer.html#a8f782a6d9a03b47ddaa3067e4c09bc63',1,'ColliderPlusPlus::Buffer']]],
-  ['getclientserver',['getClientServer',['../classColliderPlusPlus_1_1Node.html#a41449e5eb6d9e9233554ebcec371a5ba',1,'ColliderPlusPlus::Node']]],
-  ['getdefname',['getDefName',['../classColliderPlusPlus_1_1Node.html#a40acccb0f1661a08404ee9dcdb27f051',1,'ColliderPlusPlus::Node']]],
-  ['getframenum',['getFrameNum',['../classColliderPlusPlus_1_1Buffer.html#a59f84ebba0ce0c7707dbf37ef8a9ac0f',1,'ColliderPlusPlus::Buffer']]],
-  ['getid',['getId',['../classColliderPlusPlus_1_1Node.html#a8fe1785ce07ad46c422c7451f21a30fb',1,'ColliderPlusPlus::Node']]],
-  ['getmanuallyfreed',['getManuallyFreed',['../classColliderPlusPlus_1_1Buffer.html#a021329a8faaecd4ebb58b291b1ded6c4',1,'ColliderPlusPlus::Buffer::getManuallyFreed()'],['../classColliderPlusPlus_1_1Node.html#ab91b556772c61c19f4e622b754d8b424',1,'ColliderPlusPlus::Node::getManuallyFreed()']]],
-  ['getname',['getName',['../classColliderPlusPlus_1_1Client__Server.html#a060d9265bec3d3e1b0075dda129f8c58',1,'ColliderPlusPlus::Client_Server']]],
-  ['getsamprate',['getSampRate',['../classColliderPlusPlus_1_1Buffer.html#aa0c5ce2e5ede311b515b7748fc7074d5',1,'ColliderPlusPlus::Buffer']]],
-  ['group',['Group',['../classColliderPlusPlus_1_1Group.html#aa02ffbe182d42ab7d58e64791ea1d8b8',1,'ColliderPlusPlus::Group']]]
+  ['getbufnum',['getBufNum',['../classsc_1_1Buffer.html#af777b92a6ba7b4330fb9958141282cc9',1,'sc::Buffer']]],
+  ['getchannum',['getChanNum',['../classsc_1_1Buffer.html#a57f2455044a2303a1fba1d17e2a7470c',1,'sc::Buffer']]],
+  ['getclientserver',['getClientServer',['../classsc_1_1Node.html#ae62cc58163364d644cfa9df669594d4f',1,'sc::Node']]],
+  ['getdefname',['getDefName',['../classsc_1_1Node.html#a7b6432f40057dc5f8f4d860defe3889a',1,'sc::Node']]],
+  ['getframenum',['getFrameNum',['../classsc_1_1Buffer.html#a591c50bcaae889d763ff28688febeb71',1,'sc::Buffer']]],
+  ['getid',['getId',['../classsc_1_1Node.html#ae9fd8f68186f13b1402c542192b98e63',1,'sc::Node']]],
+  ['getmanuallyfreed',['getManuallyFreed',['../classsc_1_1Buffer.html#aa3002f528e1eda702d29626004069491',1,'sc::Buffer::getManuallyFreed()'],['../classsc_1_1Node.html#afc9868d6f3186648f4ab178929531003',1,'sc::Node::getManuallyFreed()']]],
+  ['getname',['getName',['../classsc_1_1SCServer.html#a663f38241749842d676f29463edb9c22',1,'sc::SCServer']]],
+  ['getsamprate',['getSampRate',['../classsc_1_1Buffer.html#a15c75bed82addc4ec16b74e98e5ee770',1,'sc::Buffer']]],
+  ['group',['Group',['../classsc_1_1Group.html#a091ad4312c030cd0cde27ef2aac7cbbd',1,'sc::Group']]]
 ];

@@ -1,0 +1,192 @@
+\hypertarget{classsc_1_1Node}{\section{sc\-:\-:Node Class Reference}
+\label{classsc_1_1Node}\index{sc\-::\-Node@{sc\-::\-Node}}
+}
+
+
+This class represents a client-\/side version of a server node (\hyperlink{classsc_1_1Synth}{Synth} or \hyperlink{classsc_1_1Group}{Group})  
+
+
+
+
+{\ttfamily \#include $<$Node.\-hpp$>$}
+
+Inheritance diagram for sc\-:\-:Node\-:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{classsc_1_1Node}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classsc_1_1Node_aebe6b60f2f6312495480d0a2e01c7efa}{Node} (\hyperlink{classsc_1_1SCServer}{S\-C\-Server} $\ast$other, const std\-::string \&def\-Name, int id\-\_\-)
+\item 
+\hypertarget{classsc_1_1Node_a12fa05f533aa00bf553b9a46db1fcd45}{\hyperlink{classsc_1_1Node_a12fa05f533aa00bf553b9a46db1fcd45}{$\sim$\-Node} ()}\label{classsc_1_1Node_a12fa05f533aa00bf553b9a46db1fcd45}
+
+\begin{DoxyCompactList}\small\item\em Destructor. \end{DoxyCompactList}\item 
+int \hyperlink{classsc_1_1Node_ae9fd8f68186f13b1402c542192b98e63}{get\-Id} () const 
+\item 
+\hypertarget{classsc_1_1Node_a21719bc1c64204fe09351e42f2dc4894}{void \hyperlink{classsc_1_1Node_a21719bc1c64204fe09351e42f2dc4894}{run} ()}\label{classsc_1_1Node_a21719bc1c64204fe09351e42f2dc4894}
+
+\begin{DoxyCompactList}\small\item\em Command the server to run this \hyperlink{classsc_1_1Node}{Node}. \end{DoxyCompactList}\item 
+\hypertarget{classsc_1_1Node_add380fd85522a490d326a49e3278df4e}{void \hyperlink{classsc_1_1Node_add380fd85522a490d326a49e3278df4e}{stop} ()}\label{classsc_1_1Node_add380fd85522a490d326a49e3278df4e}
+
+\begin{DoxyCompactList}\small\item\em Command the server to stop this \hyperlink{classsc_1_1Node}{Node}. \end{DoxyCompactList}\item 
+\hypertarget{classsc_1_1Node_a5e78540a85cd945dabb0f5cf9571fd03}{void \hyperlink{classsc_1_1Node_a5e78540a85cd945dabb0f5cf9571fd03}{free} ()}\label{classsc_1_1Node_a5e78540a85cd945dabb0f5cf9571fd03}
+
+\begin{DoxyCompactList}\small\item\em Command the server to free this \hyperlink{classsc_1_1Node}{Node}. \end{DoxyCompactList}\item 
+bool \hyperlink{classsc_1_1Node_a551ece6304c94df930d59bc6fe13b6ba}{is\-Playing} () const 
+\item 
+bool \hyperlink{classsc_1_1Node_a3aa0c120ba5a7983e7b0e2f8ba6ace73}{is\-Running} () const 
+\item 
+bool \hyperlink{classsc_1_1Node_afc9868d6f3186648f4ab178929531003}{get\-Manually\-Freed} () const 
+\item 
+std\-::string \hyperlink{classsc_1_1Node_a7b6432f40057dc5f8f4d860defe3889a}{get\-Def\-Name} () const 
+\item 
+\hyperlink{classsc_1_1SCServer}{S\-C\-Server} $\ast$ \hyperlink{classsc_1_1Node_ae62cc58163364d644cfa9df669594d4f}{get\-Client\-Server} () const 
+\item 
+\hypertarget{classsc_1_1Node_a349c4d4891b78f7a495d4b646feae3a1}{void \hyperlink{classsc_1_1Node_a349c4d4891b78f7a495d4b646feae3a1}{query} ()}\label{classsc_1_1Node_a349c4d4891b78f7a495d4b646feae3a1}
+
+\begin{DoxyCompactList}\small\item\em Query the server for this \hyperlink{classsc_1_1Node}{Node}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{Indent}{\bf Control and Bus Mapping Functions}\par
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{classsc_1_1Node_af29f544918afd0a212450c189e525224}{set} (std\-::map$<$ std\-::string, float $>$ \&control\-Vals)
+\item 
+void \hyperlink{classsc_1_1Node_a66e25d5cdfe57e7b9930a121fcc1d3ce}{setn} (std\-::map$<$ std\-::string, float\mbox{[}$\,$\mbox{]}$>$ \&control\-Ranges)
+\item 
+void \hyperlink{classsc_1_1Node_ac1c3c7c888c46c4f731862871d2dea7b}{bus\-Map} (std\-::map$<$ std\-::string, \hyperlink{classsc_1_1Bus}{Bus} $>$ \&map)
+\end{DoxyCompactItemize}
+\end{Indent}
+
+
+\subsection{Detailed Description}
+This class represents a client-\/side version of a server node (\hyperlink{classsc_1_1Synth}{Synth} or \hyperlink{classsc_1_1Group}{Group}) 
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classsc_1_1Node_aebe6b60f2f6312495480d0a2e01c7efa}{\index{sc\-::\-Node@{sc\-::\-Node}!Node@{Node}}
+\index{Node@{Node}!sc::Node@{sc\-::\-Node}}
+\subsubsection[{Node}]{\setlength{\rightskip}{0pt plus 5cm}sc\-::\-Node\-::\-Node (
+\begin{DoxyParamCaption}
+\item[{{\bf S\-C\-Server} $\ast$}]{other, }
+\item[{const std\-::string \&}]{def\-Name, }
+\item[{int}]{id\-\_\-}
+\end{DoxyParamCaption}
+)}}\label{classsc_1_1Node_aebe6b60f2f6312495480d0a2e01c7efa}
+Create a \hyperlink{classsc_1_1Node}{Node} with a user defined name and Id 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em const} & std\-::string\& Name \\
+\hline
+\mbox{\tt in}  & {\em int} & Id \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classsc_1_1Node_ac1c3c7c888c46c4f731862871d2dea7b}{\index{sc\-::\-Node@{sc\-::\-Node}!bus\-Map@{bus\-Map}}
+\index{bus\-Map@{bus\-Map}!sc::Node@{sc\-::\-Node}}
+\subsubsection[{bus\-Map}]{\setlength{\rightskip}{0pt plus 5cm}void sc\-::\-Node\-::bus\-Map (
+\begin{DoxyParamCaption}
+\item[{std\-::map$<$ std\-::string, {\bf Bus} $>$ \&}]{map}
+\end{DoxyParamCaption}
+)}}\label{classsc_1_1Node_ac1c3c7c888c46c4f731862871d2dea7b}
+Set this \hyperlink{classsc_1_1Node}{Node} with specified bus mappings 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em S\-C\-Server\&} & \hyperlink{classsc_1_1SCServer}{S\-C\-Server} instance \\
+\hline
+\mbox{\tt in}  & {\em std\-::map$<$std\-::string,Bus$>$\&} & map \\
+\hline
+\end{DoxyParams}
+\hypertarget{classsc_1_1Node_ae62cc58163364d644cfa9df669594d4f}{\index{sc\-::\-Node@{sc\-::\-Node}!get\-Client\-Server@{get\-Client\-Server}}
+\index{get\-Client\-Server@{get\-Client\-Server}!sc::Node@{sc\-::\-Node}}
+\subsubsection[{get\-Client\-Server}]{\setlength{\rightskip}{0pt plus 5cm}{\bf S\-C\-Server}$\ast$ sc\-::\-Node\-::get\-Client\-Server (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}}\label{classsc_1_1Node_ae62cc58163364d644cfa9df669594d4f}
+Return this \hyperlink{classsc_1_1Node}{Node}'s \hyperlink{classsc_1_1SCServer}{S\-C\-Server} pointer \begin{DoxyReturn}{Returns}
+cs 
+\end{DoxyReturn}
+\hypertarget{classsc_1_1Node_a7b6432f40057dc5f8f4d860defe3889a}{\index{sc\-::\-Node@{sc\-::\-Node}!get\-Def\-Name@{get\-Def\-Name}}
+\index{get\-Def\-Name@{get\-Def\-Name}!sc::Node@{sc\-::\-Node}}
+\subsubsection[{get\-Def\-Name}]{\setlength{\rightskip}{0pt plus 5cm}std\-::string sc\-::\-Node\-::get\-Def\-Name (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}}\label{classsc_1_1Node_a7b6432f40057dc5f8f4d860defe3889a}
+Returns the name of this \hyperlink{classsc_1_1Node}{Node} \begin{DoxyReturn}{Returns}
+def\-Name 
+\end{DoxyReturn}
+\hypertarget{classsc_1_1Node_ae9fd8f68186f13b1402c542192b98e63}{\index{sc\-::\-Node@{sc\-::\-Node}!get\-Id@{get\-Id}}
+\index{get\-Id@{get\-Id}!sc::Node@{sc\-::\-Node}}
+\subsubsection[{get\-Id}]{\setlength{\rightskip}{0pt plus 5cm}int sc\-::\-Node\-::get\-Id (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}}\label{classsc_1_1Node_ae9fd8f68186f13b1402c542192b98e63}
+Returns the Id of this \hyperlink{classsc_1_1Node}{Node} \begin{DoxyReturn}{Returns}
+id 
+\end{DoxyReturn}
+\hypertarget{classsc_1_1Node_afc9868d6f3186648f4ab178929531003}{\index{sc\-::\-Node@{sc\-::\-Node}!get\-Manually\-Freed@{get\-Manually\-Freed}}
+\index{get\-Manually\-Freed@{get\-Manually\-Freed}!sc::Node@{sc\-::\-Node}}
+\subsubsection[{get\-Manually\-Freed}]{\setlength{\rightskip}{0pt plus 5cm}bool sc\-::\-Node\-::get\-Manually\-Freed (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}}\label{classsc_1_1Node_afc9868d6f3186648f4ab178929531003}
+Returns true if the \hyperlink{classsc_1_1Node}{Node} was freed from the server by calling \hyperlink{classsc_1_1Node_a5e78540a85cd945dabb0f5cf9571fd03}{free()} B\-E\-F\-O\-R\-E the destructor of this \hyperlink{classsc_1_1Node}{Node} is called \begin{DoxyReturn}{Returns}
+true if freed from server with \hyperlink{classsc_1_1Node_a5e78540a85cd945dabb0f5cf9571fd03}{free()} prior to destruction 
+\end{DoxyReturn}
+\hypertarget{classsc_1_1Node_a551ece6304c94df930d59bc6fe13b6ba}{\index{sc\-::\-Node@{sc\-::\-Node}!is\-Playing@{is\-Playing}}
+\index{is\-Playing@{is\-Playing}!sc::Node@{sc\-::\-Node}}
+\subsubsection[{is\-Playing}]{\setlength{\rightskip}{0pt plus 5cm}bool sc\-::\-Node\-::is\-Playing (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}}\label{classsc_1_1Node_a551ece6304c94df930d59bc6fe13b6ba}
+Returns true if this \hyperlink{classsc_1_1Node}{Node} is currently playing, else false \begin{DoxyReturn}{Returns}
+true if currently playing, else false 
+\end{DoxyReturn}
+\hypertarget{classsc_1_1Node_a3aa0c120ba5a7983e7b0e2f8ba6ace73}{\index{sc\-::\-Node@{sc\-::\-Node}!is\-Running@{is\-Running}}
+\index{is\-Running@{is\-Running}!sc::Node@{sc\-::\-Node}}
+\subsubsection[{is\-Running}]{\setlength{\rightskip}{0pt plus 5cm}bool sc\-::\-Node\-::is\-Running (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}}\label{classsc_1_1Node_a3aa0c120ba5a7983e7b0e2f8ba6ace73}
+Returns true if this \hyperlink{classsc_1_1Node}{Node} is currently running, else false \begin{DoxyReturn}{Returns}
+true if currently running, else false 
+\end{DoxyReturn}
+\hypertarget{classsc_1_1Node_af29f544918afd0a212450c189e525224}{\index{sc\-::\-Node@{sc\-::\-Node}!set@{set}}
+\index{set@{set}!sc::Node@{sc\-::\-Node}}
+\subsubsection[{set}]{\setlength{\rightskip}{0pt plus 5cm}void sc\-::\-Node\-::set (
+\begin{DoxyParamCaption}
+\item[{std\-::map$<$ std\-::string, float $>$ \&}]{control\-Vals}
+\end{DoxyParamCaption}
+)}}\label{classsc_1_1Node_af29f544918afd0a212450c189e525224}
+Set this \hyperlink{classsc_1_1Node}{Node} with specified control values 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em S\-C\-Server\&} & \hyperlink{classsc_1_1SCServer}{S\-C\-Server} instance \\
+\hline
+\mbox{\tt in}  & {\em std\-::map$<$std\-::string,float$>$\&} & Control Values \\
+\hline
+\end{DoxyParams}
+\hypertarget{classsc_1_1Node_a66e25d5cdfe57e7b9930a121fcc1d3ce}{\index{sc\-::\-Node@{sc\-::\-Node}!setn@{setn}}
+\index{setn@{setn}!sc::Node@{sc\-::\-Node}}
+\subsubsection[{setn}]{\setlength{\rightskip}{0pt plus 5cm}void sc\-::\-Node\-::setn (
+\begin{DoxyParamCaption}
+\item[{std\-::map$<$ std\-::string, float\mbox{[}$\,$\mbox{]}$>$ \&}]{control\-Ranges}
+\end{DoxyParamCaption}
+)}}\label{classsc_1_1Node_a66e25d5cdfe57e7b9930a121fcc1d3ce}
+Set this \hyperlink{classsc_1_1Node}{Node} with specified control range values 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em S\-C\-Server\&} & \hyperlink{classsc_1_1SCServer}{S\-C\-Server} instance \\
+\hline
+\mbox{\tt in}  & {\em std\-::map$<$std\-::string,float\mbox{[}$\,$\mbox{]}$>$\&} & Control Ranges \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+include/\hyperlink{Node_8hpp}{Node.\-hpp}\end{DoxyCompactItemize}

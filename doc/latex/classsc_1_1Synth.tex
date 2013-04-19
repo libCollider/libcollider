@@ -1,0 +1,92 @@
+\hypertarget{classsc_1_1Synth}{\section{sc\-:\-:Synth Class Reference}
+\label{classsc_1_1Synth}\index{sc\-::\-Synth@{sc\-::\-Synth}}
+}
+
+
+This class represents a client-\/side version of a server synth.  
+
+
+
+
+{\ttfamily \#include $<$Node.\-hpp$>$}
+
+Inheritance diagram for sc\-:\-:Synth\-:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classsc_1_1Synth}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classsc_1_1Synth_ab3bf5c5976bd7c0bcbaa8cae4cb4be8d}{Synth} (\hyperlink{classsc_1_1SCServer}{S\-C\-Server} $\ast$other, const std\-::string \&def\-Name, int id\-\_\-, int init\-Action=0, int add\-Action=T\-O\-\_\-\-H\-E\-A\-D, int target=D\-E\-F\-A\-U\-L\-T\-\_\-\-G\-R\-O\-U\-P)
+\item 
+\hyperlink{classsc_1_1Synth_af48d7363fd76ffe704559705f5011328}{Synth} (\hyperlink{classsc_1_1SCServer}{S\-C\-Server} $\ast$other, const std\-::string \&def\-Name, int id\-\_\-, std\-::map$<$ std\-::string, float $>$ \&args, int init\-Action=0, int add\-Action=T\-O\-\_\-\-H\-E\-A\-D, int target=D\-E\-F\-A\-U\-L\-T\-\_\-\-G\-R\-O\-U\-P)
+\item 
+\hypertarget{classsc_1_1Synth_a1b52cbfb16f211e3d5ae909eed6420eb}{\hyperlink{classsc_1_1Synth_a1b52cbfb16f211e3d5ae909eed6420eb}{$\sim$\-Synth} ()}\label{classsc_1_1Synth_a1b52cbfb16f211e3d5ae909eed6420eb}
+
+\begin{DoxyCompactList}\small\item\em Destructor. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+This class represents a client-\/side version of a server synth. 
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classsc_1_1Synth_ab3bf5c5976bd7c0bcbaa8cae4cb4be8d}{\index{sc\-::\-Synth@{sc\-::\-Synth}!Synth@{Synth}}
+\index{Synth@{Synth}!sc::Synth@{sc\-::\-Synth}}
+\subsubsection[{Synth}]{\setlength{\rightskip}{0pt plus 5cm}sc\-::\-Synth\-::\-Synth (
+\begin{DoxyParamCaption}
+\item[{{\bf S\-C\-Server} $\ast$}]{other, }
+\item[{const std\-::string \&}]{def\-Name, }
+\item[{int}]{id\-\_\-, }
+\item[{int}]{init\-Action = {\ttfamily 0}, }
+\item[{int}]{add\-Action = {\ttfamily TO\-\_\-HEAD}, }
+\item[{int}]{target = {\ttfamily DEFAULT\-\_\-GROUP}}
+\end{DoxyParamCaption}
+)}}\label{classsc_1_1Synth_ab3bf5c5976bd7c0bcbaa8cae4cb4be8d}
+Create a \hyperlink{classsc_1_1Synth}{Synth} with a user defined name, id, add\-Action, and target If no add\-Action is specified, this \hyperlink{classsc_1_1Synth}{Synth} is added to the head of target group If no target group is specified, this \hyperlink{classsc_1_1Synth}{Synth} is added to the Default \hyperlink{classsc_1_1Group}{Group} 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em S\-C\-Server\&} & \hyperlink{classsc_1_1SCServer}{S\-C\-Server} instance \\
+\hline
+\mbox{\tt in}  & {\em const} & std\-::string\& def\-Name \\
+\hline
+\mbox{\tt in}  & {\em int} & Id \\
+\hline
+\mbox{\tt in}  & {\em int} & Add Action \\
+\hline
+\mbox{\tt in}  & {\em int} & Target \hyperlink{classsc_1_1Group}{Group} \\
+\hline
+\end{DoxyParams}
+\hypertarget{classsc_1_1Synth_af48d7363fd76ffe704559705f5011328}{\index{sc\-::\-Synth@{sc\-::\-Synth}!Synth@{Synth}}
+\index{Synth@{Synth}!sc::Synth@{sc\-::\-Synth}}
+\subsubsection[{Synth}]{\setlength{\rightskip}{0pt plus 5cm}sc\-::\-Synth\-::\-Synth (
+\begin{DoxyParamCaption}
+\item[{{\bf S\-C\-Server} $\ast$}]{other, }
+\item[{const std\-::string \&}]{def\-Name, }
+\item[{int}]{id\-\_\-, }
+\item[{std\-::map$<$ std\-::string, float $>$ \&}]{args, }
+\item[{int}]{init\-Action = {\ttfamily 0}, }
+\item[{int}]{add\-Action = {\ttfamily TO\-\_\-HEAD}, }
+\item[{int}]{target = {\ttfamily DEFAULT\-\_\-GROUP}}
+\end{DoxyParamCaption}
+)}}\label{classsc_1_1Synth_af48d7363fd76ffe704559705f5011328}
+Create a \hyperlink{classsc_1_1Synth}{Synth} with a user defined name, id, \hyperlink{classsc_1_1Node}{Node} args, add\-Action, and target If no add\-Action is specified, this \hyperlink{classsc_1_1Synth}{Synth} is added to the head of target group If no target group is specified, this \hyperlink{classsc_1_1Synth}{Synth} is added to the Default \hyperlink{classsc_1_1Group}{Group} 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em S\-C\-Server\&} & \hyperlink{classsc_1_1SCServer}{S\-C\-Server} instance \\
+\hline
+\mbox{\tt in}  & {\em const} & std\-::string\& def\-Name \\
+\hline
+\mbox{\tt in}  & {\em int} & Id \\
+\hline
+\mbox{\tt in}  & {\em std\-::map$<$std\-::string,float$>$} & Args \\
+\hline
+\mbox{\tt in}  & {\em int} & Add Action \\
+\hline
+\mbox{\tt in}  & {\em int} & Target \hyperlink{classsc_1_1Group}{Group} \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+include/\hyperlink{Node_8hpp}{Node.\-hpp}\end{DoxyCompactItemize}

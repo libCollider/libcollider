@@ -1,0 +1,502 @@
+\hypertarget{classsc_1_1SCServer}{\section{sc\-:\-:S\-C\-Server Class Reference}
+\label{classsc_1_1SCServer}\index{sc\-::\-S\-C\-Server@{sc\-::\-S\-C\-Server}}
+}
+
+
+This class represents a client-\/side version of scsynth, the Super\-Collider audio server.  
+
+
+
+
+{\ttfamily \#include $<$S\-C\-Server.\-hpp$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{classsc_1_1SCServer_aaec728927e957f6190682760bb191661}{\hyperlink{classsc_1_1SCServer_aaec728927e957f6190682760bb191661}{S\-C\-Server} ()}\label{classsc_1_1SCServer_aaec728927e957f6190682760bb191661}
+
+\begin{DoxyCompactList}\small\item\em Create a default \hyperlink{classsc_1_1SCServer}{S\-C\-Server}. \end{DoxyCompactList}\item 
+\hyperlink{classsc_1_1SCServer_a5be05ff132abc5927e5ce3423978238d}{S\-C\-Server} (const std\-::string \&name, const char $\ast$host, const char $\ast$port, const std\-::string \&synth\-Def\-Dir)
+\item 
+\hypertarget{classsc_1_1SCServer_a673ad092d5d67da3be3aa04f2ac19ec6}{\hyperlink{classsc_1_1SCServer_a673ad092d5d67da3be3aa04f2ac19ec6}{$\sim$\-S\-C\-Server} ()}\label{classsc_1_1SCServer_a673ad092d5d67da3be3aa04f2ac19ec6}
+
+\begin{DoxyCompactList}\small\item\em Destructor. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{Indent}{\bf General System Functions}\par
+\begin{DoxyCompactItemize}
+\item 
+std\-::string \hyperlink{classsc_1_1SCServer_a663f38241749842d676f29463edb9c22}{get\-Name} () const 
+\item 
+int \hyperlink{classsc_1_1SCServer_ad1194f90f47d7ce50390953bd785b75b}{next\-Node\-Id} ()
+\item 
+int \hyperlink{classsc_1_1SCServer_aec43a53cc18c49dae4066b4bf85e2067}{next\-Buffer\-Num} ()
+\item 
+void \hyperlink{classsc_1_1SCServer_ada96ef4c5ea8747899a6db947ec33363}{dump\-O\-S\-C} (int toggle)
+\item 
+\hypertarget{classsc_1_1SCServer_ac884ae7c3f2791f6b959818c8c2fbe10}{void \hyperlink{classsc_1_1SCServer_ac884ae7c3f2791f6b959818c8c2fbe10}{print\-Current\-Node\-Ids} ()}\label{classsc_1_1SCServer_ac884ae7c3f2791f6b959818c8c2fbe10}
+
+\begin{DoxyCompactList}\small\item\em Print current \hyperlink{classsc_1_1Node}{Node} ids associated with this instance. \end{DoxyCompactList}\item 
+\hypertarget{classsc_1_1SCServer_ad057f9ca7dab818c259f95f41e3a575e}{void \hyperlink{classsc_1_1SCServer_ad057f9ca7dab818c259f95f41e3a575e}{query\-Node\-Tree} ()}\label{classsc_1_1SCServer_ad057f9ca7dab818c259f95f41e3a575e}
+
+\begin{DoxyCompactList}\small\item\em Command server to print current \hyperlink{classsc_1_1Node}{Node} tree. \end{DoxyCompactList}\item 
+\hypertarget{classsc_1_1SCServer_a775f079ad6a09282356ae161b186e345}{void \hyperlink{classsc_1_1SCServer_a775f079ad6a09282356ae161b186e345}{query\-Node} (int node\-Id)}\label{classsc_1_1SCServer_a775f079ad6a09282356ae161b186e345}
+
+\begin{DoxyCompactList}\small\item\em Query a specific node for its info on the server. \end{DoxyCompactList}\item 
+\hypertarget{classsc_1_1SCServer_a9418167a772b6f0f4495c262938277b9}{void \hyperlink{classsc_1_1SCServer_a9418167a772b6f0f4495c262938277b9}{status} ()}\label{classsc_1_1SCServer_a9418167a772b6f0f4495c262938277b9}
+
+\begin{DoxyCompactList}\small\item\em Send /status command to server, replies with /status\-\_\-info. \end{DoxyCompactList}\item 
+\hypertarget{classsc_1_1SCServer_aa148428f939df4dbad71639a3273f312}{void \hyperlink{classsc_1_1SCServer_aa148428f939df4dbad71639a3273f312}{quit} ()}\label{classsc_1_1SCServer_aa148428f939df4dbad71639a3273f312}
+
+\begin{DoxyCompactList}\small\item\em Command the server to quit. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\end{Indent}
+\begin{Indent}{\bf Node Functions}\par
+\begin{DoxyCompactItemize}
+\item 
+bool \hyperlink{classsc_1_1SCServer_abb82887e9757e1fa0df687344db73ba5}{load\-Synth\-Def} (const std\-::string \&synth\-Def\-Name)
+\item 
+bool \hyperlink{classsc_1_1SCServer_adc5a4cc11762007cfcad404f5eaf2699}{load\-Synth\-Def\-Directory} (const std\-::string \&synth\-Def\-Dir)
+\item 
+void \hyperlink{classsc_1_1SCServer_aee46c819d9e4e146e0a53d06eccd7a95}{create\-Node} (int node\-Id, int add\-Action=T\-O\-\_\-\-H\-E\-A\-D, int target=D\-E\-F\-A\-U\-L\-T\-\_\-\-G\-R\-O\-U\-P, int type=S\-Y\-N\-T\-H)
+\item 
+void \hyperlink{classsc_1_1SCServer_a2ac7cabe7d491c6ecd9193635f25aa77}{create\-Node} (const std\-::string \&name, int node\-Id, int add\-Action=T\-O\-\_\-\-H\-E\-A\-D, int target=D\-E\-F\-A\-U\-L\-T\-\_\-\-G\-R\-O\-U\-P, int type=S\-Y\-N\-T\-H)
+\item 
+void \hyperlink{classsc_1_1SCServer_ac94bcf8ddce587e836631a23f1059088}{create\-Synth} (const std\-::string \&name, int node\-Id, int add\-Action=T\-O\-\_\-\-H\-E\-A\-D, int target=D\-E\-F\-A\-U\-L\-T\-\_\-\-G\-R\-O\-U\-P)
+\item 
+void \hyperlink{classsc_1_1SCServer_ab8b14584833941f06693f097d381e551}{create\-Paused\-Synth} (const std\-::string \&name, int node\-Id, int add\-Action=T\-O\-\_\-\-H\-E\-A\-D, int target=D\-E\-F\-A\-U\-L\-T\-\_\-\-G\-R\-O\-U\-P)
+\item 
+void \hyperlink{classsc_1_1SCServer_a7baac4a701937c38d421aa4ed265350b}{create\-Synth} (const std\-::string \&name, int node\-Id, std\-::map$<$ std\-::string, float $>$ \&args, int add\-Action=T\-O\-\_\-\-H\-E\-A\-D, int target=D\-E\-F\-A\-U\-L\-T\-\_\-\-G\-R\-O\-U\-P)
+\item 
+void \hyperlink{classsc_1_1SCServer_a0cc7ed517234f06d42d24f4576201155}{create\-Paused\-Synth} (const std\-::string \&name, int node\-Id, std\-::map$<$ std\-::string, float $>$ \&args, int add\-Action=T\-O\-\_\-\-H\-E\-A\-D, int target=D\-E\-F\-A\-U\-L\-T\-\_\-\-G\-R\-O\-U\-P)
+\item 
+void \hyperlink{classsc_1_1SCServer_a9aab99e02f70516217b320fc6c453951}{create\-Group} (int node\-Id, int add\-Action=T\-O\-\_\-\-H\-E\-A\-D, int target=D\-E\-F\-A\-U\-L\-T\-\_\-\-G\-R\-O\-U\-P)
+\item 
+void \hyperlink{classsc_1_1SCServer_a22b904f4d18160178d8dff424579b821}{run\-Node} (int node\-Id, int flag)
+\item 
+void \hyperlink{classsc_1_1SCServer_ac2c5c3092d2ba8781f2bb0f91ccaf7cd}{free\-Node} (int node\-I\-D)
+\item 
+void \hyperlink{classsc_1_1SCServer_a41296f0d6d948ada6a7509e767cabeb0}{set\-Node\-Controls} (int node\-Id, std\-::map$<$ std\-::string, float $>$ \&control\-Vals)
+\item 
+void \hyperlink{classsc_1_1SCServer_a8e5460d2e8b184f35c648c688e1b31f3}{free\-All\-Synths} (int group\-Id)
+\item 
+void \hyperlink{classsc_1_1SCServer_a8739643e0aa244661e41f229aca329ba}{deep\-Free\-All\-Synths} (int group\-Id)
+\end{DoxyCompactItemize}
+\end{Indent}
+\begin{Indent}{\bf Buffer Functions}\par
+\begin{DoxyCompactItemize}
+\item 
+bool \hyperlink{classsc_1_1SCServer_a4a93b0de3cabaed3a4c32327f08b1d58}{alloc\-Buffer} (int buf\-Num, int num\-Frames, int num\-Chans)
+\item 
+bool \hyperlink{classsc_1_1SCServer_a5e89d3374fd704cea3110894c9c62b07}{free\-Buffer} (int buf\-Num)
+\item 
+\hypertarget{classsc_1_1SCServer_a00ce072fc88c75aa6885da7a652701a9}{void {\bfseries free\-Buffer\-\_\-no\-\_\-reply} (int buf\-Num)}\label{classsc_1_1SCServer_a00ce072fc88c75aa6885da7a652701a9}
+
+\item 
+bool \hyperlink{classsc_1_1SCServer_a3d03cd0dd763f2f575d6a84da55609bf}{alloc\-Read\-Buffer} (int buf\-Num, const std\-::string \&file\-Path, int start\-File\-Frame=0, int num\-Frames=-\/1)
+\item 
+void \hyperlink{classsc_1_1SCServer_acbd0a404dbd4e2cc98e46d088643908b}{query\-Buffer} (int buf\-Num)
+\item 
+void \hyperlink{classsc_1_1SCServer_ade0d2a48713efbce6494ad0bae42a839}{add\-Buffer} (void $\ast$buffer)
+\end{DoxyCompactItemize}
+\end{Indent}
+
+
+\subsection{Detailed Description}
+This class represents a client-\/side version of scsynth, the Super\-Collider audio server. 
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classsc_1_1SCServer_a5be05ff132abc5927e5ce3423978238d}{\index{sc\-::\-S\-C\-Server@{sc\-::\-S\-C\-Server}!S\-C\-Server@{S\-C\-Server}}
+\index{S\-C\-Server@{S\-C\-Server}!sc::SCServer@{sc\-::\-S\-C\-Server}}
+\subsubsection[{S\-C\-Server}]{\setlength{\rightskip}{0pt plus 5cm}sc\-::\-S\-C\-Server\-::\-S\-C\-Server (
+\begin{DoxyParamCaption}
+\item[{const std\-::string \&}]{name, }
+\item[{const char $\ast$}]{host, }
+\item[{const char $\ast$}]{port, }
+\item[{const std\-::string \&}]{synth\-Def\-Dir}
+\end{DoxyParamCaption}
+)}}\label{classsc_1_1SCServer_a5be05ff132abc5927e5ce3423978238d}
+Create a \hyperlink{classsc_1_1SCServer}{S\-C\-Server} with a user defined name, host address, port, and specific scsyndef directory to load upon instantiation 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em const} & std\-::string\& Name \\
+\hline
+\mbox{\tt in}  & {\em const} & char $\ast$host \\
+\hline
+\mbox{\tt in}  & {\em const} & char $\ast$port \\
+\hline
+\mbox{\tt in}  & {\em cont} & std\-::string\& Synth\-Def Directory \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classsc_1_1SCServer_ade0d2a48713efbce6494ad0bae42a839}{\index{sc\-::\-S\-C\-Server@{sc\-::\-S\-C\-Server}!add\-Buffer@{add\-Buffer}}
+\index{add\-Buffer@{add\-Buffer}!sc::SCServer@{sc\-::\-S\-C\-Server}}
+\subsubsection[{add\-Buffer}]{\setlength{\rightskip}{0pt plus 5cm}void sc\-::\-S\-C\-Server\-::add\-Buffer (
+\begin{DoxyParamCaption}
+\item[{void $\ast$}]{buffer}
+\end{DoxyParamCaption}
+)}}\label{classsc_1_1SCServer_ade0d2a48713efbce6494ad0bae42a839}
+Add a pointer to a \hyperlink{classsc_1_1Buffer}{Buffer} instance to the \-\_\-buffers vector 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em void} & $\ast$ buffer \\
+\hline
+\end{DoxyParams}
+\hypertarget{classsc_1_1SCServer_a4a93b0de3cabaed3a4c32327f08b1d58}{\index{sc\-::\-S\-C\-Server@{sc\-::\-S\-C\-Server}!alloc\-Buffer@{alloc\-Buffer}}
+\index{alloc\-Buffer@{alloc\-Buffer}!sc::SCServer@{sc\-::\-S\-C\-Server}}
+\subsubsection[{alloc\-Buffer}]{\setlength{\rightskip}{0pt plus 5cm}bool sc\-::\-S\-C\-Server\-::alloc\-Buffer (
+\begin{DoxyParamCaption}
+\item[{int}]{buf\-Num, }
+\item[{int}]{num\-Frames, }
+\item[{int}]{num\-Chans}
+\end{DoxyParamCaption}
+)}}\label{classsc_1_1SCServer_a4a93b0de3cabaed3a4c32327f08b1d58}
+Returns true if buffer allocation was successful, else false 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em int} & \hyperlink{classsc_1_1Buffer}{Buffer} Number \\
+\hline
+\mbox{\tt in}  & {\em int} & Number of Sample Frames \\
+\hline
+\mbox{\tt in}  & {\em int} & Number of Channels \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if success, else false 
+\end{DoxyReturn}
+\hypertarget{classsc_1_1SCServer_a3d03cd0dd763f2f575d6a84da55609bf}{\index{sc\-::\-S\-C\-Server@{sc\-::\-S\-C\-Server}!alloc\-Read\-Buffer@{alloc\-Read\-Buffer}}
+\index{alloc\-Read\-Buffer@{alloc\-Read\-Buffer}!sc::SCServer@{sc\-::\-S\-C\-Server}}
+\subsubsection[{alloc\-Read\-Buffer}]{\setlength{\rightskip}{0pt plus 5cm}bool sc\-::\-S\-C\-Server\-::alloc\-Read\-Buffer (
+\begin{DoxyParamCaption}
+\item[{int}]{buf\-Num, }
+\item[{const std\-::string \&}]{file\-Path, }
+\item[{int}]{start\-File\-Frame = {\ttfamily 0}, }
+\item[{int}]{num\-Frames = {\ttfamily -\/1}}
+\end{DoxyParamCaption}
+)}}\label{classsc_1_1SCServer_a3d03cd0dd763f2f575d6a84da55609bf}
+Return true if buffer allocation and soundfile read was successful, else false 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em int} & \hyperlink{classsc_1_1Buffer}{Buffer} Number \\
+\hline
+\mbox{\tt in}  & {\em const} & std\-::string\& Full Soundfile Path \\
+\hline
+\mbox{\tt in}  & {\em int} & Starting Sample Frame \\
+\hline
+\mbox{\tt in}  & {\em int} & Number of Frames, -\/1 loads all frames in file \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if success, else false 
+\end{DoxyReturn}
+\hypertarget{classsc_1_1SCServer_a9aab99e02f70516217b320fc6c453951}{\index{sc\-::\-S\-C\-Server@{sc\-::\-S\-C\-Server}!create\-Group@{create\-Group}}
+\index{create\-Group@{create\-Group}!sc::SCServer@{sc\-::\-S\-C\-Server}}
+\subsubsection[{create\-Group}]{\setlength{\rightskip}{0pt plus 5cm}void sc\-::\-S\-C\-Server\-::create\-Group (
+\begin{DoxyParamCaption}
+\item[{int}]{node\-Id, }
+\item[{int}]{add\-Action = {\ttfamily TO\-\_\-HEAD}, }
+\item[{int}]{target = {\ttfamily DEFAULT\-\_\-GROUP}}
+\end{DoxyParamCaption}
+)}}\label{classsc_1_1SCServer_a9aab99e02f70516217b320fc6c453951}
+Command the server to create a new \hyperlink{classsc_1_1Group}{Group} 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em int} & \hyperlink{classsc_1_1Node}{Node} Id \\
+\hline
+\mbox{\tt in}  & {\em int} & Add Action \\
+\hline
+\mbox{\tt in}  & {\em int} & Target \hyperlink{classsc_1_1Group}{Group} \\
+\hline
+\end{DoxyParams}
+\hypertarget{classsc_1_1SCServer_aee46c819d9e4e146e0a53d06eccd7a95}{\index{sc\-::\-S\-C\-Server@{sc\-::\-S\-C\-Server}!create\-Node@{create\-Node}}
+\index{create\-Node@{create\-Node}!sc::SCServer@{sc\-::\-S\-C\-Server}}
+\subsubsection[{create\-Node}]{\setlength{\rightskip}{0pt plus 5cm}void sc\-::\-S\-C\-Server\-::create\-Node (
+\begin{DoxyParamCaption}
+\item[{int}]{node\-Id, }
+\item[{int}]{add\-Action = {\ttfamily TO\-\_\-HEAD}, }
+\item[{int}]{target = {\ttfamily DEFAULT\-\_\-GROUP}, }
+\item[{int}]{type = {\ttfamily SYNTH}}
+\end{DoxyParamCaption}
+)}}\label{classsc_1_1SCServer_aee46c819d9e4e146e0a53d06eccd7a95}
+Command the server to create a new \char`\"{}default\char`\"{} \hyperlink{classsc_1_1Node}{Node} 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em int} & \hyperlink{classsc_1_1Node}{Node} Id \\
+\hline
+\mbox{\tt in}  & {\em int} & Add Action \\
+\hline
+\mbox{\tt in}  & {\em int} & Target \hyperlink{classsc_1_1Group}{Group} \\
+\hline
+\mbox{\tt in}  & {\em int} & Type (\hyperlink{classsc_1_1Synth}{Synth} or \hyperlink{classsc_1_1Group}{Group}) \\
+\hline
+\end{DoxyParams}
+\hypertarget{classsc_1_1SCServer_a2ac7cabe7d491c6ecd9193635f25aa77}{\index{sc\-::\-S\-C\-Server@{sc\-::\-S\-C\-Server}!create\-Node@{create\-Node}}
+\index{create\-Node@{create\-Node}!sc::SCServer@{sc\-::\-S\-C\-Server}}
+\subsubsection[{create\-Node}]{\setlength{\rightskip}{0pt plus 5cm}void sc\-::\-S\-C\-Server\-::create\-Node (
+\begin{DoxyParamCaption}
+\item[{const std\-::string \&}]{name, }
+\item[{int}]{node\-Id, }
+\item[{int}]{add\-Action = {\ttfamily TO\-\_\-HEAD}, }
+\item[{int}]{target = {\ttfamily DEFAULT\-\_\-GROUP}, }
+\item[{int}]{type = {\ttfamily SYNTH}}
+\end{DoxyParamCaption}
+)}}\label{classsc_1_1SCServer_a2ac7cabe7d491c6ecd9193635f25aa77}
+Command the server to create a new \hyperlink{classsc_1_1Node}{Node} specified by the Name parameter 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em std\-::string} & Name \\
+\hline
+\mbox{\tt in}  & {\em int} & \hyperlink{classsc_1_1Node}{Node} Id \\
+\hline
+\mbox{\tt in}  & {\em int} & Add Action \\
+\hline
+\mbox{\tt in}  & {\em int} & Target \hyperlink{classsc_1_1Group}{Group} \\
+\hline
+\mbox{\tt in}  & {\em int} & Type (\hyperlink{classsc_1_1Synth}{Synth} or \hyperlink{classsc_1_1Group}{Group}) \\
+\hline
+\end{DoxyParams}
+\hypertarget{classsc_1_1SCServer_ab8b14584833941f06693f097d381e551}{\index{sc\-::\-S\-C\-Server@{sc\-::\-S\-C\-Server}!create\-Paused\-Synth@{create\-Paused\-Synth}}
+\index{create\-Paused\-Synth@{create\-Paused\-Synth}!sc::SCServer@{sc\-::\-S\-C\-Server}}
+\subsubsection[{create\-Paused\-Synth}]{\setlength{\rightskip}{0pt plus 5cm}void sc\-::\-S\-C\-Server\-::create\-Paused\-Synth (
+\begin{DoxyParamCaption}
+\item[{const std\-::string \&}]{name, }
+\item[{int}]{node\-Id, }
+\item[{int}]{add\-Action = {\ttfamily TO\-\_\-HEAD}, }
+\item[{int}]{target = {\ttfamily DEFAULT\-\_\-GROUP}}
+\end{DoxyParamCaption}
+)}}\label{classsc_1_1SCServer_ab8b14584833941f06693f097d381e551}
+Command the server to create a new P\-A\-U\-S\-E\-D \hyperlink{classsc_1_1Synth}{Synth} specified by the Name parameter 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em std\-::string} & Name \\
+\hline
+\mbox{\tt in}  & {\em int} & \hyperlink{classsc_1_1Node}{Node} Id \\
+\hline
+\mbox{\tt in}  & {\em int} & Add Action \\
+\hline
+\mbox{\tt in}  & {\em int} & Target \hyperlink{classsc_1_1Group}{Group} \\
+\hline
+\mbox{\tt in}  & {\em int} & Type (\hyperlink{classsc_1_1Synth}{Synth} or \hyperlink{classsc_1_1Group}{Group}) \\
+\hline
+\end{DoxyParams}
+\hypertarget{classsc_1_1SCServer_a0cc7ed517234f06d42d24f4576201155}{\index{sc\-::\-S\-C\-Server@{sc\-::\-S\-C\-Server}!create\-Paused\-Synth@{create\-Paused\-Synth}}
+\index{create\-Paused\-Synth@{create\-Paused\-Synth}!sc::SCServer@{sc\-::\-S\-C\-Server}}
+\subsubsection[{create\-Paused\-Synth}]{\setlength{\rightskip}{0pt plus 5cm}void sc\-::\-S\-C\-Server\-::create\-Paused\-Synth (
+\begin{DoxyParamCaption}
+\item[{const std\-::string \&}]{name, }
+\item[{int}]{node\-Id, }
+\item[{std\-::map$<$ std\-::string, float $>$ \&}]{args, }
+\item[{int}]{add\-Action = {\ttfamily TO\-\_\-HEAD}, }
+\item[{int}]{target = {\ttfamily DEFAULT\-\_\-GROUP}}
+\end{DoxyParamCaption}
+)}}\label{classsc_1_1SCServer_a0cc7ed517234f06d42d24f4576201155}
+Command the server to create a new P\-A\-U\-S\-E\-D \hyperlink{classsc_1_1Synth}{Synth} specified by the Name parameter with user specified arguments 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em std\-::string} & Name \\
+\hline
+\mbox{\tt in}  & {\em int} & \hyperlink{classsc_1_1Node}{Node} Id \\
+\hline
+\mbox{\tt in}  & {\em std\-::map$<$std\-::string,float$>$} & Args \\
+\hline
+\mbox{\tt in}  & {\em int} & Add Action \\
+\hline
+\mbox{\tt in}  & {\em int} & Target \hyperlink{classsc_1_1Group}{Group} \\
+\hline
+\mbox{\tt in}  & {\em int} & Type (\hyperlink{classsc_1_1Synth}{Synth} or \hyperlink{classsc_1_1Group}{Group}) \\
+\hline
+\end{DoxyParams}
+\hypertarget{classsc_1_1SCServer_ac94bcf8ddce587e836631a23f1059088}{\index{sc\-::\-S\-C\-Server@{sc\-::\-S\-C\-Server}!create\-Synth@{create\-Synth}}
+\index{create\-Synth@{create\-Synth}!sc::SCServer@{sc\-::\-S\-C\-Server}}
+\subsubsection[{create\-Synth}]{\setlength{\rightskip}{0pt plus 5cm}void sc\-::\-S\-C\-Server\-::create\-Synth (
+\begin{DoxyParamCaption}
+\item[{const std\-::string \&}]{name, }
+\item[{int}]{node\-Id, }
+\item[{int}]{add\-Action = {\ttfamily TO\-\_\-HEAD}, }
+\item[{int}]{target = {\ttfamily DEFAULT\-\_\-GROUP}}
+\end{DoxyParamCaption}
+)}}\label{classsc_1_1SCServer_ac94bcf8ddce587e836631a23f1059088}
+Command the server to create a new \hyperlink{classsc_1_1Synth}{Synth} specified by the Name parameter 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em std\-::string} & Name \\
+\hline
+\mbox{\tt in}  & {\em int} & \hyperlink{classsc_1_1Node}{Node} Id \\
+\hline
+\mbox{\tt in}  & {\em int} & Add Action \\
+\hline
+\mbox{\tt in}  & {\em int} & Target \hyperlink{classsc_1_1Group}{Group} \\
+\hline
+\mbox{\tt in}  & {\em int} & Type (\hyperlink{classsc_1_1Synth}{Synth} or \hyperlink{classsc_1_1Group}{Group}) \\
+\hline
+\end{DoxyParams}
+\hypertarget{classsc_1_1SCServer_a7baac4a701937c38d421aa4ed265350b}{\index{sc\-::\-S\-C\-Server@{sc\-::\-S\-C\-Server}!create\-Synth@{create\-Synth}}
+\index{create\-Synth@{create\-Synth}!sc::SCServer@{sc\-::\-S\-C\-Server}}
+\subsubsection[{create\-Synth}]{\setlength{\rightskip}{0pt plus 5cm}void sc\-::\-S\-C\-Server\-::create\-Synth (
+\begin{DoxyParamCaption}
+\item[{const std\-::string \&}]{name, }
+\item[{int}]{node\-Id, }
+\item[{std\-::map$<$ std\-::string, float $>$ \&}]{args, }
+\item[{int}]{add\-Action = {\ttfamily TO\-\_\-HEAD}, }
+\item[{int}]{target = {\ttfamily DEFAULT\-\_\-GROUP}}
+\end{DoxyParamCaption}
+)}}\label{classsc_1_1SCServer_a7baac4a701937c38d421aa4ed265350b}
+Command the server to create a new \hyperlink{classsc_1_1Synth}{Synth} specified by the Name parameter with user specified arguments 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em std\-::string} & Name \\
+\hline
+\mbox{\tt in}  & {\em int} & \hyperlink{classsc_1_1Node}{Node} Id \\
+\hline
+\mbox{\tt in}  & {\em std\-::map$<$std\-::string,float$>$} & Args \\
+\hline
+\mbox{\tt in}  & {\em int} & Add Action \\
+\hline
+\mbox{\tt in}  & {\em int} & Target \hyperlink{classsc_1_1Group}{Group} \\
+\hline
+\mbox{\tt in}  & {\em int} & Type (\hyperlink{classsc_1_1Synth}{Synth} or \hyperlink{classsc_1_1Group}{Group}) \\
+\hline
+\end{DoxyParams}
+\hypertarget{classsc_1_1SCServer_a8739643e0aa244661e41f229aca329ba}{\index{sc\-::\-S\-C\-Server@{sc\-::\-S\-C\-Server}!deep\-Free\-All\-Synths@{deep\-Free\-All\-Synths}}
+\index{deep\-Free\-All\-Synths@{deep\-Free\-All\-Synths}!sc::SCServer@{sc\-::\-S\-C\-Server}}
+\subsubsection[{deep\-Free\-All\-Synths}]{\setlength{\rightskip}{0pt plus 5cm}void sc\-::\-S\-C\-Server\-::deep\-Free\-All\-Synths (
+\begin{DoxyParamCaption}
+\item[{int}]{group\-Id}
+\end{DoxyParamCaption}
+)}}\label{classsc_1_1SCServer_a8739643e0aa244661e41f229aca329ba}
+Command the server to free all Nodes in the \hyperlink{classsc_1_1Group}{Group} specified by the group\-Id parameter and all Nodes in any existing sub-\/groups \hypertarget{classsc_1_1SCServer_ada96ef4c5ea8747899a6db947ec33363}{\index{sc\-::\-S\-C\-Server@{sc\-::\-S\-C\-Server}!dump\-O\-S\-C@{dump\-O\-S\-C}}
+\index{dump\-O\-S\-C@{dump\-O\-S\-C}!sc::SCServer@{sc\-::\-S\-C\-Server}}
+\subsubsection[{dump\-O\-S\-C}]{\setlength{\rightskip}{0pt plus 5cm}void sc\-::\-S\-C\-Server\-::dump\-O\-S\-C (
+\begin{DoxyParamCaption}
+\item[{int}]{toggle}
+\end{DoxyParamCaption}
+)}}\label{classsc_1_1SCServer_ada96ef4c5ea8747899a6db947ec33363}
+Command the server to dump all incoming O\-S\-C messages 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em int} & 0-\/$>$O\-F\-F 1-\/$>$O\-N \\
+\hline
+\end{DoxyParams}
+\hypertarget{classsc_1_1SCServer_a8e5460d2e8b184f35c648c688e1b31f3}{\index{sc\-::\-S\-C\-Server@{sc\-::\-S\-C\-Server}!free\-All\-Synths@{free\-All\-Synths}}
+\index{free\-All\-Synths@{free\-All\-Synths}!sc::SCServer@{sc\-::\-S\-C\-Server}}
+\subsubsection[{free\-All\-Synths}]{\setlength{\rightskip}{0pt plus 5cm}void sc\-::\-S\-C\-Server\-::free\-All\-Synths (
+\begin{DoxyParamCaption}
+\item[{int}]{group\-Id}
+\end{DoxyParamCaption}
+)}}\label{classsc_1_1SCServer_a8e5460d2e8b184f35c648c688e1b31f3}
+Command the server to free all the Nodes in the \hyperlink{classsc_1_1Group}{Group} specified by the group\-Id parameter 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em int} & \hyperlink{classsc_1_1Group}{Group} Id \\
+\hline
+\end{DoxyParams}
+\hypertarget{classsc_1_1SCServer_a5e89d3374fd704cea3110894c9c62b07}{\index{sc\-::\-S\-C\-Server@{sc\-::\-S\-C\-Server}!free\-Buffer@{free\-Buffer}}
+\index{free\-Buffer@{free\-Buffer}!sc::SCServer@{sc\-::\-S\-C\-Server}}
+\subsubsection[{free\-Buffer}]{\setlength{\rightskip}{0pt plus 5cm}bool sc\-::\-S\-C\-Server\-::free\-Buffer (
+\begin{DoxyParamCaption}
+\item[{int}]{buf\-Num}
+\end{DoxyParamCaption}
+)}}\label{classsc_1_1SCServer_a5e89d3374fd704cea3110894c9c62b07}
+Returns true if buffer was freed successfully, else false 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em int} & \hyperlink{classsc_1_1Buffer}{Buffer} Number \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if success, else false 
+\end{DoxyReturn}
+\hypertarget{classsc_1_1SCServer_ac2c5c3092d2ba8781f2bb0f91ccaf7cd}{\index{sc\-::\-S\-C\-Server@{sc\-::\-S\-C\-Server}!free\-Node@{free\-Node}}
+\index{free\-Node@{free\-Node}!sc::SCServer@{sc\-::\-S\-C\-Server}}
+\subsubsection[{free\-Node}]{\setlength{\rightskip}{0pt plus 5cm}void sc\-::\-S\-C\-Server\-::free\-Node (
+\begin{DoxyParamCaption}
+\item[{int}]{node\-I\-D}
+\end{DoxyParamCaption}
+)}}\label{classsc_1_1SCServer_ac2c5c3092d2ba8781f2bb0f91ccaf7cd}
+Command the server to free the \hyperlink{classsc_1_1Node}{Node} specified by the node\-Id parameter 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em int} & \hyperlink{classsc_1_1Node}{Node} Id \\
+\hline
+\end{DoxyParams}
+\hypertarget{classsc_1_1SCServer_a663f38241749842d676f29463edb9c22}{\index{sc\-::\-S\-C\-Server@{sc\-::\-S\-C\-Server}!get\-Name@{get\-Name}}
+\index{get\-Name@{get\-Name}!sc::SCServer@{sc\-::\-S\-C\-Server}}
+\subsubsection[{get\-Name}]{\setlength{\rightskip}{0pt plus 5cm}std\-::string sc\-::\-S\-C\-Server\-::get\-Name (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}}\label{classsc_1_1SCServer_a663f38241749842d676f29463edb9c22}
+Returns this \hyperlink{classsc_1_1SCServer}{S\-C\-Server}'s user defined name as a std\-:string \begin{DoxyReturn}{Returns}
+This \hyperlink{classsc_1_1SCServer}{S\-C\-Server}'s name as a std\-::string 
+\end{DoxyReturn}
+\hypertarget{classsc_1_1SCServer_abb82887e9757e1fa0df687344db73ba5}{\index{sc\-::\-S\-C\-Server@{sc\-::\-S\-C\-Server}!load\-Synth\-Def@{load\-Synth\-Def}}
+\index{load\-Synth\-Def@{load\-Synth\-Def}!sc::SCServer@{sc\-::\-S\-C\-Server}}
+\subsubsection[{load\-Synth\-Def}]{\setlength{\rightskip}{0pt plus 5cm}bool sc\-::\-S\-C\-Server\-::load\-Synth\-Def (
+\begin{DoxyParamCaption}
+\item[{const std\-::string \&}]{synth\-Def\-Name}
+\end{DoxyParamCaption}
+)}}\label{classsc_1_1SCServer_abb82887e9757e1fa0df687344db73ba5}
+Returns true if the specified scsyndef path was successfully loaded by scsynth, false if failed \begin{DoxyReturn}{Returns}
+true if success, else false 
+\end{DoxyReturn}
+\hypertarget{classsc_1_1SCServer_adc5a4cc11762007cfcad404f5eaf2699}{\index{sc\-::\-S\-C\-Server@{sc\-::\-S\-C\-Server}!load\-Synth\-Def\-Directory@{load\-Synth\-Def\-Directory}}
+\index{load\-Synth\-Def\-Directory@{load\-Synth\-Def\-Directory}!sc::SCServer@{sc\-::\-S\-C\-Server}}
+\subsubsection[{load\-Synth\-Def\-Directory}]{\setlength{\rightskip}{0pt plus 5cm}bool sc\-::\-S\-C\-Server\-::load\-Synth\-Def\-Directory (
+\begin{DoxyParamCaption}
+\item[{const std\-::string \&}]{synth\-Def\-Dir}
+\end{DoxyParamCaption}
+)}}\label{classsc_1_1SCServer_adc5a4cc11762007cfcad404f5eaf2699}
+Returns true if the specified scsyndef directory path was successfully loaded by scsynth, false if failed \begin{DoxyReturn}{Returns}
+true if success, else false 
+\end{DoxyReturn}
+\hypertarget{classsc_1_1SCServer_aec43a53cc18c49dae4066b4bf85e2067}{\index{sc\-::\-S\-C\-Server@{sc\-::\-S\-C\-Server}!next\-Buffer\-Num@{next\-Buffer\-Num}}
+\index{next\-Buffer\-Num@{next\-Buffer\-Num}!sc::SCServer@{sc\-::\-S\-C\-Server}}
+\subsubsection[{next\-Buffer\-Num}]{\setlength{\rightskip}{0pt plus 5cm}int sc\-::\-S\-C\-Server\-::next\-Buffer\-Num (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classsc_1_1SCServer_aec43a53cc18c49dae4066b4bf85e2067}
+Returns a unique \hyperlink{classsc_1_1Buffer}{Buffer} number (int) starting from 0 \begin{DoxyReturn}{Returns}
+A unique \hyperlink{classsc_1_1Buffer}{Buffer} number (int) 
+\end{DoxyReturn}
+\hypertarget{classsc_1_1SCServer_ad1194f90f47d7ce50390953bd785b75b}{\index{sc\-::\-S\-C\-Server@{sc\-::\-S\-C\-Server}!next\-Node\-Id@{next\-Node\-Id}}
+\index{next\-Node\-Id@{next\-Node\-Id}!sc::SCServer@{sc\-::\-S\-C\-Server}}
+\subsubsection[{next\-Node\-Id}]{\setlength{\rightskip}{0pt plus 5cm}int sc\-::\-S\-C\-Server\-::next\-Node\-Id (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classsc_1_1SCServer_ad1194f90f47d7ce50390953bd785b75b}
+Returns a unique \hyperlink{classsc_1_1Node}{Node} id (int) starting from 1000 \begin{DoxyReturn}{Returns}
+A unique \hyperlink{classsc_1_1Node}{Node} id (int) 
+\end{DoxyReturn}
+\hypertarget{classsc_1_1SCServer_acbd0a404dbd4e2cc98e46d088643908b}{\index{sc\-::\-S\-C\-Server@{sc\-::\-S\-C\-Server}!query\-Buffer@{query\-Buffer}}
+\index{query\-Buffer@{query\-Buffer}!sc::SCServer@{sc\-::\-S\-C\-Server}}
+\subsubsection[{query\-Buffer}]{\setlength{\rightskip}{0pt plus 5cm}void sc\-::\-S\-C\-Server\-::query\-Buffer (
+\begin{DoxyParamCaption}
+\item[{int}]{buf\-Num}
+\end{DoxyParamCaption}
+)}}\label{classsc_1_1SCServer_acbd0a404dbd4e2cc98e46d088643908b}
+Query a \hyperlink{classsc_1_1Buffer}{Buffer} specified by the \hyperlink{classsc_1_1Buffer}{Buffer} number 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em int} & \hyperlink{classsc_1_1Buffer}{Buffer} Number \\
+\hline
+\end{DoxyParams}
+\hypertarget{classsc_1_1SCServer_a22b904f4d18160178d8dff424579b821}{\index{sc\-::\-S\-C\-Server@{sc\-::\-S\-C\-Server}!run\-Node@{run\-Node}}
+\index{run\-Node@{run\-Node}!sc::SCServer@{sc\-::\-S\-C\-Server}}
+\subsubsection[{run\-Node}]{\setlength{\rightskip}{0pt plus 5cm}void sc\-::\-S\-C\-Server\-::run\-Node (
+\begin{DoxyParamCaption}
+\item[{int}]{node\-Id, }
+\item[{int}]{flag}
+\end{DoxyParamCaption}
+)}}\label{classsc_1_1SCServer_a22b904f4d18160178d8dff424579b821}
+Command the server to run the \hyperlink{classsc_1_1Node}{Node} specified by the node\-Id parameter 0 stops and 1 starts 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em int} & \hyperlink{classsc_1_1Node}{Node} Id \\
+\hline
+\mbox{\tt in}  & {\em int} & Flag 0-\/$>$Stop 1-\/$>$Start \\
+\hline
+\end{DoxyParams}
+\hypertarget{classsc_1_1SCServer_a41296f0d6d948ada6a7509e767cabeb0}{\index{sc\-::\-S\-C\-Server@{sc\-::\-S\-C\-Server}!set\-Node\-Controls@{set\-Node\-Controls}}
+\index{set\-Node\-Controls@{set\-Node\-Controls}!sc::SCServer@{sc\-::\-S\-C\-Server}}
+\subsubsection[{set\-Node\-Controls}]{\setlength{\rightskip}{0pt plus 5cm}void sc\-::\-S\-C\-Server\-::set\-Node\-Controls (
+\begin{DoxyParamCaption}
+\item[{int}]{node\-Id, }
+\item[{std\-::map$<$ std\-::string, float $>$ \&}]{control\-Vals}
+\end{DoxyParamCaption}
+)}}\label{classsc_1_1SCServer_a41296f0d6d948ada6a7509e767cabeb0}
+Commmand the server to set the \hyperlink{classsc_1_1Node}{Node} specified by the node\-Id parameter with arguments specified by the std\-::map parameter 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em int} & \hyperlink{classsc_1_1Node}{Node} Id \\
+\hline
+\mbox{\tt in}  & {\em std\-::map$<$std\-::string,float$>$} & Control Values \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+include/\hyperlink{SCServer_8hpp}{S\-C\-Server.\-hpp}\end{DoxyCompactItemize}

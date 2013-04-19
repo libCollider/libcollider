@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.3.1-20130209"/>
-<title>libCollider++: include/Buffer.hpp Source File</title>
+<title>libcollider: include/Buffer.hpp Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -22,7 +22,7 @@
  <tbody>
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
-   <div id="projectname">libCollider++
+   <div id="projectname">libcollider
    </div>
    <div id="projectbrief">A C++ Client Library for SuperCollider</div>
   </td>
@@ -93,44 +93,44 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#ifndef BUFFER</span></div>
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define BUFFER</span></div>
 <div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor"></span></div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="Client__Server_8hpp.html" title="Header file for Client_Server.hpp.">Client_Server.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="SCServer_8hpp.html" title="Header file for SCServer.hpp.">SCServer.hpp</a>&quot;</span></div>
 <div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#include &lt;string&gt;</span></div>
 <div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;</div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="keyword">namespace </span>ColliderPlusPlus {</div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="keyword">namespace </span>sc {</div>
 <div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;</div>
-<div class="line"><a name="l00013"></a><span class="lineno"><a class="code" href="classColliderPlusPlus_1_1Buffer.html">   13</a></span>&#160;  <span class="keyword">class </span><a class="code" href="classColliderPlusPlus_1_1Buffer.html" title="This class represents a client-side version of a server buffer.">Buffer</a></div>
+<div class="line"><a name="l00013"></a><span class="lineno"><a class="code" href="classsc_1_1Buffer.html">   13</a></span>&#160;  <span class="keyword">class </span><a class="code" href="classsc_1_1Buffer.html" title="This class represents a client-side version of a server buffer.">Buffer</a></div>
 <div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;  {</div>
 <div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    <span class="keyword">public</span>:</div>
 <div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;        <a class="code" href="classColliderPlusPlus_1_1Buffer.html#af5728dbdffa6dd43efe7cc2e520462b2">Buffer</a>(<a class="code" href="classColliderPlusPlus_1_1Client__Server.html" title="This class represents a client-side version of scsynth, the SuperCollider audio server.">Client_Server</a> * other, <span class="keywordtype">int</span> bufNum);</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;        <a class="code" href="classsc_1_1Buffer.html#aa461325a96603e78a79561e90ce5f394">Buffer</a>(<a class="code" href="classsc_1_1SCServer.html" title="This class represents a client-side version of scsynth, the SuperCollider audio server.">SCServer</a> * other, <span class="keywordtype">int</span> bufNum);</div>
 <div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;   </div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;        <a class="code" href="classColliderPlusPlus_1_1Buffer.html#a62178f1cb35c5654c0b16d78526de7e8" title="Destructor.">~Buffer</a>();</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;        <a class="code" href="classsc_1_1Buffer.html#ab9ef17039f271262d3c3dbc979cdc85d" title="Destructor.">~Buffer</a>();</div>
 <div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;  </div>
-<div class="line"><a name="l00027"></a><span class="lineno"><a class="code" href="classColliderPlusPlus_1_1Buffer.html#a0c00584a7afb6fc0e0a8791cd4a8f0b5">   27</a></span>&#160;        <span class="keywordtype">int</span> <a class="code" href="classColliderPlusPlus_1_1Buffer.html#a0c00584a7afb6fc0e0a8791cd4a8f0b5">getBufNum</a>()<span class="keyword"> const </span>{<span class="keywordflow">return</span> bufNum;} <span class="comment">//return id of server-side buffer</span></div>
+<div class="line"><a name="l00027"></a><span class="lineno"><a class="code" href="classsc_1_1Buffer.html#af777b92a6ba7b4330fb9958141282cc9">   27</a></span>&#160;        <span class="keywordtype">int</span> <a class="code" href="classsc_1_1Buffer.html#af777b92a6ba7b4330fb9958141282cc9">getBufNum</a>()<span class="keyword"> const </span>{<span class="keywordflow">return</span> bufNum;} <span class="comment">//return id of server-side buffer</span></div>
 <div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;  </div>
-<div class="line"><a name="l00031"></a><span class="lineno"><a class="code" href="classColliderPlusPlus_1_1Buffer.html#a59f84ebba0ce0c7707dbf37ef8a9ac0f">   31</a></span>&#160;        <span class="keywordtype">int</span> <a class="code" href="classColliderPlusPlus_1_1Buffer.html#a59f84ebba0ce0c7707dbf37ef8a9ac0f">getFrameNum</a>()<span class="keyword"> const </span>{<span class="keywordflow">return</span> numFrames;} </div>
+<div class="line"><a name="l00031"></a><span class="lineno"><a class="code" href="classsc_1_1Buffer.html#a591c50bcaae889d763ff28688febeb71">   31</a></span>&#160;        <span class="keywordtype">int</span> <a class="code" href="classsc_1_1Buffer.html#a591c50bcaae889d763ff28688febeb71">getFrameNum</a>()<span class="keyword"> const </span>{<span class="keywordflow">return</span> numFrames;} </div>
 <div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;</div>
-<div class="line"><a name="l00035"></a><span class="lineno"><a class="code" href="classColliderPlusPlus_1_1Buffer.html#a8f782a6d9a03b47ddaa3067e4c09bc63">   35</a></span>&#160;        <span class="keywordtype">int</span> <a class="code" href="classColliderPlusPlus_1_1Buffer.html#a8f782a6d9a03b47ddaa3067e4c09bc63">getChanNum</a>()<span class="keyword"> const </span>{<span class="keywordflow">return</span> numChans;}</div>
+<div class="line"><a name="l00035"></a><span class="lineno"><a class="code" href="classsc_1_1Buffer.html#a57f2455044a2303a1fba1d17e2a7470c">   35</a></span>&#160;        <span class="keywordtype">int</span> <a class="code" href="classsc_1_1Buffer.html#a57f2455044a2303a1fba1d17e2a7470c">getChanNum</a>()<span class="keyword"> const </span>{<span class="keywordflow">return</span> numChans;}</div>
 <div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160; </div>
-<div class="line"><a name="l00039"></a><span class="lineno"><a class="code" href="classColliderPlusPlus_1_1Buffer.html#aa0c5ce2e5ede311b515b7748fc7074d5">   39</a></span>&#160;        <span class="keywordtype">int</span> <a class="code" href="classColliderPlusPlus_1_1Buffer.html#aa0c5ce2e5ede311b515b7748fc7074d5">getSampRate</a>()<span class="keyword"> const </span>{<span class="keywordflow">return</span> sampRate;}</div>
+<div class="line"><a name="l00039"></a><span class="lineno"><a class="code" href="classsc_1_1Buffer.html#a15c75bed82addc4ec16b74e98e5ee770">   39</a></span>&#160;        <span class="keywordtype">int</span> <a class="code" href="classsc_1_1Buffer.html#a15c75bed82addc4ec16b74e98e5ee770">getSampRate</a>()<span class="keyword"> const </span>{<span class="keywordflow">return</span> sampRate;}</div>
 <div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;</div>
-<div class="line"><a name="l00044"></a><span class="lineno"><a class="code" href="classColliderPlusPlus_1_1Buffer.html#a021329a8faaecd4ebb58b291b1ded6c4">   44</a></span>&#160;        <span class="keywordtype">bool</span> <a class="code" href="classColliderPlusPlus_1_1Buffer.html#a021329a8faaecd4ebb58b291b1ded6c4">getManuallyFreed</a>()<span class="keyword"> const </span>{<span class="keywordflow">return</span> manuallyFreed;}</div>
+<div class="line"><a name="l00044"></a><span class="lineno"><a class="code" href="classsc_1_1Buffer.html#aa3002f528e1eda702d29626004069491">   44</a></span>&#160;        <span class="keywordtype">bool</span> <a class="code" href="classsc_1_1Buffer.html#aa3002f528e1eda702d29626004069491">getManuallyFreed</a>()<span class="keyword"> const </span>{<span class="keywordflow">return</span> manuallyFreed;}</div>
 <div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;</div>
-<div class="line"><a name="l00048"></a><span class="lineno"><a class="code" href="classColliderPlusPlus_1_1Buffer.html#a860869166e3ded181813158b8ba9159b">   48</a></span>&#160;        <span class="keywordtype">void</span> <a class="code" href="classColliderPlusPlus_1_1Buffer.html#a860869166e3ded181813158b8ba9159b">setBufNum</a>(<span class="keywordtype">int</span> bn) {bufNum = bn;}</div>
+<div class="line"><a name="l00048"></a><span class="lineno"><a class="code" href="classsc_1_1Buffer.html#a444402b37e84ca30c529df66749c897d">   48</a></span>&#160;        <span class="keywordtype">void</span> <a class="code" href="classsc_1_1Buffer.html#a444402b37e84ca30c529df66749c897d">setBufNum</a>(<span class="keywordtype">int</span> bn) {bufNum = bn;}</div>
 <div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;</div>
-<div class="line"><a name="l00052"></a><span class="lineno"><a class="code" href="classColliderPlusPlus_1_1Buffer.html#a4326fdc6e8e7e988adf7188c8cfc5fc1">   52</a></span>&#160;        <span class="keywordtype">void</span> <a class="code" href="classColliderPlusPlus_1_1Buffer.html#a4326fdc6e8e7e988adf7188c8cfc5fc1">setNumFrames</a>(<span class="keywordtype">int</span> nf) {numFrames = nf;}</div>
+<div class="line"><a name="l00052"></a><span class="lineno"><a class="code" href="classsc_1_1Buffer.html#a355daa27d196ea9b7c2a5d703c630521">   52</a></span>&#160;        <span class="keywordtype">void</span> <a class="code" href="classsc_1_1Buffer.html#a355daa27d196ea9b7c2a5d703c630521">setNumFrames</a>(<span class="keywordtype">int</span> nf) {numFrames = nf;}</div>
 <div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    </div>
-<div class="line"><a name="l00056"></a><span class="lineno"><a class="code" href="classColliderPlusPlus_1_1Buffer.html#acfee7fb4d7e5ff2dadf2aae85abd6ff6">   56</a></span>&#160;        <span class="keywordtype">void</span> <a class="code" href="classColliderPlusPlus_1_1Buffer.html#acfee7fb4d7e5ff2dadf2aae85abd6ff6">setNumChans</a>(<span class="keywordtype">int</span> nc) {numChans = nc;}</div>
+<div class="line"><a name="l00056"></a><span class="lineno"><a class="code" href="classsc_1_1Buffer.html#afd3831ddbad9748d31dd6260ba6392fc">   56</a></span>&#160;        <span class="keywordtype">void</span> <a class="code" href="classsc_1_1Buffer.html#afd3831ddbad9748d31dd6260ba6392fc">setNumChans</a>(<span class="keywordtype">int</span> nc) {numChans = nc;}</div>
 <div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160; </div>
-<div class="line"><a name="l00060"></a><span class="lineno"><a class="code" href="classColliderPlusPlus_1_1Buffer.html#a028e5dc76e6b54faf9ef0a3c9eeb2ae1">   60</a></span>&#160;        <span class="keywordtype">void</span> <a class="code" href="classColliderPlusPlus_1_1Buffer.html#a028e5dc76e6b54faf9ef0a3c9eeb2ae1">setSampRate</a>(<span class="keywordtype">float</span> sr) {sampRate = sr;}</div>
+<div class="line"><a name="l00060"></a><span class="lineno"><a class="code" href="classsc_1_1Buffer.html#a9ba693d9d86afaccce4d76788dcaff80">   60</a></span>&#160;        <span class="keywordtype">void</span> <a class="code" href="classsc_1_1Buffer.html#a9ba693d9d86afaccce4d76788dcaff80">setSampRate</a>(<span class="keywordtype">float</span> sr) {sampRate = sr;}</div>
 <div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="classColliderPlusPlus_1_1Buffer.html#a2d9c1a08d1e3080ed0b4a3780b18be15">alloc</a>(<span class="keywordtype">int</span> numFrames, <span class="keywordtype">int</span> numChannels);</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="classsc_1_1Buffer.html#aea7cfaacdfee70a766d18f0a167f7612">alloc</a>(<span class="keywordtype">int</span> numFrames, <span class="keywordtype">int</span> numChannels);</div>
 <div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="classColliderPlusPlus_1_1Buffer.html#ad4eb930f170b4ae398239750cb981f73">free</a>();</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="classsc_1_1Buffer.html#a94deb84c1e5375bb1922092fe9f1f5e6">free</a>();</div>
 <div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="classColliderPlusPlus_1_1Buffer.html#af6efd69eef95bf0202498acc256e7f3f">sync</a>(); </div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="classsc_1_1Buffer.html#a1577c3e412d9e528ddd17d1e95c95369">sync</a>(); </div>
 <div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;</div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="classColliderPlusPlus_1_1Buffer.html#a57e3976a06f74c7605cb9523da6367c7">allocRead</a>(<span class="keyword">const</span> std::string&amp; filePath, </div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="classsc_1_1Buffer.html#ac55059fa09102a7bf96e22c8dc7a3804">allocRead</a>(<span class="keyword">const</span> std::string&amp; filePath, </div>
 <div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;                                          <span class="keywordtype">int</span> startFileFrame = 0,</div>
 <div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;                                                 <span class="keywordtype">int</span> numFrames = -1); </div>
 <div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;</div>
@@ -140,16 +140,16 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;        <span class="keywordtype">int</span> numChans;</div>
 <div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;        <span class="keywordtype">int</span> sampRate;</div>
 <div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;        <span class="keywordtype">bool</span> manuallyFreed;</div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;        <a class="code" href="classColliderPlusPlus_1_1Client__Server.html" title="This class represents a client-side version of scsynth, the SuperCollider audio server.">Client_Server</a> * cs;</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;        <a class="code" href="classsc_1_1SCServer.html" title="This class represents a client-side version of scsynth, the SuperCollider audio server.">SCServer</a> * cs;</div>
 <div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;  };</div>
-<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;} <span class="comment">//namespace ColliderPlusPlus</span></div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;} <span class="comment">//namespace sc</span></div>
 <div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;</div>
 <div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;<span class="preprocessor">#endif</span></div>
 <div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;<span class="preprocessor"></span></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sat Apr 13 2013 08:06:21 for libCollider++ by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Fri Apr 19 2013 16:18:14 for libcollider by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.3.1-20130209
 </small></address>

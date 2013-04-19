@@ -1,8 +1,8 @@
 var searchData=
 [
-  ['addbuffer',['addBuffer',['../classColliderPlusPlus_1_1Client__Server.html#aaa911e54750f185b428f05ccd4c22b9e',1,'ColliderPlusPlus::Client_Server']]],
-  ['alloc',['alloc',['../classColliderPlusPlus_1_1Buffer.html#a2d9c1a08d1e3080ed0b4a3780b18be15',1,'ColliderPlusPlus::Buffer']]],
-  ['allocbuffer',['allocBuffer',['../classColliderPlusPlus_1_1Client__Server.html#a511c53f224101c1dd086cf20bf396822',1,'ColliderPlusPlus::Client_Server']]],
-  ['allocread',['allocRead',['../classColliderPlusPlus_1_1Buffer.html#a57e3976a06f74c7605cb9523da6367c7',1,'ColliderPlusPlus::Buffer']]],
-  ['allocreadbuffer',['allocReadBuffer',['../classColliderPlusPlus_1_1Client__Server.html#a362e7f78f317e4071d02cf0a432c066a',1,'ColliderPlusPlus::Client_Server']]]
+  ['addbuffer',['addBuffer',['../classsc_1_1SCServer.html#ade0d2a48713efbce6494ad0bae42a839',1,'sc::SCServer']]],
+  ['alloc',['alloc',['../classsc_1_1Buffer.html#aea7cfaacdfee70a766d18f0a167f7612',1,'sc::Buffer']]],
+  ['allocbuffer',['allocBuffer',['../classsc_1_1SCServer.html#a4a93b0de3cabaed3a4c32327f08b1d58',1,'sc::SCServer']]],
+  ['allocread',['allocRead',['../classsc_1_1Buffer.html#ac55059fa09102a7bf96e22c8dc7a3804',1,'sc::Buffer']]],
+  ['allocreadbuffer',['allocReadBuffer',['../classsc_1_1SCServer.html#a3d03cd0dd763f2f575d6a84da55609bf',1,'sc::SCServer']]]
 ];

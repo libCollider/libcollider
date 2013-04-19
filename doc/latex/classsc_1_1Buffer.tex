@@ -1,0 +1,234 @@
+\hypertarget{classsc_1_1Buffer}{\section{sc\-:\-:Buffer Class Reference}
+\label{classsc_1_1Buffer}\index{sc\-::\-Buffer@{sc\-::\-Buffer}}
+}
+
+
+This class represents a client-\/side version of a server buffer.  
+
+
+
+
+{\ttfamily \#include $<$Buffer.\-hpp$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classsc_1_1Buffer_aa461325a96603e78a79561e90ce5f394}{Buffer} (\hyperlink{classsc_1_1SCServer}{S\-C\-Server} $\ast$other, int buf\-Num)
+\item 
+\hypertarget{classsc_1_1Buffer_ab9ef17039f271262d3c3dbc979cdc85d}{\hyperlink{classsc_1_1Buffer_ab9ef17039f271262d3c3dbc979cdc85d}{$\sim$\-Buffer} ()}\label{classsc_1_1Buffer_ab9ef17039f271262d3c3dbc979cdc85d}
+
+\begin{DoxyCompactList}\small\item\em Destructor. \end{DoxyCompactList}\item 
+int \hyperlink{classsc_1_1Buffer_af777b92a6ba7b4330fb9958141282cc9}{get\-Buf\-Num} () const 
+\item 
+int \hyperlink{classsc_1_1Buffer_a591c50bcaae889d763ff28688febeb71}{get\-Frame\-Num} () const 
+\item 
+int \hyperlink{classsc_1_1Buffer_a57f2455044a2303a1fba1d17e2a7470c}{get\-Chan\-Num} () const 
+\item 
+int \hyperlink{classsc_1_1Buffer_a15c75bed82addc4ec16b74e98e5ee770}{get\-Samp\-Rate} () const 
+\item 
+bool \hyperlink{classsc_1_1Buffer_aa3002f528e1eda702d29626004069491}{get\-Manually\-Freed} () const 
+\item 
+void \hyperlink{classsc_1_1Buffer_a444402b37e84ca30c529df66749c897d}{set\-Buf\-Num} (int bn)
+\item 
+void \hyperlink{classsc_1_1Buffer_a355daa27d196ea9b7c2a5d703c630521}{set\-Num\-Frames} (int nf)
+\item 
+void \hyperlink{classsc_1_1Buffer_afd3831ddbad9748d31dd6260ba6392fc}{set\-Num\-Chans} (int nc)
+\item 
+void \hyperlink{classsc_1_1Buffer_a9ba693d9d86afaccce4d76788dcaff80}{set\-Samp\-Rate} (float sr)
+\item 
+void \hyperlink{classsc_1_1Buffer_aea7cfaacdfee70a766d18f0a167f7612}{alloc} (int num\-Frames, int num\-Channels)
+\item 
+void \hyperlink{classsc_1_1Buffer_a94deb84c1e5375bb1922092fe9f1f5e6}{free} ()
+\item 
+void \hyperlink{classsc_1_1Buffer_a1577c3e412d9e528ddd17d1e95c95369}{sync} ()
+\item 
+void \hyperlink{classsc_1_1Buffer_ac55059fa09102a7bf96e22c8dc7a3804}{alloc\-Read} (const std\-::string \&file\-Path, int start\-File\-Frame=0, int num\-Frames=-\/1)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+This class represents a client-\/side version of a server buffer. 
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classsc_1_1Buffer_aa461325a96603e78a79561e90ce5f394}{\index{sc\-::\-Buffer@{sc\-::\-Buffer}!Buffer@{Buffer}}
+\index{Buffer@{Buffer}!sc::Buffer@{sc\-::\-Buffer}}
+\subsubsection[{Buffer}]{\setlength{\rightskip}{0pt plus 5cm}sc\-::\-Buffer\-::\-Buffer (
+\begin{DoxyParamCaption}
+\item[{{\bf S\-C\-Server} $\ast$}]{other, }
+\item[{int}]{buf\-Num}
+\end{DoxyParamCaption}
+)}}\label{classsc_1_1Buffer_aa461325a96603e78a79561e90ce5f394}
+Create a \hyperlink{classsc_1_1Buffer}{Buffer} with buffer number specified by buf\-Num parameter 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em Client\-Server} & instance \\
+\hline
+\mbox{\tt in}  & {\em int} & \hyperlink{classsc_1_1Buffer}{Buffer} Number \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classsc_1_1Buffer_aea7cfaacdfee70a766d18f0a167f7612}{\index{sc\-::\-Buffer@{sc\-::\-Buffer}!alloc@{alloc}}
+\index{alloc@{alloc}!sc::Buffer@{sc\-::\-Buffer}}
+\subsubsection[{alloc}]{\setlength{\rightskip}{0pt plus 5cm}void sc\-::\-Buffer\-::alloc (
+\begin{DoxyParamCaption}
+\item[{int}]{num\-Frames, }
+\item[{int}]{num\-Channels}
+\end{DoxyParamCaption}
+)}}\label{classsc_1_1Buffer_aea7cfaacdfee70a766d18f0a167f7612}
+Command server to allocate memory for this \hyperlink{classsc_1_1Buffer}{Buffer} 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em Client\-Server\&} & Client\-Server instance \\
+\hline
+\mbox{\tt in}  & {\em int} & Number of Sample Frames \\
+\hline
+\mbox{\tt in}  & {\em int} & Number of Channels \\
+\hline
+\end{DoxyParams}
+\hypertarget{classsc_1_1Buffer_ac55059fa09102a7bf96e22c8dc7a3804}{\index{sc\-::\-Buffer@{sc\-::\-Buffer}!alloc\-Read@{alloc\-Read}}
+\index{alloc\-Read@{alloc\-Read}!sc::Buffer@{sc\-::\-Buffer}}
+\subsubsection[{alloc\-Read}]{\setlength{\rightskip}{0pt plus 5cm}void sc\-::\-Buffer\-::alloc\-Read (
+\begin{DoxyParamCaption}
+\item[{const std\-::string \&}]{file\-Path, }
+\item[{int}]{start\-File\-Frame = {\ttfamily 0}, }
+\item[{int}]{num\-Frames = {\ttfamily -\/1}}
+\end{DoxyParamCaption}
+)}}\label{classsc_1_1Buffer_ac55059fa09102a7bf96e22c8dc7a3804}
+Command server to load specified Soundfile into \hyperlink{classsc_1_1Buffer}{Buffer} and allocate just enough space for the Soundfile with the given offset specified by start\-File\-Frame 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em Client\-Server\&} & Client\-Server instance \\
+\hline
+\mbox{\tt in}  & {\em const} & std\-::string\& Soundfile Path \\
+\hline
+\mbox{\tt in}  & {\em int} & Read file from this sample \\
+\hline
+\mbox{\tt in}  & {\em int} & Number of Sample Frames to allocate, -\/1 loads whole Soundfile \\
+\hline
+\end{DoxyParams}
+\hypertarget{classsc_1_1Buffer_a94deb84c1e5375bb1922092fe9f1f5e6}{\index{sc\-::\-Buffer@{sc\-::\-Buffer}!free@{free}}
+\index{free@{free}!sc::Buffer@{sc\-::\-Buffer}}
+\subsubsection[{free}]{\setlength{\rightskip}{0pt plus 5cm}void sc\-::\-Buffer\-::free (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classsc_1_1Buffer_a94deb84c1e5375bb1922092fe9f1f5e6}
+Command server to free memory associated with this \hyperlink{classsc_1_1Buffer}{Buffer} 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em Client\-Server\&} & Client\-Server instance \\
+\hline
+\end{DoxyParams}
+\hypertarget{classsc_1_1Buffer_af777b92a6ba7b4330fb9958141282cc9}{\index{sc\-::\-Buffer@{sc\-::\-Buffer}!get\-Buf\-Num@{get\-Buf\-Num}}
+\index{get\-Buf\-Num@{get\-Buf\-Num}!sc::Buffer@{sc\-::\-Buffer}}
+\subsubsection[{get\-Buf\-Num}]{\setlength{\rightskip}{0pt plus 5cm}int sc\-::\-Buffer\-::get\-Buf\-Num (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}}\label{classsc_1_1Buffer_af777b92a6ba7b4330fb9958141282cc9}
+Returns this \hyperlink{classsc_1_1Buffer}{Buffer}'s number as an int \begin{DoxyReturn}{Returns}
+int \hyperlink{classsc_1_1Buffer}{Buffer} Number 
+\end{DoxyReturn}
+\hypertarget{classsc_1_1Buffer_a57f2455044a2303a1fba1d17e2a7470c}{\index{sc\-::\-Buffer@{sc\-::\-Buffer}!get\-Chan\-Num@{get\-Chan\-Num}}
+\index{get\-Chan\-Num@{get\-Chan\-Num}!sc::Buffer@{sc\-::\-Buffer}}
+\subsubsection[{get\-Chan\-Num}]{\setlength{\rightskip}{0pt plus 5cm}int sc\-::\-Buffer\-::get\-Chan\-Num (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}}\label{classsc_1_1Buffer_a57f2455044a2303a1fba1d17e2a7470c}
+Returns this \hyperlink{classsc_1_1Buffer}{Buffer}'s channel count as an int \begin{DoxyReturn}{Returns}
+int \hyperlink{classsc_1_1Buffer}{Buffer} channel count 
+\end{DoxyReturn}
+\hypertarget{classsc_1_1Buffer_a591c50bcaae889d763ff28688febeb71}{\index{sc\-::\-Buffer@{sc\-::\-Buffer}!get\-Frame\-Num@{get\-Frame\-Num}}
+\index{get\-Frame\-Num@{get\-Frame\-Num}!sc::Buffer@{sc\-::\-Buffer}}
+\subsubsection[{get\-Frame\-Num}]{\setlength{\rightskip}{0pt plus 5cm}int sc\-::\-Buffer\-::get\-Frame\-Num (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}}\label{classsc_1_1Buffer_a591c50bcaae889d763ff28688febeb71}
+Returns this \hyperlink{classsc_1_1Buffer}{Buffer}'s sample frame count as an int \begin{DoxyReturn}{Returns}
+int \hyperlink{classsc_1_1Buffer}{Buffer} sample frame count 
+\end{DoxyReturn}
+\hypertarget{classsc_1_1Buffer_aa3002f528e1eda702d29626004069491}{\index{sc\-::\-Buffer@{sc\-::\-Buffer}!get\-Manually\-Freed@{get\-Manually\-Freed}}
+\index{get\-Manually\-Freed@{get\-Manually\-Freed}!sc::Buffer@{sc\-::\-Buffer}}
+\subsubsection[{get\-Manually\-Freed}]{\setlength{\rightskip}{0pt plus 5cm}bool sc\-::\-Buffer\-::get\-Manually\-Freed (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}}\label{classsc_1_1Buffer_aa3002f528e1eda702d29626004069491}
+Returns true if the \hyperlink{classsc_1_1Node}{Node} was freed from the server by calling \hyperlink{classsc_1_1Buffer_a94deb84c1e5375bb1922092fe9f1f5e6}{free()} B\-E\-F\-O\-R\-E the destructor of this \hyperlink{classsc_1_1Node}{Node} is called \begin{DoxyReturn}{Returns}
+true if freed from server with \hyperlink{classsc_1_1Buffer_a94deb84c1e5375bb1922092fe9f1f5e6}{free()} prior to destruction 
+\end{DoxyReturn}
+\hypertarget{classsc_1_1Buffer_a15c75bed82addc4ec16b74e98e5ee770}{\index{sc\-::\-Buffer@{sc\-::\-Buffer}!get\-Samp\-Rate@{get\-Samp\-Rate}}
+\index{get\-Samp\-Rate@{get\-Samp\-Rate}!sc::Buffer@{sc\-::\-Buffer}}
+\subsubsection[{get\-Samp\-Rate}]{\setlength{\rightskip}{0pt plus 5cm}int sc\-::\-Buffer\-::get\-Samp\-Rate (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}}\label{classsc_1_1Buffer_a15c75bed82addc4ec16b74e98e5ee770}
+Returns this \hyperlink{classsc_1_1Buffer}{Buffer}'s sample rate \begin{DoxyReturn}{Returns}
+int \hyperlink{classsc_1_1Buffer}{Buffer} sample rate 
+\end{DoxyReturn}
+\hypertarget{classsc_1_1Buffer_a444402b37e84ca30c529df66749c897d}{\index{sc\-::\-Buffer@{sc\-::\-Buffer}!set\-Buf\-Num@{set\-Buf\-Num}}
+\index{set\-Buf\-Num@{set\-Buf\-Num}!sc::Buffer@{sc\-::\-Buffer}}
+\subsubsection[{set\-Buf\-Num}]{\setlength{\rightskip}{0pt plus 5cm}void sc\-::\-Buffer\-::set\-Buf\-Num (
+\begin{DoxyParamCaption}
+\item[{int}]{bn}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classsc_1_1Buffer_a444402b37e84ca30c529df66749c897d}
+Set this \hyperlink{classsc_1_1Buffer}{Buffer}'s buffer number 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em int} & buffer number \\
+\hline
+\end{DoxyParams}
+\hypertarget{classsc_1_1Buffer_afd3831ddbad9748d31dd6260ba6392fc}{\index{sc\-::\-Buffer@{sc\-::\-Buffer}!set\-Num\-Chans@{set\-Num\-Chans}}
+\index{set\-Num\-Chans@{set\-Num\-Chans}!sc::Buffer@{sc\-::\-Buffer}}
+\subsubsection[{set\-Num\-Chans}]{\setlength{\rightskip}{0pt plus 5cm}void sc\-::\-Buffer\-::set\-Num\-Chans (
+\begin{DoxyParamCaption}
+\item[{int}]{nc}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classsc_1_1Buffer_afd3831ddbad9748d31dd6260ba6392fc}
+Set this \hyperlink{classsc_1_1Buffer}{Buffer}'s channel count 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em int} & channel count \\
+\hline
+\end{DoxyParams}
+\hypertarget{classsc_1_1Buffer_a355daa27d196ea9b7c2a5d703c630521}{\index{sc\-::\-Buffer@{sc\-::\-Buffer}!set\-Num\-Frames@{set\-Num\-Frames}}
+\index{set\-Num\-Frames@{set\-Num\-Frames}!sc::Buffer@{sc\-::\-Buffer}}
+\subsubsection[{set\-Num\-Frames}]{\setlength{\rightskip}{0pt plus 5cm}void sc\-::\-Buffer\-::set\-Num\-Frames (
+\begin{DoxyParamCaption}
+\item[{int}]{nf}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classsc_1_1Buffer_a355daa27d196ea9b7c2a5d703c630521}
+Set this \hyperlink{classsc_1_1Buffer}{Buffer}'s frame count 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em int} & frame count \\
+\hline
+\end{DoxyParams}
+\hypertarget{classsc_1_1Buffer_a9ba693d9d86afaccce4d76788dcaff80}{\index{sc\-::\-Buffer@{sc\-::\-Buffer}!set\-Samp\-Rate@{set\-Samp\-Rate}}
+\index{set\-Samp\-Rate@{set\-Samp\-Rate}!sc::Buffer@{sc\-::\-Buffer}}
+\subsubsection[{set\-Samp\-Rate}]{\setlength{\rightskip}{0pt plus 5cm}void sc\-::\-Buffer\-::set\-Samp\-Rate (
+\begin{DoxyParamCaption}
+\item[{float}]{sr}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classsc_1_1Buffer_a9ba693d9d86afaccce4d76788dcaff80}
+Set this \hyperlink{classsc_1_1Buffer}{Buffer}'s sample rate 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em int} & sample rate \\
+\hline
+\end{DoxyParams}
+\hypertarget{classsc_1_1Buffer_a1577c3e412d9e528ddd17d1e95c95369}{\index{sc\-::\-Buffer@{sc\-::\-Buffer}!sync@{sync}}
+\index{sync@{sync}!sc::Buffer@{sc\-::\-Buffer}}
+\subsubsection[{sync}]{\setlength{\rightskip}{0pt plus 5cm}void sc\-::\-Buffer\-::sync (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classsc_1_1Buffer_a1577c3e412d9e528ddd17d1e95c95369}
+Send a query for this \hyperlink{classsc_1_1Buffer}{Buffer} to the server and use the reply to populate the \# of frames, channels, and sample rate of this client-\/side representation 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em Client\-Server\&} & Client\-Server instance \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+include/\hyperlink{Buffer_8hpp}{Buffer.\-hpp}\end{DoxyCompactItemize}

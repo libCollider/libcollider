@@ -1,0 +1,92 @@
+\hypertarget{classsc_1_1Group}{\section{sc\-:\-:Group Class Reference}
+\label{classsc_1_1Group}\index{sc\-::\-Group@{sc\-::\-Group}}
+}
+
+
+This class represents a client-\/side version of a server group.  
+
+
+
+
+{\ttfamily \#include $<$Node.\-hpp$>$}
+
+Inheritance diagram for sc\-:\-:Group\-:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{classsc_1_1Group}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classsc_1_1Group_a091ad4312c030cd0cde27ef2aac7cbbd}{Group} (\hyperlink{classsc_1_1SCServer}{S\-C\-Server} $\ast$other, const std\-::string \&name, int id\-\_\-, int add\-Action=T\-O\-\_\-\-H\-E\-A\-D, int target=D\-E\-F\-A\-U\-L\-T\-\_\-\-G\-R\-O\-U\-P)
+\item 
+\hypertarget{classsc_1_1Group_a10466798a0549aa877931be7ad226d63}{\hyperlink{classsc_1_1Group_a10466798a0549aa877931be7ad226d63}{$\sim$\-Group} ()}\label{classsc_1_1Group_a10466798a0549aa877931be7ad226d63}
+
+\begin{DoxyCompactList}\small\item\em Destructor. \end{DoxyCompactList}\item 
+void \hyperlink{classsc_1_1Group_a779027324b685e67cabdc751fdc58ff2}{free\-All\-Synths} ()
+\item 
+void \hyperlink{classsc_1_1Group_af1a8e311e5009f5d1c72f189fa146fbf}{deep\-Free\-All\-Synths} ()
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+This class represents a client-\/side version of a server group. 
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classsc_1_1Group_a091ad4312c030cd0cde27ef2aac7cbbd}{\index{sc\-::\-Group@{sc\-::\-Group}!Group@{Group}}
+\index{Group@{Group}!sc::Group@{sc\-::\-Group}}
+\subsubsection[{Group}]{\setlength{\rightskip}{0pt plus 5cm}sc\-::\-Group\-::\-Group (
+\begin{DoxyParamCaption}
+\item[{{\bf S\-C\-Server} $\ast$}]{other, }
+\item[{const std\-::string \&}]{name, }
+\item[{int}]{id\-\_\-, }
+\item[{int}]{add\-Action = {\ttfamily TO\-\_\-HEAD}, }
+\item[{int}]{target = {\ttfamily DEFAULT\-\_\-GROUP}}
+\end{DoxyParamCaption}
+)}}\label{classsc_1_1Group_a091ad4312c030cd0cde27ef2aac7cbbd}
+Create a \hyperlink{classsc_1_1Group}{Group} with a user defined name, id, add\-Action, and target If no add\-Action is specified, this \hyperlink{classsc_1_1Group}{Group} is added to the head of target group If no target group is specified, this \hyperlink{classsc_1_1Synth}{Synth} is added to the Default \hyperlink{classsc_1_1Group}{Group} 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em S\-C\-Server\&} & \hyperlink{classsc_1_1SCServer}{S\-C\-Server} instance \\
+\hline
+\mbox{\tt in}  & {\em const} & std\-::string\& Name \\
+\hline
+\mbox{\tt in}  & {\em int} & Id \\
+\hline
+\mbox{\tt in}  & {\em int} & Add Action \\
+\hline
+\mbox{\tt in}  & {\em int} & Target \hyperlink{classsc_1_1Group}{Group} \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classsc_1_1Group_af1a8e311e5009f5d1c72f189fa146fbf}{\index{sc\-::\-Group@{sc\-::\-Group}!deep\-Free\-All\-Synths@{deep\-Free\-All\-Synths}}
+\index{deep\-Free\-All\-Synths@{deep\-Free\-All\-Synths}!sc::Group@{sc\-::\-Group}}
+\subsubsection[{deep\-Free\-All\-Synths}]{\setlength{\rightskip}{0pt plus 5cm}void sc\-::\-Group\-::deep\-Free\-All\-Synths (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classsc_1_1Group_af1a8e311e5009f5d1c72f189fa146fbf}
+Free all Nodes in this \hyperlink{classsc_1_1Group}{Group} and in all Sub-\/\-Groups 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em S\-C\-Server\&} & \hyperlink{classsc_1_1SCServer}{S\-C\-Server} instance \\
+\hline
+\end{DoxyParams}
+\hypertarget{classsc_1_1Group_a779027324b685e67cabdc751fdc58ff2}{\index{sc\-::\-Group@{sc\-::\-Group}!free\-All\-Synths@{free\-All\-Synths}}
+\index{free\-All\-Synths@{free\-All\-Synths}!sc::Group@{sc\-::\-Group}}
+\subsubsection[{free\-All\-Synths}]{\setlength{\rightskip}{0pt plus 5cm}void sc\-::\-Group\-::free\-All\-Synths (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classsc_1_1Group_a779027324b685e67cabdc751fdc58ff2}
+Free all Nodes in this \hyperlink{classsc_1_1Group}{Group} 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em S\-C\-Server\&} & \hyperlink{classsc_1_1SCServer}{S\-C\-Server} instance \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+include/\hyperlink{Node_8hpp}{Node.\-hpp}\end{DoxyCompactItemize}
