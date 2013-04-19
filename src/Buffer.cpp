@@ -1,9 +1,9 @@
 #include "Buffer.hpp"
 #include <stdlib.h>
 
-using namespace ColliderPlusPlus;
+using namespace sc;
 
-Buffer::Buffer(Client_Server * other, int bn)
+Buffer::Buffer(SCServer * other, int bn)
 :bufNum(bn), numFrames(0), numChans(0),
  sampRate(44100), manuallyFreed(false)
 {

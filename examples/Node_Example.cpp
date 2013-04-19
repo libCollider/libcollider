@@ -1,4 +1,4 @@
-#include "ColliderPlusPlus.hpp"
+#include "libcollider/libcollider.hpp"
 #include <iostream>
 #include <unistd.h>
 #include <map>
@@ -6,7 +6,7 @@
 #include <boost/generator_iterator.hpp>
 #include <string>
 
-using namespace ColliderPlusPlus;
+using namespace sc;
 using namespace std;
 
 bool init(int argc, char* argv[], const char* &host, const char* &port, std::string &synthDefDir);
@@ -24,7 +24,7 @@ int main(int argc, char* argv[])
   return 1;
  }
    
- Client_Server cs("MyServer", host, port, synthDefDir);
+ SCServer cs("MyServer", host, port, synthDefDir);
  cs.dumpOSC(1);
 
  //random magnitude arg for CentroidBing synth

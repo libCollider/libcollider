@@ -14,16 +14,16 @@ endif
 INSTALL_DIR = /usr/lib/
 INCLUDE_DIR = /usr/include/
 
-libcolliderpp: tnyosc-dispatch.o Client_Server.o Buffer.o Bus.o Node.o Sound.o 
-	gcc -$(libtype) -o libcollider++.$(libsuffix) src/tnyosc-dispatch.o src/Client_Server.o src/Buffer.o src/Bus.o src/Node.o src/Sound.o -lstdc++ 
+libcollider: tnyosc-dispatch.o SCServer.o Buffer.o Bus.o Node.o Sound.o 
+	gcc -$(libtype) -o libcollider.$(libsuffix) src/tnyosc-dispatch.o src/SCServer.o src/Buffer.o src/Bus.o src/Node.o src/Sound.o -lstdc++ 
 	mkdir -p build
-	mv libcollider++.$(libsuffix) build
+	mv libcollider.$(libsuffix) build
 
 tnyosc-dispatch.o : tnyosc-dispatch.cc tnyosc-dispatch.hpp tnyosc.hpp
 	gcc -c -fPIC -o src/tnyosc-dispatch.o src/tnyosc-dispatch.cc -Iinclude/tny_osc/
 
-Client_Server.o : Client_Server.cpp Client_Server.hpp tnyosc-dispatch.o
-	gcc -c -fPIC -o src/Client_Server.o src/Client_Server.cpp -Iinclude/ -DPRINT_DEBUG
+SCServer.o : SCServer.cpp SCServer.hpp tnyosc-dispatch.o
+	gcc -c -fPIC -o src/SCServer.o src/SCServer.cpp -Iinclude/ -DPRINT_DEBUG
 
 Buffer.o : Buffer.cpp Buffer.hpp
 	gcc -c -fPIC -o src/Buffer.o  src/Buffer.cpp -Iinclude/ -DPRINT_DEBUG
@@ -39,11 +39,11 @@ clean:
 	rm -rf $(wildcard build)
 
 install:
-	cp build/libcollider++.$(libsuffix) $(INSTALL_DIR)
-	mkdir -p $(INCLUDE_DIR)ColliderPlusPlus
-	cp -r include/* $(INCLUDE_DIR)ColliderPlusPlus
-	chmod 0755 $(INSTALL_DIR)libcollider++.$(libsuffix)
+	cp build/libcollider.$(libsuffix) $(INSTALL_DIR)
+	mkdir -p $(INCLUDE_DIR)libcollider
+	cp -r include/* $(INCLUDE_DIR)libcollider
+	chmod 0755 $(INSTALL_DIR)libcollider.$(libsuffix)
 
 uninstall:
-	rm $(INSTALL_DIR)libcollider++.$(libsuffix)
-	rm -r $(INCLUDE_DIR)ColliderPlusPlus
+	rm $(INSTALL_DIR)libcollider.$(libsuffix)
+	rm -r $(INCLUDE_DIR)libcollider

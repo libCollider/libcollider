@@ -1,6 +1,6 @@
 #include "Bus.hpp"
 
-using namespace ColliderPlusPlus;
+using namespace sc;
 
 Bus::Bus()
 {

@@ -6,7 +6,7 @@
 
 #include <vector>
 
-namespace ColliderPlusPlus {
+namespace sc {
 
   /// This class represents a client-side version of a server bus
   /// INCOMPLETE
@@ -26,7 +26,7 @@ namespace ColliderPlusPlus {
 
 
   };
-} //namespace ColliderPlusPlus
+} //namespace sc
 
 #endif
 

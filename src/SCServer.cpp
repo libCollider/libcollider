@@ -1,4 +1,4 @@
-#include "Client_Server.hpp"
+#include "SCServer.hpp"
 #include "Buffer.hpp"
 #include <iostream>
 #include <unistd.h>
@@ -8,7 +8,7 @@
 #include <netinet/in.h>
 #include <stdio.h>
 
-using namespace ColliderPlusPlus;
+using namespace sc;
 using namespace tnyosc;
 using std::cout;
 using std::cerr;
@@ -22,7 +22,7 @@ void error(const char * s)
   exit(1);
 }
 
-Client_Server::Client_Server()
+SCServer::SCServer()
 :name("Default Server"), NodeIDGenerator(1000), BufferIDGenerator(0), async_result(false)
 {
    setHost("127.0.0.1");
@@ -31,7 +31,7 @@ Client_Server::Client_Server()
    createDefaultGroup();
 }
 
-Client_Server::Client_Server(const std::string& n, const char *host, 
+SCServer::SCServer(const std::string& n, const char *host, 
 				    const char *port, const std::string& synthDefDir)
 :name(n), NodeIDGenerator(1000), BufferIDGenerator(0), async_result(false)
 {
@@ -42,12 +42,12 @@ Client_Server::Client_Server(const std::string& n, const char *host,
    initializeSynthDefs(synthDefDir);
 }
 
-Client_Server::~Client_Server()
+SCServer::~SCServer()
 {
   
 }
 
-void Client_Server::initializeSynthDefs(const std::string& synthDefDir)
+void SCServer::initializeSynthDefs(const std::string& synthDefDir)
 {
   if(!loadSynthDefDirectory(synthDefDir))
   {  
@@ -56,45 +56,45 @@ void Client_Server::initializeSynthDefs(const std::string& synthDefDir)
   }
 }
 
-int Client_Server::nextNodeId()
+int SCServer::nextNodeId()
 {
    int nextNode = NodeIDGenerator++;
    return nextNode;
 }
 
-int Client_Server::nextBufferNum()
+int SCServer::nextBufferNum()
 {
    int nextBuffer = BufferIDGenerator++;
    return nextBuffer;
 }
 
-void Client_Server::setPort(const char *p)
+void SCServer::setPort(const char *p)
 {
   port = p;
 }
 
-void Client_Server::setHost(const char *h)
+void SCServer::setHost(const char *h)
 {
   host = h;
 }
 
-const char* Client_Server::getPort()
+const char* SCServer::getPort()
 {
   return port;
 }
 
 
-const char* Client_Server::getHost()
+const char* SCServer::getHost()
 {
   return host;
 }
 
-void Client_Server::addBuffer(void * buffer)
+void SCServer::addBuffer(void * buffer)
 { 
    buffers[((Buffer*)buffer)->getBufNum()] = buffer;
 }
 
-void Client_Server::printCurrentNodeIds()
+void SCServer::printCurrentNodeIds()
 {
   std::vector<int>::iterator iter = nodeIDs.begin();
   for(; iter != nodeIDs.end();iter++)
@@ -103,7 +103,7 @@ void Client_Server::printCurrentNodeIds()
   } 
 }
 
-void Client_Server::send_msg_no_reply(tnyosc::Message * msg, const char * send_msg)
+void SCServer::send_msg_no_reply(tnyosc::Message * msg, const char * send_msg)
 {
    int sockfd;
    struct sockaddr_in servaddr;
@@ -130,7 +130,7 @@ void Client_Server::send_msg_no_reply(tnyosc::Message * msg, const char * send_m
    close(sockfd);
 }
 
-void Client_Server::send_msg_with_reply(tnyosc::Message * msg, const char * send_msg)
+void SCServer::send_msg_with_reply(tnyosc::Message * msg, const char * send_msg)
 {
    async_result = false;
    int sockfd, n;
@@ -169,7 +169,7 @@ void Client_Server::send_msg_with_reply(tnyosc::Message * msg, const char * send
    close(sockfd);
 }
 
-void Client_Server::send_bundle_no_reply(tnyosc::Bundle * bundle, const char * send_msg)
+void SCServer::send_bundle_no_reply(tnyosc::Bundle * bundle, const char * send_msg)
 {
    int sockfd;
    struct sockaddr_in servaddr;
@@ -196,7 +196,7 @@ void Client_Server::send_bundle_no_reply(tnyosc::Bundle * bundle, const char * s
    close(sockfd);
 }
 
-void Client_Server::send_bundle_with_reply(tnyosc::Bundle * bundle, const char * send_msg)
+void SCServer::send_bundle_with_reply(tnyosc::Bundle * bundle, const char * send_msg)
 {
    async_result = false;
    int sockfd, n;
@@ -236,7 +236,7 @@ void Client_Server::send_bundle_with_reply(tnyosc::Bundle * bundle, const char *
 }
 
 //Commands
-void Client_Server::dumpOSC(int toggle)
+void SCServer::dumpOSC(int toggle)
 {
    Message * msg = new Message("/dumpOSC");
    msg->append(toggle);
@@ -252,7 +252,7 @@ void Client_Server::dumpOSC(int toggle)
    delete msg;
 }
 
-void Client_Server::queryNodeTree()
+void SCServer::queryNodeTree()
 {
    Message * msg = new Message("/g_dumpTree");
    msg->append(0);
@@ -268,7 +268,7 @@ void Client_Server::queryNodeTree()
    delete msg;
 } 
 
-void Client_Server::queryNode(int nodeId)
+void SCServer::queryNode(int nodeId)
 {
    Message * msg = new Message("/n_query");
    msg->append(nodeId);
@@ -284,7 +284,7 @@ void Client_Server::queryNode(int nodeId)
    delete msg;
 }
 
-void Client_Server::status()
+void SCServer::status()
 {
    Message * msg = new Message("/status");  
  
@@ -298,7 +298,7 @@ void Client_Server::status()
    delete msg;
 } 
 
-void Client_Server::quit()
+void SCServer::quit()
 {
    Message * msg = new Message("/quit");
 
@@ -312,7 +312,7 @@ void Client_Server::quit()
    delete msg;
 }
 
-void Client_Server::createNode(int nodeId, int addAction, int target, int type)
+void SCServer::createNode(int nodeId, int addAction, int target, int type)
 {
    std::string typeTag;
 
@@ -340,7 +340,7 @@ void Client_Server::createNode(int nodeId, int addAction, int target, int type)
    delete msg;
 }
 
-void Client_Server::createNode(const std::string& name, int nodeId, 
+void SCServer::createNode(const std::string& name, int nodeId, 
 		     int addAction, int target, int type)
 {
    std::string typeTag; 
@@ -369,7 +369,7 @@ void Client_Server::createNode(const std::string& name, int nodeId,
    delete msg;
 }
 
-void Client_Server::createSynth(const std::string& name, int nodeId,
+void SCServer::createSynth(const std::string& name, int nodeId,
 					 	int addAction, int target)
 {
    Message * msg = new Message("/s_new");
@@ -391,7 +391,7 @@ void Client_Server::createSynth(const std::string& name, int nodeId,
    delete msg;
 }
 
-void Client_Server::createPausedSynth(const std::string& name, int nodeId,
+void SCServer::createPausedSynth(const std::string& name, int nodeId,
 					 	int addAction, int target)
 {   
    Message * msg = new Message("/s_new");
@@ -425,7 +425,7 @@ void Client_Server::createPausedSynth(const std::string& name, int nodeId,
    delete msg;   
 }
 
-void Client_Server::createSynth(const std::string& name, int nodeId,
+void SCServer::createSynth(const std::string& name, int nodeId,
 			std::map<std::string, float> &args, int addAction, int target)
 {
    Message * msg = new Message("/s_new");
@@ -455,7 +455,7 @@ void Client_Server::createSynth(const std::string& name, int nodeId,
    delete msg;
 }
 
-void Client_Server::createPausedSynth(const std::string& name, int nodeId,
+void SCServer::createPausedSynth(const std::string& name, int nodeId,
 			std::map<std::string, float> &args, int addAction, int target)
 {
    Message * msg = new Message("/s_new");
@@ -497,7 +497,7 @@ void Client_Server::createPausedSynth(const std::string& name, int nodeId,
    delete msg;
 }
 
-void Client_Server::createGroup(int nodeId, int addAction, int target)
+void SCServer::createGroup(int nodeId, int addAction, int target)
 {
    Message * msg = new Message("/g_new");
    msg->append(nodeId);
@@ -516,7 +516,7 @@ void Client_Server::createGroup(int nodeId, int addAction, int target)
    delete msg;
 }
 
-bool Client_Server::allocBuffer(int bufNum, int numFrames, int numChans)
+bool SCServer::allocBuffer(int bufNum, int numFrames, int numChans)
 {
    Message * msg = new Message("/b_alloc");
    msg->append(bufNum);
@@ -536,7 +536,7 @@ bool Client_Server::allocBuffer(int bufNum, int numFrames, int numChans)
    return async_result;
 }
 
-bool Client_Server::allocReadBuffer(int bufNum, 
+bool SCServer::allocReadBuffer(int bufNum, 
 			const std::string& filePath, int startFileFrame, 
 				int numFrames)
 {
@@ -560,7 +560,7 @@ bool Client_Server::allocReadBuffer(int bufNum,
    return async_result;   
 }
 
-bool Client_Server::freeBuffer(int bufNum)
+bool SCServer::freeBuffer(int bufNum)
 {
    Message * msg = new Message("/b_free");
    msg->append(bufNum);
@@ -577,7 +577,7 @@ bool Client_Server::freeBuffer(int bufNum)
    return async_result;
 }
 
-void Client_Server::freeBuffer_no_reply(int bufNum)
+void SCServer::freeBuffer_no_reply(int bufNum)
 {
    Message * msg = new Message("/b_free");
    msg->append(bufNum);
@@ -594,7 +594,7 @@ void Client_Server::freeBuffer_no_reply(int bufNum)
 }
 
 
-void Client_Server::queryBuffer(int bufNum)
+void SCServer::queryBuffer(int bufNum)
 {
    Message * msg = new Message("/b_query");
    msg->append(bufNum);
@@ -611,7 +611,7 @@ void Client_Server::queryBuffer(int bufNum)
    delete msg;
 }
 
-void Client_Server::runNode(int nodeId, int flag)
+void SCServer::runNode(int nodeId, int flag)
 {
    Message * msg = new Message("/n_run");
    msg->append(nodeId);
@@ -629,7 +629,7 @@ void Client_Server::runNode(int nodeId, int flag)
    delete msg;
 }
 
-void Client_Server::freeNode(int nodeId)
+void SCServer::freeNode(int nodeId)
 {
    Message * msg = new Message ("/n_free");
    msg->append(nodeId);
@@ -646,7 +646,7 @@ void Client_Server::freeNode(int nodeId)
    delete msg;
 }
 
-void Client_Server::setNodeControls(int nodeId, std::map<std::string, float> &controlVals)
+void SCServer::setNodeControls(int nodeId, std::map<std::string, float> &controlVals)
 {
    Message * msg = new Message ("/n_set");
    msg->append(nodeId);
@@ -671,7 +671,7 @@ void Client_Server::setNodeControls(int nodeId, std::map<std::string, float> &co
    delete msg;
 }
 
-void Client_Server::freeAllSynths(int groupId)
+void SCServer::freeAllSynths(int groupId)
 {
    Message * msg = new Message ("/g_freeAll");
    msg->append(groupId);
@@ -688,7 +688,7 @@ void Client_Server::freeAllSynths(int groupId)
    delete msg;
 }
 
-void Client_Server::deepFreeAllSynths(int groupId)
+void SCServer::deepFreeAllSynths(int groupId)
 {
    Message * msg = new Message ("/g_deepFree");
    msg->append(groupId);
@@ -705,7 +705,7 @@ void Client_Server::deepFreeAllSynths(int groupId)
    delete msg;
 }
 
-bool Client_Server::loadSynthDef(const std::string& synthDefName)
+bool SCServer::loadSynthDef(const std::string& synthDefName)
 {
    Message * msg = new Message ("/d_load"); 
    msg->append(synthDefName); 
@@ -723,7 +723,7 @@ bool Client_Server::loadSynthDef(const std::string& synthDefName)
    return async_result;
 }
 
-bool Client_Server::loadSynthDefDirectory(const std::string& synthDefDir)
+bool SCServer::loadSynthDefDirectory(const std::string& synthDefDir)
 {
    Message * msg = new Message ("/d_loadDir"); 
    msg->append(synthDefDir); 
@@ -741,7 +741,7 @@ bool Client_Server::loadSynthDefDirectory(const std::string& synthDefDir)
    return async_result;
 }
 
-void Client_Server::createDefaultGroup()
+void SCServer::createDefaultGroup()
 {
    Message * msg = new Message ("/g_new");
    msg->append(1);
@@ -813,7 +813,7 @@ void buffer_info(const std::string& address,
    ((Buffer*)((*buffers)[argv[0].data.i]))->setSampRate(argv[3].data.f);
 }
 
-void Client_Server::setUpOSCDispatcher()
+void SCServer::setUpOSCDispatcher()
 {
    dispatcher.add_method("/done", NULL, &server_done, &async_result);
    dispatcher.add_method("/fail", NULL, &fail, &async_result);

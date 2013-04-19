@@ -1,8 +1,8 @@
-/// @file Client_Server.hpp
-/// @brief Header file for Client_Server.hpp
+/// @file SCServer.hpp
+/// @brief Header file for SCServer.hpp
 /// @author Eric Hamdan erichamdan@gmail.com 
-#ifndef CLIENT_SERVER
-#define CLIENT_SERVER
+#ifndef SCSERVER
+#define SCSERVER
 
 #include <string>
 #include <vector> 
@@ -22,33 +22,33 @@
 #define SYNTH 1
 #define GROUP 2
 
-namespace ColliderPlusPlus {
+namespace sc {
 
   /// This class represents a client-side version of scsynth, the SuperCollider audio server
-  class Client_Server
+  class SCServer
   {
     public:
 
-        /// Create a default Client_Server. 
-        Client_Server();
+        /// Create a default SCServer. 
+        SCServer();
 
-        /// Create a Client_Server with a user defined name, host address, port,
+        /// Create a SCServer with a user defined name, host address, port,
         /// and specific scsyndef directory to load upon instantiation
         /// @param[in] const std::string& Name
         /// @param[in] const char *host
         /// @param[in] const char *port
         /// @param[in] cont std::string& SynthDef Directory
-        Client_Server(const std::string& name, const char *host,
+        SCServer(const std::string& name, const char *host,
 			     const char *port, const std::string& synthDefDir);
         
         /// Destructor
-      	~Client_Server();
+      	~SCServer();
         
       	// @{
         /// @name General System Functions
 
-        /// Returns this Client_Server's user defined name as a std:string
-        /// @return This Client_Server's name as a std::string
+        /// Returns this SCServer's user defined name as a std:string
+        /// @return This SCServer's name as a std::string
         std::string getName() const { return name;}
 
         /// Returns a unique Node id (int) starting from 1000
@@ -250,5 +250,5 @@ namespace ColliderPlusPlus {
         int NodeIDGenerator;
         int BufferIDGenerator;
   };
-} //namespace ColliderPlusPlus
+} //namespace sc
 #endif

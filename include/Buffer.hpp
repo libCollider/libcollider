@@ -4,10 +4,10 @@
 #ifndef BUFFER
 #define BUFFER
 
-#include "Client_Server.hpp"
+#include "SCServer.hpp"
 #include <string>
 
-namespace ColliderPlusPlus {
+namespace sc {
 
   /// This class represents a client-side version of a server buffer
   class Buffer
@@ -17,7 +17,7 @@ namespace ColliderPlusPlus {
         /// Create a Buffer with buffer number specified by bufNum parameter
 	/// @param[in] ClientServer instance
         /// @param[in] int Buffer Number
-	Buffer(Client_Server * other, int bufNum);
+	Buffer(SCServer * other, int bufNum);
    
         /// Destructor
         ~Buffer();
@@ -92,9 +92,9 @@ namespace ColliderPlusPlus {
 	int numChans;
 	int sampRate;
         bool manuallyFreed;
-	Client_Server * cs;
+	SCServer * cs;
   };
-} //namespace ColliderPlusPlus
+} //namespace sc
 
 #endif
 

@@ -1,7 +1,7 @@
-#include "ColliderPlusPlus.hpp"
+#include "libcollider/Bus.hpp"
 #include <iostream>
 
-using namespace ColliderPlusPlus;
+using namespace sc;
 
 int main()
 {

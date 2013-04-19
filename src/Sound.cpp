@@ -1,8 +1,8 @@
 #include "Sound.hpp"
 
-using namespace ColliderPlusPlus;
+using namespace sc;
 
-Sound::Sound(Client_Server * cs, const std::string &filepath, int ia)
+Sound::Sound(SCServer * cs, const std::string &filepath, int ia)
 : isLooping(false), isPlaying(false), gain(1), pitchScalar(1), initAction(ia) 
 {
   init(cs, filepath, initAction);  
@@ -16,7 +16,7 @@ Sound::~Sound()
     delete synth;
 }
 
-void Sound::init(Client_Server * other, const std::string &filepath, int initAction)
+void Sound::init(SCServer * other, const std::string &filepath, int initAction)
 {
   cs = other;
   buffer = new Buffer(cs, cs->nextBufferNum());
@@ -54,7 +54,7 @@ void Sound::setRate(float rateScalar)
   synth->set(args);
 }
 
-int Sound::loop(bool loop)
+int Sound::setLoop(bool loop)
 {
   if(isLooping == loop)
     return 1;

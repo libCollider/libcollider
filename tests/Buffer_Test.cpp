@@ -1,10 +1,10 @@
-#include "ColliderPlusPlus.hpp"
+#include "libcollider/libcollider.hpp"
 #include <iostream>
 #include <string>
 #include <unistd.h>
 #include <vector>
 
-using namespace ColliderPlusPlus;
+using namespace sc;
 
 bool init(int argc, char* argv[], const char* &host, const char* &port, std::string &synthDefDir);
   
@@ -24,7 +24,7 @@ int main(int argc, char* argv[])
    
   std::cout << "\nRunning Buffer test..." << std::endl;
 
-  Client_Server cs("Server", host, port, synthDefDir);
+  SCServer cs("Server", host, port, synthDefDir);
   cs.dumpOSC(1);
   Buffer b(&cs, cs.nextBufferNum());
   Buffer c(&cs, cs.nextBufferNum());

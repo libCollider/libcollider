@@ -1,10 +1,10 @@
-#include "ColliderPlusPlus.hpp"
+#include "libcollider/libcollider.hpp"
 #include <unistd.h>
 #include <iostream>
 #include <map>
 #include <string>
 
-using namespace ColliderPlusPlus;
+using namespace sc;
 
 #define TIME_GRANULARITY_MICROSECONDS 500000.0f
 
@@ -27,7 +27,7 @@ int main(int argc, char* argv[])
     return 1;
   }
 
-  Client_Server cs("Server", host, port, synthDefDir);
+  SCServer cs("Server", host, port, synthDefDir);
   Buffer b(&cs, cs.nextBufferNum());
   b.allocRead(soundfile);
   std::map<std::string, float> sArgs;

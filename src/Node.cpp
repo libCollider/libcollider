@@ -5,9 +5,9 @@
 #define T_GROUP 2
 
 
-using namespace ColliderPlusPlus; 
+using namespace sc; 
 
-Node::Node(Client_Server * other, const std::string& defName, int id_)
+Node::Node(SCServer * other, const std::string& defName, int id_)
 : id(id_), defName(defName), manuallyFreed(false)
 {
   cs = other;
@@ -58,7 +58,7 @@ void Node::busMap(std::map<std::string, Bus> &map)
 
 }
 
-Synth::Synth(Client_Server * other, const std::string& defName, 
+Synth::Synth(SCServer * other, const std::string& defName, 
 				int id_, int initAction, int addAction, int target)
 :Node(other, defName, id_)
 { 
@@ -68,7 +68,7 @@ Synth::Synth(Client_Server * other, const std::string& defName,
       getClientServer()->createSynth(getDefName(), getId(), addAction, target);
 }
 
-Synth::Synth(Client_Server * other, const std::string& defName, int id_,
+Synth::Synth(SCServer * other, const std::string& defName, int id_,
      std::map<std::string,float> &args, int initAction, int addAction, int target)
 :Node(other, defName, id_)
 { 
@@ -84,7 +84,7 @@ Synth::~Synth()
      getClientServer()->freeNode(getId());
 }
 
-Group::Group(Client_Server * other, const std::string& defName, int id_, int addAction, int target)
+Group::Group(SCServer * other, const std::string& defName, int id_, int addAction, int target)
 :Node(other, "Group", id_)
 {
   getClientServer()->createGroup(getId());
@@ -106,7 +106,7 @@ void Group::deepFreeAllSynths()
   getClientServer()->deepFreeAllSynths(getId());
 }
 
-RootNode::RootNode(Client_Server * other): Group(other, "Default", ROOT_NODE)
+RootNode::RootNode(SCServer * other): Group(other, "Default", ROOT_NODE)
 {
   
 }

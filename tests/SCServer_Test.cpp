@@ -1,9 +1,9 @@
-#include "ColliderPlusPlus.hpp"
+#include "libcollider/libcollider.hpp"
 #include <iostream>
 #include <string>
 #include <unistd.h>
 
-using namespace ColliderPlusPlus;
+using namespace sc;
 
 bool init(int argc, char* argv[], const char* &host, const char* &port, std::string &synthDefDir);
   
@@ -16,13 +16,13 @@ int main(int argc, char* argv[])
   
   if(!init(argc, argv, host, port, synthDefDir))
   {
-    std::cerr << "Usage Client_Server_Test <host> <port> <scsyndef directory>" << std::endl;
+    std::cerr << "Usage SCServer_Test <host> <port> <scsyndef directory>" << std::endl;
     return 1;
   }
    
-  std::cout << "\nRunning Client_Server test..." << std::endl;
+  std::cout << "\nRunning SCServer test..." << std::endl;
 
-  Client_Server cs("Server", host, port, synthDefDir);
+  SCServer cs("Server", host, port, synthDefDir);
   std::cout << "breakpoint 1" << std::endl;
   cs.dumpOSC(1);
   usleep(2000000);

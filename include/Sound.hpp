@@ -8,13 +8,13 @@
 #include <string>
 #include <map>
 #include "Buffer.hpp"
-#include "Client_Server.hpp"
+#include "SCServer.hpp"
 #include "Node.hpp"
 
 #define NEW_PAUSED 0
 #define NEW 1
 
-namespace ColliderPlusPlus {
+namespace sc {
 
   /// @brief This class represents a user manipulable Soundfile Player, essentially mirroring
   /// the OAS class of the same name by Shreenidhi Chowkwale
@@ -24,7 +24,7 @@ namespace ColliderPlusPlus {
     public:
 	
         /// Create a new sound source
-	Sound(Client_Server * other, const std::string &filepath, int initAction = 0);
+	Sound(SCServer * other, const std::string &filepath, int initAction = 0);
   
       	/// Deallocates server-side buffer associated with this instance
 	~Sound();
@@ -41,7 +41,7 @@ namespace ColliderPlusPlus {
         /// Set the looping state
 	/// false = no looping, true = looping 
         /// @param[in] bool loop
-        int loop(bool loop);
+        int setLoop(bool loop);
         // @}
        
         // {@
@@ -69,9 +69,9 @@ namespace ColliderPlusPlus {
  
     private:
 
-        void init(Client_Server * other, const std::string &filepath, int initAction);
+        void init(SCServer * other, const std::string &filepath, int initAction);
 	
-	Client_Server * cs;
+	SCServer * cs;
 	Buffer * buffer;
         Synth *  synth;
 
@@ -83,5 +83,5 @@ namespace ColliderPlusPlus {
 	bool isLooping;
         bool isPlaying;
   };
-} //namespace ColliderPlusPlus
+} //namespace sc
 #endif

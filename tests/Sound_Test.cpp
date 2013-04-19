@@ -1,9 +1,9 @@
-#include "ColliderPlusPlus.hpp"
+#include "libcollider/libcollider.hpp"
 #include <iostream>
 #include <string>
 #include <unistd.h>
 
-using namespace ColliderPlusPlus;
+using namespace sc;
 
 bool init(int argc, char* argv[], const char* &host, const char* &port,
 			 std::string &soundfile, std::string &synthDefDir);
@@ -22,10 +22,10 @@ int main(int argc, char* argv[])
     return 1;
   }
 
-  Client_Server cs("Server", host, port, synthDefDir);
+  SCServer cs("Server", host, port, synthDefDir);
   cs.dumpOSC(1);
   Sound sound(&cs, soundfile, NEW);
-  sound.loop(true);
+  sound.setLoop(true);
   
   usleep(1000000);
 

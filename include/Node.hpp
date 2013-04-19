@@ -4,12 +4,12 @@
 #ifndef NODE
 #define NODE
 
-#include "Client_Server.hpp"
+#include "SCServer.hpp"
 #include "Bus.hpp"
 #include <string>
 #include <map>
 
-namespace ColliderPlusPlus {
+namespace sc {
 
  /// This class represents a client-side version of a server node (Synth or Group)
  class Node 
@@ -19,7 +19,7 @@ namespace ColliderPlusPlus {
         /// Create a Node with a user defined name and Id
         /// @param[in] const std::string& Name
         /// @param[in] int Id        
-	Node(Client_Server * other, const std::string& defName, int id_);
+	Node(SCServer * other, const std::string& defName, int id_);
  
         /// Destructor
         ~Node();
@@ -54,9 +54,9 @@ namespace ColliderPlusPlus {
         /// @returns defName
         std::string getDefName() const {return defName;}
 
-        /// Return this Node's Client_Server pointer
+        /// Return this Node's SCServer pointer
         /// @returns cs
-        Client_Server* getClientServer() const {return cs;};
+        SCServer* getClientServer() const {return cs;};
   
         /// Query the server for this Node
         void query();
@@ -65,17 +65,17 @@ namespace ColliderPlusPlus {
         /// @name Control and Bus Mapping Functions
    
         /// Set this Node with specified control values 
-        /// @param[in] Client_Server& Client_Server instance
+        /// @param[in] SCServer& SCServer instance
         /// @param[in] std::map<std::string, float>& Control Values
         void set(std::map<std::string, float> &controlVals);
      
         /// Set this Node with specified control range values 
-        /// @param[in] Client_Server& Client_Server instance
+        /// @param[in] SCServer& SCServer instance
         /// @param[in] std::map<std::string, float[]>& Control Ranges
         void setn(std::map<std::string, float[]> &controlRanges);
 
         /// Set this Node with specified bus mappings
-        /// @param[in] Client_Server& Client_Server instance
+        /// @param[in] SCServer& SCServer instance
         /// @param[in] std::map<std::string, Bus>& map
         void busMap(std::map<std::string, Bus> &map);
         // @}
@@ -93,7 +93,7 @@ namespace ColliderPlusPlus {
         bool running;
         bool manuallyFreed;
 
-        Client_Server * cs;
+        SCServer * cs;
  };
 
  /// This class represents a client-side version of a server synth
@@ -104,25 +104,25 @@ namespace ColliderPlusPlus {
         /// Create a Synth with a user defined name, id, addAction, and target
         /// If no addAction is specified, this Synth is added to the head of target group
         /// If no target group is specified, this Synth is added to the Default Group
-        /// @param[in] Client_Server& Client_Server instance
+        /// @param[in] SCServer& SCServer instance
 	/// @param[in] const std::string& defName
         /// @param[in] int Id
 	/// @param[in] int Add Action
         /// @param[in] int Target Group
-	Synth(Client_Server * other, const std::string& defName, 
+	Synth(SCServer * other, const std::string& defName, 
 		 int id_, int initAction = 0, 
 			       int addAction = TO_HEAD, int target = DEFAULT_GROUP);
   
         /// Create a Synth with a user defined name, id, Node args, addAction, and target
         /// If no addAction is specified, this Synth is added to the head of target group
         /// If no target group is specified, this Synth is added to the Default Group
-        /// @param[in] Client_Server& Client_Server instance
+        /// @param[in] SCServer& SCServer instance
 	/// @param[in] const std::string& defName
         /// @param[in] int Id
         /// @param[in] std::map<std::string, float> Args
 	/// @param[in] int Add Action
         /// @param[in] int Target Group
-	Synth(Client_Server * other, const std::string& defName, 
+	Synth(SCServer * other, const std::string& defName, 
 		 int id_, std::map<std::string,float> &args, int initAction = 0,
 		                int addAction = TO_HEAD, int target = DEFAULT_GROUP);
   
@@ -139,23 +139,23 @@ namespace ColliderPlusPlus {
         /// Create a Group with a user defined name, id, addAction, and target
         /// If no addAction is specified, this Group is added to the head of target group
         /// If no target group is specified, this Synth is added to the Default Group
-        /// @param[in] Client_Server& Client_Server instance
+        /// @param[in] SCServer& SCServer instance
 	/// @param[in] const std::string& Name
         /// @param[in] int Id
 	/// @param[in] int Add Action
         /// @param[in] int Target Group
-	Group(Client_Server * other, const std::string& name, int id_, 
+	Group(SCServer * other, const std::string& name, int id_, 
 				int addAction = TO_HEAD, int target = DEFAULT_GROUP);
   
         /// Destructor
         ~Group();
 
         /// Free all Nodes in this Group
-        /// @param[in] Client_Server& Client_Server instance
+        /// @param[in] SCServer& SCServer instance
         void freeAllSynths();
     
         /// Free all Nodes in this Group and in all Sub-Groups
-        /// @param[in] Client_Server& Client_Server instance
+        /// @param[in] SCServer& SCServer instance
         void deepFreeAllSynths();
 
    private:
@@ -167,13 +167,13 @@ namespace ColliderPlusPlus {
    public:
 
         /// Create a Root Node
-        /// @param[in] Client_Server& Client_Server instance
-	RootNode(Client_Server * other);
+        /// @param[in] SCServer& SCServer instance
+	RootNode(SCServer * other);
    
         /// Destructor
 	~RootNode();
    private:
  };
-} //namespace ColliderPlusPlus
+} //namespace sc
 #endif
 
