@@ -3,7 +3,8 @@
 //Execute as one block by selecting everything inside the two outermost parantheses
 (
 
- var path = "/your/path";
+ //var path = "/your/path";
+ var path = "/Users/administrator/git/collider/synthdefs/mac";
 
 SynthDef(\SoundFile_Loop_Mono, {| out = 0, bufnum = 0, looping = 1, trig = -1, rate = 1, amp = 1 |
 	var scaledRate, soundFilePlayer;
@@ -160,6 +161,13 @@ SynthDef(\CentroidBing24, {
 		out=a.addAll(b).addAll(c);
 		Out.ar(0,out*10*EnvGen.ar(Env.perc(0.0, 2.1*(mag**2.2), 1, -8), 1, doneAction: 2));
 }).writeDefFile(path);
+
+SynthDef("grainlet",
+{ arg out=0, freq=440, dur=0.05;
+var env;
+env = EnvGen.kr(Env.perc(0.01, dur, 0.3), doneAction:2); Out.ar(out, SinOsc.ar(freq, 0, env))
+}).writeDefFile(path);
+
 )
 
 
