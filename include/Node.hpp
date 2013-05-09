@@ -59,7 +59,7 @@ namespace sc {
         SCServer* getClientServer() const {return cs;};
   
         /// Query the server for this Node
-        void query();
+        void sync();
 
         // @{
         /// @name Control and Bus Mapping Functions

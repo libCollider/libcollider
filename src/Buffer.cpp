@@ -15,6 +15,7 @@ Buffer::~Buffer()
 {
   if(manuallyFreed != true)
  	cs->freeBuffer_no_reply(bufNum);
+        cs->removeBuffer(this);
 }
 
 void Buffer::alloc(int nf, int nc)
@@ -44,16 +45,17 @@ void Buffer::sync()
   cs->queryBuffer(bufNum);
 }
 
-void Buffer::allocRead(const std::string& filePath, int startFileFrame, 
+bool Buffer::allocRead(const std::string& filePath, int startFileFrame, 
 				int numFrames)
 { 
   if(!cs->allocReadBuffer(bufNum, filePath, startFileFrame, numFrames))
   {
-    exit(0);
+    return false;
   } 
 
   #ifdef PRINT_DEBUG
   std::cout << "\nsyncing buffer # " << bufNum << std::endl;
   #endif
   sync();
+  return true;
 }

@@ -75,8 +75,15 @@ namespace sc {
         /// Send /status command to server, replies with /status_info
         void status();
 
-        /// Command the server to quit 
-	void quit();
+        /// Send /notify command to server, replies with /done and will remember
+	/// this return address and send notifications as long as notifications are enabled.
+	/// @param[in] int toggle 
+        /// @return true if done reply is received from server, else false
+        bool notify(int toggle);
+
+        /// Command the server to quit
+        /// @return true if done reply is received from server, else false
+	bool quit();
         // @}
        
         // @{
@@ -219,9 +226,24 @@ namespace sc {
         /// @param[in] int Buffer Number 
         void queryBuffer(int bufNum);
  
-        /// Add a pointer to a Buffer instance to the _buffers vector 
+        /// Add a pointer of a Buffer instance to the _buffers container 
         /// @param[in] void * buffer
-        void addBuffer(void* buffer);
+        void addBuffer(void * buffer);
+        // @}
+
+        /// Remove a pointer of a Buffer instance to the _buffers container 
+        /// @param[in] void * buffer
+        void removeBuffer(void * buffer);
+        // @}
+
+        /// Add a pointer of a Node instance to the _nodes container 
+        /// @param[in] void * node
+        void addNode(void * node);
+        // @}
+
+        /// Add a pointer of a Node instance to the _nodes container 
+        /// @param[in] void * node
+        void removeNode(void * node);
         // @}
 
     private:
@@ -245,6 +267,7 @@ namespace sc {
         const char* host;
       	std::vector<int> nodeIDs;
         std::map<int, void*> buffers;
+        std::map<int, void*> nodes;
         tnyosc::Dispatcher dispatcher;	
         bool async_result;
         int NodeIDGenerator;

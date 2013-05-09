@@ -38,7 +38,7 @@ void Node::free()
   manuallyFreed = true;
 }
 
-void Node::query()
+void Node::sync()
 {
   cs->queryNode(id);
 }
@@ -62,20 +62,32 @@ Synth::Synth(SCServer * other, const std::string& defName,
 				int id_, int initAction, int addAction, int target)
 :Node(other, defName, id_)
 { 
-  if(initAction == 0)
+  if(initAction == 0) {
       getClientServer()->createPausedSynth(getDefName(), getId(), addAction, target);
-  if(initAction == 1)
+      getClientServer()->addNode(this);
+     // sync();
+  }
+  if(initAction == 1) {
       getClientServer()->createSynth(getDefName(), getId(), addAction, target);
+      getClientServer()->addNode(this);
+     // sync();
+  }
 }
 
 Synth::Synth(SCServer * other, const std::string& defName, int id_,
      std::map<std::string,float> &args, int initAction, int addAction, int target)
 :Node(other, defName, id_)
 { 
-  if(initAction == 0)
+  if(initAction == 0) {
      getClientServer()->createPausedSynth(getDefName(), getId(), args, addAction, target);
-  if(initAction == 1)
+     getClientServer()->addNode(this);
+    // sync();
+  }
+  if(initAction == 1) {
      getClientServer()->createSynth(getDefName(), getId(), args, addAction, target);
+     getClientServer()->addNode(this); 
+    // sync();
+  }
 }
 
 Synth::~Synth()
@@ -88,6 +100,8 @@ Group::Group(SCServer * other, const std::string& defName, int id_, int addActio
 :Node(other, "Group", id_)
 {
   getClientServer()->createGroup(getId());
+  getClientServer()->addNode(this);
+  //sync();
 }
 
 Group::~Group()

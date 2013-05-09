@@ -82,7 +82,7 @@ namespace sc {
         /// @param[in] const std::string& Soundfile Path
         /// @param[in] int Read file from this sample
         /// @param[in] int Number of Sample Frames to allocate, -1 loads whole Soundfile
-	void allocRead(const std::string& filePath, 
+	bool allocRead(const std::string& filePath, 
 				       	  int startFileFrame = 0,
 						 int numFrames = -1); 
 

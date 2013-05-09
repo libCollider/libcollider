@@ -67,9 +67,17 @@ namespace sc {
         void fade(float finalGain, float fadeDuration);*/
         // @}
  
+
+        bool isValid() const {return _isValid;}
+ 
+        bool isPlaying() const {return _isPlaying;}
+
+        bool isLooping() const {return _isLooping;}
+  
+        int getId() const {return synth->getId();}
     private:
 
-        void init(SCServer * other, const std::string &filepath, int initAction);
+        bool init(SCServer * other, const std::string &filepath, int initAction);
 	
 	SCServer * cs;
 	Buffer * buffer;
@@ -80,8 +88,9 @@ namespace sc {
 	float pitchScalar;
 	float gain;
         int initAction;
-	bool isLooping;
-        bool isPlaying;
+	bool _isLooping;
+        bool _isPlaying;
+        bool _isValid;
   };
 } //namespace sc
 #endif

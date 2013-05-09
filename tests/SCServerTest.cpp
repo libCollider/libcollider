@@ -25,13 +25,19 @@ int main(int argc, char* argv[])
   SCServer cs("Server", host, port, synthDefDir);
   std::cout << "breakpoint 1" << std::endl;
   cs.dumpOSC(1);
-  usleep(2000000);
- 
-  cs.allocBuffer(cs.nextBufferNum(), 1024, 2);
-  cs.status();
 
-  usleep(2000000);
-  cs.quit();   
+  for(int i = 0; i < 10; i++)
+  { 
+     std::cout << cs.nextBufferNum() << std::endl;
+  }
+  
+ // usleep(2000000);
+ 
+ // cs.allocBuffer(cs.nextBufferNum(), 1024, 2);
+ // cs.status();
+
+ // usleep(2000000);
+ // cs.quit();   
 
   return 0;
 }

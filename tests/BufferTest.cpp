@@ -12,7 +12,7 @@ void print_info(Buffer &buffer);
 
 int main(int argc, char* argv[])
 {
-  std::string synthDefDir;
+  std::string synthDefDir = "/Users/administrator/git/collider/synthdefs/mac";
   const char* host;
   const char* port;
   
@@ -71,7 +71,7 @@ bool init(int argc, char* argv[], const char* &host, const char* &port, std::str
 
   host = argv[1];
   port = argv[2];
-  synthDefDir = argv[3]; 
+  //synthDefDir = argv[3]; 
  
   return true;
 }

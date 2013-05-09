@@ -1,5 +1,6 @@
 #include "SCServer.hpp"
 #include "Buffer.hpp"
+#include "Node.hpp"
 #include <iostream>
 #include <unistd.h>
 #include <list>
@@ -52,7 +53,7 @@ void SCServer::initializeSynthDefs(const std::string& synthDefDir)
   if(!loadSynthDefDirectory(synthDefDir))
   {  
     cout << "\nError loading synthdefDirectory. Exiting." << endl;
-    exit(0);
+    exit(0);	
   }
 }
 
@@ -90,8 +91,20 @@ const char* SCServer::getHost()
 }
 
 void SCServer::addBuffer(void * buffer)
+{
+   if(buffer)
+     buffers[((Buffer*)buffer)->getBufNum()] = buffer;
+}
+
+void SCServer::removeBuffer(void * buffer)
+{
+   if(buffer)
+     buffers[((Buffer*)buffer)->getBufNum()] = 0;
+}
+
+void SCServer::addNode(void * node)
 { 
-   buffers[((Buffer*)buffer)->getBufNum()] = buffer;
+   nodes[((Node*)node)->getId()] = node;
 }
 
 void SCServer::printCurrentNodeIds()
@@ -135,7 +148,7 @@ void SCServer::send_msg_with_reply(tnyosc::Message * msg, const char * send_msg)
    async_result = false;
    int sockfd, n;
    struct sockaddr_in servaddr;
-   char receive_buffer[1024];
+   char receive_buffer[4096];
    
    if ( (sockfd=socket(AF_INET, SOCK_DGRAM, IPPROTO_UDP)) == -1)
        error("socket");
@@ -156,14 +169,15 @@ void SCServer::send_msg_with_reply(tnyosc::Message * msg, const char * send_msg)
    if (sendto(sockfd, msg->data(), msg->size(), 0, 
 			      (struct sockaddr *)&servaddr, sizeof(servaddr)) == -1)
        error("sendto()");
-
+   //std::cerr << "brk0" << std::endl;
    n = recvfrom(sockfd, receive_buffer, sizeof(receive_buffer), 0, NULL, NULL);
-
+  // std::cerr << "brk1" << std::endl;
    std::list<CallbackRef> callback_list = 
      dispatcher.match_methods(receive_buffer, n);
-
+  // std::cerr << "brk2" << std::endl;
    std::list<CallbackRef>::iterator it = callback_list.begin();
      for (; it != callback_list.end(); ++it) {
+    //   std::cerr << "iterating..." << std::endl;
        (*it)->method((*it)->address, (*it)->argv, (*it)->user_data);
      } 
    close(sockfd);
@@ -296,9 +310,25 @@ void SCServer::status()
    #endif
 
    delete msg;
-} 
+}
 
-void SCServer::quit()
+bool SCServer::notify(int toggle)
+{
+   Message * msg = new Message("/notify");  
+   msg->append(toggle);
+ 
+   #ifdef PRINT_DEBUG
+   const char * send_msg = "\nsending: /notify command to the server";
+   send_msg_with_reply(msg, send_msg);
+   #else
+   send_msg_with_reply(msg);
+   #endif
+
+   delete msg;
+   return async_result;
+}
+ 
+bool SCServer::quit()
 {
    Message * msg = new Message("/quit");
 
@@ -310,6 +340,7 @@ void SCServer::quit()
    #endif
 
    delete msg;
+   return async_result;
 }
 
 void SCServer::createNode(int nodeId, int addAction, int target, int type)
@@ -413,8 +444,8 @@ void SCServer::createPausedSynth(const std::string& name, int nodeId,
    snprintf(send_msg, 100, 
 	"\nsending bundle [ \
 	 \n/s_new %s %d %d %d \
-         \n/n_run %d \
-         \n]", name.c_str(), nodeId, addAction, target, nodeId);
+         \n/n_run %d %d  \
+         \n]", name.c_str(), nodeId, addAction, target, nodeId, 0);
    send_bundle_no_reply(bundle, send_msg);
    #else
    send_bundle_no_reply(bundle);
@@ -485,8 +516,8 @@ void SCServer::createPausedSynth(const std::string& name, int nodeId,
    snprintf(send_msg, 100, 
 	"\nsending bundle [ \
 	 \n/s_new %s %d %d %d + args \
-         \n/n_run %d \
-         \n]", name.c_str(), nodeId, addAction, target, nodeId);
+         \n/n_run %d %d \
+         \n]", name.c_str(), nodeId, addAction, target, nodeId, 0);
    send_bundle_no_reply(bundle, send_msg);
    #else
    send_bundle_no_reply(bundle);
@@ -801,23 +832,25 @@ void status_reply(const std::string& address,
 void node_info(const std::string& address, 
 		const std::vector<tnyosc::Argument>& argv, void* user_data)
 {
-   cout << "/node_info reply test" << endl;
+   cout << "/n_on reply test" << endl;
+   //std::map<int, void*> * nodes = (std::map<int, void*> *) user_data;
 }
 
 void buffer_info(const std::string& address, 
 		const std::vector<tnyosc::Argument>& argv, void* user_data)
 {
-   std::map<int, void*> * buffers = (std::map<int, void*> *) user_data;     
+   std::map<int, void*> * buffers = (std::map<int, void*> *) user_data;   
    ((Buffer*)((*buffers)[argv[0].data.i]))->setNumFrames(argv[1].data.i);
    ((Buffer*)((*buffers)[argv[0].data.i]))->setNumChans(argv[2].data.i);
    ((Buffer*)((*buffers)[argv[0].data.i]))->setSampRate(argv[3].data.f);
+   std::cerr << "\nbuffer # " << argv[0].data.i << " synced" << std::endl;
 }
 
 void SCServer::setUpOSCDispatcher()
 {
    dispatcher.add_method("/done", NULL, &server_done, &async_result);
    dispatcher.add_method("/fail", NULL, &fail, &async_result);
-   dispatcher.add_method("/n_info", NULL, &node_info, NULL); //finish me
+   dispatcher.add_method("/n_on", NULL, &node_info, &nodes); //finish me
    dispatcher.add_method("/status.reply", NULL, &status_reply, NULL); 
    dispatcher.add_method("/b_info", NULL, &buffer_info, &buffers);
 }
