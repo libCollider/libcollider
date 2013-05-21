@@ -43,7 +43,11 @@ install:
 	mkdir -p $(INCLUDE_DIR)libcollider
 	cp -r include/* $(INCLUDE_DIR)libcollider
 	chmod 0755 $(INSTALL_DIR)libcollider.$(libsuffix)
-
+	chmod 0755 $(INCLUDE_DIR)libcollider
+	chmod 0755 $(INCLUDE_DIR)libcollider/*
+	chmod 0755 $(INCLUDE_DIR)libcollider/tny_osc
+	chmod 0755 $(INCLUDE_DIR)libcollider/tny_osc/*
+	
 uninstall:
 	rm $(INSTALL_DIR)libcollider.$(libsuffix)
 	rm -r $(INCLUDE_DIR)libcollider
