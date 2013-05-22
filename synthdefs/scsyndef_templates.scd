@@ -37,6 +37,16 @@ SynthDef(\SoundFile_Event_Stereo, {| out = 0, bufnum = 0, looping = 0, trig = -1
 
 }).writeDefFile(path);
 
+SynthDef(\SoundFile_Event_Stereo_81, {| out = 0, bufnum = 0, looping = 0, trig = -1, rate = 1, amp = 1 |
+	var scaledRate, soundFilePlayer, sig;
+	scaledRate = rate*BufRateScale.kr(bufnum);
+	soundFilePlayer = PlayBuf.ar(2, bufnum, scaledRate , trig, 0, loop:looping, doneAction:2);
+	sig=[0,0,0,0,0,0,0,0,0,0,0,0,soundFilePlayer.at(0),0,0,0,0,0,0,soundFilePlayer.at(1)];
+	Out.ar(out, sig*amp)
+
+}).writeDefFile(path);
+
+
 
 //Stutter stuff
 SynthDef(\SoundFile_Stutter_Loop_Mono, {| out = 0, bufnum = 0, looping = 1, rate = 1, stutterRate = 2, amp = 1 |
