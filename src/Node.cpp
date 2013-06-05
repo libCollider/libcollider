@@ -25,7 +25,7 @@ void Node::run()
 }
 
 
-void Node::stop()
+void Node::pause()
 {
   cs->runNode(id, 0);   
   running = false; 

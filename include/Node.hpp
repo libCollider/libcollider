@@ -32,7 +32,7 @@ namespace sc {
 	void run(); //mod running flag
     
         /// Command the server to stop this Node
-	void stop(); //mod running flag
+	void pause(); //mod running flag
      
         /// Command the server to free this Node
         void free(); //add check for running

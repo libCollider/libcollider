@@ -49,7 +49,7 @@ namespace sc {
 
         /// Set this Buffer's frame count
         /// @param[in] int frame count
-        void setNumFrames(int nf) {numFrames = nf;}
+        void setNumFrames(unsigned long nf) {numFrames = nf;}
     
         /// Set this Buffer's channel count
         /// @param[in] int channel count
@@ -88,7 +88,7 @@ namespace sc {
 
     private:
 	int bufNum;
-	int numFrames;
+	unsigned long numFrames;
 	int numChans;
 	int sampRate;
         bool manuallyFreed;

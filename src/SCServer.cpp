@@ -77,6 +77,7 @@ void SCServer::setPort(const char *p)
 void SCServer::setHost(const char *h)
 {
   host = h;
+  //std::cerr << "host " << host << std::endl;
 }
 
 const char* SCServer::getPort()
@@ -568,8 +569,7 @@ bool SCServer::allocBuffer(int bufNum, int numFrames, int numChans)
 }
 
 bool SCServer::allocReadBuffer(int bufNum, 
-			const std::string& filePath, int startFileFrame, 
-				int numFrames)
+			const std::string& filePath, int startFileFrame, int numFrames)
 {
    Message * msg = new Message("/b_allocRead");
    msg->append(bufNum);
@@ -774,6 +774,7 @@ bool SCServer::loadSynthDefDirectory(const std::string& synthDefDir)
 
 void SCServer::createDefaultGroup()
 {
+   //std::cerr << getHost() << std::endl; 
    Message * msg = new Message ("/g_new");
    msg->append(1);
    msg->append(0);

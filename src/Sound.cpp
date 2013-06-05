@@ -1,11 +1,13 @@
 #include "Sound.hpp"
+#include "unistd.h"
 
 using namespace sc;
 
-Sound::Sound(SCServer * cs, const std::string &filepath, int ia)
-:_isValid(false), _isLooping(false), _isPlaying(false), gain(1), pitchScalar(1), initAction(ia) 
+Sound::Sound(SCServer * cs, const std::string &filepath, int outarray [], int ia)
+:_isValid(false), _isLooping(false), _isPlaying(false), _gain(1), _pitchScalar(1), _initAction(ia),
+ _startPos(0.0f), _rateScalar(1.0f) 
 {
-  init(cs, filepath, initAction);  
+  init(cs, filepath, outarray, _initAction);  
 }
 
 Sound::~Sound()
@@ -15,45 +17,46 @@ Sound::~Sound()
   if(synth)
     delete synth;
 }
-
-bool Sound::init(SCServer * other, const std::string &filepath, int initAction)
+void Sound::init(SCServer * other, const std::string &filepath, int outarray [], int _initAction)
 {
   cs = other;
   buffer = new Buffer(cs, cs->nextBufferNum());
 
   if(buffer == NULL) 
   {
-     return false;	
+     _isValid = false;	
   }
   else 
   {
      if(!(buffer->allocRead(filepath)))
      {
         std::cerr << "Error allocating buffer resources on server." << std::endl;
-        return false;
+        _isValid = false;
      }
      else 
      {
         args["bufnum"] = buffer->getBufNum();
-        args["rate"] = pitchScalar;
+        args["rate"] = _pitchScalar;
         args["looping"] = 0;
         args["amp"] = 1;
   
         if(buffer->getChanNum() == 2) {
 	  // std::cerr << "...creating 2ch sound player" << std::endl;
-           synth = new Synth(cs, "SoundFile_Loop_Stereo", cs->nextNodeId(), args, initAction);}
+	   args["outpos1"] = outarray[0];
+ 	   args["outpos2"] = outarray[1];
+           synth = new Synth(cs, "SoundFile_Loop_Stereo", cs->nextNodeId(), args, _initAction);}
         else if (buffer->getChanNum() == 1) {
-          // std::cerr << "...creating 2ch sound player" << std::endl;
-           synth = new Synth(cs, "SoundFile_Loop_Mono", cs->nextNodeId(), args, initAction);} 
+          // std::cerr << "...creating 1ch sound player" << std::endl;
+	   args["outpos1"] = outarray[0];
+           synth = new Synth(cs, "SoundFile_Loop_Mono", cs->nextNodeId(), args, _initAction);} 
         else 
-	   return false;
+	   _isValid = false;
 
         if(synth == NULL)
-	   return false;
+	   _isValid = false;
 	else 
         {
-           _isValid = true;
-	   return isValid(); 
+           _isValid = true; 
         }
      }
    }  
@@ -65,21 +68,48 @@ void Sound::play()
   _isPlaying = true; 
 }
 
-void Sound::stop()
+void Sound::pause()
 {
-  synth->stop();
+  synth->pause();
   _isPlaying = false;
+}
+
+void Sound::jumpToStartPos()
+{
+  if(args["trig"] == 1)
+  {
+	args["trig"] = -1;
+	synth->set(args);	
+	usleep(20000);
+	args["trig"] = 1;
+	synth->set(args);
+  }
+  
+  else
+  {
+        args["trig"] = 1;
+        synth->set(args);
+  }
+}
+
+void Sound::setStartPosition(float pos)
+{
+  _startPos = pos;
+  args["startpos"] = _startPos;
+  synth->set(args);
 }
 
 void Sound::setGain(float gain)
 {
-  args["amp"] = gain;
+  _gain = gain;
+  args["amp"] = _gain;
   synth->set(args);
 }
 
 void Sound::setRate(float rateScalar)
 {
-  args["rate"] = rateScalar;
+  _rateScalar = rateScalar;
+  args["rate"] = _rateScalar;
   synth->set(args);
 }
 

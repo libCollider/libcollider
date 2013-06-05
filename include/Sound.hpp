@@ -24,7 +24,7 @@ namespace sc {
     public:
 	
         /// Create a new sound source
-	Sound(SCServer * other, const std::string &filepath, int initAction = 0);
+	Sound(SCServer * other, const std::string &filepath, int outarray [], int initAction = 0);
   
       	/// Deallocates server-side buffer associated with this instance
 	~Sound();
@@ -36,7 +36,7 @@ namespace sc {
         void play();
 
         /// Pauses the sound source at the current playback position
-        void stop();
+        void pause();
 
         /// Set the looping state
 	/// false = no looping, true = looping 
@@ -66,8 +66,11 @@ namespace sc {
         /// @param[in] float fade duration
         void fade(float finalGain, float fadeDuration);*/
         // @}
- 
 
+        void jumpToStartPos();
+
+	void setStartPosition(float pos);
+ 
         bool isValid() const {return _isValid;}
  
         bool isPlaying() const {return _isPlaying;}
@@ -75,9 +78,17 @@ namespace sc {
         bool isLooping() const {return _isLooping;}
   
         int getId() const {return synth->getId();}
+
+        int getChanNum() const {return buffer->getChanNum();}
+    
+        int getFrameNum() const {return buffer->getFrameNum();}
+
+        float getGain() const {return _gain;}
+
+	float getStartPos() const {return _startPos;}
     private:
 
-        bool init(SCServer * other, const std::string &filepath, int initAction);
+        void init(SCServer * other, const std::string &filepath, int outarray [], int initAction);
 	
 	SCServer * cs;
 	Buffer * buffer;
@@ -85,9 +96,11 @@ namespace sc {
 
         std::map<std::string, float> args;
 	
-	float pitchScalar;
-	float gain;
-        int initAction;
+	float _pitchScalar;
+	float _gain;
+	float _startPos;
+	float _rateScalar;
+        int _initAction;
 	bool _isLooping;
         bool _isPlaying;
         bool _isValid;

@@ -6,11 +6,12 @@
  //var path = "/your/path";
  var path = "/Users/administrator/git/collider/synthdefs/mac";
 
-SynthDef(\SoundFile_Loop_Mono, {| out = 0, bufnum = 0, looping = 1, trig = -1, rate = 1, amp = 1 |
-	var scaledRate, soundFilePlayer;
+SynthDef(\SoundFile_Loop_Mono, {| outpos1 = 0, bufnum = 0, looping = 1, trig = -1, rate = 1, amp = 1, startpos = 0 |
+	var scaledRate, soundFilePlayer, curpos;
 	scaledRate = rate*BufRateScale.kr(bufnum);
-	soundFilePlayer = PlayBuf.ar(1, bufnum, scaledRate , trig, 0, loop:looping, doneAction:0);
-	Out.ar(out, soundFilePlayer*amp)
+	curpos = startpos*BufFrames.kr(bufnum);
+	soundFilePlayer = PlayBuf.ar(1, bufnum, scaledRate , trig, curpos, loop:looping, doneAction:0);
+	Out.ar(outpos1, soundFilePlayer*amp)
 }).writeDefFile(path);
 
 SynthDef(\SoundFile_Event_Mono, {| out = 0, bufnum = 0, looping = 0, trig = -1, rate = 1, amp = 1 |
@@ -21,11 +22,13 @@ SynthDef(\SoundFile_Event_Mono, {| out = 0, bufnum = 0, looping = 0, trig = -1, 
 
 }).writeDefFile(path);
 
-SynthDef(\SoundFile_Loop_Stereo, {| out = 0, bufnum = 0, looping = 1, trig = -1, rate = 1, amp = 1 |
-	var scaledRate, soundFilePlayer;
+SynthDef(\SoundFile_Loop_Stereo, {| outpos1 = 0, outpos2 = 1, bufnum = 0, looping = 1, trig = -1, rate = 1, amp = 1, startpos = 0 |
+	var scaledRate, soundFilePlayer, curpos;
 	scaledRate = rate*BufRateScale.kr(bufnum);
-	soundFilePlayer = PlayBuf.ar(2, bufnum, scaledRate , trig, 0, loop:looping, doneAction:0);
-	Out.ar(out, soundFilePlayer*amp)
+	curpos = startpos*BufFrames.kr(bufnum);
+	soundFilePlayer = PlayBuf.ar(2, bufnum, scaledRate , trig, curpos, loop:looping, doneAction:0);
+	Out.ar(outpos1, soundFilePlayer*amp);
+    Out.ar(outpos2, soundFilePlayer*amp)
 
 }).writeDefFile(path);
 
