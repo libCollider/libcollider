@@ -1,4 +1,4 @@
-#include "libcollider/libcollider.hpp"
+#include "collider/Collider.hpp"
 #include <iostream>
 #include <map>
 #include <string>

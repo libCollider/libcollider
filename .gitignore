@@ -16,14 +16,5 @@ build
 Doxygen~
 .project
 Makefile~
-Buffer_Test
-Node_Test
-Bus_Test
-Buffer_Example
-Node_Example
-Bus_Example
-Grain_Test
 Grain_Example
-Sound_Example
-Sound_Test
-Client_Server_Test
+

@@ -11,8 +11,8 @@ ifeq ($(UNAME), Linux)
   libsuffix = so
 endif
 
-INSTALL_DIR = /usr/lib/
-INCLUDE_DIR = /usr/include/
+INSTALL_LIB_DIR = /usr/local/lib/
+INSTALL_INCLUDE_DIR = /usr/local/include/
 
 libcollider: tnyosc-dispatch.o SCServer.o Buffer.o Bus.o Node.o Sound.o 
 	gcc -$(libtype) -o libcollider.$(libsuffix) src/tnyosc-dispatch.o src/SCServer.o src/Buffer.o src/Bus.o src/Node.o src/Sound.o -lstdc++ 
@@ -39,15 +39,15 @@ clean:
 	rm -rf $(wildcard build)
 
 install:
-	cp build/libcollider.$(libsuffix) $(INSTALL_DIR)
-	mkdir -p $(INCLUDE_DIR)libcollider
-	cp -r include/* $(INCLUDE_DIR)libcollider
-	chmod 0755 $(INSTALL_DIR)libcollider.$(libsuffix)
-	chmod 0755 $(INCLUDE_DIR)libcollider
-	chmod 0755 $(INCLUDE_DIR)libcollider/*
-	chmod 0755 $(INCLUDE_DIR)libcollider/tny_osc
-	chmod 0755 $(INCLUDE_DIR)libcollider/tny_osc/*
+	cp build/libcollider.$(libsuffix) $(INSTALL_LIB_DIR)
+	mkdir -p $(INSTALL_INCLUDE_DIR)collider
+	cp -r include/* $(INSTALL_INCLUDE_DIR)collider
+	chmod 0755 $(INSTALL_LIB_DIR)libcollider.$(libsuffix)
+	chmod 0755 $(INSTALL_INCLUDE_DIR)collider
+	chmod 0755 $(INSTALL_INCLUDE_DIR)collider/*
+	chmod 0755 $(INSTALL_INCLUDE_DIR)collider/tny_osc
+	chmod 0755 $(INSTALL_INCLUDE_DIR)collider/tny_osc/*
 	
 uninstall:
-	rm $(INSTALL_DIR)libcollider.$(libsuffix)
-	rm -r $(INCLUDE_DIR)libcollider
+	rm $(INSTALL_LIB_DIR)libcollider.$(libsuffix)
+	rm -r $(INSTALL_INCLUDE_DIR)collider
