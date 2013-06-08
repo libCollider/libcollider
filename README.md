@@ -1,4 +1,4 @@
-libcollider
+libCollider
 ================
 
 See the wiki
