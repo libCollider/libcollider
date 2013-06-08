@@ -30,7 +30,7 @@ bool \hyperlink{classsc_1_1Buffer_aa3002f528e1eda702d29626004069491}{get\-Manual
 \item 
 void \hyperlink{classsc_1_1Buffer_a444402b37e84ca30c529df66749c897d}{set\-Buf\-Num} (int bn)
 \item 
-void \hyperlink{classsc_1_1Buffer_a355daa27d196ea9b7c2a5d703c630521}{set\-Num\-Frames} (int nf)
+void \hyperlink{classsc_1_1Buffer_a4ed9a45c0ac7c1b4d7cda850153bfb4a}{set\-Num\-Frames} (unsigned long nf)
 \item 
 void \hyperlink{classsc_1_1Buffer_afd3831ddbad9748d31dd6260ba6392fc}{set\-Num\-Chans} (int nc)
 \item 
@@ -42,7 +42,7 @@ void \hyperlink{classsc_1_1Buffer_a94deb84c1e5375bb1922092fe9f1f5e6}{free} ()
 \item 
 void \hyperlink{classsc_1_1Buffer_a1577c3e412d9e528ddd17d1e95c95369}{sync} ()
 \item 
-void \hyperlink{classsc_1_1Buffer_ac55059fa09102a7bf96e22c8dc7a3804}{alloc\-Read} (const std\-::string \&file\-Path, int start\-File\-Frame=0, int num\-Frames=-\/1)
+bool \hyperlink{classsc_1_1Buffer_a1ff413c036076debd2810dde7c127874}{alloc\-Read} (const std\-::string \&file\-Path, int start\-File\-Frame=0, int num\-Frames=-\/1)
 \end{DoxyCompactItemize}
 
 
@@ -85,15 +85,15 @@ Command server to allocate memory for this \hyperlink{classsc_1_1Buffer}{Buffer}
 \mbox{\tt in}  & {\em int} & Number of Channels \\
 \hline
 \end{DoxyParams}
-\hypertarget{classsc_1_1Buffer_ac55059fa09102a7bf96e22c8dc7a3804}{\index{sc\-::\-Buffer@{sc\-::\-Buffer}!alloc\-Read@{alloc\-Read}}
+\hypertarget{classsc_1_1Buffer_a1ff413c036076debd2810dde7c127874}{\index{sc\-::\-Buffer@{sc\-::\-Buffer}!alloc\-Read@{alloc\-Read}}
 \index{alloc\-Read@{alloc\-Read}!sc::Buffer@{sc\-::\-Buffer}}
-\subsubsection[{alloc\-Read}]{\setlength{\rightskip}{0pt plus 5cm}void sc\-::\-Buffer\-::alloc\-Read (
+\subsubsection[{alloc\-Read}]{\setlength{\rightskip}{0pt plus 5cm}bool sc\-::\-Buffer\-::alloc\-Read (
 \begin{DoxyParamCaption}
 \item[{const std\-::string \&}]{file\-Path, }
 \item[{int}]{start\-File\-Frame = {\ttfamily 0}, }
 \item[{int}]{num\-Frames = {\ttfamily -\/1}}
 \end{DoxyParamCaption}
-)}}\label{classsc_1_1Buffer_ac55059fa09102a7bf96e22c8dc7a3804}
+)}}\label{classsc_1_1Buffer_a1ff413c036076debd2810dde7c127874}
 Command server to load specified Soundfile into \hyperlink{classsc_1_1Buffer}{Buffer} and allocate just enough space for the Soundfile with the given offset specified by start\-File\-Frame 
 \begin{DoxyParams}[1]{Parameters}
 \mbox{\tt in}  & {\em Client\-Server\&} & Client\-Server instance \\
@@ -191,13 +191,13 @@ Set this \hyperlink{classsc_1_1Buffer}{Buffer}'s channel count
 \mbox{\tt in}  & {\em int} & channel count \\
 \hline
 \end{DoxyParams}
-\hypertarget{classsc_1_1Buffer_a355daa27d196ea9b7c2a5d703c630521}{\index{sc\-::\-Buffer@{sc\-::\-Buffer}!set\-Num\-Frames@{set\-Num\-Frames}}
+\hypertarget{classsc_1_1Buffer_a4ed9a45c0ac7c1b4d7cda850153bfb4a}{\index{sc\-::\-Buffer@{sc\-::\-Buffer}!set\-Num\-Frames@{set\-Num\-Frames}}
 \index{set\-Num\-Frames@{set\-Num\-Frames}!sc::Buffer@{sc\-::\-Buffer}}
 \subsubsection[{set\-Num\-Frames}]{\setlength{\rightskip}{0pt plus 5cm}void sc\-::\-Buffer\-::set\-Num\-Frames (
 \begin{DoxyParamCaption}
-\item[{int}]{nf}
+\item[{unsigned long}]{nf}
 \end{DoxyParamCaption}
-)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classsc_1_1Buffer_a355daa27d196ea9b7c2a5d703c630521}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classsc_1_1Buffer_a4ed9a45c0ac7c1b4d7cda850153bfb4a}
 Set this \hyperlink{classsc_1_1Buffer}{Buffer}'s frame count 
 \begin{DoxyParams}[1]{Parameters}
 \mbox{\tt in}  & {\em int} & frame count \\

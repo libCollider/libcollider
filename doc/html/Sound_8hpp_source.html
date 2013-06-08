@@ -109,7 +109,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;  {</div>
 <div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    <span class="keyword">public</span>:</div>
 <div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;        </div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;        <a class="code" href="classsc_1_1Sound.html#a658cbf07e4afe2f9b0429a070a17d339" title="Create a new sound source.">Sound</a>(<a class="code" href="classsc_1_1SCServer.html" title="This class represents a client-side version of scsynth, the SuperCollider audio server.">SCServer</a> * other, <span class="keyword">const</span> std::string &amp;filepath, <span class="keywordtype">int</span> initAction = 0);</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;        <a class="code" href="classsc_1_1Sound.html#ab8da540f95ed9e91d18291eabc1d41aa" title="Create a new sound source.">Sound</a>(<a class="code" href="classsc_1_1SCServer.html" title="This class represents a client-side version of scsynth, the SuperCollider audio server.">SCServer</a> * other, <span class="keyword">const</span> std::string &amp;filepath, <span class="keywordtype">int</span> outarray [], <span class="keywordtype">int</span> initAction = 0);</div>
 <div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;  </div>
 <div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;        <a class="code" href="classsc_1_1Sound.html#ac05e395b00c36c796bb8aa707d1011af" title="Deallocates server-side buffer associated with this instance.">~Sound</a>();</div>
 <div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;</div>
@@ -117,7 +117,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="comment"></span>        </div>
 <div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="classsc_1_1Sound.html#a491c7b5026a733fa09df9b3ce38b32ba" title="Play the sound source from the last position.">play</a>();</div>
 <div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="classsc_1_1Sound.html#aaf5d0d8f2c5089445e0175ee415cdf0c" title="Pauses the sound source at the current playback position.">stop</a>();</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="classsc_1_1Sound.html#a1faddaffeb6848690d6f8236095fe124" title="Pauses the sound source at the current playback position.">pause</a>();</div>
 <div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;</div>
 <div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;        <span class="keywordtype">int</span> <a class="code" href="classsc_1_1Sound.html#a943faed99ce5d92f889aae1a908265c7">setLoop</a>(<span class="keywordtype">bool</span> loop);</div>
 <div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;        <span class="comment">// @}</span></div>
@@ -134,29 +134,51 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;       <span class="comment">/* /// Initiate a linear fade in/out relative to the</span></div>
 <div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;<span class="comment">        void fade(float finalGain, float fadeDuration);*/</span></div>
 <div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;        <span class="comment">// @}</span></div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160; </div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;    <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;        <span class="keywordtype">void</span> jumpToStartPos();</div>
 <div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;        <span class="keywordtype">void</span> init(<a class="code" href="classsc_1_1SCServer.html" title="This class represents a client-side version of scsynth, the SuperCollider audio server.">SCServer</a> * other, <span class="keyword">const</span> std::string &amp;filepath, <span class="keywordtype">int</span> initAction);</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;        </div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;        <a class="code" href="classsc_1_1SCServer.html" title="This class represents a client-side version of scsynth, the SuperCollider audio server.">SCServer</a> * cs;</div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;        <a class="code" href="classsc_1_1Buffer.html" title="This class represents a client-side version of a server buffer.">Buffer</a> * buffer;</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;        <a class="code" href="classsc_1_1Synth.html" title="This class represents a client-side version of a server synth.">Synth</a> *  synth;</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;        <span class="keywordtype">void</span> setStartPosition(<span class="keywordtype">float</span> pos);</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160; </div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;        <span class="keywordtype">bool</span> isValid()<span class="keyword"> const </span>{<span class="keywordflow">return</span> _isValid;}</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160; </div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;        <span class="keywordtype">bool</span> isPlaying()<span class="keyword"> const </span>{<span class="keywordflow">return</span> _isPlaying;}</div>
 <div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;</div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;        std::map&lt;std::string, float&gt; args;</div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;        </div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;        <span class="keywordtype">float</span> pitchScalar;</div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;        <span class="keywordtype">float</span> gain;</div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;        <span class="keywordtype">int</span> initAction;</div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;        <span class="keywordtype">bool</span> isLooping;</div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;        <span class="keywordtype">bool</span> isPlaying;</div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;  };</div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;} <span class="comment">//namespace sc</span></div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;        <span class="keywordtype">bool</span> isLooping()<span class="keyword"> const </span>{<span class="keywordflow">return</span> _isLooping;}</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;  </div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;        <span class="keywordtype">int</span> getId()<span class="keyword"> const </span>{<span class="keywordflow">return</span> synth-&gt;<a class="code" href="classsc_1_1Node.html#ae9fd8f68186f13b1402c542192b98e63">getId</a>();}</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;        <span class="keywordtype">int</span> getChanNum()<span class="keyword"> const </span>{<span class="keywordflow">return</span> buffer-&gt;<a class="code" href="classsc_1_1Buffer.html#a57f2455044a2303a1fba1d17e2a7470c">getChanNum</a>();}</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;    </div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;        <span class="keywordtype">int</span> getFrameNum()<span class="keyword"> const </span>{<span class="keywordflow">return</span> buffer-&gt;<a class="code" href="classsc_1_1Buffer.html#a591c50bcaae889d763ff28688febeb71">getFrameNum</a>();}</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;        <span class="keywordtype">float</span> getGain()<span class="keyword"> const </span>{<span class="keywordflow">return</span> _gain;}</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;        <span class="keywordtype">float</span> getStartPos()<span class="keyword"> const </span>{<span class="keywordflow">return</span> _startPos;}</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;    <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;        <span class="keywordtype">void</span> init(<a class="code" href="classsc_1_1SCServer.html" title="This class represents a client-side version of scsynth, the SuperCollider audio server.">SCServer</a> * other, <span class="keyword">const</span> std::string &amp;filepath, <span class="keywordtype">int</span> outarray [], <span class="keywordtype">int</span> initAction);</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;        </div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;        <a class="code" href="classsc_1_1SCServer.html" title="This class represents a client-side version of scsynth, the SuperCollider audio server.">SCServer</a> * cs;</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;        <a class="code" href="classsc_1_1Buffer.html" title="This class represents a client-side version of a server buffer.">Buffer</a> * buffer;</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;        <a class="code" href="classsc_1_1Synth.html" title="This class represents a client-side version of a server synth.">Synth</a> *  synth;</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;        std::map&lt;std::string, float&gt; args;</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;        </div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;        <span class="keywordtype">float</span> _pitchScalar;</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;        <span class="keywordtype">float</span> _gain;</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;        <span class="keywordtype">float</span> _startPos;</div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;        <span class="keywordtype">float</span> _rateScalar;</div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;        <span class="keywordtype">int</span> _initAction;</div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;        <span class="keywordtype">bool</span> _isLooping;</div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;        <span class="keywordtype">bool</span> _isPlaying;</div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;        <span class="keywordtype">bool</span> _isValid;</div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;  };</div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;} <span class="comment">//namespace sc</span></div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;<span class="preprocessor">#endif</span></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Apr 19 2013 16:18:14 for libcollider by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sat Jun 8 2013 10:53:11 for libcollider by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.3.1-20130209
 </small></address>

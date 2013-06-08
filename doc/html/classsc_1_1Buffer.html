@@ -119,8 +119,8 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:aa3002f528e1eda702d29626004069491"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a444402b37e84ca30c529df66749c897d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsc_1_1Buffer.html#a444402b37e84ca30c529df66749c897d">setBufNum</a> (int bn)</td></tr>
 <tr class="separator:a444402b37e84ca30c529df66749c897d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a355daa27d196ea9b7c2a5d703c630521"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsc_1_1Buffer.html#a355daa27d196ea9b7c2a5d703c630521">setNumFrames</a> (int nf)</td></tr>
-<tr class="separator:a355daa27d196ea9b7c2a5d703c630521"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4ed9a45c0ac7c1b4d7cda850153bfb4a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsc_1_1Buffer.html#a4ed9a45c0ac7c1b4d7cda850153bfb4a">setNumFrames</a> (unsigned long nf)</td></tr>
+<tr class="separator:a4ed9a45c0ac7c1b4d7cda850153bfb4a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afd3831ddbad9748d31dd6260ba6392fc"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsc_1_1Buffer.html#afd3831ddbad9748d31dd6260ba6392fc">setNumChans</a> (int nc)</td></tr>
 <tr class="separator:afd3831ddbad9748d31dd6260ba6392fc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9ba693d9d86afaccce4d76788dcaff80"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsc_1_1Buffer.html#a9ba693d9d86afaccce4d76788dcaff80">setSampRate</a> (float sr)</td></tr>
@@ -131,8 +131,8 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a94deb84c1e5375bb1922092fe9f1f5e6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1577c3e412d9e528ddd17d1e95c95369"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsc_1_1Buffer.html#a1577c3e412d9e528ddd17d1e95c95369">sync</a> ()</td></tr>
 <tr class="separator:a1577c3e412d9e528ddd17d1e95c95369"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac55059fa09102a7bf96e22c8dc7a3804"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsc_1_1Buffer.html#ac55059fa09102a7bf96e22c8dc7a3804">allocRead</a> (const std::string &amp;filePath, int startFileFrame=0, int numFrames=-1)</td></tr>
-<tr class="separator:ac55059fa09102a7bf96e22c8dc7a3804"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1ff413c036076debd2810dde7c127874"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsc_1_1Buffer.html#a1ff413c036076debd2810dde7c127874">allocRead</a> (const std::string &amp;filePath, int startFileFrame=0, int numFrames=-1)</td></tr>
+<tr class="separator:a1ff413c036076debd2810dde7c127874"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>This class represents a client-side version of a server buffer. </p>
@@ -207,12 +207,12 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="ac55059fa09102a7bf96e22c8dc7a3804"></a>
+<a class="anchor" id="a1ff413c036076debd2810dde7c127874"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void sc::Buffer::allocRead </td>
+          <td class="memname">bool sc::Buffer::allocRead </td>
           <td>(</td>
           <td class="paramtype">const std::string &amp;&#160;</td>
           <td class="paramname"><em>filePath</em>, </td>
@@ -458,7 +458,7 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="a355daa27d196ea9b7c2a5d703c630521"></a>
+<a class="anchor" id="a4ed9a45c0ac7c1b4d7cda850153bfb4a"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -468,7 +468,7 @@ Public Member Functions</h2></td></tr>
         <tr>
           <td class="memname">void sc::Buffer::setNumFrames </td>
           <td>(</td>
-          <td class="paramtype">int&#160;</td>
+          <td class="paramtype">unsigned long&#160;</td>
           <td class="paramname"><em>nf</em></td><td>)</td>
           <td></td>
         </tr>
@@ -548,7 +548,7 @@ Public Member Functions</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Apr 19 2013 16:18:14 for libcollider by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sat Jun 8 2013 10:53:11 for libcollider by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.3.1-20130209
 </small></address>

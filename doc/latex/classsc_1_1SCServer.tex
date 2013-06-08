@@ -20,7 +20,13 @@ This class represents a client-\/side version of scsynth, the Super\-Collider au
 \item 
 \hypertarget{classsc_1_1SCServer_a673ad092d5d67da3be3aa04f2ac19ec6}{\hyperlink{classsc_1_1SCServer_a673ad092d5d67da3be3aa04f2ac19ec6}{$\sim$\-S\-C\-Server} ()}\label{classsc_1_1SCServer_a673ad092d5d67da3be3aa04f2ac19ec6}
 
-\begin{DoxyCompactList}\small\item\em Destructor. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Destructor. \end{DoxyCompactList}\item 
+void \hyperlink{classsc_1_1SCServer_af37066ecf33f14b2d26be8b455026f73}{remove\-Buffer} (void $\ast$buffer)
+\item 
+void \hyperlink{classsc_1_1SCServer_a0b1f014764c249411c7b033b5cd2aca3}{add\-Node} (void $\ast$node)
+\item 
+void \hyperlink{classsc_1_1SCServer_ac024296f9c382e9f2bb00bc765695565}{remove\-Node} (void $\ast$node)
+\end{DoxyCompactItemize}
 \begin{Indent}{\bf General System Functions}\par
 \begin{DoxyCompactItemize}
 \item 
@@ -44,9 +50,10 @@ void \hyperlink{classsc_1_1SCServer_ada96ef4c5ea8747899a6db947ec33363}{dump\-O\-
 \hypertarget{classsc_1_1SCServer_a9418167a772b6f0f4495c262938277b9}{void \hyperlink{classsc_1_1SCServer_a9418167a772b6f0f4495c262938277b9}{status} ()}\label{classsc_1_1SCServer_a9418167a772b6f0f4495c262938277b9}
 
 \begin{DoxyCompactList}\small\item\em Send /status command to server, replies with /status\-\_\-info. \end{DoxyCompactList}\item 
-\hypertarget{classsc_1_1SCServer_aa148428f939df4dbad71639a3273f312}{void \hyperlink{classsc_1_1SCServer_aa148428f939df4dbad71639a3273f312}{quit} ()}\label{classsc_1_1SCServer_aa148428f939df4dbad71639a3273f312}
-
-\begin{DoxyCompactList}\small\item\em Command the server to quit. \end{DoxyCompactList}\end{DoxyCompactItemize}
+bool \hyperlink{classsc_1_1SCServer_ac8d0c043f3e055778304fd1d34cf75dc}{notify} (int toggle)
+\item 
+bool \hyperlink{classsc_1_1SCServer_a6ae0d1f3acafa5c3421725426d0beb96}{quit} ()
+\end{DoxyCompactItemize}
 \end{Indent}
 \begin{Indent}{\bf Node Functions}\par
 \begin{DoxyCompactItemize}
@@ -134,9 +141,21 @@ Create a \hyperlink{classsc_1_1SCServer}{S\-C\-Server} with a user defined name,
 \item[{void $\ast$}]{buffer}
 \end{DoxyParamCaption}
 )}}\label{classsc_1_1SCServer_ade0d2a48713efbce6494ad0bae42a839}
-Add a pointer to a \hyperlink{classsc_1_1Buffer}{Buffer} instance to the \-\_\-buffers vector 
+Add a pointer of a \hyperlink{classsc_1_1Buffer}{Buffer} instance to the \-\_\-buffers container 
 \begin{DoxyParams}[1]{Parameters}
 \mbox{\tt in}  & {\em void} & $\ast$ buffer \\
+\hline
+\end{DoxyParams}
+\hypertarget{classsc_1_1SCServer_a0b1f014764c249411c7b033b5cd2aca3}{\index{sc\-::\-S\-C\-Server@{sc\-::\-S\-C\-Server}!add\-Node@{add\-Node}}
+\index{add\-Node@{add\-Node}!sc::SCServer@{sc\-::\-S\-C\-Server}}
+\subsubsection[{add\-Node}]{\setlength{\rightskip}{0pt plus 5cm}void sc\-::\-S\-C\-Server\-::add\-Node (
+\begin{DoxyParamCaption}
+\item[{void $\ast$}]{node}
+\end{DoxyParamCaption}
+)}}\label{classsc_1_1SCServer_a0b1f014764c249411c7b033b5cd2aca3}
+Add a pointer of a \hyperlink{classsc_1_1Node}{Node} instance to the \-\_\-nodes container 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em void} & $\ast$ node \\
 \hline
 \end{DoxyParams}
 \hypertarget{classsc_1_1SCServer_a4a93b0de3cabaed3a4c32327f08b1d58}{\index{sc\-::\-S\-C\-Server@{sc\-::\-S\-C\-Server}!alloc\-Buffer@{alloc\-Buffer}}
@@ -453,6 +472,21 @@ A unique \hyperlink{classsc_1_1Buffer}{Buffer} number (int)
 Returns a unique \hyperlink{classsc_1_1Node}{Node} id (int) starting from 1000 \begin{DoxyReturn}{Returns}
 A unique \hyperlink{classsc_1_1Node}{Node} id (int) 
 \end{DoxyReturn}
+\hypertarget{classsc_1_1SCServer_ac8d0c043f3e055778304fd1d34cf75dc}{\index{sc\-::\-S\-C\-Server@{sc\-::\-S\-C\-Server}!notify@{notify}}
+\index{notify@{notify}!sc::SCServer@{sc\-::\-S\-C\-Server}}
+\subsubsection[{notify}]{\setlength{\rightskip}{0pt plus 5cm}bool sc\-::\-S\-C\-Server\-::notify (
+\begin{DoxyParamCaption}
+\item[{int}]{toggle}
+\end{DoxyParamCaption}
+)}}\label{classsc_1_1SCServer_ac8d0c043f3e055778304fd1d34cf75dc}
+Send /notify command to server, replies with /done and will remember this return address and send notifications as long as notifications are enabled. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em int} & toggle \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if done reply is received from server, else false 
+\end{DoxyReturn}
 \hypertarget{classsc_1_1SCServer_acbd0a404dbd4e2cc98e46d088643908b}{\index{sc\-::\-S\-C\-Server@{sc\-::\-S\-C\-Server}!query\-Buffer@{query\-Buffer}}
 \index{query\-Buffer@{query\-Buffer}!sc::SCServer@{sc\-::\-S\-C\-Server}}
 \subsubsection[{query\-Buffer}]{\setlength{\rightskip}{0pt plus 5cm}void sc\-::\-S\-C\-Server\-::query\-Buffer (
@@ -463,6 +497,40 @@ A unique \hyperlink{classsc_1_1Node}{Node} id (int)
 Query a \hyperlink{classsc_1_1Buffer}{Buffer} specified by the \hyperlink{classsc_1_1Buffer}{Buffer} number 
 \begin{DoxyParams}[1]{Parameters}
 \mbox{\tt in}  & {\em int} & \hyperlink{classsc_1_1Buffer}{Buffer} Number \\
+\hline
+\end{DoxyParams}
+\hypertarget{classsc_1_1SCServer_a6ae0d1f3acafa5c3421725426d0beb96}{\index{sc\-::\-S\-C\-Server@{sc\-::\-S\-C\-Server}!quit@{quit}}
+\index{quit@{quit}!sc::SCServer@{sc\-::\-S\-C\-Server}}
+\subsubsection[{quit}]{\setlength{\rightskip}{0pt plus 5cm}bool sc\-::\-S\-C\-Server\-::quit (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classsc_1_1SCServer_a6ae0d1f3acafa5c3421725426d0beb96}
+Command the server to quit \begin{DoxyReturn}{Returns}
+true if done reply is received from server, else false 
+\end{DoxyReturn}
+\hypertarget{classsc_1_1SCServer_af37066ecf33f14b2d26be8b455026f73}{\index{sc\-::\-S\-C\-Server@{sc\-::\-S\-C\-Server}!remove\-Buffer@{remove\-Buffer}}
+\index{remove\-Buffer@{remove\-Buffer}!sc::SCServer@{sc\-::\-S\-C\-Server}}
+\subsubsection[{remove\-Buffer}]{\setlength{\rightskip}{0pt plus 5cm}void sc\-::\-S\-C\-Server\-::remove\-Buffer (
+\begin{DoxyParamCaption}
+\item[{void $\ast$}]{buffer}
+\end{DoxyParamCaption}
+)}}\label{classsc_1_1SCServer_af37066ecf33f14b2d26be8b455026f73}
+Remove a pointer of a \hyperlink{classsc_1_1Buffer}{Buffer} instance to the \-\_\-buffers container 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em void} & $\ast$ buffer \\
+\hline
+\end{DoxyParams}
+\hypertarget{classsc_1_1SCServer_ac024296f9c382e9f2bb00bc765695565}{\index{sc\-::\-S\-C\-Server@{sc\-::\-S\-C\-Server}!remove\-Node@{remove\-Node}}
+\index{remove\-Node@{remove\-Node}!sc::SCServer@{sc\-::\-S\-C\-Server}}
+\subsubsection[{remove\-Node}]{\setlength{\rightskip}{0pt plus 5cm}void sc\-::\-S\-C\-Server\-::remove\-Node (
+\begin{DoxyParamCaption}
+\item[{void $\ast$}]{node}
+\end{DoxyParamCaption}
+)}}\label{classsc_1_1SCServer_ac024296f9c382e9f2bb00bc765695565}
+Add a pointer of a \hyperlink{classsc_1_1Node}{Node} instance to the \-\_\-nodes container 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em void} & $\ast$ node \\
 \hline
 \end{DoxyParams}
 \hypertarget{classsc_1_1SCServer_a22b904f4d18160178d8dff424579b821}{\index{sc\-::\-S\-C\-Server@{sc\-::\-S\-C\-Server}!run\-Node@{run\-Node}}

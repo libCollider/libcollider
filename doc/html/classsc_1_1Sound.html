@@ -101,23 +101,53 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a658cbf07e4afe2f9b0429a070a17d339"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a658cbf07e4afe2f9b0429a070a17d339"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsc_1_1Sound.html#a658cbf07e4afe2f9b0429a070a17d339">Sound</a> (<a class="el" href="classsc_1_1SCServer.html">SCServer</a> *other, const std::string &amp;filepath, int initAction=0)</td></tr>
-<tr class="memdesc:a658cbf07e4afe2f9b0429a070a17d339"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create a new sound source. <br/></td></tr>
-<tr class="separator:a658cbf07e4afe2f9b0429a070a17d339"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab8da540f95ed9e91d18291eabc1d41aa"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ab8da540f95ed9e91d18291eabc1d41aa"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsc_1_1Sound.html#ab8da540f95ed9e91d18291eabc1d41aa">Sound</a> (<a class="el" href="classsc_1_1SCServer.html">SCServer</a> *other, const std::string &amp;filepath, int outarray[], int initAction=0)</td></tr>
+<tr class="memdesc:ab8da540f95ed9e91d18291eabc1d41aa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create a new sound source. <br/></td></tr>
+<tr class="separator:ab8da540f95ed9e91d18291eabc1d41aa"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac05e395b00c36c796bb8aa707d1011af"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ac05e395b00c36c796bb8aa707d1011af"></a>
 &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsc_1_1Sound.html#ac05e395b00c36c796bb8aa707d1011af">~Sound</a> ()</td></tr>
 <tr class="memdesc:ac05e395b00c36c796bb8aa707d1011af"><td class="mdescLeft">&#160;</td><td class="mdescRight">Deallocates server-side buffer associated with this instance. <br/></td></tr>
 <tr class="separator:ac05e395b00c36c796bb8aa707d1011af"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa24cb289f2b0ea29cb5328bf7d3e3d73"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aa24cb289f2b0ea29cb5328bf7d3e3d73"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>jumpToStartPos</b> ()</td></tr>
+<tr class="separator:aa24cb289f2b0ea29cb5328bf7d3e3d73"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afe2605c8645f068fca123da81c3ac9fd"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="afe2605c8645f068fca123da81c3ac9fd"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>setStartPosition</b> (float pos)</td></tr>
+<tr class="separator:afe2605c8645f068fca123da81c3ac9fd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aed59d0e68d4464564d0752b5a01bc3f4"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aed59d0e68d4464564d0752b5a01bc3f4"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>isValid</b> () const </td></tr>
+<tr class="separator:aed59d0e68d4464564d0752b5a01bc3f4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a08c97f8897f7fe294c29748e8cbb0747"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a08c97f8897f7fe294c29748e8cbb0747"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>isPlaying</b> () const </td></tr>
+<tr class="separator:a08c97f8897f7fe294c29748e8cbb0747"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2846f59cbeeab0cfb28788251a428d94"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a2846f59cbeeab0cfb28788251a428d94"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>isLooping</b> () const </td></tr>
+<tr class="separator:a2846f59cbeeab0cfb28788251a428d94"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afe2b26f7e735556cc2cfe5803c60397d"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="afe2b26f7e735556cc2cfe5803c60397d"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>getId</b> () const </td></tr>
+<tr class="separator:afe2b26f7e735556cc2cfe5803c60397d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af585b0b53046b31ce3b8e8fa896a8fa1"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="af585b0b53046b31ce3b8e8fa896a8fa1"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>getChanNum</b> () const </td></tr>
+<tr class="separator:af585b0b53046b31ce3b8e8fa896a8fa1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a67ba4a252dbac883db8a11916522cf44"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a67ba4a252dbac883db8a11916522cf44"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>getFrameNum</b> () const </td></tr>
+<tr class="separator:a67ba4a252dbac883db8a11916522cf44"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad20bfb300b292e9da5f1d97f5aa37fbe"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ad20bfb300b292e9da5f1d97f5aa37fbe"></a>
+float&#160;</td><td class="memItemRight" valign="bottom"><b>getGain</b> () const </td></tr>
+<tr class="separator:ad20bfb300b292e9da5f1d97f5aa37fbe"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aeedf462dc8658dad1249f9b82d5d3469"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aeedf462dc8658dad1249f9b82d5d3469"></a>
+float&#160;</td><td class="memItemRight" valign="bottom"><b>getStartPos</b> () const </td></tr>
+<tr class="separator:aeedf462dc8658dad1249f9b82d5d3469"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr><td colspan="2"><div class="groupHeader">Playback Functions</div></td></tr>
 <tr class="memitem:a491c7b5026a733fa09df9b3ce38b32ba"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a491c7b5026a733fa09df9b3ce38b32ba"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsc_1_1Sound.html#a491c7b5026a733fa09df9b3ce38b32ba">play</a> ()</td></tr>
 <tr class="memdesc:a491c7b5026a733fa09df9b3ce38b32ba"><td class="mdescLeft">&#160;</td><td class="mdescRight">Play the sound source from the last position. <br/></td></tr>
 <tr class="separator:a491c7b5026a733fa09df9b3ce38b32ba"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aaf5d0d8f2c5089445e0175ee415cdf0c"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aaf5d0d8f2c5089445e0175ee415cdf0c"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsc_1_1Sound.html#aaf5d0d8f2c5089445e0175ee415cdf0c">stop</a> ()</td></tr>
-<tr class="memdesc:aaf5d0d8f2c5089445e0175ee415cdf0c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pauses the sound source at the current playback position. <br/></td></tr>
-<tr class="separator:aaf5d0d8f2c5089445e0175ee415cdf0c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1faddaffeb6848690d6f8236095fe124"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a1faddaffeb6848690d6f8236095fe124"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsc_1_1Sound.html#a1faddaffeb6848690d6f8236095fe124">pause</a> ()</td></tr>
+<tr class="memdesc:a1faddaffeb6848690d6f8236095fe124"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pauses the sound source at the current playback position. <br/></td></tr>
+<tr class="separator:a1faddaffeb6848690d6f8236095fe124"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a943faed99ce5d92f889aae1a908265c7"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsc_1_1Sound.html#a943faed99ce5d92f889aae1a908265c7">setLoop</a> (bool loop)</td></tr>
 <tr class="separator:a943faed99ce5d92f889aae1a908265c7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr><td colspan="2"><div class="groupHeader">Sound Parameter Functions</div></td></tr>
@@ -204,7 +234,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Apr 19 2013 16:18:15 for libcollider by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sat Jun 8 2013 10:53:11 for libcollider by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.3.1-20130209
 </small></address>

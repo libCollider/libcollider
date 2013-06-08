@@ -118,7 +118,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;</div>
 <div class="line"><a name="l00048"></a><span class="lineno"><a class="code" href="classsc_1_1Buffer.html#a444402b37e84ca30c529df66749c897d">   48</a></span>&#160;        <span class="keywordtype">void</span> <a class="code" href="classsc_1_1Buffer.html#a444402b37e84ca30c529df66749c897d">setBufNum</a>(<span class="keywordtype">int</span> bn) {bufNum = bn;}</div>
 <div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;</div>
-<div class="line"><a name="l00052"></a><span class="lineno"><a class="code" href="classsc_1_1Buffer.html#a355daa27d196ea9b7c2a5d703c630521">   52</a></span>&#160;        <span class="keywordtype">void</span> <a class="code" href="classsc_1_1Buffer.html#a355daa27d196ea9b7c2a5d703c630521">setNumFrames</a>(<span class="keywordtype">int</span> nf) {numFrames = nf;}</div>
+<div class="line"><a name="l00052"></a><span class="lineno"><a class="code" href="classsc_1_1Buffer.html#a4ed9a45c0ac7c1b4d7cda850153bfb4a">   52</a></span>&#160;        <span class="keywordtype">void</span> <a class="code" href="classsc_1_1Buffer.html#a4ed9a45c0ac7c1b4d7cda850153bfb4a">setNumFrames</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">long</span> nf) {numFrames = nf;}</div>
 <div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    </div>
 <div class="line"><a name="l00056"></a><span class="lineno"><a class="code" href="classsc_1_1Buffer.html#afd3831ddbad9748d31dd6260ba6392fc">   56</a></span>&#160;        <span class="keywordtype">void</span> <a class="code" href="classsc_1_1Buffer.html#afd3831ddbad9748d31dd6260ba6392fc">setNumChans</a>(<span class="keywordtype">int</span> nc) {numChans = nc;}</div>
 <div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160; </div>
@@ -130,13 +130,13 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;</div>
 <div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="classsc_1_1Buffer.html#a1577c3e412d9e528ddd17d1e95c95369">sync</a>(); </div>
 <div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;</div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="classsc_1_1Buffer.html#ac55059fa09102a7bf96e22c8dc7a3804">allocRead</a>(<span class="keyword">const</span> std::string&amp; filePath, </div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;        <span class="keywordtype">bool</span> <a class="code" href="classsc_1_1Buffer.html#a1ff413c036076debd2810dde7c127874">allocRead</a>(<span class="keyword">const</span> std::string&amp; filePath, </div>
 <div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;                                          <span class="keywordtype">int</span> startFileFrame = 0,</div>
 <div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;                                                 <span class="keywordtype">int</span> numFrames = -1); </div>
 <div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;</div>
 <div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;    <span class="keyword">private</span>:</div>
 <div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;        <span class="keywordtype">int</span> bufNum;</div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;        <span class="keywordtype">int</span> numFrames;</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;        <span class="keywordtype">unsigned</span> <span class="keywordtype">long</span> numFrames;</div>
 <div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;        <span class="keywordtype">int</span> numChans;</div>
 <div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;        <span class="keywordtype">int</span> sampRate;</div>
 <div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;        <span class="keywordtype">bool</span> manuallyFreed;</div>
@@ -149,7 +149,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Apr 19 2013 16:18:14 for libcollider by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sat Jun 8 2013 10:53:11 for libcollider by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.3.1-20130209
 </small></address>
