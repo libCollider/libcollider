@@ -30,8 +30,9 @@ void Sound::init(SCServer * other, const std::string &filepath, int outarray [],
   {
      if(!(buffer->allocRead(filepath)))
      {
-        std::cerr << "Error allocating buffer resources on server." << std::endl;
+        std::cerr << "\nError allocating buffer resources on server." << std::endl;
         _isValid = false;
+	synth = NULL;
      }
      else 
      {
@@ -44,92 +45,114 @@ void Sound::init(SCServer * other, const std::string &filepath, int outarray [],
 	  // std::cerr << "...creating 2ch sound player" << std::endl;
 	   args["outpos1"] = outarray[0];
  	   args["outpos2"] = outarray[1];
-           synth = new Synth(cs, "SoundFile_Loop_Stereo", cs->nextNodeId(), args, _initAction);}
+           synth = new Synth(cs, "SoundFile_Loop_Stereo", cs->nextNodeId(), args, _initAction);
+        }
         else if (buffer->getChanNum() == 1) {
           // std::cerr << "...creating 1ch sound player" << std::endl;
 	   args["outpos1"] = outarray[0];
-           synth = new Synth(cs, "SoundFile_Loop_Mono", cs->nextNodeId(), args, _initAction);} 
-        else 
-	   _isValid = false;
+           synth = new Synth(cs, "SoundFile_Loop_Mono", cs->nextNodeId(), args, _initAction);
+        } 
+        else {
+	   synth = NULL;
+        }
 
         if(synth == NULL)
 	   _isValid = false;
 	else 
-        {
            _isValid = true; 
-        }
      }
    }  
 }
 
 void Sound::play()
 {
-  synth->run();
-  _isPlaying = true; 
+  if(isValid())
+  { 
+  	 synth->run();
+  	_isPlaying = true; 
+  }
 }
 
 void Sound::pause()
 {
-  synth->pause();
-  _isPlaying = false;
+  if(isValid())
+  {
+  	synth->pause();
+  	_isPlaying = false;  
+  }
 }
 
 void Sound::jumpToStartPos()
 {
-  if(args["trig"] == 1)
+  if(isValid())
   {
-	args["trig"] = -1;
-	synth->set(args);	
-	usleep(20000);
-	args["trig"] = 1;
-	synth->set(args);
-  }
+  	if(args["trig"] == 1)
+  	{
+		args["trig"] = -1;
+		synth->set(args);	
+		usleep(20000);
+		args["trig"] = 1;
+		synth->set(args);
+  	}
   
-  else
-  {
-        args["trig"] = 1;
-        synth->set(args);
+  	else
+  	{
+        	args["trig"] = 1;
+        	synth->set(args);
+  	}
   }
 }
 
 void Sound::setStartPosition(float pos)
 {
-  _startPos = pos;
-  args["startpos"] = _startPos;
-  synth->set(args);
+  if(isValid())
+  {
+  	_startPos = pos;
+  	args["startpos"] = _startPos;
+ 	synth->set(args);
+  }
 }
 
 void Sound::setGain(float gain)
 {
-  _gain = gain;
-  args["amp"] = _gain;
-  synth->set(args);
+  if(isValid())
+  {
+  	_gain = gain;
+  	args["amp"] = _gain;
+  	synth->set(args);
+  }
 }
 
 void Sound::setRate(float rateScalar)
 {
-  _rateScalar = rateScalar;
-  args["rate"] = _rateScalar;
-  synth->set(args);
+  if(isValid())
+  {
+  	_rateScalar = rateScalar;
+  	args["rate"] = _rateScalar;
+  	synth->set(args);
+  }
 }
 
 int Sound::setLoop(bool loop)
 {
-  if(_isLooping == loop)
-    return 1;
+  if(isValid())
+  {
+  	if(_isLooping == loop)
+    		return 1;
 
-  if(loop == true) {
-    args["looping"] = 1;
-    synth->set(args);
-    _isLooping = loop;
-    return 0;
-  }
+  	if(loop == true) {
+    		args["looping"] = 1;
+    		synth->set(args);
+    		_isLooping = loop;
+    		return 0;
+  	}
 
-  else if(loop == false) {
-    args["looping"] = 0;
-    synth->set(args);
-    _isLooping = loop;
-    return 0;
+  	else if(loop == false) {
+    		args["looping"] = 0;
+    		synth->set(args);
+    		_isLooping = loop;
+    		return 0;
+  	}
   }
 
   return 1;

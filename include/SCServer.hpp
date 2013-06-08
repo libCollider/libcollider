@@ -22,6 +22,9 @@
 #define SYNTH 1
 #define GROUP 2
 
+#define TIMEOUTSEC 0
+#define TIMEOUTUSEC 500000
+
 namespace sc {
 
   /// This class represents a client-side version of scsynth, the SuperCollider audio server
@@ -244,7 +247,7 @@ namespace sc {
         /// Add a pointer of a Node instance to the _nodes container 
         /// @param[in] void * node
         void removeNode(void * node);
-        // @}
+        // @}å
 
     private:
         //Functions

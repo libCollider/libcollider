@@ -8,6 +8,9 @@
 #include <sys/socket.h>
 #include <netinet/in.h>
 #include <stdio.h>
+#include <fcntl.h>
+#include <sys/types.h>
+#include <stdlib.h>
 
 using namespace sc;
 using namespace tnyosc;
@@ -50,11 +53,8 @@ SCServer::~SCServer()
 
 void SCServer::initializeSynthDefs(const std::string& synthDefDir)
 {
-  if(!loadSynthDefDirectory(synthDefDir))
-  {  
-    cout << "\nError loading synthdefDirectory. Exiting." << endl;
-    exit(0);	
-  }
+  if(!loadSynthDefDirectory(synthDefDir)) 
+    cout << "\nError loading synthdef directory." << endl;
 }
 
 int SCServer::nextNodeId()
@@ -77,7 +77,6 @@ void SCServer::setPort(const char *p)
 void SCServer::setHost(const char *h)
 {
   host = h;
-  //std::cerr << "host " << host << std::endl;
 }
 
 const char* SCServer::getPort()
@@ -124,9 +123,11 @@ void SCServer::send_msg_no_reply(tnyosc::Message * msg, const char * send_msg)
    
    if ( (sockfd=socket(AF_INET, SOCK_DGRAM, IPPROTO_UDP)) == -1)
        error("socket");
+
    bzero(&servaddr, sizeof(servaddr));
    servaddr.sin_family = AF_INET;
    servaddr.sin_port = htons((unsigned short)strtoul(getPort(), NULL, 0));
+
    if (inet_aton(getHost(), &servaddr.sin_addr) == 0)
    {
        cout << "inet_aton() failed" << endl;
@@ -141,6 +142,7 @@ void SCServer::send_msg_no_reply(tnyosc::Message * msg, const char * send_msg)
    if (sendto(sockfd, msg->data(), msg->size(), 0, 
 			      (struct sockaddr *)&servaddr, sizeof(servaddr)) == -1)
        error("sendto()");
+
    close(sockfd);
 }
 
@@ -153,6 +155,16 @@ void SCServer::send_msg_with_reply(tnyosc::Message * msg, const char * send_msg)
    
    if ( (sockfd=socket(AF_INET, SOCK_DGRAM, IPPROTO_UDP)) == -1)
        error("socket");
+
+   fcntl(sockfd, F_SETFL, O_NONBLOCK);
+   fd_set readset;
+   FD_ZERO(&readset);
+   FD_SET(sockfd, &readset);
+   struct timeval tv;
+   tv.tv_sec = TIMEOUTSEC;
+   tv.tv_usec = TIMEOUTUSEC;
+   
+
    bzero(&servaddr, sizeof(servaddr));
    servaddr.sin_family = AF_INET;
    servaddr.sin_port = htons((unsigned short)strtoul(getPort(), NULL, 0));
@@ -170,18 +182,55 @@ void SCServer::send_msg_with_reply(tnyosc::Message * msg, const char * send_msg)
    if (sendto(sockfd, msg->data(), msg->size(), 0, 
 			      (struct sockaddr *)&servaddr, sizeof(servaddr)) == -1)
        error("sendto()");
-   //std::cerr << "brk0" << std::endl;
-   n = recvfrom(sockfd, receive_buffer, sizeof(receive_buffer), 0, NULL, NULL);
-  // std::cerr << "brk1" << std::endl;
-   std::list<CallbackRef> callback_list = 
+
+
+   select(sockfd+1, &readset, NULL,  NULL,  &tv);
+
+   cout << "\nWaiting " << TIMEOUTSEC << " sec + " 
+	<< TIMEOUTUSEC << " usec for reply from server..." << endl;
+
+   if(FD_ISSET(sockfd, &readset)) {
+
+   	n = recvfrom(sockfd, receive_buffer, sizeof(receive_buffer), 0, NULL, NULL);
+
+	if (n == 0) {
+		
+                close(sockfd);
+        } 
+
+        else if (n < 0) { 
+               // if (errno == EAGAIN)
+                     ; /* The kernel didn't have any data for us to read. */
+               // else
+                 //    handle_error(fd[i], errno);
+        } 
+  
+        else {
+                std::list<CallbackRef> callback_list = 
+                  dispatcher.match_methods(receive_buffer, n);
+  
+         	std::list<CallbackRef>::iterator it = callback_list.begin();
+
+   		for (; it != callback_list.end(); ++it) {
+       			(*it)->method((*it)->address, (*it)->argv, (*it)->user_data);
+  		}
+        
+        }
+   }
+
+   else
+	cerr << "\nConnection timed out. No reply from Server." << endl;
+  
+  /* std::list<CallbackRef> callback_list = 
      dispatcher.match_methods(receive_buffer, n);
-  // std::cerr << "brk2" << std::endl;
+  
    std::list<CallbackRef>::iterator it = callback_list.begin();
-     for (; it != callback_list.end(); ++it) {
-    //   std::cerr << "iterating..." << std::endl;
+
+   for (; it != callback_list.end(); ++it) {
        (*it)->method((*it)->address, (*it)->argv, (*it)->user_data);
-     } 
-   close(sockfd);
+   } */
+
+   //close(sockfd);
 }
 
 void SCServer::send_bundle_no_reply(tnyosc::Bundle * bundle, const char * send_msg)
@@ -191,9 +240,11 @@ void SCServer::send_bundle_no_reply(tnyosc::Bundle * bundle, const char * send_m
    
    if ( (sockfd=socket(AF_INET, SOCK_DGRAM, IPPROTO_UDP)) == -1)
        error("socket");
+
    bzero(&servaddr, sizeof(servaddr));
    servaddr.sin_family = AF_INET;
    servaddr.sin_port = htons(57110);
+
    if (inet_aton(getHost(), &servaddr.sin_addr) == 0)
    {
        cout << "inet_aton() failed" << endl;
@@ -208,6 +259,7 @@ void SCServer::send_bundle_no_reply(tnyosc::Bundle * bundle, const char * send_m
    if (sendto(sockfd, bundle->data(), bundle->size(), 0, 
 			      (struct sockaddr *)&servaddr, sizeof(servaddr)) == -1)
        error("sendto()");
+
    close(sockfd);
 }
 
@@ -220,6 +272,16 @@ void SCServer::send_bundle_with_reply(tnyosc::Bundle * bundle, const char * send
    
    if ( (sockfd=socket(AF_INET, SOCK_DGRAM, IPPROTO_UDP)) == -1)
        error("socket");
+   
+   fcntl(sockfd, F_SETFL, O_NONBLOCK);
+   fd_set readset;
+   FD_ZERO(&readset);
+   FD_SET(sockfd, &readset);
+
+   struct timeval tv;
+   tv.tv_sec = TIMEOUTSEC;
+   tv.tv_usec = TIMEOUTUSEC;
+   
    bzero(&servaddr, sizeof(servaddr));
    servaddr.sin_family = AF_INET;
    servaddr.sin_port = htons(57110);
@@ -238,16 +300,53 @@ void SCServer::send_bundle_with_reply(tnyosc::Bundle * bundle, const char * send
 			      (struct sockaddr *)&servaddr, sizeof(servaddr)) == -1)
        error("sendto()");
 
-   n = recvfrom(sockfd, receive_buffer, sizeof(receive_buffer), 0, NULL, NULL);
+   select(sockfd+1, &readset, NULL,  NULL,  &tv);
 
-   std::list<CallbackRef> callback_list = 
+   cout << "\nWaiting " << TIMEOUTSEC << " sec + " 
+	<< TIMEOUTUSEC << " usec for reply from server..." << endl;
+
+   if(FD_ISSET(sockfd, &readset)) {
+
+   	n = recvfrom(sockfd, receive_buffer, sizeof(receive_buffer), 0, NULL, NULL);
+
+	if (n == 0) {
+		
+                close(sockfd);
+        } 
+
+        else if (n < 0) {	
+               // if (errno == EAGAIN)
+                     ; /* The kernel didn't have any data for us to read. */
+               // else
+                 //    handle_error(fd[i], errno);
+        } 
+  
+        else {
+                std::list<CallbackRef> callback_list = 
+                  dispatcher.match_methods(receive_buffer, n);
+  
+         	std::list<CallbackRef>::iterator it = callback_list.begin();
+
+   		for (; it != callback_list.end(); ++it) {
+       			(*it)->method((*it)->address, (*it)->argv, (*it)->user_data);
+  		}
+        
+        }
+   }
+
+   else
+	cerr << "\nConnection timed out. No reply from Server." << endl;
+
+ /*  std::list<CallbackRef> callback_list = 
      dispatcher.match_methods(receive_buffer, n);
 
    std::list<CallbackRef>::iterator it = callback_list.begin();
-     for (; it != callback_list.end(); ++it) {
+
+   for (; it != callback_list.end(); ++it) {
        (*it)->method((*it)->address, (*it)->argv, (*it)->user_data);
-     } 
-   close(sockfd);
+   } 
+
+   close(sockfd);*/
 }
 
 //Commands
