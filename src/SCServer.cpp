@@ -194,15 +194,11 @@ void SCServer::send_msg_with_reply(tnyosc::Message * msg, const char * send_msg)
    	n = recvfrom(sockfd, receive_buffer, sizeof(receive_buffer), 0, NULL, NULL);
 
 	if (n == 0) {
-		
                 close(sockfd);
         } 
 
         else if (n < 0) { 
-               // if (errno == EAGAIN)
-                     ; /* The kernel didn't have any data for us to read. */
-               // else
-                 //    handle_error(fd[i], errno);
+               
         } 
   
         else {
@@ -220,17 +216,6 @@ void SCServer::send_msg_with_reply(tnyosc::Message * msg, const char * send_msg)
 
    else
 	cerr << "\nConnection timed out. No reply from Server." << endl;
-  
-  /* std::list<CallbackRef> callback_list = 
-     dispatcher.match_methods(receive_buffer, n);
-  
-   std::list<CallbackRef>::iterator it = callback_list.begin();
-
-   for (; it != callback_list.end(); ++it) {
-       (*it)->method((*it)->address, (*it)->argv, (*it)->user_data);
-   } */
-
-   //close(sockfd);
 }
 
 void SCServer::send_bundle_no_reply(tnyosc::Bundle * bundle, const char * send_msg)
@@ -315,10 +300,7 @@ void SCServer::send_bundle_with_reply(tnyosc::Bundle * bundle, const char * send
         } 
 
         else if (n < 0) {	
-               // if (errno == EAGAIN)
-                     ; /* The kernel didn't have any data for us to read. */
-               // else
-                 //    handle_error(fd[i], errno);
+              
         } 
   
         else {
@@ -330,23 +312,11 @@ void SCServer::send_bundle_with_reply(tnyosc::Bundle * bundle, const char * send
    		for (; it != callback_list.end(); ++it) {
        			(*it)->method((*it)->address, (*it)->argv, (*it)->user_data);
   		}
-        
         }
    }
 
    else
 	cerr << "\nConnection timed out. No reply from Server." << endl;
-
- /*  std::list<CallbackRef> callback_list = 
-     dispatcher.match_methods(receive_buffer, n);
-
-   std::list<CallbackRef>::iterator it = callback_list.begin();
-
-   for (; it != callback_list.end(); ++it) {
-       (*it)->method((*it)->address, (*it)->argv, (*it)->user_data);
-   } 
-
-   close(sockfd);*/
 }
 
 //Commands

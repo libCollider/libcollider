@@ -23,10 +23,10 @@ tnyosc-dispatch.o : tnyosc-dispatch.cc tnyosc-dispatch.hpp tnyosc.hpp
 	gcc -c -fPIC -o src/tnyosc-dispatch.o src/tnyosc-dispatch.cc -Iinclude/tny_osc/
 
 SCServer.o : SCServer.cpp SCServer.hpp tnyosc-dispatch.o
-	gcc -c -fPIC -o src/SCServer.o src/SCServer.cpp -Iinclude/ -DPRINT_DEBUG
+	gcc -c -fPIC -o src/SCServer.o src/SCServer.cpp -Iinclude/ #-DPRINT_DEBUG
 
 Buffer.o : Buffer.cpp Buffer.hpp
-	gcc -c -fPIC -o src/Buffer.o  src/Buffer.cpp -Iinclude/ -DPRINT_DEBUG
+	gcc -c -fPIC -o src/Buffer.o  src/Buffer.cpp -Iinclude/ #-DPRINT_DEBUG
 Bus.o : Bus.cpp Bus.hpp
 	gcc -c -fPIC -o src/Bus.o  src/Bus.cpp -Iinclude/
 Node.o : Node.cpp Node.hpp
