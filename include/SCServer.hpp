@@ -22,8 +22,8 @@
 #define SYNTH 1
 #define GROUP 2
 
-#define TIMEOUTSEC 0
-#define TIMEOUTUSEC 500000
+#define TIMEOUTSEC  5
+#define TIMEOUTUSEC 0
 
 namespace sc {
 

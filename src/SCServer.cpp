@@ -186,8 +186,10 @@ void SCServer::send_msg_with_reply(tnyosc::Message * msg, const char * send_msg)
 
    select(sockfd+1, &readset, NULL,  NULL,  &tv);
 
+   #ifdef PRINT_DEBUG
    cout << "\nWaiting " << TIMEOUTSEC << " sec + " 
 	<< TIMEOUTUSEC << " usec for reply from server..." << endl;
+   #endif
 
    if(FD_ISSET(sockfd, &readset)) {
 
@@ -287,8 +289,10 @@ void SCServer::send_bundle_with_reply(tnyosc::Bundle * bundle, const char * send
 
    select(sockfd+1, &readset, NULL,  NULL,  &tv);
 
+   #ifdef PRINT_DEBUG
    cout << "\nWaiting " << TIMEOUTSEC << " sec + " 
 	<< TIMEOUTUSEC << " usec for reply from server..." << endl;
+   #endif
 
    if(FD_ISSET(sockfd, &readset)) {
 
@@ -913,7 +917,10 @@ void buffer_info(const std::string& address,
    ((Buffer*)((*buffers)[argv[0].data.i]))->setNumFrames(argv[1].data.i);
    ((Buffer*)((*buffers)[argv[0].data.i]))->setNumChans(argv[2].data.i);
    ((Buffer*)((*buffers)[argv[0].data.i]))->setSampRate(argv[3].data.f);
+   
+   #ifdef PRINT_DEBUG
    std::cerr << "\nbuffer # " << argv[0].data.i << " synced" << std::endl;
+   #endif
 }
 
 void SCServer::setUpOSCDispatcher()
